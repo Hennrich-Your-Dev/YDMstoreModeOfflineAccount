@@ -11,6 +11,7 @@ Pod::Spec.new do |spec|
   spec.name         = "YDMstoreModeOfflineAccount"
   spec.version      = "1.0.0"
   spec.summary      = "A short description of YDMstoreModeOfflineAccount."
+  spec.homepage     = "http://yourdev/YDMstoreModeOfflineAccount"
 
   spec.license          = "MIT"
   spec.author       = { "Douglas Hennrich" => "douglashennrich@yourdev.com.br" }
