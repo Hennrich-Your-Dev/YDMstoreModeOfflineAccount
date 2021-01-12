@@ -5,6 +5,9 @@
       location = "group:YDMstoreModeOfflineAccount.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:YDMstoreModeOfflineAccount.podspec">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
