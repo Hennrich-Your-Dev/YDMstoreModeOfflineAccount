@@ -19,7 +19,6 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
   @IBOutlet weak var contentView: UIView! {
     didSet {
       contentView.layer.cornerRadius = 16
-      contentView.hero.modifiers = [.translate(y: 100)]
       contentView.hero.id = "bottomSheet"
     }
   }
@@ -47,7 +46,7 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
   
   // MARK: IBActions
   @IBAction func onBackAction(_ sender: UIButton) {
-    
+    viewModel?.onExit()
   }
 }
 

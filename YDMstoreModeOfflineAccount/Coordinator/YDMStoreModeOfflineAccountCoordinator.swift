@@ -20,7 +20,7 @@ public class YDMStoreModeOfflineAccountCoordinator {
   var navigationController: UINavigationController?
 
   // MARK: Init
-//  public init() {}
+  public init() {}
 
   // MARK: Actions
   public func start(navCon: UINavigationController) {
