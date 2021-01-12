@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 import YDB2WIntegration
 import YDExtensions
@@ -16,22 +17,13 @@ public typealias YDMStoreModeOfflineAccount = YDMStoreModeOfflineAccountCoordina
 public class YDMStoreModeOfflineAccountCoordinator {
 
   // Properties
-  var rootViewController: UIViewController {
-    return self.navigationController
-  }
-
-  lazy var navigationController: UINavigationController = {
-    let nav = UINavigationController()
-    nav.isNavigationBarHidden = true
-    nav.modalPresentationStyle = .fullScreen
-    return nav
-  }()
+  var navigationController: UINavigationController?
 
   // MARK: Init
-  public init() {}
+//  public init() {}
 
   // MARK: Actions
-  public func start() {
+  public func start(navCon: UINavigationController) {
     guard let viewController = YDMStoreModeOfflineAccountViewController.initializeFromStoryboard()
 //          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.store.rawValue),
 //          let storesUrl = config.extras?[YDConfigProperty.storesUrl.rawValue] as? String,
@@ -39,9 +31,6 @@ public class YDMStoreModeOfflineAccountCoordinator {
     else {
       fatalError("YDMStoreModeOfflineAccountViewController.initializeFromStoryboard")
     }
-    
-    let topViewController = UIApplication.shared.keyWindow?
-      .rootViewController?.topMostViewController()
 
     let service = YDServiceClient()
     let serviceOfflineAccount = YDMStoreModeOfflineAccountService(service: service)
@@ -49,14 +38,16 @@ public class YDMStoreModeOfflineAccountCoordinator {
     let viewModel = YDMStoreModeOfflineAccountViewModel(navigation: self, service: serviceOfflineAccount)
     
     viewController.viewModel = viewModel
+    viewController.hero.isEnabled = true
+    viewController.hero.modalAnimationType = .fade
     
-    navigationController.viewControllers = [viewController]
-    topViewController?.present(navigationController, animated: true, completion: nil)
+    navigationController = navCon
+    navigationController?.pushViewController(viewController, animated: true)
   }
 }
 
 extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavigationDelegate {
   func onExit() {
-    rootViewController.dismiss(animated: true, completion: nil)
+    navigationController?.popViewController(animated: true)
   }
 }

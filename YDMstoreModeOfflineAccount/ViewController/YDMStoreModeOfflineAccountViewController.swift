@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 import YDB2WAssets
 import YDExtensions
@@ -18,6 +19,8 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
   @IBOutlet weak var contentView: UIView! {
     didSet {
       contentView.layer.cornerRadius = 16
+      contentView.hero.modifiers = [.translate(y: 100)]
+      contentView.hero.id = "bottomSheet"
     }
   }
   
@@ -31,6 +34,7 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
     didSet {
       backButton.layer.cornerRadius = backButton.frame.height / 2
       backButton.setImage(Icons.leftArrow, for: .normal)
+      backButton.layer.applyShadow()
     }
   }
   
