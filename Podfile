@@ -16,6 +16,7 @@ target 'YDMstoreModeOfflineAccount' do
   pod 'YDUtilities'
   pod 'YDExtensions'
   pod 'YDB2WAssets'
+  pod 'YDB2WComponents'
   
   pod 'Hero'
 

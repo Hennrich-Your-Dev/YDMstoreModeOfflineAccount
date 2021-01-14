@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - Cosmos (22.1.0)
   - Hero (1.5.0)
   - Kingfisher (5.15.8):
     - Kingfisher/Core (= 5.15.8)
@@ -16,7 +17,12 @@ PODS:
   - libwebp/mux (1.1.0):
     - libwebp/demux
   - libwebp/webp (1.1.0)
-  - YDB2WAssets (1.0.23)
+  - YDB2WAssets (1.0.24)
+  - YDB2WComponents (1.0.54):
+    - Cosmos (= 22.1.0)
+    - YDB2WAssets
+    - YDExtensions
+    - YDUtilities
   - YDB2WIntegration (1.0.3):
     - YDB2WModels
     - YDExtensions
@@ -25,12 +31,13 @@ PODS:
   - YDExtensions (1.0.30):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
-  - YDUtilities (1.0.4):
+  - YDUtilities (1.0.5):
     - Alamofire (~> 4.0)
 
 DEPENDENCIES:
   - Hero
   - YDB2WAssets
+  - YDB2WComponents
   - YDB2WIntegration
   - YDExtensions
   - YDUtilities
@@ -38,12 +45,14 @@ DEPENDENCIES:
 SPEC REPOS:
   "git@github.com:Hennrich-Your-Dev/YourDev-Pods.git":
     - YDB2WAssets
+    - YDB2WComponents
     - YDB2WIntegration
     - YDB2WModels
     - YDExtensions
     - YDUtilities
   trunk:
     - Alamofire
+    - Cosmos
     - Hero
     - Kingfisher
     - KingfisherWebP
@@ -51,16 +60,18 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Cosmos: 2795b36ad4bbea1af3050d6d65576ed63875f86a
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
-  YDB2WAssets: f1c75098ad2055701e3cc07895106a796fbb92a0
+  YDB2WAssets: e94dc5ea75c45c798ea0be6a51dbc4020afae4a8
+  YDB2WComponents: 53bbaff47ff940255d4e5e5e70a61a1506734141
   YDB2WIntegration: 8fbbb770dc30d37f72f06c59aadb8bac4df0ef59
   YDB2WModels: 9c24f90fa972b849b339ccfae19ee3098a99c7c1
   YDExtensions: 8489a1eebdfa5b8664051f00afc1c22d66a7be12
-  YDUtilities: 65684d74741aa38dec7477e88270cb0f2627fda8
+  YDUtilities: d0e428e6b153fc54990da2a41cc1ee70f9c457e1
 
-PODFILE CHECKSUM: 8bfcb295b2f86a0b963664253fa8d34f610dfe9a
+PODFILE CHECKSUM: 781bb4e689a58d1cc470aadce6d3142f6483058c
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

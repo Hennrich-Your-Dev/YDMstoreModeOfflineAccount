@@ -10,10 +10,12 @@ import Hero
 
 import YDB2WAssets
 import YDExtensions
+import YDB2WComponents
 
 class YDMStoreModeOfflineAccountViewController: UIViewController {
   // MARK: Properties
   var viewModel: YDMStoreModeOfflineAccountViewModelDelegate?
+  var navBarShadow = false
   
   // MARK: IBOutlets
   @IBOutlet weak var contentView: UIView! {
@@ -37,11 +39,21 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
     }
   }
   
+  @IBOutlet weak var scrollView: UIScrollView! {
+    didSet {
+      scrollView.delegate = self
+    }
+  }
+  
+  @IBOutlet weak var userProfileView: YDUserProfileView!
+
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setViewBackgroundImage()
+
+    userProfileView.config(username: "Douglas Hennrich", userPhoto: nil)
   }
   
   // MARK: IBActions
