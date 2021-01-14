@@ -45,7 +45,47 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
     }
   }
   
+  @IBOutlet weak var stackView: UIStackView! {
+    didSet {
+      stackView.setCustomSpacing(31, after: userProfileView)
+    }
+  }
+
   @IBOutlet weak var userProfileView: YDUserProfileView!
+
+  @IBOutlet weak var qrCardContainer: UIView! {
+    didSet {
+      qrCardContainer.layer.cornerRadius = 8
+      qrCardContainer.layer.applyShadow()
+      qrCardContainer.tag = 0
+
+      let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onCardAction))
+      qrCardContainer.addGestureRecognizer(tapGesture)
+    }
+  }
+
+  @IBOutlet weak var qrImageView: UIImageView! {
+    didSet {
+      qrImageView.image = Images.qrCode
+    }
+  }
+
+  @IBOutlet weak var clipboardContainer: UIView! {
+    didSet {
+      clipboardContainer.layer.cornerRadius = 8
+      clipboardContainer.layer.applyShadow()
+      clipboardContainer.tag = 1
+
+      let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onCardAction))
+      clipboardContainer.addGestureRecognizer(tapGesture)
+    }
+  }
+  
+  @IBOutlet weak var clipboardImageView: UIImageView! {
+    didSet {
+      clipboardImageView.image = Images.clipboard
+    }
+  }
 
   // MARK: Life cycle
   override func viewDidLoad() {
@@ -68,5 +108,9 @@ extension YDMStoreModeOfflineAccountViewController {
     if let image = Images.map {
       view.backgroundColor = UIColor(patternImage: image)
     }
+  }
+
+  @objc func onCardAction(_ sender: UIView) {
+
   }
 }

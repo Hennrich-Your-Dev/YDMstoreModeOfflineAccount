@@ -15,6 +15,7 @@ protocol YDMStoreModeOfflineAccountNavigationDelegate {
 // MARK: Delegate
 protocol YDMStoreModeOfflineAccountViewModelDelegate {
   func onExit()
+  func onCard(tag: Int)
 }
 
 // MARK: ViewModel
@@ -37,5 +38,13 @@ class YDMStoreModeOfflineAccountViewModel {
 extension YDMStoreModeOfflineAccountViewModel: YDMStoreModeOfflineAccountViewModelDelegate {
   func onExit() {
     navigation.onExit()
+  }
+
+  func onCard(tag: Int) {
+    if tag == 0 {
+      // open qr card
+    } else {
+      // open clipboard card
+    }
   }
 }
