@@ -45,11 +45,7 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
     }
   }
   
-  @IBOutlet weak var stackView: UIStackView! {
-    didSet {
-      stackView.setCustomSpacing(31, after: userProfileView)
-    }
-  }
+  @IBOutlet weak var stackView: UIStackView!
 
   @IBOutlet weak var userProfileView: YDUserProfileView!
 
@@ -90,6 +86,8 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    stackView.setCustomSpacing(31, after: userProfileView)
     
     setViewBackgroundImage()
 
