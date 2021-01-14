@@ -56,7 +56,7 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
   @IBOutlet weak var qrCardContainer: UIView! {
     didSet {
       qrCardContainer.layer.cornerRadius = 8
-      qrCardContainer.layer.applyShadow()
+      qrCardContainer.layer.applyShadow(blur: 20)
       qrCardContainer.tag = 0
 
       let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onCardAction))
@@ -73,7 +73,7 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
   @IBOutlet weak var clipboardContainer: UIView! {
     didSet {
       clipboardContainer.layer.cornerRadius = 8
-      clipboardContainer.layer.applyShadow()
+      clipboardContainer.layer.applyShadow(blur: 20)
       clipboardContainer.tag = 1
 
       let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onCardAction))
@@ -110,7 +110,12 @@ extension YDMStoreModeOfflineAccountViewController {
     }
   }
 
-  @objc func onCardAction(_ sender: UIView) {
+  @objc func onCardAction(_ sender: UIGestureRecognizer) {
+    guard let tag = sender.view?.tag else {
+      return
+    }
 
+    //
+    viewModel?.onCard(tag: tag)
   }
 }
