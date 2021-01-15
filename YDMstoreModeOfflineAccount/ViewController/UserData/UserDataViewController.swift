@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Hero
 
 import YDB2WAssets
 
@@ -16,6 +17,7 @@ class UserDataViewController: UIViewController {
   @IBOutlet weak var contentView: UIView! {
     didSet {
       contentView.layer.cornerRadius = 16
+      contentView.hero.id = "bottomSheet"
     }
   }
 
@@ -43,11 +45,12 @@ class UserDataViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    view.hero.isEnabled = true
     // Do any additional setup after loading the view.
   }
 
   // MARK: IBActions
   @IBAction func onBackAction(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+    navigationController?.popViewController(animated: true)
   }
 }
