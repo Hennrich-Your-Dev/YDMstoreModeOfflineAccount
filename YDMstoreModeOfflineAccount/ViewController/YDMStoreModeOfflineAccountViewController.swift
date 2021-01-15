@@ -90,6 +90,7 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
     stackView.setCustomSpacing(31, after: userProfileView)
     
     setViewBackgroundImage()
+    setBinds()
 
     userProfileView.config(username: "Douglas Hennrich", userPhoto: nil)
   }

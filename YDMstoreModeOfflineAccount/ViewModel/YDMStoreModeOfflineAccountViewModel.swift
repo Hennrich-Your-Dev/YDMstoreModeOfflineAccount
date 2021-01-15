@@ -7,6 +7,9 @@
 
 import Foundation
 
+import YDUtilities
+import YDExtensions
+
 // MARK: Navigation
 protocol YDMStoreModeOfflineAccountNavigationDelegate {
   func onExit()
@@ -15,6 +18,8 @@ protocol YDMStoreModeOfflineAccountNavigationDelegate {
 
 // MARK: Delegate
 protocol YDMStoreModeOfflineAccountViewModelDelegate {
+  var error: Binder<(title: String, message: String)> { get }
+
   func onExit()
   func onCard(tag: Int)
 }
@@ -24,6 +29,8 @@ class YDMStoreModeOfflineAccountViewModel {
   // MARK: Properties
   let navigation: YDMStoreModeOfflineAccountNavigationDelegate
   let service: YDMStoreModeOfflineAccountServiceDelegate
+
+  var error: Binder<(title: String, message: String)> = Binder(("", ""))
   
   // MARK: Init
   init(
@@ -44,6 +51,8 @@ extension YDMStoreModeOfflineAccountViewModel: YDMStoreModeOfflineAccountViewMod
   func onCard(tag: Int) {
     if tag == 0 {
       // open qr card
+      error.value = ("Titulo do alerta", String.loremIpsum())
+
     } else {
       navigation.openUserData()
     }
