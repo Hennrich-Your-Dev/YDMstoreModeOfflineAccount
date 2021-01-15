@@ -51,7 +51,10 @@ extension YDMStoreModeOfflineAccountViewModel: YDMStoreModeOfflineAccountViewMod
   func onCard(tag: Int) {
     if tag == 0 {
       // open qr card
-      error.value = ("Titulo do alerta", String.loremIpsum())
+      error.value = (
+        "poooxa, ainda não temos seu cadastro completo",
+        "E pra mantermos a segurança dos seus dados, você poderá consultar mais informações com nosso atendimento, através do e-mail: atendimento.acom@americanas.com"
+      )
 
     } else {
       navigation.openUserData()
