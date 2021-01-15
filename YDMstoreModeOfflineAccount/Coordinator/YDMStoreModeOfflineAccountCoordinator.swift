@@ -50,4 +50,14 @@ extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavig
   func onExit() {
     navigationController?.popViewController(animated: true)
   }
+
+  func openUserData() {
+    guard let viewController = UserDataViewController.initializeFromStoryboard()
+    else {
+      fatalError("UserDataViewController.initializeFromStoryboard")
+    }
+
+    
+    navigationController?.pushViewController(viewController, animated: true)
+  }
 }

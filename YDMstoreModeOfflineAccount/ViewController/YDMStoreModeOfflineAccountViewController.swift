@@ -15,7 +15,7 @@ import YDB2WComponents
 class YDMStoreModeOfflineAccountViewController: UIViewController {
   // MARK: Properties
   var viewModel: YDMStoreModeOfflineAccountViewModelDelegate?
-  var navBarShadow = false
+  var navBarShadowOff = true
   
   // MARK: IBOutlets
   @IBOutlet weak var contentView: UIView! {
@@ -27,7 +27,7 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
   
   @IBOutlet weak var navContainer: UIView! {
     didSet {
-      navContainer.backgroundColor = .clear
+      navContainer.backgroundColor = .white
     }
   }
   

@@ -22,15 +22,15 @@ extension YDMStoreModeOfflineAccountViewController: UIScrollViewDelegate {
         self?.navContainer.layer.shadowOpacity = 0
 
         Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
-          self?.navBarShadow = true
+          self?.navBarShadowOff = true
         }
       }
     }
 
     if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
       // not top and not bottom
-      if navBarShadow {
-        navBarShadow = false
+      if navBarShadowOff {
+        navBarShadowOff = false
         UIView.animate(withDuration: 0.5) { [weak self] in
           self?.navContainer.layer.applyShadow(y: 2)
         }
