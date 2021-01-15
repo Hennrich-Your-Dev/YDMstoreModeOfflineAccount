@@ -33,7 +33,11 @@ class UserDataViewController: UIViewController {
     }
   }
 
-  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var tableView: UITableView!  {
+    didSet {
+      tableView.tableFooterView = UIView()
+    }
+  }
   
   // MARK: Life cycle
   override func viewDidLoad() {

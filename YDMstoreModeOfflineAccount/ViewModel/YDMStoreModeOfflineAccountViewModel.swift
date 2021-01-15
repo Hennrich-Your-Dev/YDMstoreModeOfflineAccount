@@ -10,6 +10,7 @@ import Foundation
 // MARK: Navigation
 protocol YDMStoreModeOfflineAccountNavigationDelegate {
   func onExit()
+  func openUserData()
 }
 
 // MARK: Delegate
@@ -44,7 +45,7 @@ extension YDMStoreModeOfflineAccountViewModel: YDMStoreModeOfflineAccountViewMod
     if tag == 0 {
       // open qr card
     } else {
-      // open clipboard card
+      navigation.openUserData()
     }
   }
 }
