@@ -18,7 +18,7 @@ PODS:
     - libwebp/demux
   - libwebp/webp (1.1.0)
   - YDB2WAssets (1.0.27)
-  - YDB2WComponents (1.0.57):
+  - YDB2WComponents (1.0.58):
     - Cosmos (= 22.1.0)
     - YDB2WAssets
     - YDExtensions
@@ -66,7 +66,7 @@ SPEC CHECKSUMS:
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   YDB2WAssets: e1a842d73f1b6bd5815e9e7e13a96496d599a598
-  YDB2WComponents: 4776794f1851538a519bd37d9a1faa7efd3bd999
+  YDB2WComponents: 1c28ae913de14a38eb257cade5570afdbc82983d
   YDB2WIntegration: 8fbbb770dc30d37f72f06c59aadb8bac4df0ef59
   YDB2WModels: 9c24f90fa972b849b339ccfae19ee3098a99c7c1
   YDExtensions: 8489a1eebdfa5b8664051f00afc1c22d66a7be12

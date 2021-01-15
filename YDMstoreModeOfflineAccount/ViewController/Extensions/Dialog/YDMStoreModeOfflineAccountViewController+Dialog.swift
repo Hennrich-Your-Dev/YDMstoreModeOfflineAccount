@@ -11,9 +11,11 @@ import YDB2WComponents
 
 extension YDMStoreModeOfflineAccountViewController {
   func showAlert(title: String, message: String) {
-    let dialog = YDDialog()
-    dialog.delegate = self
-    dialog.start(ofType: .simple)
+    YDDialog().start(
+      ofType: .simple,
+      customTitle: title,
+      customMessage: message
+    )
   }
 }
 
