@@ -9,43 +9,38 @@
 import Foundation
 
 public enum YDConfigKeys: String {
-  case scanner = "lasa_price_scanner"
-  case store = "store_mode"
-  case live = "live"
+  case store = "ydevO2O"
+  case live = "ydevLive"
+
+  case restQL = "restQLService"
+  case chatService = "userChatService"
+  case productService = "catalog_service"
+  case storeService = "store_service"
+  case spaceyService = "spacey_service"
+  case addressService = "zip_code_service"
 }
 
 public enum YDConfigProperty: String {
   // Search stores
-  case maxStoreRange
-  case storesType
-  case storesUrl
-  case storeModeProducts
+  case maxStoreRange = "acheUmaLojaFeatureNearbyStores"
+  case insideLasaDistance = "distanceUserLasaStore"
 
-  // Search products
-  case productsUrl
-  case customerId
-
-  // Search address
-  case addressUrl
-
-  // Store
-  case storeNPSEnabled = "npsEnabled"
-  case storeNPSFeedbackMessage = "npsFeedbackMessage"
+  // Store Mode
+  case npsEnabled
+  case npsFeedbackMessage
+  case productsQueryVersion = "lasaB2WProductsQueryVersion"
 
   // Live
-  case liveHotsiteUrl
-  case liveProductsUrl
+  case liveSpaceyOrder = "spaceyPositionIndex"
 
-  case liveSpaceyOrder
-  case liveChatPoolling
-  case liveChatLimit
-  case liveChatOffset
+  case liveYouTubePlayerAutoStart
+  case liveYouTubePlayerResetVideoWhenPaused
+  case liveYouTubePlayerEnableFullScreenButton
+
+  case liveHotsiteId = "liveHotsite"
   case liveChatEnabled = "chatEnabled"
-
-  case liveChatGetMessagesUrl = "b2wChatApiURl"
-  case liveChatSendMessageUrl
-  case liveChatLikeUrl
+  case liveChatLikesEnabled = "chatLikesEnabled"
+  case liveChatPolling = "liveChatPolling"
+  case liveChatLimit
   case liveChatSendDelay
-
-  case liveChatLikeButtonEnabled = "chatLikesEnabled"
 }

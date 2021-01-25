@@ -41,6 +41,8 @@ class UserDataViewController: UIViewController {
     }
   }
   
+  @IBOutlet weak var headerDateLabel: UILabel!
+
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,5 +54,8 @@ class UserDataViewController: UIViewController {
   // MARK: IBActions
   @IBAction func onBackAction(_ sender: Any) {
     navigationController?.popViewController(animated: true)
+  }
+  
+  @IBAction func onHistoricButtonAction(_ sender: UIButton) {
   }
 }

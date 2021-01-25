@@ -9,11 +9,13 @@
 import Foundation
 
 public struct YDConfigFeature {
-  public init(name: String, extras: [String : Any]?) {
+  public init(name: String, extras: [String : Any]?, endpoint: String?) {
     self.name = name
     self.extras = extras
+    self.endpoint = endpoint
   }
 
   public let name: String
   public let extras: [String: Any]?
+  public let endpoint: String?
 }

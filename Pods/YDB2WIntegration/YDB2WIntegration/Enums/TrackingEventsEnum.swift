@@ -33,6 +33,10 @@ public enum TrackEvents: String {
   case storeOnScan = "O2O-Home-Scan"
   case storeOpenMap = "O2O-Home-Mapa"
 
+  // Find a Store
+  case findStoreView = "ACOM:StoreFinder:Mapa"
+  case findStoreViewDenied = "ACOM:StoreFinder:SemPermissao"
+
   // Default Parameters
   public var defaultParameters: [String: Any] {
     switch self {
@@ -47,6 +51,10 @@ public enum TrackEvents: String {
     // Store
     case .storePageView, .storeOpenBasket, .storeOpenBooklet, .storeOnScan, .storeOpenMap:
       return ["tipoPagina": "O2O-Home"]
+
+    // Find a Store
+    case .findStoreView, .findStoreViewDenied:
+    return [:]
     }
   }
 
@@ -103,6 +111,10 @@ public enum TrackEvents: String {
       return ["locationEnable": locationEnable]
 
     case .storeOpenBasket, .storeOpenBooklet, .storeOnScan, .storeOpenMap:
+      return [:]
+
+    // Find a Store
+    case .findStoreView, .findStoreViewDenied:
       return [:]
     }
   }

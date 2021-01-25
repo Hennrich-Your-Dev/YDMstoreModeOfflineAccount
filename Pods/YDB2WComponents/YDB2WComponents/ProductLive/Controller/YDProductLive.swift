@@ -139,7 +139,7 @@ public class YDProductLive: UIView {
       nameLabel.text = name
     }
 
-    if let price = product.getPrice() {
+    if let price = product.price {
       priceLabel.text = price
     }
 
@@ -205,5 +205,18 @@ public class YDProductLive: UIView {
   public func config(with config: YDLiveProductConfigurationModel) {
     self.config = config
     applyProduct()
+  }
+
+  public func prepareForReUse() {
+    photo.image = nil
+    skuLabel.text = nil
+    nameLabel.text = nil
+    priceLabel.text = nil
+
+    priceConditionsLabel.text = nil
+    priceConditionsLabel.isHidden = false
+
+    ratingView.rating = 0
+    ratingView.isHidden = false
   }
 }

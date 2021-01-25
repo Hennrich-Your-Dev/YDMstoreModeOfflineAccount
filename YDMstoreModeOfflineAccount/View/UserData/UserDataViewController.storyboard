@@ -59,9 +59,63 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqA-tX-fPX">
                                                 <rect key="frame" x="0.0" y="58" width="414" height="774"/>
                                                 <subviews>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IRj-He-ImQ">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IRj-He-ImQ">
                                                         <rect key="frame" x="0.0" y="71.5" width="414" height="702.5"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <view key="tableFooterView" contentMode="scaleToFill" id="3zW-ve-sfg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="última atualização" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LQ-Mr-Tb8">
+                                                                    <rect key="frame" x="25" y="0.0" width="117" height="23"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" name="grayLight"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DD/MM/YYYY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcJ-vb-IDA">
+                                                                    <rect key="frame" x="25" y="23" width="99.5" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="gD7-Ff-v7x"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <color key="textColor" name="black"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZd-ya-ZtM">
+                                                                    <rect key="frame" x="21" y="64" width="372" height="1"/>
+                                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="1" id="cv0-fz-K1g"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSR-ai-wBr">
+                                                                    <rect key="frame" x="256" y="13" width="133" height="40"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="40" id="YKx-oU-XMU"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <state key="normal" title="histórico de ações">
+                                                                        <color key="titleColor" name="primaryLight"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="onHistoricButtonAction:" destination="cpb-3H-Uri" eventType="touchUpInside" id="jMr-b7-9iu"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="dZd-ya-ZtM" secondAttribute="bottom" constant="1" id="0wB-wP-bhh"/>
+                                                                <constraint firstAttribute="trailing" secondItem="dZd-ya-ZtM" secondAttribute="trailing" constant="21" id="6lv-rL-Hgk"/>
+                                                                <constraint firstAttribute="trailing" secondItem="pSR-ai-wBr" secondAttribute="trailing" constant="25" id="8mY-fR-84w"/>
+                                                                <constraint firstItem="3LQ-Mr-Tb8" firstAttribute="leading" secondItem="3zW-ve-sfg" secondAttribute="leading" constant="25" id="8n6-rj-TNI"/>
+                                                                <constraint firstItem="lcJ-vb-IDA" firstAttribute="top" secondItem="3LQ-Mr-Tb8" secondAttribute="bottom" id="DtB-lP-84W"/>
+                                                                <constraint firstItem="pSR-ai-wBr" firstAttribute="centerY" secondItem="lcJ-vb-IDA" secondAttribute="centerY" id="TDu-6v-Sqq"/>
+                                                                <constraint firstItem="dZd-ya-ZtM" firstAttribute="leading" secondItem="3zW-ve-sfg" secondAttribute="leading" constant="21" id="aZy-BK-1wz"/>
+                                                                <constraint firstItem="3LQ-Mr-Tb8" firstAttribute="top" secondItem="3zW-ve-sfg" secondAttribute="top" id="nGB-3N-JpP"/>
+                                                                <constraint firstItem="lcJ-vb-IDA" firstAttribute="leading" secondItem="3zW-ve-sfg" secondAttribute="leading" constant="25" id="nek-eF-L4C"/>
+                                                                <constraint firstItem="lcJ-vb-IDA" firstAttribute="centerY" secondItem="3zW-ve-sfg" secondAttribute="centerY" id="xId-jR-RmZ"/>
+                                                            </constraints>
+                                                        </view>
                                                     </tableView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVM-Ub-wh5">
                                                         <rect key="frame" x="20" y="3" width="374" height="38.5"/>
@@ -117,6 +171,7 @@ utilizou em nossas lojas físicas :)</string>
                     <connections>
                         <outlet property="backButton" destination="lTR-el-sJI" id="qD5-Ox-uHi"/>
                         <outlet property="contentView" destination="Ygf-Bx-W18" id="MAx-oq-CCN"/>
+                        <outlet property="headerDateLabel" destination="lcJ-vb-IDA" id="lZW-kX-yfD"/>
                         <outlet property="navContainer" destination="BbH-by-eeC" id="iv1-dC-KEl"/>
                         <outlet property="tableView" destination="IRj-He-ImQ" id="ryl-aG-w04"/>
                     </connections>
@@ -132,6 +187,9 @@ utilizou em nossas lojas físicas :)</string>
         </namedColor>
         <namedColor name="grayLight">
             <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryLight">
+            <color red="0.98799997568130493" green="0.050999999046325684" blue="0.10599999874830246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

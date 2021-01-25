@@ -35,13 +35,6 @@ public class YDStore: Decodable {
     return address.formatAddress
   }
 
-  public var isLasa: Bool {
-    // Convert KM to Meters
-    let currentDistance = Measurement(value: distance, unit: UnitLength.kilometers)
-    let meters = currentDistance.converted(to: .meters)
-    return meters.value <= 400
-  }
-
   public var formatDistance: String {
     let kilometers = Measurement(value: distance, unit: UnitLength.kilometers)
     let meters = kilometers.converted(to: .meters)
@@ -90,6 +83,13 @@ public class YDStore: Decodable {
     }
 
     return [address, name].filter { !($0).isEmpty }.joined(separator: " : ")
+  }
+
+  public func isLasa(metersCondition: Double) -> Bool {
+    // Convert KM to Meters
+    let currentDistance = Measurement(value: distance, unit: UnitLength.kilometers)
+    let meters = currentDistance.converted(to: .meters)
+    return meters.value <= metersCondition
   }
 
   // MARK: CodingKeys
