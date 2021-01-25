@@ -16,10 +16,12 @@ class UserDataHeaderView: UITableViewHeaderFooterView {
 
   // MARK: Config
   func config(with date: String, onAction action: (() -> Void)?) {
+    contentView.backgroundColor = .white
     lastUpdateLabel.text = date
     callback = action
   }
 
+  // MARK: IBActions
   @IBAction func onHistoricButtonAction(_ sender: UIButton) {
     callback?()
   }

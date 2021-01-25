@@ -13,7 +13,8 @@ import YDExtensions
 
 class UserDataViewController: UIViewController {
   // MARK: Properties
-  var items = [1, 2, 3]
+  var viewModel: UserDataViewModelDelegate?
+  var items: [Int] = []
 
   // MARK: IBOutlets
   @IBOutlet weak var contentView: UIView! {
@@ -39,25 +40,37 @@ class UserDataViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!  {
     didSet {
+      tableView.delegate = self
       tableView.dataSource = self
       tableView.tableFooterView = UIView()
 
-      let bundle = Bundle.init(for: Self.self)
+      let bundle = Bundle.init(for: UserDataViewController.self)
+
       tableView.register(
         UserDataHeaderView.loadNib(bundle),
         forHeaderFooterViewReuseIdentifier: UserDataHeaderView.identifier
       )
+
+      tableView.register(
+        UserDataTableViewCell.loadNib(bundle),
+        forCellReuseIdentifier: UserDataTableViewCell.identifier
+      )
     }
   }
-  
+
   @IBOutlet weak var headerDateLabel: UILabel!
 
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-
     view.hero.isEnabled = true
-    // Do any additional setup after loading the view.
+    view.hero.id = "background"
+
+    setViewBackgroundImage()
+
+    setBinds()
+
+    viewModel?.getUsersInfo()
   }
 
   // MARK: IBActions
@@ -65,30 +78,9 @@ class UserDataViewController: UIViewController {
     navigationController?.popViewController(animated: true)
   }
 
-  @IBAction func onHistoricButtonAction(_ sender: UIButton) {
-  }
-}
-
-// MARK: TableView Data Source
-extension UserDataViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return items.count
-  }
-
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
-  }
-}
-
-// MARK: TableView Delegate
-extension UserDataViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: UserDataHeaderView.identifier) as? UserDataHeaderView
-
-    header?.config(with: "25/01/2021", onAction: {
-      print("inside action callback")
-    })
-
-    return header
+  func setViewBackgroundImage() {
+    if let image = Images.map {
+      view.backgroundColor = UIColor(patternImage: image)
+    }
   }
 }
