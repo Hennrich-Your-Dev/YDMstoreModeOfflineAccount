@@ -21,6 +21,7 @@ protocol UserDataViewModelDelegate {
   var error: Binder<(title: String, message: String)> { get }
   var loading: Binder<Bool> { get }
   var usersInfo: Binder<[UserDataSet]> { get }
+  var userData: UsersInfo? { get }
 
   subscript(_ index: Int) -> UserDataSet? { get }
 
@@ -35,6 +36,8 @@ class UserDataViewModel {
 
   var error: Binder<(title: String, message: String)> = Binder(("", ""))
   var loading: Binder<Bool> = Binder(false)
+
+  var userData: UsersInfo? = nil
   var usersInfo: Binder<[UserDataSet]> = Binder([])
 
   // MARK: Init
@@ -88,7 +91,9 @@ extension UserDataViewModel: UserDataViewModelDelegate {
         return
       }
 
+      self.userData = json
       self.usersInfo.value = json.getUserDataSets()
+
       self.loading.value = false
     }
   }

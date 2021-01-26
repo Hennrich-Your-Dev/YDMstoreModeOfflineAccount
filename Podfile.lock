@@ -28,7 +28,7 @@ PODS:
     - YDExtensions
   - YDB2WModels (1.0.13):
     - YDExtensions
-  - YDExtensions (1.0.32):
+  - YDExtensions (1.0.33):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
   - YDUtilities (1.0.5):
@@ -69,7 +69,7 @@ SPEC CHECKSUMS:
   YDB2WComponents: f5b2064cd88db3a0aad8dbc1226cdfc1e1c4282f
   YDB2WIntegration: 3f88a9c08912f61daea426027f87c7b96feba145
   YDB2WModels: a78b87e57a9299b480786a7b5bc337ce817a1e2d
-  YDExtensions: 440953ad3da49ab06398c8e268e509a26bed538c
+  YDExtensions: 5575daea831e8d67eee9de81805e355e1cf93a55
   YDUtilities: d0e428e6b153fc54990da2a41cc1ee70f9c457e1
 
 PODFILE CHECKSUM: 781bb4e689a58d1cc470aadce6d3142f6483058c

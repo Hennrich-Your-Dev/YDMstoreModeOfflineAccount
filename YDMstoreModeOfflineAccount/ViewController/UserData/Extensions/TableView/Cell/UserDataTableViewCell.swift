@@ -39,16 +39,14 @@ class UserDataTableViewCell: UITableViewCell {
   func config(with data: UserDataSet) {
     titleLabel.text = data.title
     valueLabel.text = data.value
-  }
 
-  func config(with data: [UserDataSet]) {
-    titleLabel.text = data.first?.title
-    valueLabel.text = data.first?.value
+    if let secondTitle = data.doubleTitle,
+       let secondValue = data.doubleValue {
+      optionalTitleLabel.isHidden = false
+      optionalTitleLabel.text = secondTitle
 
-    optionalTitleLabel.isHidden = false
-    optionalTitleLabel.text = data.last?.title
-
-    optionalValueLabel.isHidden = false
-    optionalValueLabel.text = data.last?.value
+      optionalValueLabel.isHidden = false
+      optionalValueLabel.text = secondValue
+    }
   }
 }

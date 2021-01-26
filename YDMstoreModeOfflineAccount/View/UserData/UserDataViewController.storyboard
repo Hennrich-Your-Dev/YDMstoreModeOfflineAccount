@@ -59,7 +59,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqA-tX-fPX">
                                                 <rect key="frame" x="0.0" y="58" width="414" height="774"/>
                                                 <subviews>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IRj-He-ImQ">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IRj-He-ImQ">
                                                         <rect key="frame" x="0.0" y="71.5" width="414" height="702.5"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </tableView>
@@ -82,6 +82,10 @@ utilizou em nossas lojas físicas :)</string>
                                                     <constraint firstItem="IRj-He-ImQ" firstAttribute="leading" secondItem="CqA-tX-fPX" secondAttribute="leading" id="mD7-lp-QGQ"/>
                                                 </constraints>
                                             </view>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ErV-u2-k5w">
+                                                <rect key="frame" x="188.5" y="375" width="37" height="37"/>
+                                                <color key="color" name="redBranding"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -90,6 +94,8 @@ utilizou em nossas lojas físicas :)</string>
                                             <constraint firstItem="CqA-tX-fPX" firstAttribute="leading" secondItem="Ygf-Bx-W18" secondAttribute="leading" id="VbX-3m-gAf"/>
                                             <constraint firstAttribute="trailing" secondItem="BbH-by-eeC" secondAttribute="trailing" id="ZRk-tb-MaP"/>
                                             <constraint firstItem="BbH-by-eeC" firstAttribute="top" secondItem="Ygf-Bx-W18" secondAttribute="top" constant="20" id="ixi-Bk-ZG3"/>
+                                            <constraint firstItem="ErV-u2-k5w" firstAttribute="centerX" secondItem="Ygf-Bx-W18" secondAttribute="centerX" id="q4D-2Q-S3U"/>
+                                            <constraint firstItem="ErV-u2-k5w" firstAttribute="centerY" secondItem="Ygf-Bx-W18" secondAttribute="centerY" multiplier="0.9" id="sv8-W5-3DM"/>
                                             <constraint firstAttribute="trailing" secondItem="CqA-tX-fPX" secondAttribute="trailing" id="vsD-Rl-Ngz"/>
                                         </constraints>
                                     </view>
@@ -115,6 +121,7 @@ utilizou em nossas lojas físicas :)</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="ErV-u2-k5w" id="wFS-Jh-LjF"/>
                         <outlet property="backButton" destination="lTR-el-sJI" id="qD5-Ox-uHi"/>
                         <outlet property="contentView" destination="Ygf-Bx-W18" id="MAx-oq-CCN"/>
                         <outlet property="navContainer" destination="BbH-by-eeC" id="iv1-dC-KEl"/>
@@ -132,6 +139,9 @@ utilizou em nossas lojas físicas :)</string>
         </namedColor>
         <namedColor name="grayLight">
             <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="redBranding">
+            <color red="0.90196078431372551" green="0.0" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

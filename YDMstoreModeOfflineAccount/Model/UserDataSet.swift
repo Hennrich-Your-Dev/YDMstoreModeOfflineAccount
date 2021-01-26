@@ -7,15 +7,24 @@
 
 import Foundation
 
+import YDExtensions
+
 struct UserDataSet {
   let title: String
-  let value: String
+  let value: String?
+  var doubleTitle: String? = nil
+  var doubleValue: String? = nil
 
+  // MARK: Actions
   static func formatDate(_ date: String, toFormat: String = "DD/MM/YYYY") -> String? {
     let dateFormatterGet = ISO8601DateFormatter()
     dateFormatterGet.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
 
     return dateFormatterGet.date(from: date)?.toFormat(toFormat)
+  }
+
+  static func formatPhoneNumber(_ number: String?, toFormat: String = "(##) #####-####") -> String? {
+    return number?.applyPatternOnNumbers(pattern: toFormat, replacmentCharacter: "#")
   }
 }
 
@@ -50,25 +59,47 @@ class UsersInfo: Decodable {
   func getUserDataSets() -> [UserDataSet] {
     var data: [UserDataSet] = []
 
-    data.append(UserDataSet(title: "nome", value: name ?? ""))
-    data.append(UserDataSet(title: "cpf", value: socialSecurity ?? ""))
+    if let name = name {
+      data.append(UserDataSet(title: "nome", value: name))
+    }
 
-    if let dateString = birthday {
+    if let socialSecurity = socialSecurity {
+      data.append(UserDataSet(title: "cpf", value: socialSecurity))
+    }
+
+    if let dateString = birthday,
+       let formatedDate = UserDataSet.formatDate(dateString) {
       data.append(
         UserDataSet(
           title: "data de nascimento",
-          value: UserDataSet.formatDate(dateString) ?? ""
+          value: formatedDate
         )
       )
-    } else {
-      data.append(UserDataSet(title: "data de nascimento", value: ""))
     }
 
-    data.append(UserDataSet(title: "sexo", value: gender ?? ""))
-    data.append(UserDataSet(title: "estado civil", value: relationship ?? ""))
-    data.append(UserDataSet(title: "e-mail", value: email ?? ""))
-    data.append(UserDataSet(title: "telefone celular", value: cellPhone ?? ""))
-    data.append(UserDataSet(title: "telefone residencial", value: homePhone ?? ""))
+    if let gender = gender {
+      data.append(UserDataSet(title: "sexo", value: gender))
+    }
+
+    if let relationship = relationship {
+      data.append(UserDataSet(title: "estado civil", value: relationship))
+    }
+
+    if let email = email {
+      data.append(UserDataSet(title: "e-mail", value: email))
+    }
+
+    if let cell = cellPhone {
+      var phoneData = UserDataSet(title: "telefone celular",
+                                  value: UserDataSet.formatPhoneNumber(cell))
+
+      if let home = homePhone {
+        phoneData.doubleTitle = "telefone residencial"
+        phoneData.doubleValue = UserDataSet.formatPhoneNumber(home)
+      }
+
+      data.append(phoneData)
+    }
 
     return data
   }

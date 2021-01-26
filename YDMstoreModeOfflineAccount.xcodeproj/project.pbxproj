@@ -21,6 +21,8 @@
 		C183CED125B0953F00B4F675 /* YDMStoreModeOfflineAccountViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183CED025B0953F00B4F675 /* YDMStoreModeOfflineAccountViewController+ScrollView.swift */; };
 		C183D0C825B0D89900B4F675 /* UserDataViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C183D0C725B0D89900B4F675 /* UserDataViewController.storyboard */; };
 		C183D0CC25B0D8B100B4F675 /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183D0CB25B0D8B000B4F675 /* UserDataViewController.swift */; };
+		C18C9A8A25C04C6800F4116F /* UserDataMarketingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C9A8825C04C6800F4116F /* UserDataMarketingTableViewCell.swift */; };
+		C18C9A8B25C04C6800F4116F /* UserDataMarketingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18C9A8925C04C6800F4116F /* UserDataMarketingTableViewCell.xib */; };
 		C197DCA225BF2E510007E8C3 /* UserDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCA025BF2E510007E8C3 /* UserDataTableViewCell.swift */; };
 		C197DCA325BF2E510007E8C3 /* UserDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C197DCA125BF2E510007E8C3 /* UserDataTableViewCell.xib */; };
 		C197DCA925BF31B50007E8C3 /* UserDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCA825BF31B50007E8C3 /* UserDataSet.swift */; };
@@ -49,6 +51,8 @@
 		C183CED025B0953F00B4F675 /* YDMStoreModeOfflineAccountViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMStoreModeOfflineAccountViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		C183D0C725B0D89900B4F675 /* UserDataViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDataViewController.storyboard; sourceTree = "<group>"; };
 		C183D0CB25B0D8B000B4F675 /* UserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
+		C18C9A8825C04C6800F4116F /* UserDataMarketingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataMarketingTableViewCell.swift; sourceTree = "<group>"; };
+		C18C9A8925C04C6800F4116F /* UserDataMarketingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataMarketingTableViewCell.xib; sourceTree = "<group>"; };
 		C197DCA025BF2E510007E8C3 /* UserDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataTableViewCell.swift; sourceTree = "<group>"; };
 		C197DCA125BF2E510007E8C3 /* UserDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataTableViewCell.xib; sourceTree = "<group>"; };
 		C197DCA825BF31B50007E8C3 /* UserDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSet.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				C197DCA125BF2E510007E8C3 /* UserDataTableViewCell.xib */,
+				C18C9A8925C04C6800F4116F /* UserDataMarketingTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				C197DCA025BF2E510007E8C3 /* UserDataTableViewCell.swift */,
+				C18C9A8825C04C6800F4116F /* UserDataMarketingTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C18C9A8B25C04C6800F4116F /* UserDataMarketingTableViewCell.xib in Resources */,
 				C183D0C825B0D89900B4F675 /* UserDataViewController.storyboard in Resources */,
 				C133B0BD25BF118A00036C8A /* UserDataHeaderView.xib in Resources */,
 				C197DCA325BF2E510007E8C3 /* UserDataTableViewCell.xib in Resources */,
@@ -423,6 +430,7 @@
 				A5B9E36425AE123B006EA075 /* YDMStoreModeOfflineAccountCoordinator.swift in Sources */,
 				C14D63CA25B1E47F00DAF725 /* YDMStoreModeOfflineAccountViewController+Dialog.swift in Sources */,
 				C133B0B925BF117500036C8A /* UserDataHeaderView.swift in Sources */,
+				C18C9A8A25C04C6800F4116F /* UserDataMarketingTableViewCell.swift in Sources */,
 				A5B9E3A925AE1C21006EA075 /* YDMStoreModeOfflineAccountService.swift in Sources */,
 				C197DCA925BF31B50007E8C3 /* UserDataSet.swift in Sources */,
 			);

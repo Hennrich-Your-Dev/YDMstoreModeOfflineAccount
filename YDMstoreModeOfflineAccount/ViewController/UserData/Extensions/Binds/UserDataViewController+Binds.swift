@@ -14,7 +14,12 @@ extension UserDataViewController {
 //    }
 
     viewModel?.loading.bind { [weak self] isLoading in
-      isLoading ? self?.view.startLoader() : self?.view.stopLoader()
+      if isLoading {
+        self?.activityIndicator.isHidden = false
+        self?.activityIndicator.startAnimating()
+      } else {
+        self?.activityIndicator.isHidden = true
+      }
     }
 
     viewModel?.usersInfo.bind { [weak self] _ in

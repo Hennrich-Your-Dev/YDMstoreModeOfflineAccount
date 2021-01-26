@@ -51,15 +51,24 @@ class UserDataViewController: UIViewController {
         forHeaderFooterViewReuseIdentifier: UserDataHeaderView.identifier
       )
 
+      // Users Info
       tableView.register(
         UserDataTableViewCell.loadNib(bundle),
         forCellReuseIdentifier: UserDataTableViewCell.identifier
+      )
+
+      // Marketing Switcher
+      tableView.register(
+        UserDataMarketingTableViewCell.loadNib(bundle),
+        forCellReuseIdentifier: UserDataMarketingTableViewCell.identifier
       )
     }
   }
 
   @IBOutlet weak var headerDateLabel: UILabel!
 
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+  
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()

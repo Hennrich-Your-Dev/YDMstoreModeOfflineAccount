@@ -34,13 +34,13 @@ public class YDMStoreModeOfflineAccountCoordinator {
 
     let service = YDServiceClient()
     let serviceOfflineAccount = YDMStoreModeOfflineAccountService(service: service)
-    
+
     let viewModel = YDMStoreModeOfflineAccountViewModel(navigation: self, service: serviceOfflineAccount)
-    
+
     viewController.viewModel = viewModel
     viewController.hero.isEnabled = true
     viewController.hero.modalAnimationType = .fade
-    
+
     navigationController = navCon
     navigationController?.pushViewController(viewController, animated: true)
   }
@@ -57,7 +57,24 @@ extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavig
       fatalError("UserDataViewController.initializeFromStoryboard")
     }
 
-    
+    let service = YDServiceClient()
+    let serviceUserData = UserDataService(service: service)
+
+    let viewModel = UserDataViewModel(service: serviceUserData, navigation: self)
+
+    viewController.viewModel = viewModel
+
     navigationController?.pushViewController(viewController, animated: true)
+  }
+}
+
+// MARK: User Data Navigation
+extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
+  func onBack() {
+    navigationController?.popViewController(animated: true)
+  }
+
+  func openUserHistoric() {
+    //
   }
 }
