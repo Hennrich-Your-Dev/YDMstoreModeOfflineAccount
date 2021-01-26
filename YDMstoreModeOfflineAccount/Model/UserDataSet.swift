@@ -59,15 +59,18 @@ class UsersInfo: Decodable {
   func getUserDataSets() -> [UserDataSet] {
     var data: [UserDataSet] = []
 
-    if let name = name {
+    if let name = name,
+       !name.isEmpty {
       data.append(UserDataSet(title: "nome", value: name))
     }
 
-    if let socialSecurity = socialSecurity {
+    if let socialSecurity = socialSecurity,
+       !socialSecurity.isEmpty {
       data.append(UserDataSet(title: "cpf", value: socialSecurity))
     }
 
     if let dateString = birthday,
+       !dateString.isEmpty,
        let formatedDate = UserDataSet.formatDate(dateString) {
       data.append(
         UserDataSet(
@@ -77,23 +80,28 @@ class UsersInfo: Decodable {
       )
     }
 
-    if let gender = gender {
+    if let gender = gender,
+       !gender.isEmpty {
       data.append(UserDataSet(title: "sexo", value: gender))
     }
 
-    if let relationship = relationship {
+    if let relationship = relationship,
+       !relationship.isEmpty {
       data.append(UserDataSet(title: "estado civil", value: relationship))
     }
 
-    if let email = email {
+    if let email = email,
+       !email.isEmpty {
       data.append(UserDataSet(title: "e-mail", value: email))
     }
 
-    if let cell = cellPhone {
+    if let cell = cellPhone,
+       !cell.isEmpty {
       var phoneData = UserDataSet(title: "telefone celular",
                                   value: UserDataSet.formatPhoneNumber(cell))
 
-      if let home = homePhone {
+      if let home = homePhone,
+         !home.isEmpty {
         phoneData.doubleTitle = "telefone residencial"
         phoneData.doubleValue = UserDataSet.formatPhoneNumber(home)
       }

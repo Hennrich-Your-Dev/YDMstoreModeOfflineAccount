@@ -107,7 +107,7 @@ extension UserDataViewController: UITableViewDelegate {
       NSLayoutConstraint.activate([
         separator.heightAnchor.constraint(equalToConstant: 1),
         separator.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 21),
-        separator.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: 21),
+        separator.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -21),
         separator.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 1)
       ])
 
