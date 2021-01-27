@@ -62,6 +62,12 @@ class UserDataViewController: UIViewController {
         UserDataMarketingTableViewCell.loadNib(bundle),
         forCellReuseIdentifier: UserDataMarketingTableViewCell.identifier
       )
+
+      // Terms Switcher & Save Button
+      tableView.register(
+        UserDataTermsAndButtonTableViewCell.loadNib(bundle),
+        forCellReuseIdentifier: UserDataTermsAndButtonTableViewCell.identifier
+      )
     }
   }
 

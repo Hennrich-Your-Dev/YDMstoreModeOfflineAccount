@@ -17,6 +17,9 @@ extension UserDataViewController {
       case 1:
         return dequeueMarketingSwitchCell(at: indexPath)
 
+      case 2:
+        return dequeueTermsSwitchCell(at: indexPath)
+
       default:
         return UITableViewCell()
     }
@@ -47,6 +50,21 @@ extension UserDataViewController {
     cell.config(withValue: userInfo.marketing)
     return cell
   }
+
+  func dequeueTermsSwitchCell(at indexPath: IndexPath) -> UITableViewCell {
+    guard let userInfo = viewModel?.userData,
+          let cell = tableView.dequeueReusableCell(
+            withIdentifier: UserDataTermsAndButtonTableViewCell.identifier,
+            for: indexPath) as? UserDataTermsAndButtonTableViewCell
+    else {
+      return UITableViewCell()
+    }
+
+    cell.config(withValue: userInfo.terms) {
+      //
+    }
+    return cell
+  }
 }
 
 // MARK: TableView Data Source
@@ -60,11 +78,9 @@ extension UserDataViewController: UITableViewDataSource {
     if section == 0 {
       // Para criar a celula especial com 2 dados
       return viewModel?.usersInfo.value.count ?? 0
-    } else if section == 1 {
-      return 1
     }
 
-    return 0
+    return 1
   }
 
   func tableView(

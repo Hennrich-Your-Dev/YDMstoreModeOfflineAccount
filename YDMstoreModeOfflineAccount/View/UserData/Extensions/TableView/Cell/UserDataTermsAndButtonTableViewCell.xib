@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="UserDataTermsAndButtonTableViewCell" rowHeight="201" id="S9V-mb-RA2" customClass="UserDataTermsAndButtonTableViewCell" customModule="YDMstoreModeOfflineAccount" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="201"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S9V-mb-RA2" id="4qg-9f-zCh">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="201"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYC-mN-L84">
+                        <rect key="frame" x="41" y="32" width="51" height="31"/>
+                        <color key="onTintColor" name="redBranding"/>
+                        <connections>
+                            <action selector="onSwitchChange:" destination="S9V-mb-RA2" eventType="valueChanged" id="JwT-mr-s76"/>
+                        </connections>
+                    </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYg-g6-D5e">
+                        <rect key="frame" x="120" y="20" width="175" height="55"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Li e concordo com os ">
+                                <attributes>
+                                    <color key="NSColor" name="black"/>
+                                    <font key="NSFont" metaFont="system" size="15"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="Termos e condições e Política de privacidade.">
+                                <attributes>
+                                    <color key="NSColor" red="0.9882352941176471" green="0.050980392156862744" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" metaFont="system" size="15"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZt-RE-AAg">
+                        <rect key="frame" x="41" y="120" width="238" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="hgH-NG-a1h"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <state key="normal" title="salvar alterações">
+                            <color key="titleColor" name="primaryLight"/>
+                        </state>
+                        <connections>
+                            <action selector="onButtonAction:" destination="S9V-mb-RA2" eventType="touchUpInside" id="ZUh-zU-Ibg"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mYg-g6-D5e" firstAttribute="leading" secondItem="tYC-mN-L84" secondAttribute="trailing" constant="30" id="0Hd-T0-ACD"/>
+                    <constraint firstItem="uZt-RE-AAg" firstAttribute="top" secondItem="mYg-g6-D5e" secondAttribute="bottom" constant="45" id="MAH-bh-HMm"/>
+                    <constraint firstItem="mYg-g6-D5e" firstAttribute="top" secondItem="4qg-9f-zCh" secondAttribute="top" constant="20" id="PBZ-Db-e02"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="uZt-RE-AAg" secondAttribute="bottom" constant="30" id="afP-gZ-8iT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="uZt-RE-AAg" secondAttribute="trailing" constant="25" id="dI5-Oo-t0n"/>
+                    <constraint firstItem="tYC-mN-L84" firstAttribute="leading" secondItem="4qg-9f-zCh" secondAttribute="leadingMargin" constant="25" id="dYn-ia-JbM"/>
+                    <constraint firstItem="tYC-mN-L84" firstAttribute="centerY" secondItem="mYg-g6-D5e" secondAttribute="centerY" id="dff-k5-wvV"/>
+                    <constraint firstAttribute="trailing" secondItem="mYg-g6-D5e" secondAttribute="trailing" constant="25" id="eOn-jt-frp"/>
+                    <constraint firstItem="uZt-RE-AAg" firstAttribute="leading" secondItem="4qg-9f-zCh" secondAttribute="leadingMargin" constant="25" id="loK-AY-6CE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="WXN-0D-ih1"/>
+            <connections>
+                <outlet property="saveButton" destination="uZt-RE-AAg" id="JDC-ty-oqA"/>
+                <outlet property="termsLabel" destination="mYg-g6-D5e" id="OiR-u6-LaR"/>
+                <outlet property="termsSwitch" destination="tYC-mN-L84" id="AqJ-Wy-Dtm"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="119.53125"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="black">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryLight">
+            <color red="0.98799997568130493" green="0.050999999046325684" blue="0.10599999874830246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="redBranding">
+            <color red="0.90196078431372551" green="0.0" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
