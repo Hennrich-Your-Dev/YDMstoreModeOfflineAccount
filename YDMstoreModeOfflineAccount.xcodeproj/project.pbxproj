@@ -216,6 +216,14 @@
 			path = UserData;
 			sourceTree = "<group>";
 		};
+		C18D90C625C3357700E9991F /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				C1DE3DCD25C3107F0084299E /* UserDataSeparatorTableViewCell.swift */,
+			);
+			path = Separator;
+			sourceTree = "<group>";
+		};
 		C197DC9F25BF2DFF0007E8C3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				C1DE3DCA25C308560084299E /* Historic */,
+				C18D90C625C3357700E9991F /* Separator */,
 				C1DE3DC425C308380084299E /* Info */,
 				C1DE3DC625C3083D0084299E /* Marketing */,
 				C1DE3DC825C308470084299E /* TermsAndButton */,
@@ -358,7 +367,6 @@
 		C1DE3DCC25C310430084299E /* Separator */ = {
 			isa = PBXGroup;
 			children = (
-				C1DE3DCD25C3107F0084299E /* UserDataSeparatorTableViewCell.swift */,
 				C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */,
 			);
 			path = Separator;
