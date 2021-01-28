@@ -40,21 +40,27 @@ class UserDataViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!  {
     didSet {
-      tableView.delegate = self
       tableView.dataSource = self
       tableView.tableFooterView = UIView()
 
       let bundle = Bundle.init(for: UserDataViewController.self)
 
+      // Historic
       tableView.register(
-        UserDataHeaderView.loadNib(bundle),
-        forHeaderFooterViewReuseIdentifier: UserDataHeaderView.identifier
+        UserDataHistoricTableViewCell.loadNib(bundle),
+        forCellReuseIdentifier: UserDataHistoricTableViewCell.identifier
       )
 
       // Users Info
       tableView.register(
-        UserDataTableViewCell.loadNib(bundle),
-        forCellReuseIdentifier: UserDataTableViewCell.identifier
+        UserDataInfoTableViewCell.loadNib(bundle),
+        forCellReuseIdentifier: UserDataInfoTableViewCell.identifier
+      )
+
+      // Separator
+      tableView.register(
+        UserDataSeparatorTableViewCell.loadNib(bundle),
+        forCellReuseIdentifier: UserDataSeparatorTableViewCell.identifier
       )
 
       // Marketing Switcher

@@ -63,7 +63,7 @@ extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavig
     }
 
     let loginApi = "\(endPoint)/portalcliente/login"
-    let userInfoApi = "\(endPoint)/cliente"
+    let userInfoApi = "\(endPoint)/portalcliente/cliente"
 
     let service = YDServiceClient()
     let serviceUserData = UserDataService(

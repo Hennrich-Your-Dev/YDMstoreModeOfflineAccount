@@ -9,7 +9,16 @@ import Foundation
 
 import YDExtensions
 
+enum UserDataSetTypeEnum {
+  case historic
+  case info
+  case separator
+  case marketing
+  case termsAndSave
+}
+
 struct UserDataSet {
+  var type: UserDataSetTypeEnum = .info
   let title: String
   let value: String?
   var doubleTitle: String? = nil
@@ -24,6 +33,10 @@ struct UserDataSet {
   }
 
   static func formatPhoneNumber(_ number: String?, toFormat: String = "(##) #####-####") -> String? {
+    return number?.applyPatternOnNumbers(pattern: toFormat, replacmentCharacter: "#")
+  }
+
+  static func formatSocialSecurityNumber(_ number: String?, toFormat: String = "###.###.###-##") -> String? {
     return number?.applyPatternOnNumbers(pattern: toFormat, replacmentCharacter: "#")
   }
 }

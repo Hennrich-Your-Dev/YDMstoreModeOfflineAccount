@@ -9,36 +9,71 @@ import UIKit
 
 // MARK: Actions
 extension UserDataViewController {
-  func dequeueCellConstructor(at indexPath: IndexPath) -> UITableViewCell {
-    switch indexPath.section {
-      case 0:
-        return dequeueUsersInfoCell(at: indexPath)
+  func dequeueCellConstructor(
+    at indexPath: IndexPath,
+    withData data: UserDataSet
+  ) -> UITableViewCell {
+    switch data.type {
+      case .historic:
+        return dequeueHistoricCell(at: indexPath, withData: data)
 
-      case 1:
+      case .info:
+        return dequeueUsersInfoCell(at: indexPath, withData: data)
+
+      case .separator:
+        return dequeueSeparatorCell(at: indexPath)
+
+      case .marketing:
         return dequeueMarketingSwitchCell(at: indexPath)
 
-      case 2:
+      case .termsAndSave:
         return dequeueTermsSwitchCell(at: indexPath)
-
-      default:
-        return UITableViewCell()
     }
   }
 
-  func dequeueUsersInfoCell(at indexPath: IndexPath) -> UITableViewCell {
-    guard let viewModel = viewModel,
-          let cell = tableView.dequeueReusableCell(
-            withIdentifier: UserDataTableViewCell.identifier,
-            for: indexPath) as? UserDataTableViewCell,
-          let info = viewModel[indexPath.row] else {
+  func dequeueHistoricCell(
+    at indexPath: IndexPath,
+    withData data: UserDataSet
+  ) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: UserDataHistoricTableViewCell.identifier,
+            for: indexPath) as? UserDataHistoricTableViewCell else {
       return UITableViewCell()
     }
 
-    cell.config(with: info)
+    cell.config(with: data) { [weak self] in
+      self?.viewModel?.openHistoric()
+    }
+
     return cell
   }
 
-  func dequeueMarketingSwitchCell(at indexPath: IndexPath) -> UITableViewCell {
+  func dequeueSeparatorCell(at indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: UserDataSeparatorTableViewCell.identifier,
+            for: indexPath) as? UserDataSeparatorTableViewCell else {
+      return UITableViewCell()
+    }
+    return cell
+  }
+
+  func dequeueUsersInfoCell(
+    at indexPath: IndexPath,
+    withData data: UserDataSet
+  ) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: UserDataInfoTableViewCell.identifier,
+            for: indexPath) as? UserDataInfoTableViewCell else {
+      return UITableViewCell()
+    }
+
+    cell.config(with: data)
+    return cell
+  }
+
+  func dequeueMarketingSwitchCell(
+    at indexPath: IndexPath
+  ) -> UITableViewCell {
     guard let viewModel = viewModel,
           let userInfo = viewModel.userData,
           let cell = tableView.dequeueReusableCell(
@@ -76,66 +111,18 @@ extension UserDataViewController {
 // MARK: TableView Data Source
 extension UserDataViewController: UITableViewDataSource {
 
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 3
-  }
-
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if section == 0 {
-      // Para criar a celula especial com 2 dados
-      return viewModel?.usersInfo.value.count ?? 0
-    }
-
-    return 1
+    return viewModel?.usersInfo.value.count ?? 0
   }
 
   func tableView(
     _ tableView: UITableView,
     cellForRowAt indexPath: IndexPath
   ) -> UITableViewCell {
-    return dequeueCellConstructor(at: indexPath)
-  }
-}
-
-// MARK: TableView Delegate
-extension UserDataViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    if section == 0 {
-      return 66
+    guard let data = viewModel?[indexPath.row] else {
+      return UITableViewCell()
     }
 
-    return 20
-  }
-
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    if section == 0 {
-      let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: UserDataHeaderView.identifier) as? UserDataHeaderView
-
-      header?.config(with: "25/01/2021", onAction: {
-        print("inside action callback")
-      })
-
-      return header
-    } else {
-      let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 20))
-      headerView.backgroundColor = .white
-
-      let separator = UIView()
-      separator.backgroundColor = .black
-      separator.layer.opacity = 0.1
-      headerView.addSubview(separator)
-
-      separator.translatesAutoresizingMaskIntoConstraints = false
-      NSLayoutConstraint.activate([
-        separator.heightAnchor.constraint(equalToConstant: 1),
-        separator.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 21),
-        separator.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -21),
-        separator.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 1)
-      ])
-
-      headerView.layoutIfNeeded()
-
-      return headerView
-    }
+    return dequeueCellConstructor(at: indexPath, withData: data)
   }
 }

@@ -28,6 +28,7 @@ protocol UserDataViewModelDelegate {
 
   func onBack()
   func getUsersInfo()
+  func openHistoric()
 }
 
 class UserDataViewModel {
@@ -130,5 +131,9 @@ extension UserDataViewModel: UserDataViewModelDelegate {
           self?.error.value = error.localizedDescription
       }
     }
+  }
+
+  func openHistoric() {
+    navigation.openUserHistoric()
   }
 }

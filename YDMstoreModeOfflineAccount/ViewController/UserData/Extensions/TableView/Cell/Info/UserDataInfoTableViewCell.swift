@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserDataTableViewCell: UITableViewCell {
+class UserDataInfoTableViewCell: UITableViewCell {
   // MARK: IBOutlets
   @IBOutlet weak var titleLabel: UILabel!
 

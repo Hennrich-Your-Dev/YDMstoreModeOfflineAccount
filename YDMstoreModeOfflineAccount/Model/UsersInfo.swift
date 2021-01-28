@@ -36,7 +36,9 @@ class UsersInfo: Decodable {
 
   // MARK: Actions
   func getUserDataSets() -> [UserDataSet] {
-    var data: [UserDataSet] = []
+    var data: [UserDataSet] = [
+      UserDataSet(type: .historic, title: "última atualização", value: "27/09/1991")
+    ]
 
     if let name = name,
        !name.isEmpty {
@@ -44,8 +46,9 @@ class UsersInfo: Decodable {
     }
 
     if let socialSecurity = socialSecurity,
-       !socialSecurity.isEmpty {
-      data.append(UserDataSet(title: "cpf", value: socialSecurity))
+       !socialSecurity.isEmpty,
+       let formatedSocialSecurity = UserDataSet.formatDate(socialSecurity) {
+      data.append(UserDataSet(title: "cpf", value: formatedSocialSecurity))
     }
 
     if let dateString = birthday,
@@ -87,6 +90,14 @@ class UsersInfo: Decodable {
 
       data.append(phoneData)
     }
+
+    data.append(UserDataSet(type: .separator, title: "", value: nil))
+
+    data.append(UserDataSet(type: .marketing, title: "", value: nil))
+
+    data.append(UserDataSet(type: .separator, title: "", value: nil))
+
+    data.append(UserDataSet(type: .termsAndSave, title: "", value: nil))
 
     return data
   }

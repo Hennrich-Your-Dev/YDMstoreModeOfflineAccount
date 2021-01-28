@@ -78,8 +78,10 @@ extension UserDataService: UserDataServiceDelegate {
     with user: UserLogin,
     onCompletion completion: @escaping (Result<UsersInfo, Error>) -> Void
   ) {
-    guard let idLasa = user.idLasa else {
-      completion(
+    guard let idLasa = user.idLasa,
+          let token = user.token
+    else {
+       completion(
         .failure(
           NSError(domain: "", code: 402, userInfo: nil)
         )
@@ -89,14 +91,15 @@ extension UserDataService: UserDataServiceDelegate {
 
     let headers: [String: String] = [
       "Cache-Control": "0",
-      "Ocp-Apim-Subscription-Key": "953582bd88f84bdb9b3ad66d04eaf728"
+      "Ocp-Apim-Subscription-Key": "953582bd88f84bdb9b3ad66d04eaf728",
+      "Authorization": "Bearer \(token)"
     ]
 
     let url = "\(userInfoApi)/\(idLasa)"
 
     service.request(
       withUrl: url,
-      withMethod: .post,
+      withMethod: .get,
       withHeaders: headers,
       andParameters: nil
     ) { (response: Result<UsersInfo, Error>) in
