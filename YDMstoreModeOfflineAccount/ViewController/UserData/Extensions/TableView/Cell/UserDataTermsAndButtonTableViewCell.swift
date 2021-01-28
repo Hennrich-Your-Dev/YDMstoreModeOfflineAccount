@@ -11,7 +11,7 @@ import YDExtensions
 
 class UserDataTermsAndButtonTableViewCell: UITableViewCell {
   // MARK: Properties
-  var callback: (() -> Void)?
+  var callback: ((Bool) -> Void)?
 
   // MARK: IBOutlets
   @IBOutlet weak var termsSwitch: UISwitch!
@@ -23,17 +23,23 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
 
       let attributedString = NSMutableAttributedString(string: termsText)
 
-      guard let range = attributedString.string.range(of: toUnderline) else {
+      guard let range = termsText.range(of: toUnderline) else {
         return
       }
+
+      let index = termsText.distance(from: termsText.startIndex, to: range.lowerBound)
+      let location = NSRange(location: index, length: toUnderline.count)
 
       attributedString.addAttribute(
         NSAttributedString.Key.underlineStyle,
         value: NSUnderlineStyle.single.rawValue,
-        range: NSMakeRange(
-          (range.lowerBound.utf16Offset(in: toUnderline)),
-          (range.upperBound.utf16Offset(in: toUnderline))
-        )
+        range: location
+      )
+
+      attributedString.addAttribute(
+        NSAttributedString.Key.foregroundColor,
+        value: UIColor.Zeplin.colorPrimaryLight,
+        range: location
       )
 
       termsLabel.attributedText = attributedString
@@ -63,7 +69,7 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
   }
 
   // MARK: Config
-  func config(withValue switchValue: Bool, onAction action: @escaping (() -> Void)) {
+  func config(withValue switchValue: Bool, onAction action: @escaping ((Bool) -> Void)) {
     termsSwitch.setOn(switchValue, animated: true)
     onSwitchChange()
     callback = action
@@ -71,7 +77,7 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
 
   // MARK: IBActions
   @IBAction func onButtonAction(_ sender: Any) {
-    callback?()
+    callback?(termsSwitch.isOn)
   }
 
   @IBAction func onSwitchChange(_ sender: Any? = nil) {

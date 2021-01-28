@@ -39,7 +39,8 @@ extension UserDataViewController {
   }
 
   func dequeueMarketingSwitchCell(at indexPath: IndexPath) -> UITableViewCell {
-    guard let userInfo = viewModel?.userData,
+    guard let viewModel = viewModel,
+          let userInfo = viewModel.userData,
           let cell = tableView.dequeueReusableCell(
             withIdentifier: UserDataMarketingTableViewCell.identifier,
             for: indexPath) as? UserDataMarketingTableViewCell
@@ -47,12 +48,16 @@ extension UserDataViewController {
       return UITableViewCell()
     }
 
-    cell.config(withValue: userInfo.marketing)
+    cell.config(withValue: userInfo.marketing) { value in
+      //
+      viewModel.userData?.marketing = value
+    }
     return cell
   }
 
   func dequeueTermsSwitchCell(at indexPath: IndexPath) -> UITableViewCell {
-    guard let userInfo = viewModel?.userData,
+    guard let viewModel = viewModel,
+          let userInfo = viewModel.userData,
           let cell = tableView.dequeueReusableCell(
             withIdentifier: UserDataTermsAndButtonTableViewCell.identifier,
             for: indexPath) as? UserDataTermsAndButtonTableViewCell
@@ -60,8 +65,9 @@ extension UserDataViewController {
       return UITableViewCell()
     }
 
-    cell.config(withValue: userInfo.terms) {
+    cell.config(withValue: userInfo.terms) { value in
       //
+      viewModel.userData?.terms = value
     }
     return cell
   }

@@ -32,6 +32,8 @@
 		C197DCB125BF4C5E0007E8C3 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */; };
 		C197DCB625BF4EBD0007E8C3 /* UserDataViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCB525BF4EBD0007E8C3 /* UserDataViewController+Binds.swift */; };
 		C197DCBE25BF4FA00007E8C3 /* UserDataViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCBD25BF4FA00007E8C3 /* UserDataViewController+TableView.swift */; };
+		C1E083F025C200C5004D5382 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E083EF25C200C5004D5382 /* UserLogin.swift */; };
+		C1E0842725C220A7004D5382 /* UsersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0842625C220A7004D5382 /* UsersInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		C197DCB525BF4EBD0007E8C3 /* UserDataViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Binds.swift"; sourceTree = "<group>"; };
 		C197DCBD25BF4FA00007E8C3 /* UserDataViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+TableView.swift"; sourceTree = "<group>"; };
+		C1E083EF25C200C5004D5382 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
+		C1E0842625C220A7004D5382 /* UsersInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				C197DCA825BF31B50007E8C3 /* UserDataSet.swift */,
+				C1E083EF25C200C5004D5382 /* UserLogin.swift */,
+				C1E0842625C220A7004D5382 /* UsersInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -426,6 +432,7 @@
 			files = (
 				C14D63C525B1E27200DAF725 /* YDMStoreModeOfflineAccountViewController+Binds.swift in Sources */,
 				C197DCB125BF4C5E0007E8C3 /* UserDataService.swift in Sources */,
+				C1E083F025C200C5004D5382 /* UserLogin.swift in Sources */,
 				C197DCBE25BF4FA00007E8C3 /* UserDataViewController+TableView.swift in Sources */,
 				C183CED125B0953F00B4F675 /* YDMStoreModeOfflineAccountViewController+ScrollView.swift in Sources */,
 				C197DCA225BF2E510007E8C3 /* UserDataTableViewCell.swift in Sources */,
@@ -433,6 +440,7 @@
 				C183D0CC25B0D8B100B4F675 /* UserDataViewController.swift in Sources */,
 				C158ECDF25C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.swift in Sources */,
 				A5B9E38725AE12EF006EA075 /* YDMStoreModeOfflineAccountViewController.swift in Sources */,
+				C1E0842725C220A7004D5382 /* UsersInfo.swift in Sources */,
 				C197DCAD25BF481F0007E8C3 /* UserDataViewModelDelegate.swift in Sources */,
 				A5B9E38B25AE133B006EA075 /* YDMStoreModeOfflineAccountViewModel.swift in Sources */,
 				A5B9E36425AE123B006EA075 /* YDMStoreModeOfflineAccountCoordinator.swift in Sources */,

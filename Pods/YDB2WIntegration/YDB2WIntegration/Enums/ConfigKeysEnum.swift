@@ -18,6 +18,7 @@ public enum YDConfigKeys: String {
   case storeService = "store_service"
   case spaceyService = "spacey_service"
   case addressService = "zip_code_service"
+  case lasaClientService = "lasa_client_service"
 }
 
 public enum YDConfigProperty: String {
@@ -32,6 +33,8 @@ public enum YDConfigProperty: String {
 
   // Live
   case liveSpaceyOrder = "spaceyPositionIndex"
+
+  case liveCarrouselProductsBatches = "lazyLoadingItems"
 
   case liveYouTubePlayerAutoStart
   case liveYouTubePlayerResetVideoWhenPaused

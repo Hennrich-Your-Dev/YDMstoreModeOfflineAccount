@@ -28,8 +28,11 @@
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xE3-7h-Aat">
                         <rect key="frame" x="41" y="246.5" width="51" height="31"/>
                         <color key="onTintColor" name="redBranding"/>
+                        <connections>
+                            <action selector="onSwitchChange:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Nwt-wl-4qh"/>
+                        </connections>
                     </switch>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quero receber comunicações sobre serviços, novidades, ofertas e recomendações das Lojas Americanas." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywp-ll-JSG">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Quero receber comunicações sobre serviços, novidades, ofertas e recomendações das Lojas Americanas." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywp-ll-JSG">
                         <rect key="frame" x="120" y="217" width="175" height="90"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" name="black"/>

@@ -9,6 +9,7 @@ import Foundation
 
 import YDUtilities
 import YDExtensions
+import YDB2WIntegration
 
 // MARK: Navigation
 protocol UserDataNavigationDelegate {
@@ -18,10 +19,10 @@ protocol UserDataNavigationDelegate {
 
 // MARK: Delegate
 protocol UserDataViewModelDelegate {
-  var error: Binder<(title: String, message: String)> { get }
+  var error: Binder<String> { get }
   var loading: Binder<Bool> { get }
   var usersInfo: Binder<[UserDataSet]> { get }
-  var userData: UsersInfo? { get }
+  var userData: UsersInfo? { get set }
 
   subscript(_ index: Int) -> UserDataSet? { get }
 
@@ -34,35 +35,26 @@ class UserDataViewModel {
   let service: UserDataServiceDelegate
   let navigation: UserDataNavigationDelegate
 
-  var error: Binder<(title: String, message: String)> = Binder(("", ""))
+  var error: Binder<String> = Binder("")
   var loading: Binder<Bool> = Binder(false)
 
+  let currentUser: YDCurrentCustomer
   var userData: UsersInfo? = nil
   var usersInfo: Binder<[UserDataSet]> = Binder([])
 
   // MARK: Init
   init(
     service: UserDataServiceDelegate,
-    navigation: UserDataNavigationDelegate
+    navigation: UserDataNavigationDelegate,
+    user: YDCurrentCustomer
   ) {
     self.service = service
     self.navigation = navigation
-  }
-}
-
-// MARK: Extension
-extension UserDataViewModel: UserDataViewModelDelegate {
-  subscript(_ index: Int) -> UserDataSet? {
-    return usersInfo.value.at(index)
+    self.currentUser = user
   }
 
-  func onBack() {
-    navigation.onBack()
-  }
-
-  func getUsersInfo() {
-    loading.value = true
-
+  // MARK: Actions
+  func getUsersInfoMock() {
     Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
       let jsonString = """
       {
@@ -95,6 +87,48 @@ extension UserDataViewModel: UserDataViewModelDelegate {
       self.usersInfo.value = json.getUserDataSets()
 
       self.loading.value = false
+    }
+  }
+
+  func getClientInfo(with user: UserLogin) {
+    service.getUserInfo(with: user) { [weak self] (result: Result<UsersInfo, Error>) in
+      switch result {
+        case .success(let data):
+          self?.userData = data
+          self?.usersInfo.value = data.getUserDataSets()
+          self?.loading.value = false
+
+        case .failure(let error):
+          self?.loading.value = false
+          self?.error.value = error.localizedDescription
+      }
+    }
+  }
+}
+
+// MARK: Extension
+extension UserDataViewModel: UserDataViewModelDelegate {
+  subscript(_ index: Int) -> UserDataSet? {
+    return usersInfo.value.at(index)
+  }
+
+  func onBack() {
+    navigation.onBack()
+  }
+
+  func getUsersInfo() {
+    loading.value = true
+    // getUsersInfoMock()
+
+    service.login(user: currentUser) { [weak self] (response: Result<UserLogin, Error>) in
+      switch response {
+        case .success(let userLoginData):
+          self?.getClientInfo(with: userLoginData)
+
+        case .failure(let error):
+          self?.loading.value = false
+          self?.error.value = error.localizedDescription
+      }
     }
   }
 }

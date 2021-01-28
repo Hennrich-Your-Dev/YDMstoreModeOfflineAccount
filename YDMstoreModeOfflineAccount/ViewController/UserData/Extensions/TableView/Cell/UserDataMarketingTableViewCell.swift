@@ -8,6 +8,9 @@
 import UIKit
 
 class UserDataMarketingTableViewCell: UITableViewCell {
+  // MARK: Properties
+  var callback: ((Bool) -> Void)?
+
   // MARK: IBOutlets
   @IBOutlet weak var marketingLabel: UILabel!
 
@@ -27,7 +30,13 @@ class UserDataMarketingTableViewCell: UITableViewCell {
   }
 
   // MARK: Config
-  func config(withValue switchValue: Bool) {
+  func config(withValue switchValue: Bool, onAction action: @escaping ((Bool) -> Void)) {
     marketingSwitch.setOn(switchValue, animated: true)
+    callback = action
+  }
+
+  // MARK: IBActions
+  @IBAction func onSwitchChange(_ sender: Any) {
+    callback?(marketingSwitch.isOn)
   }
 }

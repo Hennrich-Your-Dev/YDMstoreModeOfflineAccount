@@ -13,55 +13,101 @@ import YDUtilities
 
 // MARK: Protocol
 protocol UserDataServiceDelegate: AnyObject {
+  func login(
+    user: YDCurrentCustomer,
+    onCompletion completion: @escaping (Result<UserLogin, Error>) -> Void
+  )
 
+  func getUserInfo(
+    with user: UserLogin,
+    onCompletion completion: @escaping (Result<UsersInfo, Error>) -> Void
+  )
 }
 
 class UserDataService {
   // MARK: Properties
   let service: YDServiceClientDelegate
+  let loginApi: String
+  let userInfoApi: String
 
   // MARK: Init
-  init(service: YDServiceClientDelegate) {
+  init(
+    service: YDServiceClientDelegate,
+    loginApi: String,
+    userInfoApi: String
+  ) {
     self.service = service
+    self.loginApi = loginApi
+    self.userInfoApi = userInfoApi
   }
 }
 
 // MARK: Extension
 extension UserDataService: UserDataServiceDelegate {
-//  func getNearstLasas(
-//    with location: CLLocationCoordinate2D,
-//    onCompletion: @escaping (Result<[YDStore], Error>) -> Void
-//  ) {
-//    guard let config = YDIntegrationHelper.shared
-//            .getFeature(featureName: YDConfigKeys.store.rawValue),
-//          let extras = config.extras,
-//          let storesUrl = extras[YDConfigProperty.storesUrl.rawValue] as? String,
-//          let type = extras[YDConfigProperty.storesType.rawValue] as? String,
-//          let radius = extras[YDConfigProperty.maxStoreRange.rawValue] as? String
-//    else {
-//      fatalError("Can't get url extras")
-//    }
-//
-//    let parameters: [String: Any] = [
-//      "latitude": location.latitude,
-//      "longitude": location.longitude,
-//      "type": type,
-//      "radius": radius
-//    ]
-//
-//    service.request(
-//      withUrl: storesUrl,
-//      withMethod: .get,
-//      andParameters: parameters) { (response: Result<YDStores, Error>) in
-//      switch response {
-//      case .success(let stores):
-//        let sorted = stores.stores.sorted { $0.distance < $1.distance }
-//
-//        onCompletion(.success(sorted))
-//
-//      case .failure(let error):
-//        onCompletion(.failure(error))
-//      }
-//    }
-//  }
+  func login(
+    user: YDCurrentCustomer,
+    onCompletion completion: @escaping (Result<UserLogin, Error>) -> Void
+  ) {
+    let headers: [String: String] = [
+      "Content-Type": "application/json",
+      "Ocp-Apim-Subscription-Key": "953582bd88f84bdb9b3ad66d04eaf728"
+    ]
+
+    let parameters: [String: Any] = [
+      "id_cliente": user.id,
+      "access_code_cliente": user.accessToken
+    ]
+
+    service.request(
+      withUrl: loginApi,
+      withMethod: .post,
+      withHeaders: headers,
+      andParameters: parameters
+    ) { (response: Result<UserLogin, Error>) in
+      switch response {
+        case .success(let userLogin):
+          completion(.success(userLogin))
+
+        case .failure(let error):
+          completion(.failure(error))
+      }
+    }
+  }
+
+  func getUserInfo(
+    with user: UserLogin,
+    onCompletion completion: @escaping (Result<UsersInfo, Error>) -> Void
+  ) {
+    guard let idLasa = user.idLasa else {
+      completion(
+        .failure(
+          NSError(domain: "", code: 402, userInfo: nil)
+        )
+      )
+      return
+    }
+
+    let headers: [String: String] = [
+      "Cache-Control": "0",
+      "Ocp-Apim-Subscription-Key": "953582bd88f84bdb9b3ad66d04eaf728"
+    ]
+
+    let url = "\(userInfoApi)/\(idLasa)"
+
+    service.request(
+      withUrl: url,
+      withMethod: .post,
+      withHeaders: headers,
+      andParameters: nil
+    ) { (response: Result<UsersInfo, Error>) in
+      switch response {
+        case .success(let usersInfo):
+          usersInfo.socialSecurity = user.socialSecurity
+          completion(.success(usersInfo))
+
+        case .failure(let error):
+          completion(.failure(error))
+      }
+    }
+  }
 }

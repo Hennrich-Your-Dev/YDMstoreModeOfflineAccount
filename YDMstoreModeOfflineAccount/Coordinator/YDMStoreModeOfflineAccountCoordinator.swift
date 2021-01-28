@@ -18,19 +18,22 @@ public class YDMStoreModeOfflineAccountCoordinator {
 
   // Properties
   var navigationController: UINavigationController?
+  var currentUser: YDCurrentCustomer!
 
   // MARK: Init
   public init() {}
 
   // MARK: Actions
-  public func start(navCon: UINavigationController) {
+  public func start(navCon: UINavigationController, user: YDCurrentCustomer) {
     guard let viewController = YDMStoreModeOfflineAccountViewController.initializeFromStoryboard()
-//          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.store.rawValue),
+//          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.lasaClientService.rawValue),
 //          let storesUrl = config.extras?[YDConfigProperty.storesUrl.rawValue] as? String,
 //          let addressUrl = config.extras?[YDConfigProperty.addressUrl.rawValue] as? String
     else {
       fatalError("YDMStoreModeOfflineAccountViewController.initializeFromStoryboard")
     }
+
+    currentUser = user
 
     let service = YDServiceClient()
     let serviceOfflineAccount = YDMStoreModeOfflineAccountService(service: service)
@@ -52,15 +55,28 @@ extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavig
   }
 
   func openUserData() {
-    guard let viewController = UserDataViewController.initializeFromStoryboard()
+    guard let viewController = UserDataViewController.initializeFromStoryboard(),
+          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.lasaClientService.rawValue),
+          let endPoint = config.endpoint
     else {
       fatalError("UserDataViewController.initializeFromStoryboard")
     }
 
-    let service = YDServiceClient()
-    let serviceUserData = UserDataService(service: service)
+    let loginApi = "\(endPoint)/portalcliente/login"
+    let userInfoApi = "\(endPoint)/cliente"
 
-    let viewModel = UserDataViewModel(service: serviceUserData, navigation: self)
+    let service = YDServiceClient()
+    let serviceUserData = UserDataService(
+      service: service,
+      loginApi: loginApi,
+      userInfoApi: userInfoApi
+    )
+
+    let viewModel = UserDataViewModel(
+      service: serviceUserData,
+      navigation: self,
+      user: currentUser
+    )
 
     viewController.viewModel = viewModel
 
