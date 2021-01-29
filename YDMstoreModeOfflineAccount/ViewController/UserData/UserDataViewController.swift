@@ -15,6 +15,7 @@ class UserDataViewController: UIViewController {
   // MARK: Properties
   var viewModel: UserDataViewModelDelegate?
   var items: [Int] = []
+  var shadowScrollEnabled = false
 
   // MARK: IBOutlets
   @IBOutlet weak var contentView: UIView! {
@@ -77,10 +78,15 @@ class UserDataViewController: UIViewController {
     }
   }
 
-  @IBOutlet weak var headerDateLabel: UILabel!
-
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
+  @IBOutlet weak var shadowContainerView: UIView! {
+    didSet {
+      shadowContainerView.backgroundColor = .white
+      shadowContainerView.layer.zPosition = 5
+    }
+  }
+
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -91,6 +97,7 @@ class UserDataViewController: UIViewController {
 
     setBinds()
 
+    viewModel?.trackState()
     viewModel?.getUsersInfo()
   }
 

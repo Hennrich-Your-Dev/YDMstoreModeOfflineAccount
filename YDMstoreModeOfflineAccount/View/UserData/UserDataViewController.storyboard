@@ -60,7 +60,7 @@
                                                 <rect key="frame" x="0.0" y="58" width="414" height="774"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="66" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IRj-He-ImQ">
-                                                        <rect key="frame" x="0.0" y="71.5" width="414" height="702.5"/>
+                                                        <rect key="frame" x="0.0" y="57.5" width="414" height="716.5"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </tableView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVM-Ub-wh5">
@@ -71,15 +71,25 @@ utilizou em nossas lojas físicas :)</string>
                                                         <color key="textColor" name="grayLight"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BoX-9m-LiO">
+                                                        <rect key="frame" x="0.0" y="41.5" width="414" height="16"/>
+                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="16" id="fh0-hw-VBo"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="pVM-Ub-wh5" firstAttribute="leading" secondItem="CqA-tX-fPX" secondAttribute="leading" constant="20" id="2nj-FV-4c2"/>
                                                     <constraint firstAttribute="trailing" secondItem="IRj-He-ImQ" secondAttribute="trailing" id="9H0-fH-EjQ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BoX-9m-LiO" secondAttribute="trailing" id="VdB-LE-Q2l"/>
                                                     <constraint firstAttribute="trailing" secondItem="pVM-Ub-wh5" secondAttribute="trailing" constant="20" id="WW3-Kd-CXA"/>
+                                                    <constraint firstItem="BoX-9m-LiO" firstAttribute="top" secondItem="pVM-Ub-wh5" secondAttribute="bottom" id="ZH3-8y-gce"/>
                                                     <constraint firstItem="pVM-Ub-wh5" firstAttribute="top" secondItem="CqA-tX-fPX" secondAttribute="top" constant="3" id="eJw-Xh-YDF"/>
-                                                    <constraint firstItem="IRj-He-ImQ" firstAttribute="top" secondItem="pVM-Ub-wh5" secondAttribute="bottom" constant="30" id="lFe-DR-frh"/>
                                                     <constraint firstItem="IRj-He-ImQ" firstAttribute="leading" secondItem="CqA-tX-fPX" secondAttribute="leading" id="mD7-lp-QGQ"/>
+                                                    <constraint firstItem="IRj-He-ImQ" firstAttribute="top" secondItem="BoX-9m-LiO" secondAttribute="bottom" id="snF-xQ-X60"/>
+                                                    <constraint firstItem="BoX-9m-LiO" firstAttribute="leading" secondItem="CqA-tX-fPX" secondAttribute="leading" id="ubn-aY-FcX"/>
                                                 </constraints>
                                             </view>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ErV-u2-k5w">
@@ -125,6 +135,7 @@ utilizou em nossas lojas físicas :)</string>
                         <outlet property="backButton" destination="lTR-el-sJI" id="qD5-Ox-uHi"/>
                         <outlet property="contentView" destination="Ygf-Bx-W18" id="MAx-oq-CCN"/>
                         <outlet property="navContainer" destination="BbH-by-eeC" id="iv1-dC-KEl"/>
+                        <outlet property="shadowContainerView" destination="BoX-9m-LiO" id="IJa-o6-eQZ"/>
                         <outlet property="tableView" destination="IRj-He-ImQ" id="ryl-aG-w04"/>
                     </connections>
                 </viewController>

@@ -7,6 +7,7 @@
 
 import Foundation
 
+import YDB2WIntegration
 import YDUtilities
 import YDExtensions
 
@@ -21,6 +22,7 @@ protocol YDMStoreModeOfflineAccountViewModelDelegate {
   var error: Binder<(title: String, message: String)> { get }
 
   func onExit()
+  func trackState()
   func onCard(tag: Int)
 }
 
@@ -46,6 +48,10 @@ class YDMStoreModeOfflineAccountViewModel {
 extension YDMStoreModeOfflineAccountViewModel: YDMStoreModeOfflineAccountViewModelDelegate {
   func onExit() {
     navigation.onExit()
+  }
+
+  func trackState() {
+    YDIntegrationHelper.shared.trackEvent(withName: .offlineAccountPerfil, ofType: .state)
   }
 
   func onCard(tag: Int) {

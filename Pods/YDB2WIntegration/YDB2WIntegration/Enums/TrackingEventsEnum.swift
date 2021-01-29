@@ -37,6 +37,10 @@ public enum TrackEvents: String {
   case findStoreView = "ACOM:StoreFinder:Mapa"
   case findStoreViewDenied = "ACOM:StoreFinder:SemPermissao"
 
+  // Offline Account
+  case offlineAccountPerfil = "ACOM:OfflineAccount:Perfil"
+  case offlineAccountUsersInfo = "ACOM:OfflineAccount:Cadastro"
+
   // Default Parameters
   public var defaultParameters: [String: Any] {
     switch self {
@@ -54,6 +58,10 @@ public enum TrackEvents: String {
 
     // Find a Store
     case .findStoreView, .findStoreViewDenied:
+    return [:]
+
+    // Offline Account
+    case .offlineAccountPerfil, .offlineAccountUsersInfo:
     return [:]
     }
   }
@@ -116,6 +124,10 @@ public enum TrackEvents: String {
     // Find a Store
     case .findStoreView, .findStoreViewDenied:
       return [:]
+
+    // Offline Account
+    case .offlineAccountPerfil, .offlineAccountUsersInfo:
+    return [:]
     }
   }
 }

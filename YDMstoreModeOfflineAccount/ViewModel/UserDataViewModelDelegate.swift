@@ -27,6 +27,7 @@ protocol UserDataViewModelDelegate {
   subscript(_ index: Int) -> UserDataSet? { get }
 
   func onBack()
+  func trackState()
   func getUsersInfo()
   func openHistoric()
 }
@@ -133,6 +134,10 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
   func onBack() {
     navigation.onBack()
+  }
+
+  func trackState() {
+    YDIntegrationHelper.shared.trackEvent(withName: .offlineAccountUsersInfo, ofType: .state)
   }
 
   func getUsersInfo() {

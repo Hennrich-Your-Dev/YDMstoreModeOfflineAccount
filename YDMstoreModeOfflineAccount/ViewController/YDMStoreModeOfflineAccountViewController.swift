@@ -92,6 +92,7 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
     setViewBackgroundImage()
     setBinds()
 
+    viewModel?.trackState()
     userProfileView.config(username: "Douglas Hennrich", userPhoto: nil)
   }
   
