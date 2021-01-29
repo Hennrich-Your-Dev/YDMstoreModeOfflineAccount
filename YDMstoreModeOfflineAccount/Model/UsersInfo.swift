@@ -47,7 +47,7 @@ class UsersInfo: Decodable {
 
     if let socialSecurity = socialSecurity,
        !socialSecurity.isEmpty,
-       let formatedSocialSecurity = UserDataSet.formatDate(socialSecurity) {
+       let formatedSocialSecurity = UserDataSet.formatSocialSecurityNumber(socialSecurity) {
       data.append(UserDataSet(title: "cpf", value: formatedSocialSecurity))
     }
 

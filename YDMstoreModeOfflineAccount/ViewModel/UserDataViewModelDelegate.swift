@@ -19,7 +19,7 @@ protocol UserDataNavigationDelegate {
 
 // MARK: Delegate
 protocol UserDataViewModelDelegate {
-  var error: Binder<String> { get }
+  var error: Binder<(title: String, message: String)> { get }
   var loading: Binder<Bool> { get }
   var usersInfo: Binder<[UserDataSet]> { get }
   var userData: UsersInfo? { get set }
@@ -36,12 +36,21 @@ class UserDataViewModel {
   let service: UserDataServiceDelegate
   let navigation: UserDataNavigationDelegate
 
-  var error: Binder<String> = Binder("")
+  var error: Binder<(title: String, message: String)> = Binder(("", ""))
   var loading: Binder<Bool> = Binder(false)
 
   let currentUser: YDCurrentCustomer
   var userData: UsersInfo? = nil
-  var usersInfo: Binder<[UserDataSet]> = Binder([])
+  var usersInfo: Binder<[UserDataSet]> =  Binder([])
+
+  let errorMessageIncompletePerfil = (
+    title: "poooxa, ainda não temos seu cadastro completo",
+    message: "E pra mantermos a segurança dos seus dados, você poderá consultar mais informações com nosso atendimento, através do e-mail: atendimento.acom@americanas.com"
+  )
+  let errorMessage = (
+    title: "poooxa, não encontramos os seus dados aqui",
+    message: "Você pode consultar mais informações com nosso atendimento, através do e-mail: atendimento.acom@americanas.com"
+  )
 
   // MARK: Init
   init(
@@ -92,16 +101,25 @@ class UserDataViewModel {
   }
 
   func getClientInfo(with user: UserLogin) {
-    service.getUserInfo(with: user) { [weak self] (result: Result<UsersInfo, Error>) in
+    service.getUserInfo(with: user) { [weak self] (result: Result<UsersInfo, YDServiceError>) in
+      guard let self = self else { return }
+
       switch result {
         case .success(let data):
-          self?.userData = data
-          self?.usersInfo.value = data.getUserDataSets()
-          self?.loading.value = false
+          self.userData = data
+          self.usersInfo.value = data.getUserDataSets()
+          self.loading.value = false
 
         case .failure(let error):
-          self?.loading.value = false
-          self?.error.value = error.localizedDescription
+          self.loading.value = false
+
+          if let status = error.statusCode,
+             status == 308 {
+            self.error.value = self.errorMessageIncompletePerfil
+            return
+          }
+
+          self.error.value = self.errorMessage
       }
     }
   }
@@ -121,14 +139,23 @@ extension UserDataViewModel: UserDataViewModelDelegate {
     loading.value = true
     // getUsersInfoMock()
 
-    service.login(user: currentUser) { [weak self] (response: Result<UserLogin, Error>) in
+    service.login(user: currentUser) { [weak self] (response: Result<UserLogin, YDServiceError>) in
+      guard let self = self else { return }
+
       switch response {
         case .success(let userLoginData):
-          self?.getClientInfo(with: userLoginData)
+          self.getClientInfo(with: userLoginData)
 
         case .failure(let error):
-          self?.loading.value = false
-          self?.error.value = error.localizedDescription
+          self.loading.value = false
+
+          if let status = error.statusCode,
+             status == 308 {
+            self.error.value = self.errorMessageIncompletePerfil
+            return
+          }
+
+          self.error.value = self.errorMessage
       }
     }
   }

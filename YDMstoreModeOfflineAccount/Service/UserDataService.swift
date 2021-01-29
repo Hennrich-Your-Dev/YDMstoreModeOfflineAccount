@@ -15,12 +15,12 @@ import YDUtilities
 protocol UserDataServiceDelegate: AnyObject {
   func login(
     user: YDCurrentCustomer,
-    onCompletion completion: @escaping (Result<UserLogin, Error>) -> Void
+    onCompletion completion: @escaping (Result<UserLogin, YDServiceError>) -> Void
   )
 
   func getUserInfo(
     with user: UserLogin,
-    onCompletion completion: @escaping (Result<UsersInfo, Error>) -> Void
+    onCompletion completion: @escaping (Result<UsersInfo, YDServiceError>) -> Void
   )
 }
 
@@ -46,7 +46,7 @@ class UserDataService {
 extension UserDataService: UserDataServiceDelegate {
   func login(
     user: YDCurrentCustomer,
-    onCompletion completion: @escaping (Result<UserLogin, Error>) -> Void
+    onCompletion completion: @escaping (Result<UserLogin, YDServiceError>) -> Void
   ) {
     let headers: [String: String] = [
       "Content-Type": "application/json",
@@ -63,7 +63,7 @@ extension UserDataService: UserDataServiceDelegate {
       withMethod: .post,
       withHeaders: headers,
       andParameters: parameters
-    ) { (response: Result<UserLogin, Error>) in
+    ) { (response: Result<UserLogin, YDServiceError>) in
       switch response {
         case .success(let userLogin):
           completion(.success(userLogin))
@@ -76,14 +76,14 @@ extension UserDataService: UserDataServiceDelegate {
 
   func getUserInfo(
     with user: UserLogin,
-    onCompletion completion: @escaping (Result<UsersInfo, Error>) -> Void
+    onCompletion completion: @escaping (Result<UsersInfo, YDServiceError>) -> Void
   ) {
     guard let idLasa = user.idLasa,
           let token = user.token
     else {
        completion(
         .failure(
-          NSError(domain: "", code: 402, userInfo: nil)
+          YDServiceError(withMessage: "Erro desconhecido")
         )
       )
       return
@@ -102,7 +102,7 @@ extension UserDataService: UserDataServiceDelegate {
       withMethod: .get,
       withHeaders: headers,
       andParameters: nil
-    ) { (response: Result<UsersInfo, Error>) in
+    ) { (response: Result<UsersInfo, YDServiceError>) in
       switch response {
         case .success(let usersInfo):
           usersInfo.socialSecurity = user.socialSecurity

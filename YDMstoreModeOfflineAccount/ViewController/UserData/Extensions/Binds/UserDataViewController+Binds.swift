@@ -9,9 +9,9 @@ import Foundation
 
 extension UserDataViewController {
   func setBinds() {
-//    viewModel?.error.bind { [weak self] params in
-//      //
-//    }
+    viewModel?.error.bind { [weak self] params in
+      self?.showAlert(title: params.title, message: params.message)
+    }
 
     viewModel?.loading.bind { [weak self] isLoading in
       if isLoading {
