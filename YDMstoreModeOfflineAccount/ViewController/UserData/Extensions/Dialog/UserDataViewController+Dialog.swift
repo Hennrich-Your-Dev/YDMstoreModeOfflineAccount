@@ -11,7 +11,9 @@ import YDB2WComponents
 
 extension UserDataViewController {
   func showAlert(title: String, message: String) {
-    YDDialog().start(
+    let dialog = YDDialog()
+    dialog.delegate = self
+    dialog.start(
       ofType: .simple,
       customTitle: title,
       customMessage: message

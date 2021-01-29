@@ -43,7 +43,7 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
       )
 
       termsLabel.attributedText = attributedString
-      //
+      layoutIfNeeded()
     }
   }
 
