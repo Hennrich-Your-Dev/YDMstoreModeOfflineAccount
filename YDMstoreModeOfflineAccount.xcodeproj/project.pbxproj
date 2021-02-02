@@ -30,6 +30,10 @@
 		C197DCB125BF4C5E0007E8C3 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */; };
 		C197DCB625BF4EBD0007E8C3 /* UserDataViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCB525BF4EBD0007E8C3 /* UserDataViewController+Binds.swift */; };
 		C197DCBE25BF4FA00007E8C3 /* UserDataViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCBD25BF4FA00007E8C3 /* UserDataViewController+TableView.swift */; };
+		C19B995E25C992560002E696 /* TermsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C19B995D25C992560002E696 /* TermsViewController.storyboard */; };
+		C19B996225C992820002E696 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B996125C992820002E696 /* TermsViewController.swift */; };
+		C19B996925C9934E0002E696 /* TermsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B996825C9934E0002E696 /* TermsViewModel.swift */; };
+		C19B996D25C99B1C0002E696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C19B996C25C99B1C0002E696 /* Assets.xcassets */; };
 		C1B6BF4625C4164F001CB137 /* UserDataViewController+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6BF4525C4164F001CB137 /* UserDataViewController+Dialog.swift */; };
 		C1B6BFD025C42667001CB137 /* UserDataViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */; };
 		C1DE3DBA25C3040C0084299E /* UserDataHistoricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE3DB825C3040C0084299E /* UserDataHistoricTableViewCell.swift */; };
@@ -68,6 +72,10 @@
 		C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		C197DCB525BF4EBD0007E8C3 /* UserDataViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Binds.swift"; sourceTree = "<group>"; };
 		C197DCBD25BF4FA00007E8C3 /* UserDataViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+TableView.swift"; sourceTree = "<group>"; };
+		C19B995D25C992560002E696 /* TermsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TermsViewController.storyboard; sourceTree = "<group>"; };
+		C19B996125C992820002E696 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		C19B996825C9934E0002E696 /* TermsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewModel.swift; sourceTree = "<group>"; };
+		C19B996C25C99B1C0002E696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1B6BF4525C4164F001CB137 /* UserDataViewController+Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Dialog.swift"; sourceTree = "<group>"; };
 		C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		C1DE3DB825C3040C0084299E /* UserDataHistoricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataHistoricTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 				A5B9E38925AE132E006EA075 /* ViewModel */,
 				A5B9E35625AE0451006EA075 /* YDMstoreModeOfflineAccount.h */,
 				A5B9E35725AE0451006EA075 /* Info.plist */,
+				C19B996C25C99B1C0002E696 /* Assets.xcassets */,
 			);
 			path = YDMstoreModeOfflineAccount;
 			sourceTree = "<group>";
@@ -134,6 +143,7 @@
 		A5B9E37125AE128F006EA075 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C19B995C25C992310002E696 /* Terms */,
 				C183D0C625B0D81500B4F675 /* UserData */,
 				A5B9E37325AE12A9006EA075 /* YDMStoreModeOfflineAccountViewController.storyboard */,
 			);
@@ -143,6 +153,7 @@
 		A5B9E38325AE12E0006EA075 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C19B996025C992710002E696 /* Terms */,
 				C183D0CA25B0D8A400B4F675 /* UserData */,
 				C183CECE25B0952400B4F675 /* Extensions */,
 				A5B9E38625AE12EF006EA075 /* YDMStoreModeOfflineAccountViewController.swift */,
@@ -153,8 +164,9 @@
 		A5B9E38925AE132E006EA075 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C19B996725C993030002E696 /* Terms */,
+				C19B996525C992FE0002E696 /* UserData */,
 				A5B9E38A25AE133B006EA075 /* YDMStoreModeOfflineAccountViewModel.swift */,
-				C197DCAC25BF481F0007E8C3 /* UserDataViewModelDelegate.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -304,6 +316,38 @@
 				C197DCBA25BF4EFB0007E8C3 /* TableView */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C19B995C25C992310002E696 /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				C19B995D25C992560002E696 /* TermsViewController.storyboard */,
+			);
+			path = Terms;
+			sourceTree = "<group>";
+		};
+		C19B996025C992710002E696 /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				C19B996125C992820002E696 /* TermsViewController.swift */,
+			);
+			path = Terms;
+			sourceTree = "<group>";
+		};
+		C19B996525C992FE0002E696 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				C197DCAC25BF481F0007E8C3 /* UserDataViewModelDelegate.swift */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
+		C19B996725C993030002E696 /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				C19B996825C9934E0002E696 /* TermsViewModel.swift */,
+			);
+			path = Terms;
 			sourceTree = "<group>";
 		};
 		C1B6BF4425C4163C001CB137 /* Dialog */ = {
@@ -488,6 +532,8 @@
 				A5B9E37425AE12A9006EA075 /* YDMStoreModeOfflineAccountViewController.storyboard in Resources */,
 				C1DE3DD025C3107F0084299E /* UserDataSeparatorTableViewCell.xib in Resources */,
 				C1DE3DBB25C3040C0084299E /* UserDataHistoricTableViewCell.xib in Resources */,
+				C19B996D25C99B1C0002E696 /* Assets.xcassets in Resources */,
+				C19B995E25C992560002E696 /* TermsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +583,9 @@
 				C1B6BFD025C42667001CB137 /* UserDataViewController+ScrollView.swift in Sources */,
 				A5B9E38725AE12EF006EA075 /* YDMStoreModeOfflineAccountViewController.swift in Sources */,
 				C1E0842725C220A7004D5382 /* UsersInfo.swift in Sources */,
+				C19B996925C9934E0002E696 /* TermsViewModel.swift in Sources */,
 				C197DCAD25BF481F0007E8C3 /* UserDataViewModelDelegate.swift in Sources */,
+				C19B996225C992820002E696 /* TermsViewController.swift in Sources */,
 				A5B9E38B25AE133B006EA075 /* YDMStoreModeOfflineAccountViewModel.swift in Sources */,
 				A5B9E36425AE123B006EA075 /* YDMStoreModeOfflineAccountCoordinator.swift in Sources */,
 				C14D63CA25B1E47F00DAF725 /* YDMStoreModeOfflineAccountViewController+Dialog.swift in Sources */,

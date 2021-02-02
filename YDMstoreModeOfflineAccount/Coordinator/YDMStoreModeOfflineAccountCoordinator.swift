@@ -47,6 +47,10 @@ public class YDMStoreModeOfflineAccountCoordinator {
     navigationController = navCon
     navigationController?.pushViewController(viewController, animated: true)
   }
+
+  func onBack() {
+    navigationController?.popViewController(animated: true)
+  }
 }
 
 extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavigationDelegate {
@@ -86,11 +90,18 @@ extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavig
 
 // MARK: User Data Navigation
 extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
-  func onBack() {
-    navigationController?.popViewController(animated: true)
-  }
-
   func openUserHistoric() {
-    //
+    guard let viewController = TermsViewController.initializeFromStoryboard()
+    else {
+      fatalError("TermsViewController.initializeFromStoryboard")
+    }
+
+    let viewModel = TermsViewModel(navigation: self)
+
+    viewController.viewModel = viewModel
+    navigationController?.pushViewController(viewController, animated: true)
   }
 }
+
+// MARK: Terms Navigation
+extension YDMStoreModeOfflineAccountCoordinator: TermsNavigationDelegate {}

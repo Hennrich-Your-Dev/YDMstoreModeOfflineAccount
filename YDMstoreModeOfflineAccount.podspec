@@ -9,17 +9,19 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "YDMstoreModeOfflineAccount"
-  spec.version      = "1.0.27"
+  spec.version      = "1.0.28"
   spec.summary      = "A short description of YDMstoreModeOfflineAccount."
   spec.homepage     = "http://yourdev/YDMstoreModeOfflineAccount"
 
   spec.license          = "MIT"
   spec.author       = { "Douglas Hennrich" => "douglashennrich@yourdev.com.br" }
 
+  spec.swift_version    = "5.0"
   spec.platform         = :ios, "11.0"
   spec.source           = { :git => "https://github.com/Hennrich-Your-Dev/YDMstoreModeOfflineAccount.git", :tag => "#{spec.version}" }
-  spec.source_files     = "YDMstoreModeOfflineAccount/**/*.{h,m,swift,xib,storyboard}"
-  spec.swift_version    = "5.0"
+
+  spec.source_files     = "YDMstoreModeOfflineAccount/**/*.{h,m,swift}"
+  spec.resources        = "YDMstoreModeOfflineAccount/**/*.{xib,storyboard,json,xcassets,html}"
 
   spec.dependency "YDB2WIntegration"
   spec.dependency "YDUtilities"
