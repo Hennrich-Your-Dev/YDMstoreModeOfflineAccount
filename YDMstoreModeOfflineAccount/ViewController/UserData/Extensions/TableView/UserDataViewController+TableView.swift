@@ -14,9 +14,6 @@ extension UserDataViewController {
     withData data: UserDataSet
   ) -> UITableViewCell {
     switch data.type {
-      case .historic:
-        return dequeueHistoricCell(at: indexPath, withData: data)
-
       case .info:
         return dequeueUsersInfoCell(at: indexPath, withData: data)
 
@@ -29,23 +26,6 @@ extension UserDataViewController {
       case .termsAndSave:
         return dequeueTermsSwitchCell(at: indexPath)
     }
-  }
-
-  func dequeueHistoricCell(
-    at indexPath: IndexPath,
-    withData data: UserDataSet
-  ) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: UserDataHistoricTableViewCell.identifier,
-            for: indexPath) as? UserDataHistoricTableViewCell else {
-      return UITableViewCell()
-    }
-
-    cell.config(with: data) { [weak self] in
-      self?.viewModel?.openHistoric()
-    }
-
-    return cell
   }
 
   func dequeueSeparatorCell(at indexPath: IndexPath) -> UITableViewCell {

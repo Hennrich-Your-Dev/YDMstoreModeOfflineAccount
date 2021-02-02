@@ -36,9 +36,7 @@ class UsersInfo: Decodable {
 
   // MARK: Actions
   func getUserDataSets() -> [UserDataSet] {
-    var data: [UserDataSet] = [
-      UserDataSet(type: .historic, title: "última atualização", value: "27/09/1991")
-    ]
+    var data: [UserDataSet] = []
 
     if let name = name,
        !name.isEmpty {

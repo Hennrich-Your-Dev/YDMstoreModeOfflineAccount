@@ -11,6 +11,12 @@ extension UserDataViewController: UIScrollViewDelegate {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
       // reach bottom
+      if !shadowScrollEnabled {
+        shadowScrollEnabled = true
+        UIView.animate(withDuration: 0.5) { [weak self] in
+          self?.shadowContainerView.layer.applyShadow()
+        }
+      }
     }
 
     if (scrollView.contentOffset.y < 0){

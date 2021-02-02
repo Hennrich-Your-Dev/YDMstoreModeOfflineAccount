@@ -15,6 +15,7 @@ import YDB2WIntegration
 protocol UserDataNavigationDelegate {
   func onBack()
   func openUserHistoric()
+  func openTerms()
 }
 
 // MARK: Delegate
@@ -30,6 +31,7 @@ protocol UserDataViewModelDelegate {
   func trackState()
   func getUsersInfo()
   func openHistoric()
+  func openTerms()
 }
 
 class UserDataViewModel {
@@ -167,5 +169,9 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
   func openHistoric() {
     navigation.openUserHistoric()
+  }
+
+  func openTerms() {
+    navigation.openTerms()
   }
 }

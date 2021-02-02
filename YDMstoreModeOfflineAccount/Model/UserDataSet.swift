@@ -10,7 +10,6 @@ import Foundation
 import YDExtensions
 
 enum UserDataSetTypeEnum {
-  case historic
   case info
   case separator
   case marketing

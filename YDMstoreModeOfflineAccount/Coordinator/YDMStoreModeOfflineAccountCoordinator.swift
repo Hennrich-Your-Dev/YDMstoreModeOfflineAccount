@@ -14,7 +14,7 @@ import YDUtilities
 
 public typealias YDMStoreModeOfflineAccount = YDMStoreModeOfflineAccountCoordinator
 
-public class YDMStoreModeOfflineAccountCoordinator {
+public class YDMStoreModeOfflineAccountCoordinator: HistoricNavigationDelegate {
 
   // Properties
   var navigationController: UINavigationController?
@@ -91,6 +91,24 @@ extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavig
 // MARK: User Data Navigation
 extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
   func openUserHistoric() {
+    guard let viewController = HistoricViewController.initializeFromStoryboard()
+    else {
+      fatalError("HistoricViewController.initializeFromStoryboard")
+    }
+
+    let service = YDServiceClient()
+    let serviceHistoric = HistoricService(service: service)
+
+    let viewModel = HistoricViewModel(
+      service: serviceHistoric,
+      navigation: self
+    )
+
+    viewController.viewModel = viewModel
+    navigationController?.pushViewController(viewController, animated: true)
+  }
+
+  func openTerms() {
     guard let viewController = TermsViewController.initializeFromStoryboard()
     else {
       fatalError("TermsViewController.initializeFromStoryboard")

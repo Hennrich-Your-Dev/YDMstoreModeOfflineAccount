@@ -12,6 +12,10 @@ import YDExtensions
 class UserDataTermsAndButtonTableViewCell: UITableViewCell {
   // MARK: Properties
   var callback: ((Bool) -> Void)?
+  let tapGesture = UITapGestureRecognizer(
+    target: self,
+    action: #selector(onTermsTap)
+  )
 
   // MARK: IBOutlets
   @IBOutlet weak var termsSwitch: UISwitch!
@@ -67,6 +71,8 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
     termsSwitch.setOn(false, animated: false)
     saveButton.isEnabled = false
     callback = nil
+
+    termsLabel.removeGestureRecognizer(tapGesture)
   }
 
   // MARK: Config
@@ -74,6 +80,8 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
     termsSwitch.setOn(switchValue, animated: true)
     onSwitchChange()
     callback = action
+
+    termsLabel.addGestureRecognizer(tapGesture)
   }
 
   // MARK: IBActions
@@ -86,5 +94,13 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
     saveButton.backgroundColor = termsSwitch.isOn ? .clear : UIColor.Zeplin.grayDisabled
     saveButton.layer.borderColor = termsSwitch.isOn ?
       UIColor.Zeplin.colorPrimaryLight.cgColor : UIColor.Zeplin.grayDisabled.cgColor
+  }
+
+  // MARK:
+  @objc func onTermsTap() {
+    NotificationCenter.default.post(
+      name: NSNotification.Name("openTerms"),
+      object: nil
+    )
   }
 }

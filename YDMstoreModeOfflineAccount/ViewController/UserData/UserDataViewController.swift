@@ -39,18 +39,16 @@ class UserDataViewController: UIViewController {
     }
   }
 
+  @IBOutlet weak var lastUpdateLabelTitle: UILabel!
+
+  @IBOutlet weak var lastUpdateLabel: UILabel!
+  
   @IBOutlet weak var tableView: UITableView!  {
     didSet {
       tableView.dataSource = self
       tableView.tableFooterView = UIView()
 
       let bundle = Bundle.init(for: UserDataViewController.self)
-
-      // Historic
-      tableView.register(
-        UserDataHistoricTableViewCell.loadNib(bundle),
-        forCellReuseIdentifier: UserDataHistoricTableViewCell.identifier
-      )
 
       // Users Info
       tableView.register(
@@ -92,13 +90,22 @@ class UserDataViewController: UIViewController {
     super.viewDidLoad()
     view.hero.isEnabled = true
     view.hero.id = "background"
-
     setViewBackgroundImage()
 
     setBinds()
 
     viewModel?.trackState()
     viewModel?.getUsersInfo()
+
+    lastUpdateLabelTitle.isHidden = true
+    lastUpdateLabel.isHidden = true
+
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(onTermsNotification),
+      name: NSNotification.Name("openTerms"),
+      object: nil
+    )
   }
 
   // MARK: IBActions
@@ -106,9 +113,19 @@ class UserDataViewController: UIViewController {
     navigationController?.popViewController(animated: true)
   }
 
+  @IBAction func onHistoricAction(_ sender: Any) {
+    viewModel?.openHistoric()
+  }
+
+
+  // MARK: Actions
   func setViewBackgroundImage() {
     if let image = Images.map {
       view.backgroundColor = UIColor(patternImage: image)
     }
+  }
+
+  @objc func onTermsNotification() {
+    viewModel?.openTerms()
   }
 }
