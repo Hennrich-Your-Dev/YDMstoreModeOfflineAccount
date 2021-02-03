@@ -14,7 +14,6 @@ import YDExtensions
 class UserDataViewController: UIViewController {
   // MARK: Properties
   var viewModel: UserDataViewModelDelegate?
-  var items: [Int] = []
   var shadowScrollEnabled = false
 
   // MARK: IBOutlets
@@ -42,7 +41,9 @@ class UserDataViewController: UIViewController {
   @IBOutlet weak var lastUpdateLabelTitle: UILabel!
 
   @IBOutlet weak var lastUpdateLabel: UILabel!
-  
+
+  @IBOutlet weak var historicButton: UIButton!
+
   @IBOutlet weak var tableView: UITableView!  {
     didSet {
       tableView.dataSource = self
@@ -85,6 +86,12 @@ class UserDataViewController: UIViewController {
     }
   }
 
+  @IBOutlet weak var separatorView: UIView! {
+    didSet {
+      separatorView.layer.zPosition = 6
+    }
+  }
+
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -96,9 +103,6 @@ class UserDataViewController: UIViewController {
 
     viewModel?.trackState()
     viewModel?.getUsersInfo()
-
-    lastUpdateLabelTitle.isHidden = true
-    lastUpdateLabel.isHidden = true
 
     NotificationCenter.default.addObserver(
       self,
@@ -116,7 +120,6 @@ class UserDataViewController: UIViewController {
   @IBAction func onHistoricAction(_ sender: Any) {
     viewModel?.openHistoric()
   }
-
 
   // MARK: Actions
   func setViewBackgroundImage() {

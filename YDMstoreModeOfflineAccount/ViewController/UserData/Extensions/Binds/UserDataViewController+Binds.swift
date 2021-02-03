@@ -26,6 +26,9 @@ extension UserDataViewController {
 
     viewModel?.usersInfo.bind { [weak self] _ in
       self?.tableView.reloadData()
+//      self?.lastUpdateLabelTitle.isHidden = false
+//      self?.lastUpdateLabel.isHidden = false
+      self?.historicButton.isHidden = false
     }
   }
 }

@@ -14,6 +14,7 @@ import YDExtensions
 class HistoricViewController: UIViewController {
   // MARK: Properties
   var viewModel: HistoricViewModelDelegate?
+  var shadowScrollEnabled = false
 
   // MARK: IBOutlets
   @IBOutlet weak var contentView: UIView! {
@@ -45,6 +46,25 @@ class HistoricViewController: UIViewController {
     }
   }
 
+  @IBOutlet weak var shadowContainerView: UIView! {
+    didSet {
+      shadowContainerView.backgroundColor = .white
+      shadowContainerView.layer.zPosition = 5
+    }
+  }
+
+  @IBOutlet weak var separatorView: UIView! {
+    didSet {
+      separatorView.layer.zPosition = 6
+    }
+  }
+
+  @IBOutlet weak var tableView: UITableView! {
+    didSet {
+      tableView.delegate = self
+      tableView.dataSource = self
+    }
+  }
 
   // MARK: Life cycle
   override func viewDidLoad() {
@@ -61,6 +81,7 @@ class HistoricViewController: UIViewController {
   }
 
   @IBAction func onExportAction(_ sender: Any) {
+    
   }
 
 }

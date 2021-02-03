@@ -1,13 +1,13 @@
 //
-//  UserDataViewController+ScrollView.swift
+//  HistoricViewController+ScrollView.swift
 //  YDMstoreModeOfflineAccount
 //
-//  Created by Douglas Hennrich on 29/01/21.
+//  Created by Douglas Hennrich on 03/02/21.
 //
 
 import UIKit
 
-extension UserDataViewController: UIScrollViewDelegate {
+extension HistoricViewController: UIScrollViewDelegate {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
       // reach bottom
@@ -44,3 +44,4 @@ extension UserDataViewController: UIScrollViewDelegate {
     }
   }
 }
+
