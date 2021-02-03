@@ -46,6 +46,10 @@
 		C1DE3DD025C3107F0084299E /* UserDataSeparatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */; };
 		C1E083F025C200C5004D5382 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E083EF25C200C5004D5382 /* UserLogin.swift */; };
 		C1E0842725C220A7004D5382 /* UsersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0842625C220A7004D5382 /* UsersInfo.swift */; };
+		E4B90F9F25CB151B0030FF42 /* YDMstoreFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B90F9E25CB151B0030FF42 /* YDMstoreFramework.swift */; };
+		E4B90FA325CB15370030FF42 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B90FA225CB15370030FF42 /* Bundle.swift */; };
+		E4B90FA825CB15720030FF42 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = E4B90FA625CB15720030FF42 /* Contents.json */; };
+		E4B90FA925CB15720030FF42 /* termos-uso.html in Resources */ = {isa = PBXBuildFile; fileRef = E4B90FA725CB15720030FF42 /* termos-uso.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +96,10 @@
 		C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataSeparatorTableViewCell.xib; sourceTree = "<group>"; };
 		C1E083EF25C200C5004D5382 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		C1E0842625C220A7004D5382 /* UsersInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInfo.swift; sourceTree = "<group>"; };
+		E4B90F9E25CB151B0030FF42 /* YDMstoreFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YDMstoreFramework.swift; sourceTree = "<group>"; };
+		E4B90FA225CB15370030FF42 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		E4B90FA625CB15720030FF42 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		E4B90FA725CB15720030FF42 /* termos-uso.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "termos-uso.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,15 +135,16 @@
 		A5B9E35525AE0451006EA075 /* YDMstoreModeOfflineAccount */ = {
 			isa = PBXGroup;
 			children = (
+				A5B9E35625AE0451006EA075 /* YDMstoreModeOfflineAccount.h */,
+				A5B9E35725AE0451006EA075 /* Info.plist */,
+				E4B90F9E25CB151B0030FF42 /* YDMstoreFramework.swift */,
 				A5B9E36225AE1214006EA075 /* Coordinator */,
-				A5B9E3A725AE1C15006EA075 /* Service */,
 				C197DCA725BF31890007E8C3 /* Model */,
+				E4B90FA525CB15440030FF42 /* Resource */,
+				A5B9E3A725AE1C15006EA075 /* Service */,
 				A5B9E37125AE128F006EA075 /* View */,
 				A5B9E38325AE12E0006EA075 /* ViewController */,
 				A5B9E38925AE132E006EA075 /* ViewModel */,
-				A5B9E35625AE0451006EA075 /* YDMstoreModeOfflineAccount.h */,
-				A5B9E35725AE0451006EA075 /* Info.plist */,
-				C19B996C25C99B1C0002E696 /* Assets.xcassets */,
 			);
 			path = YDMstoreModeOfflineAccount;
 			sourceTree = "<group>";
@@ -236,6 +245,7 @@
 		C183CECE25B0952400B4F675 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E4B90FA125CB15370030FF42 /* Bundle */,
 				C14D63C825B1E44C00DAF725 /* Dialog */,
 				C14D63C325B1E25D00DAF725 /* Binds */,
 				C183CECF25B0952900B4F675 /* ScrollView */,
@@ -506,6 +516,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E4B90FA125CB15370030FF42 /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				E4B90FA225CB15370030FF42 /* Bundle.swift */,
+			);
+			path = Bundle;
+			sourceTree = "<group>";
+		};
+		E4B90FA525CB15440030FF42 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E4B90FA625CB15720030FF42 /* Contents.json */,
+				E4B90FA725CB15720030FF42 /* termos-uso.html */,
+				C19B996C25C99B1C0002E696 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		F86F11171E95E2BC1F150C03 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -590,9 +618,11 @@
 				C19B99C725C9C4BC0002E696 /* HistoricViewController.storyboard in Resources */,
 				C197DCA325BF2E510007E8C3 /* UserDataInfoTableViewCell.xib in Resources */,
 				C158ECE025C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.xib in Resources */,
+				E4B90FA825CB15720030FF42 /* Contents.json in Resources */,
 				A5B9E37425AE12A9006EA075 /* YDMStoreModeOfflineAccountViewController.storyboard in Resources */,
 				C1DE3DD025C3107F0084299E /* UserDataSeparatorTableViewCell.xib in Resources */,
 				C19B996D25C99B1C0002E696 /* Assets.xcassets in Resources */,
+				E4B90FA925CB15720030FF42 /* termos-uso.html in Resources */,
 				C19B995E25C992560002E696 /* TermsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1DE3DCF25C3107F0084299E /* UserDataSeparatorTableViewCell.swift in Sources */,
+				E4B90F9F25CB151B0030FF42 /* YDMstoreFramework.swift in Sources */,
 				C14D63C525B1E27200DAF725 /* YDMStoreModeOfflineAccountViewController+Binds.swift in Sources */,
 				C197DCB125BF4C5E0007E8C3 /* UserDataService.swift in Sources */,
 				C19B99CB25C9CA2C0002E696 /* HistoricViewController.swift in Sources */,
@@ -641,6 +672,7 @@
 				C197DCB625BF4EBD0007E8C3 /* UserDataViewController+Binds.swift in Sources */,
 				C183D0CC25B0D8B100B4F675 /* UserDataViewController.swift in Sources */,
 				C12B96B825CAEB3500143B99 /* HistoricViewController+TableView.swift in Sources */,
+				E4B90FA325CB15370030FF42 /* Bundle.swift in Sources */,
 				C158ECDF25C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.swift in Sources */,
 				C1B6BFD025C42667001CB137 /* UserDataViewController+ScrollView.swift in Sources */,
 				A5B9E38725AE12EF006EA075 /* YDMStoreModeOfflineAccountViewController.swift in Sources */,
