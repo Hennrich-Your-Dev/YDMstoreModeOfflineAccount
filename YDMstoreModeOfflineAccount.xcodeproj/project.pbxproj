@@ -35,7 +35,6 @@
 		C19B995E25C992560002E696 /* TermsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C19B995D25C992560002E696 /* TermsViewController.storyboard */; };
 		C19B996225C992820002E696 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B996125C992820002E696 /* TermsViewController.swift */; };
 		C19B996925C9934E0002E696 /* TermsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B996825C9934E0002E696 /* TermsViewModel.swift */; };
-		C19B996D25C99B1C0002E696 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C19B996C25C99B1C0002E696 /* Assets.xcassets */; };
 		C19B99C725C9C4BC0002E696 /* HistoricViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C19B99C625C9C4BC0002E696 /* HistoricViewController.storyboard */; };
 		C19B99CB25C9CA2C0002E696 /* HistoricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B99CA25C9CA2C0002E696 /* HistoricViewController.swift */; };
 		C19B99D025C9D04B0002E696 /* HistoricViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B99CF25C9D04B0002E696 /* HistoricViewModel.swift */; };
@@ -48,7 +47,6 @@
 		C1E0842725C220A7004D5382 /* UsersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0842625C220A7004D5382 /* UsersInfo.swift */; };
 		E4B90F9F25CB151B0030FF42 /* YDMstoreFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B90F9E25CB151B0030FF42 /* YDMstoreFramework.swift */; };
 		E4B90FA325CB15370030FF42 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B90FA225CB15370030FF42 /* Bundle.swift */; };
-		E4B90FA825CB15720030FF42 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = E4B90FA625CB15720030FF42 /* Contents.json */; };
 		E4B90FA925CB15720030FF42 /* termos-uso.html in Resources */ = {isa = PBXBuildFile; fileRef = E4B90FA725CB15720030FF42 /* termos-uso.html */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +83,6 @@
 		C19B995D25C992560002E696 /* TermsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TermsViewController.storyboard; sourceTree = "<group>"; };
 		C19B996125C992820002E696 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		C19B996825C9934E0002E696 /* TermsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewModel.swift; sourceTree = "<group>"; };
-		C19B996C25C99B1C0002E696 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C19B99C625C9C4BC0002E696 /* HistoricViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HistoricViewController.storyboard; sourceTree = "<group>"; };
 		C19B99CA25C9CA2C0002E696 /* HistoricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricViewController.swift; sourceTree = "<group>"; };
 		C19B99CF25C9D04B0002E696 /* HistoricViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricViewModel.swift; sourceTree = "<group>"; };
@@ -98,7 +95,6 @@
 		C1E0842625C220A7004D5382 /* UsersInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInfo.swift; sourceTree = "<group>"; };
 		E4B90F9E25CB151B0030FF42 /* YDMstoreFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YDMstoreFramework.swift; sourceTree = "<group>"; };
 		E4B90FA225CB15370030FF42 /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
-		E4B90FA625CB15720030FF42 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		E4B90FA725CB15720030FF42 /* termos-uso.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "termos-uso.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -527,9 +523,7 @@
 		E4B90FA525CB15440030FF42 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				E4B90FA625CB15720030FF42 /* Contents.json */,
 				E4B90FA725CB15720030FF42 /* termos-uso.html */,
-				C19B996C25C99B1C0002E696 /* Assets.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -618,10 +612,8 @@
 				C19B99C725C9C4BC0002E696 /* HistoricViewController.storyboard in Resources */,
 				C197DCA325BF2E510007E8C3 /* UserDataInfoTableViewCell.xib in Resources */,
 				C158ECE025C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.xib in Resources */,
-				E4B90FA825CB15720030FF42 /* Contents.json in Resources */,
 				A5B9E37425AE12A9006EA075 /* YDMStoreModeOfflineAccountViewController.storyboard in Resources */,
 				C1DE3DD025C3107F0084299E /* UserDataSeparatorTableViewCell.xib in Resources */,
-				C19B996D25C99B1C0002E696 /* Assets.xcassets in Resources */,
 				E4B90FA925CB15720030FF42 /* termos-uso.html in Resources */,
 				C19B995E25C992560002E696 /* TermsViewController.storyboard in Resources */,
 			);
