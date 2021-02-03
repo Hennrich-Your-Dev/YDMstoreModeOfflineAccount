@@ -56,6 +56,13 @@
                                                     <constraint firstItem="RoU-Yg-WxY" firstAttribute="centerX" secondItem="rnJ-ph-gQe" secondAttribute="centerX" id="suV-9w-O8F"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6Q-3A-ifS">
+                                                <rect key="frame" x="0.0" y="71" width="414" height="5"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="fFs-yj-fsD"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUp-PV-pZQ" userLabel="Separator">
                                                 <rect key="frame" x="21" y="76" width="372" height="1"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
@@ -64,7 +71,7 @@
                                                 </constraints>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m87-up-gxQ">
-                                                <rect key="frame" x="0.0" y="107" width="414" height="727"/>
+                                                <rect key="frame" x="21" y="77" width="393" height="757"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="scrollIndicatorInsets" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
                                                 <color key="textColor" name="black"/>
@@ -76,14 +83,17 @@
                                         <constraints>
                                             <constraint firstItem="qUp-PV-pZQ" firstAttribute="leading" secondItem="fFl-dz-bO2" secondAttribute="leading" constant="21" id="1An-dh-JrL"/>
                                             <constraint firstItem="qUp-PV-pZQ" firstAttribute="top" secondItem="rnJ-ph-gQe" secondAttribute="bottom" constant="18" id="2dl-jf-uuv"/>
-                                            <constraint firstItem="m87-up-gxQ" firstAttribute="leading" secondItem="fFl-dz-bO2" secondAttribute="leading" id="Kop-Hc-r5V"/>
+                                            <constraint firstItem="m87-up-gxQ" firstAttribute="leading" secondItem="fFl-dz-bO2" secondAttribute="leading" constant="21" id="Kop-Hc-r5V"/>
                                             <constraint firstAttribute="trailing" secondItem="rnJ-ph-gQe" secondAttribute="trailing" id="RSh-Yq-Thz"/>
                                             <constraint firstAttribute="bottom" secondItem="m87-up-gxQ" secondAttribute="bottom" id="etR-23-uHW"/>
                                             <constraint firstAttribute="trailing" secondItem="qUp-PV-pZQ" secondAttribute="trailing" constant="21" id="pv5-FB-aVA"/>
                                             <constraint firstAttribute="trailing" secondItem="m87-up-gxQ" secondAttribute="trailing" id="qWL-uF-tII"/>
+                                            <constraint firstItem="H6Q-3A-ifS" firstAttribute="top" secondItem="qUp-PV-pZQ" secondAttribute="bottom" constant="-6" id="qhb-uL-gPg"/>
                                             <constraint firstItem="rnJ-ph-gQe" firstAttribute="top" secondItem="fFl-dz-bO2" secondAttribute="top" constant="20" id="sk5-Ui-QiZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="H6Q-3A-ifS" secondAttribute="trailing" id="uUb-sJ-0pR"/>
+                                            <constraint firstItem="H6Q-3A-ifS" firstAttribute="leading" secondItem="fFl-dz-bO2" secondAttribute="leading" id="xh6-sB-Pxx"/>
                                             <constraint firstItem="rnJ-ph-gQe" firstAttribute="leading" secondItem="fFl-dz-bO2" secondAttribute="leading" id="zMT-V6-0zZ"/>
-                                            <constraint firstItem="m87-up-gxQ" firstAttribute="top" secondItem="qUp-PV-pZQ" secondAttribute="bottom" constant="30" id="zqL-hF-NtV"/>
+                                            <constraint firstItem="m87-up-gxQ" firstAttribute="top" secondItem="qUp-PV-pZQ" secondAttribute="bottom" id="zqL-hF-NtV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -109,6 +119,8 @@
                         <outlet property="backButton" destination="dej-ii-D7N" id="O9o-Zp-oKm"/>
                         <outlet property="contentView" destination="fFl-dz-bO2" id="oaQ-lK-fYt"/>
                         <outlet property="navContainer" destination="rnJ-ph-gQe" id="y7v-CP-7Gx"/>
+                        <outlet property="separatorView" destination="qUp-PV-pZQ" id="phY-62-5by"/>
+                        <outlet property="shadowContainerView" destination="H6Q-3A-ifS" id="p5Y-cg-cfl"/>
                         <outlet property="textView" destination="m87-up-gxQ" id="scP-vQ-nRj"/>
                     </connections>
                 </viewController>

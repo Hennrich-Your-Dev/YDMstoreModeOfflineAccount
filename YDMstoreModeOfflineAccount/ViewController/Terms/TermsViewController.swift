@@ -11,9 +11,10 @@ import Hero
 import YDB2WAssets
 import YDExtensions
 
-class TermsViewController: UIViewController {
+class TermsViewController: UIViewController, UITextViewDelegate {
   // MARK: Properties
   var viewModel: TermsViewModelDelegate?
+  var shadowScrollEnabled = false
 
   // MARK: IBOutlets
   @IBOutlet weak var contentView: UIView! {
@@ -37,7 +38,24 @@ class TermsViewController: UIViewController {
     }
   }
 
-  @IBOutlet weak var textView: UITextView!
+  @IBOutlet weak var shadowContainerView: UIView! {
+    didSet {
+      shadowContainerView.backgroundColor = .white
+      shadowContainerView.layer.zPosition = 5
+    }
+  }
+
+  @IBOutlet weak var separatorView: UIView! {
+    didSet {
+      separatorView.layer.zPosition = 6
+    }
+  }
+
+  @IBOutlet weak var textView: UITextView! {
+    didSet {
+      textView.delegate = self
+    }
+  }
 
   // MARK: Life cycle
   override func viewDidLoad() {
@@ -64,7 +82,7 @@ extension TermsViewController {
   }
 
   func loadHTML() {
-    let bundle = Bundle.localBundle
+    let bundle = Bundle(for: Self.self)
     guard let path = bundle.path(forResource: "termos-uso", ofType: "html")
     else {
       return
@@ -81,15 +99,6 @@ extension TermsViewController {
           .characterEncoding: String.Encoding.utf8.rawValue
         ],
         documentAttributes: nil
-      )
-
-      let paragraphStyle = NSMutableParagraphStyle()
-      paragraphStyle.lineSpacing = 3
-
-      attributedString.addAttribute(
-        NSAttributedString.Key.paragraphStyle,
-        value: paragraphStyle,
-        range: NSMakeRange(0, attributedString.length)
       )
 
       attributedString.addAttribute(
