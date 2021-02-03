@@ -22,7 +22,7 @@ class TermsViewController: UIViewController {
       contentView.hero.id = "bottomSheet"
     }
   }
-  
+
   @IBOutlet weak var navContainer: UIView!  {
     didSet {
       navContainer.backgroundColor = .white
@@ -64,7 +64,7 @@ extension TermsViewController {
   }
 
   func loadHTML() {
-    let bundle = Bundle(for: Self.self)
+    let bundle = Bundle.localBundle
     guard let path = bundle.path(forResource: "termos-uso", ofType: "html")
     else {
       return
@@ -104,4 +104,23 @@ extension TermsViewController {
       debugPrint(error.localizedDescription)
     }
   }
+}
+
+//
+//
+//
+extension Bundle {
+  static var localBundle: Bundle {
+    return Bundle(for: YDMstoreFramework.self)
+  }
+}
+
+public class YDMstoreFramework {
+
+    // MARK: - Properties
+
+    private static var sharedManager: YDMstoreFramework {
+        let manager = YDMstoreFramework()
+        return manager
+    }
 }
