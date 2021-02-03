@@ -46,6 +46,7 @@ class UserDataViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!  {
     didSet {
+      tableView.delegate = self
       tableView.dataSource = self
       tableView.tableFooterView = UIView()
 

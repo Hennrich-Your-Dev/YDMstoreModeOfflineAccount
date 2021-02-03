@@ -106,3 +106,6 @@ extension UserDataViewController: UITableViewDataSource {
     return dequeueCellConstructor(at: indexPath, withData: data)
   }
 }
+
+// MARK: TableView Delegate
+extension UserDataViewController: UITableViewDelegate {}
