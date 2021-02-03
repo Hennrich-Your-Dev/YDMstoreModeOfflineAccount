@@ -105,22 +105,3 @@ extension TermsViewController {
     }
   }
 }
-
-//
-//
-//
-extension Bundle {
-  static var localBundle: Bundle {
-    return Bundle(for: YDMstoreFramework.self)
-  }
-}
-
-public class YDMstoreFramework {
-
-    // MARK: - Properties
-
-    private static var sharedManager: YDMstoreFramework {
-        let manager = YDMstoreFramework()
-        return manager
-    }
-}
