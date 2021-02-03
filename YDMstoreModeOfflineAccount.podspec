@@ -22,7 +22,6 @@ Pod::Spec.new do |spec|
 
   spec.source_files     = "YDMstoreModeOfflineAccount/**/*.{h,m,swift}"
   spec.resources        = "YDMstoreModeOfflineAccount/**/*.{xib,storyboard,json,xcassets,html}"
-  spec.resource_bundles = { "YDMstoreModeOfflineAccount" => ["YDMstoreModeOfflineAccount/*.xcassets/*"] }
 
   spec.dependency "YDB2WIntegration"
   spec.dependency "YDUtilities"

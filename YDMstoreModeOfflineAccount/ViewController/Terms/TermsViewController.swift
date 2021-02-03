@@ -64,7 +64,7 @@ extension TermsViewController {
   }
 
   func loadHTML() {
-    let bundle = Bundle(for: Self.self)
+    let bundle = Bundle.localBundle
     guard let path = bundle.path(forResource: "termos-uso", ofType: "html")
     else {
       return
