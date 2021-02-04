@@ -52,6 +52,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="marketingLabel" destination="D22-eH-NSy" id="KFD-ku-51z"/>
                 <outlet property="marketingSwitch" destination="xE3-7h-Aat" id="7Qk-Sr-PPl"/>

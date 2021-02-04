@@ -31,8 +31,31 @@ struct UserDataSet {
     return dateFormatterGet.date(from: date)?.toFormat(toFormat)
   }
 
-  static func formatPhoneNumber(_ number: String?, toFormat: String = "(##) #####-####") -> String? {
-    return number?.applyPatternOnNumbers(pattern: toFormat, replacmentCharacter: "#")
+  static func formatPhoneNumber(_ number: String?) -> String? {
+    guard let numberUnwarp = number else { return nil }
+
+    let cleanNumber = numberUnwarp.replacingOccurrences(
+      of: "[^0-9]",
+      with: "",
+      options: .regularExpression
+    )
+
+    switch cleanNumber.count {
+      case 11:
+        return cleanNumber.applyPatternOnNumbers(pattern: "(##) #####-####", replacmentCharacter: "#")
+
+      case 10:
+        return cleanNumber.applyPatternOnNumbers(pattern: "(##) ####-####", replacmentCharacter: "#")
+
+      case 9:
+        return cleanNumber.applyPatternOnNumbers(pattern: "#####-####", replacmentCharacter: "#")
+
+      case 8:
+        return cleanNumber.applyPatternOnNumbers(pattern: "####-####", replacmentCharacter: "#")
+
+      default:
+        return number
+    }
   }
 
   static func formatSocialSecurityNumber(_ number: String?, toFormat: String = "###.###.###-##") -> String? {

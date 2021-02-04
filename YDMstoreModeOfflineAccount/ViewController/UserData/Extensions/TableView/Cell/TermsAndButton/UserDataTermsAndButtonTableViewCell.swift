@@ -11,16 +11,13 @@ import YDExtensions
 
 class UserDataTermsAndButtonTableViewCell: UITableViewCell {
   // MARK: Properties
-  var callback: ((Bool) -> Void)?
-  let tapGesture = UITapGestureRecognizer(
-    target: self,
-    action: #selector(onTermsTap)
-  )
+  var switchChangeCallback: ((Bool) -> Void)?
+  var onTermsCallback: (() -> Void)?
 
   // MARK: IBOutlets
   @IBOutlet weak var termsSwitch: UISwitch!
 
-  @IBOutlet weak var termsLabel: UILabel! {
+  @IBOutlet weak var termsButton: UIButton! {
     didSet {
       let termsText = "Li e concordo com os Termos e condições e Política de privacidade."
       let toUnderline = "Termos e condições e Política de privacidade."
@@ -46,7 +43,7 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
         range: location
       )
 
-      termsLabel.attributedText = attributedString
+      termsButton.setAttributedTitle(attributedString, for: .normal)
       layoutIfNeeded()
     }
   }
@@ -70,23 +67,24 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
     super.prepareForReuse()
     termsSwitch.setOn(false, animated: false)
     saveButton.isEnabled = false
-    callback = nil
-
-    termsLabel.removeGestureRecognizer(tapGesture)
+    switchChangeCallback = nil
   }
 
   // MARK: Config
-  func config(withValue switchValue: Bool, onAction action: @escaping ((Bool) -> Void)) {
+  func config(
+    withValue switchValue: Bool,
+    onSwitchChange action: @escaping ((Bool) -> Void),
+    onTerms: @escaping (() -> Void)
+  ) {
     termsSwitch.setOn(switchValue, animated: true)
     onSwitchChange()
-    callback = action
-
-    termsLabel.addGestureRecognizer(tapGesture)
+    switchChangeCallback = action
+    onTermsCallback = onTerms
   }
 
   // MARK: IBActions
   @IBAction func onButtonAction(_ sender: Any) {
-    callback?(termsSwitch.isOn)
+    switchChangeCallback?(termsSwitch.isOn)
   }
 
   @IBAction func onSwitchChange(_ sender: Any? = nil) {
@@ -96,11 +94,7 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
       UIColor.Zeplin.colorPrimaryLight.cgColor : UIColor.Zeplin.grayDisabled.cgColor
   }
 
-  // MARK:
-  @objc func onTermsTap() {
-    NotificationCenter.default.post(
-      name: NSNotification.Name("openTerms"),
-      object: nil
-    )
+  @IBAction func onTermsAction(_ sender: Any) {
+    onTermsCallback?()
   }
 }

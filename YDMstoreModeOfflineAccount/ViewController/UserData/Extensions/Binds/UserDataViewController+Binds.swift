@@ -29,6 +29,7 @@ extension UserDataViewController {
 //      self?.lastUpdateLabelTitle.isHidden = false
 //      self?.lastUpdateLabel.isHidden = false
       self?.historicButton.isHidden = false
+      self?.separatorView.isHidden = false
     }
   }
 }
