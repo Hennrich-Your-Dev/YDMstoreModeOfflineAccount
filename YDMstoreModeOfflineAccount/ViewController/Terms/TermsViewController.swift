@@ -20,6 +20,8 @@ class TermsViewController: UIViewController, UITextViewDelegate {
   @IBOutlet weak var contentView: UIView! {
     didSet {
       contentView.layer.cornerRadius = 16
+      contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+      contentView.clipsToBounds = true
       contentView.hero.id = "bottomSheet"
     }
   }

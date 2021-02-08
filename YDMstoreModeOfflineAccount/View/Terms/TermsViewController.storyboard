@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntv-1z-D1v">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="876"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFl-dz-bO2">
                                         <rect key="frame" x="0.0" y="62" width="414" height="834"/>
@@ -73,7 +73,6 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m87-up-gxQ">
                                                 <rect key="frame" x="31" y="78" width="352" height="756"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="scrollIndicatorInsets" minX="32" minY="0.0" maxX="32" maxY="0.0"/>
                                                 <color key="textColor" name="black"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -101,8 +100,8 @@
                                 <constraints>
                                     <constraint firstItem="fFl-dz-bO2" firstAttribute="top" secondItem="Ntv-1z-D1v" secondAttribute="topMargin" constant="10" id="h2w-OI-t5l"/>
                                     <constraint firstAttribute="trailing" secondItem="fFl-dz-bO2" secondAttribute="trailing" id="j5K-4h-xPJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="fFl-dz-bO2" secondAttribute="bottom" constant="-20" id="jc3-YU-HKE"/>
                                     <constraint firstItem="fFl-dz-bO2" firstAttribute="leading" secondItem="Ntv-1z-D1v" secondAttribute="leading" id="mcH-Wc-b46"/>
+                                    <constraint firstAttribute="bottom" secondItem="fFl-dz-bO2" secondAttribute="bottom" id="vex-Qa-sSU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -111,8 +110,8 @@
                         <constraints>
                             <constraint firstItem="Ntv-1z-D1v" firstAttribute="top" secondItem="Xja-Ni-Ewz" secondAttribute="top" id="09O-sB-0G9"/>
                             <constraint firstItem="Ntv-1z-D1v" firstAttribute="trailing" secondItem="mOs-lk-EXJ" secondAttribute="trailing" id="2wV-fK-1Xh"/>
-                            <constraint firstAttribute="bottom" secondItem="Ntv-1z-D1v" secondAttribute="bottom" constant="20" symbolic="YES" id="KeY-g5-9pn"/>
                             <constraint firstItem="Ntv-1z-D1v" firstAttribute="leading" secondItem="mOs-lk-EXJ" secondAttribute="leading" id="YmK-aY-kgm"/>
+                            <constraint firstAttribute="bottom" secondItem="Ntv-1z-D1v" secondAttribute="bottom" id="wPV-1H-84c"/>
                         </constraints>
                     </view>
                     <connections>

@@ -13,11 +13,22 @@ extension HistoricViewController {}
 // MARK: TableView Data Source
 extension HistoricViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 0
+    return viewModel?.historicList.value.count ?? 0
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    guard let cell = tableView.dequeueReusableCell(
+      withIdentifier: HistoricTableViewCell.identifier,
+      for: indexPath
+    ) as? HistoricTableViewCell,
+    let currentHistoricData = viewModel?[indexPath.row]
+    else {
+      return UITableViewCell()
+    }
+
+    cell.config(with: currentHistoricData)
+
+    return cell
   }
 }
 

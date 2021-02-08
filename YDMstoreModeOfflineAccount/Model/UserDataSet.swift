@@ -24,9 +24,9 @@ struct UserDataSet {
   var doubleValue: String? = nil
 
   // MARK: Actions
-  static func formatDate(_ date: String, toFormat: String = "DD/MM/YYYY") -> String? {
-    let dateFormatterGet = ISO8601DateFormatter()
-    dateFormatterGet.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+  static func formatDate(_ date: String, toFormat: String = "dd/MM/yyyy") -> String? {
+    let dateFormatterGet = DateFormatter()
+    dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
 
     return dateFormatterGet.date(from: date)?.toFormat(toFormat)
   }

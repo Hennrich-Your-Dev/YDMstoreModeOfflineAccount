@@ -20,6 +20,8 @@ class HistoricViewController: UIViewController {
   @IBOutlet weak var contentView: UIView! {
     didSet {
       contentView.layer.cornerRadius = 16
+      contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+      contentView.clipsToBounds = true
       contentView.hero.id = "bottomSheet"
     }
   }
@@ -63,6 +65,13 @@ class HistoricViewController: UIViewController {
     didSet {
       tableView.delegate = self
       tableView.dataSource = self
+
+      let bundle = Bundle(for: Self.self)
+
+      tableView.register(
+        HistoricTableViewCell.loadNib(bundle),
+        forCellReuseIdentifier: HistoricTableViewCell.identifier
+      )
     }
   }
 
@@ -73,6 +82,7 @@ class HistoricViewController: UIViewController {
     view.hero.id = "background"
 
     setViewBackgroundImage()
+    setBinds()
   }
 
   // MARK: IBActions
