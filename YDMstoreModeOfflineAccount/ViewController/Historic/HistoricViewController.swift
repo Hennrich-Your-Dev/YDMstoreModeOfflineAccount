@@ -66,6 +66,8 @@ class HistoricViewController: UIViewController {
       tableView.delegate = self
       tableView.dataSource = self
 
+      tableView.tableFooterView = UIView()
+
       let bundle = Bundle(for: Self.self)
 
       tableView.register(
@@ -74,6 +76,8 @@ class HistoricViewController: UIViewController {
       )
     }
   }
+
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
   // MARK: Life cycle
   override func viewDidLoad() {

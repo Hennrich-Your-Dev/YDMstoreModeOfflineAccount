@@ -13,7 +13,7 @@ class HistoricTableViewCell: UITableViewCell {
   // MARK: Properties
   @IBOutlet weak var dateContainer: UIView! {
     didSet {
-      dateContainer.layer.cornerRadius = 24
+      dateContainer.layer.cornerRadius = 12
       dateContainer.layer.applyShadow()
       dateContainer.backgroundColor = .white
     }
@@ -52,6 +52,14 @@ class HistoricTableViewCell: UITableViewCell {
           height: 20
         )
       )
+      stackView.addArrangedSubview(view)
+
+      view.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate([
+        view.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+        view.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+        view.heightAnchor.constraint(equalToConstant: 20)
+      ])
 
       let titleLabel = UILabel()
       titleLabel.textAlignment = .left
@@ -60,9 +68,9 @@ class HistoricTableViewCell: UITableViewCell {
       titleLabel.textColor = UIColor.Zeplin.black
       view.addSubview(titleLabel)
 
+      titleLabel.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
         titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
       ])
 
@@ -74,13 +82,12 @@ class HistoricTableViewCell: UITableViewCell {
       valueLabel.numberOfLines = 1
       view.addSubview(valueLabel)
 
+      valueLabel.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
-        valueLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-        valueLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        valueLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 5),
+        valueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         valueLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
       ])
-
-      stackView.addArrangedSubview(view)
     }
   }
 }

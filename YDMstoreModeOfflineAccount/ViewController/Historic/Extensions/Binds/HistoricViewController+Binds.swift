@@ -10,7 +10,16 @@ import UIKit
 extension HistoricViewController {
   func setBinds() {
     viewModel?.loading.bind { [weak self] isLoading in
-      isLoading ? self?.view.startLoader() : self?.view.stopLoader()
+      if isLoading {
+        self?.tableView.isHidden = true
+        self?.separatorView.isHidden = true
+        self?.activityIndicator.isHidden = false
+        self?.activityIndicator.startAnimating()
+      } else {
+        self?.tableView.isHidden = false
+        self?.separatorView.isHidden = false
+        self?.activityIndicator.isHidden = true
+      }
     }
 
     viewModel?.historicList.bind { [weak self] _ in

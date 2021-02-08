@@ -94,10 +94,14 @@
                                             <constraint firstAttribute="height" constant="1" id="v3L-Am-Mem"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-3k-oSG">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-3k-oSG">
                                         <rect key="frame" x="0.0" y="197.5" width="414" height="644.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="g3W-ys-Hv4">
+                                        <rect key="frame" x="188.5" y="360.5" width="37" height="37"/>
+                                        <color key="color" name="redBranding"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -107,6 +111,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Dus-J3-BdO" secondAttribute="trailing" constant="31" id="DJj-GK-U5q"/>
                                     <constraint firstItem="Dus-J3-BdO" firstAttribute="leading" secondItem="71g-Ru-dIw" secondAttribute="leading" constant="31" id="FCu-8N-jF5"/>
                                     <constraint firstItem="WCx-5h-ku2" firstAttribute="centerX" secondItem="71g-Ru-dIw" secondAttribute="centerX" id="HuH-ua-HAH"/>
+                                    <constraint firstItem="g3W-ys-Hv4" firstAttribute="centerY" secondItem="71g-Ru-dIw" secondAttribute="centerY" multiplier="0.9" id="Jyo-ND-edY"/>
                                     <constraint firstItem="6fB-dS-7uQ" firstAttribute="leading" secondItem="71g-Ru-dIw" secondAttribute="leading" id="O8e-dQ-Vxp"/>
                                     <constraint firstItem="WCH-yu-vh7" firstAttribute="leading" secondItem="71g-Ru-dIw" secondAttribute="leading" id="WiY-8Q-dk3"/>
                                     <constraint firstItem="ycD-3k-oSG" firstAttribute="leading" secondItem="71g-Ru-dIw" secondAttribute="leading" id="e0w-gR-Y9r"/>
@@ -118,6 +123,7 @@
                                     <constraint firstAttribute="trailing" secondItem="ycD-3k-oSG" secondAttribute="trailing" id="lkf-Dc-kpM"/>
                                     <constraint firstAttribute="trailing" secondItem="Fhy-hv-mPn" secondAttribute="trailing" constant="21" id="sDz-m8-YAF"/>
                                     <constraint firstItem="ycD-3k-oSG" firstAttribute="top" secondItem="Fhy-hv-mPn" secondAttribute="bottom" id="x8d-bZ-U82"/>
+                                    <constraint firstItem="g3W-ys-Hv4" firstAttribute="centerX" secondItem="71g-Ru-dIw" secondAttribute="centerX" id="y7D-9z-um7"/>
                                     <constraint firstItem="Dus-J3-BdO" firstAttribute="top" secondItem="JLp-eA-zaY" secondAttribute="bottom" constant="25" id="zk1-Oe-u35"/>
                                 </constraints>
                             </view>
@@ -135,6 +141,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="g3W-ys-Hv4" id="Nov-El-gio"/>
                         <outlet property="backButton" destination="JLp-eA-zaY" id="ngq-Xi-5f0"/>
                         <outlet property="contentView" destination="71g-Ru-dIw" id="sk8-ZN-EKL"/>
                         <outlet property="exportButton" destination="WCx-5h-ku2" id="dzt-Q6-I5e"/>
