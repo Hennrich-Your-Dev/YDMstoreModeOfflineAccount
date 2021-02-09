@@ -27,10 +27,17 @@ class HistoricTableViewCell: UITableViewCell {
 
   @IBOutlet weak var goalLabel: UILabel!
 
+  @IBOutlet weak var separatorView: UIView!
+
   // MARK: IBOutlets
   override func awakeFromNib() {
     super.awakeFromNib()
     backgroundColor = .white
+  }
+
+  override func prepareForReuse() {
+    stackView.subviews.forEach { $0.removeFromSuperview() }
+    super.prepareForReuse()
   }
 
   // MARK: Config
@@ -73,6 +80,7 @@ class HistoricTableViewCell: UITableViewCell {
         titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
       ])
+      titleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
       let valueLabel = UILabel()
       valueLabel.textAlignment = .left
@@ -88,6 +96,7 @@ class HistoricTableViewCell: UITableViewCell {
         valueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         valueLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
       ])
+      valueLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
     }
   }
 }

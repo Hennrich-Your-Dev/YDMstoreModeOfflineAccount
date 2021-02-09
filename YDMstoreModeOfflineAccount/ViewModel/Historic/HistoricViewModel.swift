@@ -48,10 +48,10 @@ class HistoricViewModel {
 
   // MARK: Actions
   func getMock() -> [HistoricData] {
-    guard let path = Bundle.init(for: Self.self)
-            .path(forResource: "historicMock", ofType: "json"),
-          let url = URL(string: path),
-          let data = try? Data(contentsOf: url),
+    let bundle = Bundle(for: type(of: self))
+
+    guard let pathString = bundle.path(forResource: "historicMock", ofType: "json"),
+          let data = try? Data(contentsOf: URL(fileURLWithPath: pathString)),
           let json = try? JSONDecoder().decode([HistoricData].self, from: data)
     else {
       fatalError()
@@ -72,8 +72,10 @@ extension HistoricViewModel: HistoricViewModelDelegate {
   }
 
   func getHistoricList() {
+    loading.value = true
     Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
       self.historicList.value = self.getMock()
+      self.loading.value = false
     }
 
     // TODO:

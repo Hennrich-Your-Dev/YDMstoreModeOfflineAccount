@@ -122,7 +122,7 @@
                 <outlet property="dateLabel" destination="qog-tP-Vtc" id="yFH-Bk-p5z"/>
                 <outlet property="goalLabel" destination="eas-HP-Ym5" id="6vB-a2-ThB"/>
                 <outlet property="originLabel" destination="5Yb-Xl-i27" id="QpL-qv-zkb"/>
-                <outlet property="separatorView" destination="gKc-Ns-ewm" id="DeO-S7-ydC"/>
+                <outlet property="separatorView" destination="gKc-Ns-ewm" id="IIF-Jp-RNi"/>
                 <outlet property="stackView" destination="KaA-Xr-znp" id="2i0-0p-gaW"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="115.51339285714285"/>

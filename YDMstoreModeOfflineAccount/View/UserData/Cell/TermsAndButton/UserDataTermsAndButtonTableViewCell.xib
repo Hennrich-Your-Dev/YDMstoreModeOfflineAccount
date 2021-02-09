@@ -21,9 +21,6 @@
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYC-mN-L84">
                         <rect key="frame" x="41" y="42" width="51" height="31"/>
                         <color key="onTintColor" name="redBranding"/>
-                        <connections>
-                            <action selector="onSwitchChange:" destination="S9V-mb-RA2" eventType="valueChanged" id="JwT-mr-s76"/>
-                        </connections>
                     </switch>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZt-RE-AAg">
                         <rect key="frame" x="41" y="137" width="238" height="40"/>
@@ -38,7 +35,7 @@
                             <action selector="onButtonAction:" destination="S9V-mb-RA2" eventType="touchUpInside" id="ZUh-zU-Ibg"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LBg-v3-C8S">
+                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LBg-v3-C8S">
                         <rect key="frame" x="119" y="30" width="176" height="55"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="55" id="sT3-jO-9Ch"/>

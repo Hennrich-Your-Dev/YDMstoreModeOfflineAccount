@@ -87,6 +87,7 @@ class HistoricViewController: UIViewController {
 
     setViewBackgroundImage()
     setBinds()
+    viewModel?.getHistoricList()
   }
 
   // MARK: IBActions
@@ -95,7 +96,14 @@ class HistoricViewController: UIViewController {
   }
 
   @IBAction func onExportAction(_ sender: Any) {
-    
+    let image = contentView.snapshot
+
+    let activityViewController = UIActivityViewController(
+      activityItems: [image],
+      applicationActivities: nil
+    )
+
+    present(activityViewController, animated: true, completion: nil)
   }
 
 }
@@ -107,4 +115,15 @@ extension HistoricViewController {
       view.backgroundColor = UIColor(patternImage: image)
     }
   }
+}
+
+//
+extension UIView {
+
+  var snapshot: UIImage {
+    return UIGraphicsImageRenderer(size: bounds.size).image { _ in
+      drawHierarchy(in: bounds, afterScreenUpdates: true)
+    }
+  }
+
 }
