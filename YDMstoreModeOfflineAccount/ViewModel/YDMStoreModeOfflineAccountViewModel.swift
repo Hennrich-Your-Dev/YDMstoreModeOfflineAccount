@@ -30,17 +30,12 @@ protocol YDMStoreModeOfflineAccountViewModelDelegate {
 class YDMStoreModeOfflineAccountViewModel {
   // MARK: Properties
   let navigation: YDMStoreModeOfflineAccountNavigationDelegate
-  let service: YDMStoreModeOfflineAccountServiceDelegate
 
   var error: Binder<(title: String, message: String)> = Binder(("", ""))
   
   // MARK: Init
-  init(
-    navigation: YDMStoreModeOfflineAccountNavigationDelegate,
-    service: YDMStoreModeOfflineAccountServiceDelegate
-  ) {
+  init(navigation: YDMStoreModeOfflineAccountNavigationDelegate) {
     self.navigation = navigation
-    self.service = service
   }
 }
 

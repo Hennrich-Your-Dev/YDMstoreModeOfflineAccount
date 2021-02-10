@@ -13,7 +13,6 @@
 		A5B9E37425AE12A9006EA075 /* YDMStoreModeOfflineAccountViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5B9E37325AE12A9006EA075 /* YDMStoreModeOfflineAccountViewController.storyboard */; };
 		A5B9E38725AE12EF006EA075 /* YDMStoreModeOfflineAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9E38625AE12EF006EA075 /* YDMStoreModeOfflineAccountViewController.swift */; };
 		A5B9E38B25AE133B006EA075 /* YDMStoreModeOfflineAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9E38A25AE133B006EA075 /* YDMStoreModeOfflineAccountViewModel.swift */; };
-		A5B9E3A925AE1C21006EA075 /* YDMStoreModeOfflineAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9E3A825AE1C21006EA075 /* YDMStoreModeOfflineAccountService.swift */; };
 		C102A64425D156500036E17B /* HistoricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C102A64325D156500036E17B /* HistoricData.swift */; };
 		C102A64725D178D30036E17B /* historicMock.json in Resources */ = {isa = PBXBuildFile; fileRef = C102A64625D178D30036E17B /* historicMock.json */; };
 		C102A64B25D180F50036E17B /* HistoricViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C102A64A25D180F50036E17B /* HistoricViewController+Binds.swift */; };
@@ -32,7 +31,7 @@
 		C197DCA225BF2E510007E8C3 /* UserDataInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCA025BF2E510007E8C3 /* UserDataInfoTableViewCell.swift */; };
 		C197DCA325BF2E510007E8C3 /* UserDataInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C197DCA125BF2E510007E8C3 /* UserDataInfoTableViewCell.xib */; };
 		C197DCA925BF31B50007E8C3 /* UserDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCA825BF31B50007E8C3 /* UserDataSet.swift */; };
-		C197DCAD25BF481F0007E8C3 /* UserDataViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCAC25BF481F0007E8C3 /* UserDataViewModelDelegate.swift */; };
+		C197DCAD25BF481F0007E8C3 /* UserDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCAC25BF481F0007E8C3 /* UserDataViewModel.swift */; };
 		C197DCB125BF4C5E0007E8C3 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */; };
 		C197DCB625BF4EBD0007E8C3 /* UserDataViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCB525BF4EBD0007E8C3 /* UserDataViewController+Binds.swift */; };
 		C197DCBE25BF4FA00007E8C3 /* UserDataViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCBD25BF4FA00007E8C3 /* UserDataViewController+TableView.swift */; };
@@ -65,7 +64,6 @@
 		A5B9E37325AE12A9006EA075 /* YDMStoreModeOfflineAccountViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YDMStoreModeOfflineAccountViewController.storyboard; sourceTree = "<group>"; };
 		A5B9E38625AE12EF006EA075 /* YDMStoreModeOfflineAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMStoreModeOfflineAccountViewController.swift; sourceTree = "<group>"; };
 		A5B9E38A25AE133B006EA075 /* YDMStoreModeOfflineAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMStoreModeOfflineAccountViewModel.swift; sourceTree = "<group>"; };
-		A5B9E3A825AE1C21006EA075 /* YDMStoreModeOfflineAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMStoreModeOfflineAccountService.swift; sourceTree = "<group>"; };
 		C102A64325D156500036E17B /* HistoricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricData.swift; sourceTree = "<group>"; };
 		C102A64625D178D30036E17B /* historicMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = historicMock.json; sourceTree = "<group>"; };
 		C102A64A25D180F50036E17B /* HistoricViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoricViewController+Binds.swift"; sourceTree = "<group>"; };
@@ -84,7 +82,7 @@
 		C197DCA025BF2E510007E8C3 /* UserDataInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C197DCA125BF2E510007E8C3 /* UserDataInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataInfoTableViewCell.xib; sourceTree = "<group>"; };
 		C197DCA825BF31B50007E8C3 /* UserDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSet.swift; sourceTree = "<group>"; };
-		C197DCAC25BF481F0007E8C3 /* UserDataViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModelDelegate.swift; sourceTree = "<group>"; };
+		C197DCAC25BF481F0007E8C3 /* UserDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModel.swift; sourceTree = "<group>"; };
 		C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		C197DCB525BF4EBD0007E8C3 /* UserDataViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Binds.swift"; sourceTree = "<group>"; };
 		C197DCBD25BF4FA00007E8C3 /* UserDataViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+TableView.swift"; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				C19B99D425C9D0DC0002E696 /* Historic */,
-				A5B9E3A825AE1C21006EA075 /* YDMStoreModeOfflineAccountService.swift */,
 				C19B99D225C9D0CA0002E696 /* UserData */,
 			);
 			path = Service;
@@ -396,7 +393,7 @@
 		C19B996525C992FE0002E696 /* UserData */ = {
 			isa = PBXGroup;
 			children = (
-				C197DCAC25BF481F0007E8C3 /* UserDataViewModelDelegate.swift */,
+				C197DCAC25BF481F0007E8C3 /* UserDataViewModel.swift */,
 			);
 			path = UserData;
 			sourceTree = "<group>";
@@ -701,7 +698,7 @@
 				A5B9E38725AE12EF006EA075 /* YDMStoreModeOfflineAccountViewController.swift in Sources */,
 				C1E0842725C220A7004D5382 /* UsersInfo.swift in Sources */,
 				C19B996925C9934E0002E696 /* TermsViewModel.swift in Sources */,
-				C197DCAD25BF481F0007E8C3 /* UserDataViewModelDelegate.swift in Sources */,
+				C197DCAD25BF481F0007E8C3 /* UserDataViewModel.swift in Sources */,
 				C19B996225C992820002E696 /* TermsViewController.swift in Sources */,
 				C19B99D025C9D04B0002E696 /* HistoricViewModel.swift in Sources */,
 				A5B9E38B25AE133B006EA075 /* YDMStoreModeOfflineAccountViewModel.swift in Sources */,
@@ -710,7 +707,6 @@
 				C14D63CA25B1E47F00DAF725 /* YDMStoreModeOfflineAccountViewController+Dialog.swift in Sources */,
 				C1B6BF4625C4164F001CB137 /* UserDataViewController+Dialog.swift in Sources */,
 				C18C9A8A25C04C6800F4116F /* UserDataMarketingTableViewCell.swift in Sources */,
-				A5B9E3A925AE1C21006EA075 /* YDMStoreModeOfflineAccountService.swift in Sources */,
 				C1C1BACB25CC12F7008BAF23 /* HistoricTableViewCell.swift in Sources */,
 				C197DCA925BF31B50007E8C3 /* UserDataSet.swift in Sources */,
 			);

@@ -35,10 +35,7 @@ public class YDMStoreModeOfflineAccountCoordinator: HistoricNavigationDelegate {
 
     currentUser = user
 
-    let service = YDServiceClient()
-    let serviceOfflineAccount = YDMStoreModeOfflineAccountService(service: service)
-
-    let viewModel = YDMStoreModeOfflineAccountViewModel(navigation: self, service: serviceOfflineAccount)
+    let viewModel = YDMStoreModeOfflineAccountViewModel(navigation: self)
 
     viewController.viewModel = viewModel
     viewController.hero.isEnabled = true
@@ -67,13 +64,13 @@ extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavig
     }
 
     let loginApi = "\(endPoint)/portalcliente/login"
-    let userInfoApi = "\(endPoint)/portalcliente/cliente"
+    let clientApi = "\(endPoint)/portalcliente/cliente"
 
     let service = YDServiceClient()
     let serviceUserData = UserDataService(
       service: service,
       loginApi: loginApi,
-      userInfoApi: userInfoApi
+      clientApi: clientApi
     )
 
     let viewModel = UserDataViewModel(

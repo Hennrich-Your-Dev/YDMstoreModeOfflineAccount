@@ -80,11 +80,16 @@ extension UserDataViewController {
       return UITableViewCell()
     }
 
-    cell.config(withValue: userInfo.terms, onSwitchChange: { value in
-      viewModel.userData?.terms = value
-    }, onTerms: {
-      viewModel.openTerms()
-    })
+    cell.config(
+      withValue: userInfo.terms,
+      onTerms: {
+        viewModel.openTerms()
+      },
+      onSave: { value in
+        viewModel.userData?.terms = value
+        viewModel.updateInfo()
+      }
+    )
     return cell
   }
 }

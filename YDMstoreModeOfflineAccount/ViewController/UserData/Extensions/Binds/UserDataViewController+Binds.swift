@@ -16,10 +16,12 @@ extension UserDataViewController {
     viewModel?.loading.bind { [weak self] isLoading in
       if isLoading {
         self?.tableView.isHidden = true
+        self?.separatorView.isHidden = true
         self?.activityIndicator.isHidden = false
         self?.activityIndicator.startAnimating()
       } else {
         self?.tableView.isHidden = false
+        self?.separatorView.isHidden = false
         self?.activityIndicator.isHidden = true
       }
     }

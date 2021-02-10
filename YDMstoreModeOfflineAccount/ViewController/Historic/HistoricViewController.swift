@@ -96,14 +96,14 @@ class HistoricViewController: UIViewController {
   }
 
   @IBAction func onExportAction(_ sender: Any) {
-    let image = contentView.snapshot
+    if let image = snapshot() {
+      let activityViewController = UIActivityViewController(
+        activityItems: [image],
+        applicationActivities: nil
+      )
 
-    let activityViewController = UIActivityViewController(
-      activityItems: [image],
-      applicationActivities: nil
-    )
-
-    present(activityViewController, animated: true, completion: nil)
+      present(activityViewController, animated: true, completion: nil)
+    }
   }
 
 }
@@ -115,15 +115,45 @@ extension HistoricViewController {
       view.backgroundColor = UIColor(patternImage: image)
     }
   }
-}
 
-//
-extension UIView {
+  func snapshot() -> UIImage? {
+    let holeScreenSize = CGSize(
+      width: contentView.frame.size.width,
+      height: (contentView.frame.size.height - tableView.frame.height) + tableView.contentSize.height
+    )
 
-  var snapshot: UIImage {
-    return UIGraphicsImageRenderer(size: bounds.size).image { _ in
-      drawHierarchy(in: bounds, afterScreenUpdates: true)
-    }
+    UIGraphicsBeginImageContext(holeScreenSize)
+
+    let savedFrame = contentView.frame
+    let savedTableFrame = tableView.frame
+    let savedContentOffset = tableView.contentOffset
+
+    tableView.contentOffset = .zero
+    contentView.frame = CGRect(
+      x: 0,
+      y: 0,
+      width: contentView.frame.size.width,
+      height: holeScreenSize.height
+    )
+    tableView.frame = CGRect(
+      x: 0,
+      y: 0,
+      width: tableView.contentSize.width,
+      height: tableView.contentSize.height
+    )
+
+    backButton.isHidden = true
+    exportButton.isHidden = true
+
+    contentView.layer.render(in: UIGraphicsGetCurrentContext()!)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+
+    contentView.frame = savedFrame
+    tableView.contentOffset = savedContentOffset
+    tableView.frame = savedTableFrame
+    backButton.isHidden = false
+    exportButton.isHidden = false
+    return image
   }
-
 }

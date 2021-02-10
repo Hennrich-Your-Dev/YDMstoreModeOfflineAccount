@@ -32,10 +32,12 @@ protocol UserDataViewModelDelegate {
   func getUsersInfo()
   func openHistoric()
   func openTerms()
+  func updateInfo()
 }
 
 class UserDataViewModel {
   // MARK: Properties
+  lazy var logger = Logger.forClass(Self.self)
   let service: UserDataServiceDelegate
   let navigation: UserDataNavigationDelegate
 
@@ -43,6 +45,7 @@ class UserDataViewModel {
   var loading: Binder<Bool> = Binder(false)
 
   let currentUser: YDCurrentCustomer
+  var userLogin: UserLogin? = nil
   var userData: UsersInfo? = nil
   var usersInfo: Binder<[UserDataSet]> =  Binder([])
 
@@ -91,11 +94,25 @@ class UserDataViewModel {
       }
       """
 
+      let userLoginString = """
+      {
+        "cpf": "13569901777",
+        "nome": "Natália Prado Tiago",
+        "email": "pradocinhosgourmet@gmail.com",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZExhc2EiOiJhM2M5MzgxNy00MGRlLTQzZDEtOWUxMi0wZTk5NGFjODgzNWQiLCJpYXQiOjE2MTI4Nzc4NjIsImV4cCI6MTYxMjk2NDI2Mn0.HZTMQSnHJ79on1U46Wo8KyVbCHTjTAHTGeh4WAw9mR0",
+        "id_lasa": "a3c93817-40de-43d1-9e12-0e994ac8835d"
+      }
+      """
+
       guard let data = jsonString.data(using: .utf16),
-            let json = try? JSONDecoder().decode(UsersInfo.self, from: data) else {
+            let json = try? JSONDecoder().decode(UsersInfo.self, from: data),
+            let dataUserLogin = userLoginString.data(using: .utf16),
+            let userLogin = try? JSONDecoder().decode(UserLogin.self, from: dataUserLogin)
+      else {
         return
       }
 
+      self.userLogin = userLogin
       self.userData = json
       self.usersInfo.value = json.getUserDataSets()
 
@@ -104,6 +121,7 @@ class UserDataViewModel {
   }
 
   func getClientInfo(with user: UserLogin) {
+    userLogin = user
     service.getUserInfo(with: user) { [weak self] (result: Result<UsersInfo, YDServiceError>) in
       guard let self = self else { return }
 
@@ -144,8 +162,8 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
   func getUsersInfo() {
     loading.value = true
-    // getUsersInfoMock()
-
+    getUsersInfoMock()
+    return;
     service.login(user: currentUser) { [weak self] (response: Result<UserLogin, YDServiceError>) in
       guard let self = self else { return }
 
@@ -173,5 +191,34 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
   func openTerms() {
     navigation.openTerms()
+  }
+
+  func updateInfo() {
+    loading.value = true
+    guard let params = try? userData?.asDictionary(),
+          let userLogin = userLogin
+    else {
+      loading.value = false
+      error.value = errorMessage
+      return
+    }
+
+    service.updateInfo(
+      user: userLogin,
+      parameters: params
+    ) { [weak self] (result: Result<Void, YDServiceError>) in
+      guard let self = self else { return }
+      self.loading.value = false
+
+      switch result {
+        case .success: break
+        case .failure(let error):
+          if let statusCode = error.statusCode {
+            self.logger.error(statusCode)
+          }
+
+          self.error.value = self.errorMessage
+      }
+    }
   }
 }

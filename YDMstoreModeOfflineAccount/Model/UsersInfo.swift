@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UsersInfo: Decodable {
+class UsersInfo: Codable {
   let name: String?
   var socialSecurity: String?
   let gender: String?

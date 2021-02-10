@@ -11,8 +11,8 @@ import YDExtensions
 
 class UserDataTermsAndButtonTableViewCell: UITableViewCell {
   // MARK: Properties
-  var switchChangeCallback: ((Bool) -> Void)?
   var onTermsCallback: (() -> Void)?
+  var onSaveCallback: ((Bool) -> Void)?
 
   // MARK: IBOutlets
   @IBOutlet weak var termsSwitch: UISwitch!
@@ -35,19 +35,21 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     termsSwitch.setOn(false, animated: false)
-    switchChangeCallback = nil
+    onSaveCallback = nil
+    onTermsCallback = nil
   }
 
   // MARK: Config
   func config(
     withValue switchValue: Bool,
-    onSwitchChange action: @escaping ((Bool) -> Void),
-    onTerms: @escaping (() -> Void)
+    onTerms: @escaping (() -> Void),
+    onSave: @escaping ((Bool) -> Void)
   ) {
     buildAttributedString()
     termsSwitch.setOn(switchValue, animated: true)
-    switchChangeCallback = action
+
     onTermsCallback = onTerms
+    onSaveCallback = onSave
   }
 
   func buildAttributedString() {
@@ -81,7 +83,7 @@ class UserDataTermsAndButtonTableViewCell: UITableViewCell {
 
   // MARK: IBActions
   @IBAction func onButtonAction(_ sender: Any) {
-    switchChangeCallback?(termsSwitch.isOn)
+    onSaveCallback?(termsSwitch.isOn)
   }
 
   @IBAction func onTermsAction(_ sender: Any) {
