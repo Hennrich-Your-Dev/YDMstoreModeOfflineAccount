@@ -61,21 +61,13 @@ class HistoricViewController: UIViewController {
     }
   }
 
-  @IBOutlet weak var tableView: UITableView! {
+  @IBOutlet weak var scrollView: UIScrollView! {
     didSet {
-      tableView.delegate = self
-      tableView.dataSource = self
-
-      tableView.tableFooterView = UIView()
-
-      let bundle = Bundle(for: Self.self)
-
-      tableView.register(
-        HistoricTableViewCell.loadNib(bundle),
-        forCellReuseIdentifier: HistoricTableViewCell.identifier
-      )
+      scrollView.delegate = self
     }
   }
+
+  @IBOutlet weak var stackView: UIStackView!
 
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
@@ -119,27 +111,27 @@ extension HistoricViewController {
   func snapshot() -> UIImage? {
     let holeScreenSize = CGSize(
       width: contentView.frame.size.width,
-      height: (contentView.frame.size.height - tableView.frame.height) + tableView.contentSize.height
+      height: (contentView.frame.size.height - scrollView.frame.height) + scrollView.contentSize.height
     )
 
     UIGraphicsBeginImageContext(holeScreenSize)
 
     let savedFrame = contentView.frame
-    let savedTableFrame = tableView.frame
-    let savedContentOffset = tableView.contentOffset
+    let savedTableFrame = scrollView.frame
+    let savedContentOffset = scrollView.contentOffset
 
-    tableView.contentOffset = .zero
+    scrollView.contentOffset = .zero
     contentView.frame = CGRect(
       x: 0,
       y: 0,
       width: contentView.frame.size.width,
       height: holeScreenSize.height
     )
-    tableView.frame = CGRect(
+    scrollView.frame = CGRect(
       x: 0,
       y: 0,
-      width: tableView.contentSize.width,
-      height: tableView.contentSize.height
+      width: scrollView.contentSize.width,
+      height: scrollView.contentSize.height
     )
 
     backButton.isHidden = true
@@ -150,8 +142,8 @@ extension HistoricViewController {
     UIGraphicsEndImageContext()
 
     contentView.frame = savedFrame
-    tableView.contentOffset = savedContentOffset
-    tableView.frame = savedTableFrame
+    scrollView.contentOffset = savedContentOffset
+    scrollView.frame = savedTableFrame
     backButton.isHidden = false
     exportButton.isHidden = false
     return image
