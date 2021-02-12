@@ -21,7 +21,7 @@ class HistoricViewController: UIViewController {
     didSet {
       contentView.layer.cornerRadius = 16
       contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-      contentView.clipsToBounds = true
+//      contentView.clipsToBounds = true
       contentView.hero.id = "bottomSheet"
     }
   }
@@ -114,38 +114,63 @@ extension HistoricViewController {
       height: (contentView.frame.size.height - scrollView.frame.height) + scrollView.contentSize.height
     )
 
-    UIGraphicsBeginImageContext(holeScreenSize)
-
-    let savedFrame = contentView.frame
+    let savedViewFrame = view.frame
+    let savedContentFrame = contentView.frame
     let savedTableFrame = scrollView.frame
     let savedContentOffset = scrollView.contentOffset
 
-    scrollView.contentOffset = .zero
+    defer {
+      UIGraphicsEndImageContext()
+
+      view.frame = savedViewFrame
+      contentView.frame = savedContentFrame
+      scrollView.contentOffset = savedContentOffset
+      scrollView.frame = savedTableFrame
+      backButton.isHidden = false
+      exportButton.isHidden = false
+
+      shadowScrollEnabled = false
+    }
+
+    scrollView.contentOffset = CGPoint(x: 0, y: -20)
+    shadowScrollEnabled = true
+    separatorView.layer.opacity = 1
+    shadowContainerView.layer.shadowOpacity = 0
+
+    view.frame = CGRect(
+      x: 0,
+      y: 0,
+      width: contentView.frame.size.width,
+      height: holeScreenSize.height
+    )
+
     contentView.frame = CGRect(
       x: 0,
       y: 0,
       width: contentView.frame.size.width,
       height: holeScreenSize.height
     )
+
     scrollView.frame = CGRect(
       x: 0,
-      y: 0,
+      y: 20,
       width: scrollView.contentSize.width,
       height: scrollView.contentSize.height
     )
 
+    scrollView.showsVerticalScrollIndicator = false
+
     backButton.isHidden = true
     exportButton.isHidden = true
 
-    contentView.layer.render(in: UIGraphicsGetCurrentContext()!)
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
+    let scale = UIScreen.main.scale
+    UIGraphicsBeginImageContextWithOptions(holeScreenSize, false, scale)
 
-    contentView.frame = savedFrame
-    scrollView.contentOffset = savedContentOffset
-    scrollView.frame = savedTableFrame
-    backButton.isHidden = false
-    exportButton.isHidden = false
+    guard let context = UIGraphicsGetCurrentContext() else { return nil }
+
+    contentView.layer.render(in: context)
+
+    let image = UIGraphicsGetImageFromCurrentImageContext()
     return image
   }
 }

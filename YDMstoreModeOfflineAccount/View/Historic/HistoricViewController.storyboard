@@ -97,7 +97,7 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHy-8X-pOQ">
                                         <rect key="frame" x="0.0" y="196" width="414" height="646"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="a22-Rr-Anb">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a22-Rr-Anb">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" placeholder="YES" id="Lom-oC-Nz1"/>

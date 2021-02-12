@@ -43,8 +43,6 @@
 		C19B99D625C9D0EE0002E696 /* HistoricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B99D525C9D0EE0002E696 /* HistoricService.swift */; };
 		C1B6BF4625C4164F001CB137 /* UserDataViewController+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6BF4525C4164F001CB137 /* UserDataViewController+Dialog.swift */; };
 		C1B6BFD025C42667001CB137 /* UserDataViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */; };
-		C1C1BACB25CC12F7008BAF23 /* HistoricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C1BAC925CC12F7008BAF23 /* HistoricTableViewCell.swift */; };
-		C1C1BACC25CC12F7008BAF23 /* HistoricTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C1BACA25CC12F7008BAF23 /* HistoricTableViewCell.xib */; };
 		C1DE3DCF25C3107F0084299E /* UserDataSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE3DCD25C3107F0084299E /* UserDataSeparatorTableViewCell.swift */; };
 		C1DE3DD025C3107F0084299E /* UserDataSeparatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */; };
 		C1E083F025C200C5004D5382 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E083EF25C200C5004D5382 /* UserLogin.swift */; };
@@ -93,8 +91,6 @@
 		C19B99D525C9D0EE0002E696 /* HistoricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricService.swift; sourceTree = "<group>"; };
 		C1B6BF4525C4164F001CB137 /* UserDataViewController+Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Dialog.swift"; sourceTree = "<group>"; };
 		C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+ScrollView.swift"; sourceTree = "<group>"; };
-		C1C1BAC925CC12F7008BAF23 /* HistoricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricTableViewCell.swift; sourceTree = "<group>"; };
-		C1C1BACA25CC12F7008BAF23 /* HistoricTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoricTableViewCell.xib; sourceTree = "<group>"; };
 		C1DE3DCD25C3107F0084299E /* UserDataSeparatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSeparatorTableViewCell.swift; sourceTree = "<group>"; };
 		C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataSeparatorTableViewCell.xib; sourceTree = "<group>"; };
 		C1E083EF25C200C5004D5382 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
@@ -211,7 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				C102A64925D180E50036E17B /* Binds */,
-				C12B96B625CAEB0C00143B99 /* TableView */,
 				C12B96B125CAE85B00143B99 /* ScrollView */,
 			);
 			path = Extensions;
@@ -223,14 +218,6 @@
 				C12B96B225CAE86900143B99 /* HistoricViewController+ScrollView.swift */,
 			);
 			path = ScrollView;
-			sourceTree = "<group>";
-		};
-		C12B96B625CAEB0C00143B99 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				C1C1BACF25CC272B008BAF23 /* Cell */,
-			);
-			path = TableView;
 			sourceTree = "<group>";
 		};
 		C140314F25CB2984007F6728 /* Extensions */ = {
@@ -406,7 +393,6 @@
 		C19B99C525C9C4AB0002E696 /* Historic */ = {
 			isa = PBXGroup;
 			children = (
-				C1C1BAC825CC12CF008BAF23 /* Cell */,
 				C19B99C625C9C4BC0002E696 /* HistoricViewController.storyboard */,
 			);
 			path = Historic;
@@ -459,22 +445,6 @@
 				C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */,
 			);
 			path = ScrollView;
-			sourceTree = "<group>";
-		};
-		C1C1BAC825CC12CF008BAF23 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				C1C1BACA25CC12F7008BAF23 /* HistoricTableViewCell.xib */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		C1C1BACF25CC272B008BAF23 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				C1C1BAC925CC12F7008BAF23 /* HistoricTableViewCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		C1DE3DBF25C3077E0084299E /* TermsAndButton */ = {
@@ -634,7 +604,6 @@
 				C19B99C725C9C4BC0002E696 /* HistoricViewController.storyboard in Resources */,
 				C197DCA325BF2E510007E8C3 /* UserDataInfoTableViewCell.xib in Resources */,
 				C102A64725D178D30036E17B /* historicMock.json in Resources */,
-				C1C1BACC25CC12F7008BAF23 /* HistoricTableViewCell.xib in Resources */,
 				C158ECE025C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.xib in Resources */,
 				A5B9E37425AE12A9006EA075 /* YDMStoreModeOfflineAccountViewController.storyboard in Resources */,
 				C1DE3DD025C3107F0084299E /* UserDataSeparatorTableViewCell.xib in Resources */,
@@ -703,7 +672,6 @@
 				C14D63CA25B1E47F00DAF725 /* YDMStoreModeOfflineAccountViewController+Dialog.swift in Sources */,
 				C1B6BF4625C4164F001CB137 /* UserDataViewController+Dialog.swift in Sources */,
 				C18C9A8A25C04C6800F4116F /* UserDataMarketingTableViewCell.swift in Sources */,
-				C1C1BACB25CC12F7008BAF23 /* HistoricTableViewCell.swift in Sources */,
 				C197DCA925BF31B50007E8C3 /* UserDataSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
