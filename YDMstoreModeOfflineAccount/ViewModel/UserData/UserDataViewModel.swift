@@ -212,11 +212,7 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
       switch result {
         case .success: break
-        case .failure(let error):
-          if let statusCode = error.statusCode {
-            self.logger.error(statusCode)
-          }
-
+        case .failure:
           self.error.value = self.errorMessage
       }
     }
