@@ -32,7 +32,7 @@ class YDMStoreModeOfflineAccountViewModel {
   let navigation: YDMStoreModeOfflineAccountNavigationDelegate
 
   var error: Binder<(title: String, message: String)> = Binder(("", ""))
-  
+
   // MARK: Init
   init(navigation: YDMStoreModeOfflineAccountNavigationDelegate) {
     self.navigation = navigation
@@ -50,15 +50,24 @@ extension YDMStoreModeOfflineAccountViewModel: YDMStoreModeOfflineAccountViewMod
   }
 
   func onCard(tag: Int) {
-    if tag == 0 {
-      // open qr card
-      error.value = (
-        "poooxa, ainda não temos seu cadastro completo",
-        "E pra mantermos a segurança dos seus dados, você poderá consultar mais informações com nosso atendimento, através do e-mail: atendimento.acom@americanas.com"
-      )
+    switch tag {
+      case 1:
+        // QR Card
+        error.value = (
+          "poooxa, ainda não temos seu cadastro completo",
+          "E pra mantermos a segurança dos seus dados, você poderá consultar mais informações com nosso atendimento, através do e-mail: atendimento.acom@americanas.com"
+        )
 
-    } else {
-      navigation.openUserData()
+      case 2:
+        // User Data
+        navigation.openUserData()
+
+      case 3:
+        // Offline orders
+        break
+
+      default:
+        break
     }
   }
 }

@@ -8,6 +8,20 @@
 import UIKit
 
 public extension UIColor {
+  convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {
+    self.init(red: r / 255, green: g / 255, blue: b / 255, alpha: 1.0)
+  }
+
+  convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+    self.init(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
+  }
+
+  static var random: UIColor {
+    return UIColor(red: .random, green: .random, blue: .random, alpha: 1.0)
+  }
+}
+
+public extension UIColor {
   static let customRed = UIColor(red: 230/255, green: 0/255, blue: 20/255, alpha: 1)
 }
 

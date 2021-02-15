@@ -1,7 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
-  - Cosmos (22.1.0)
-  - Hero (1.5.0)
+  - Hero (1.6.0)
   - Kingfisher (5.15.8):
     - Kingfisher/Core (= 5.15.8)
   - Kingfisher/Core (5.15.8)
@@ -17,21 +16,20 @@ PODS:
   - libwebp/mux (1.1.0):
     - libwebp/demux
   - libwebp/webp (1.1.0)
-  - YDB2WAssets (1.0.29)
-  - YDB2WComponents (1.0.66):
-    - Cosmos (= 22.1.0)
+  - YDB2WAssets (1.0.31)
+  - YDB2WComponents (1.0.69):
     - YDB2WAssets
     - YDExtensions
     - YDUtilities
-  - YDB2WIntegration (1.0.13):
+  - YDB2WIntegration (1.0.15):
     - YDB2WModels
     - YDExtensions
   - YDB2WModels (1.0.13):
     - YDExtensions
-  - YDExtensions (1.0.33):
+  - YDExtensions (1.0.35):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
-  - YDUtilities (1.0.7):
+  - YDUtilities (1.0.10):
     - Alamofire (~> 4.0)
 
 DEPENDENCIES:
@@ -52,7 +50,6 @@ SPEC REPOS:
     - YDUtilities
   trunk:
     - Alamofire
-    - Cosmos
     - Hero
     - Kingfisher
     - KingfisherWebP
@@ -60,17 +57,16 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  Cosmos: 2795b36ad4bbea1af3050d6d65576ed63875f86a
-  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  Hero: 052b9b9bab68fc4e30cc04e5936eaf0de97b59d3
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
-  YDB2WAssets: a4a5395c74ccbcfc0a9777ce33b59aa1e1688fdf
-  YDB2WComponents: a585b8bd8d033f249ac501ed423f0433f1986d7d
-  YDB2WIntegration: 5a2db52da11c22c122f10d26e0be921ad7292bb6
+  YDB2WAssets: ebc70c706037613128d99eab2eea7b19c9841830
+  YDB2WComponents: ba6f93be4ef5687578e1a17656c387fd2bd589ee
+  YDB2WIntegration: 0deba88174dccd3fdd7bc85809978a56162c4cd4
   YDB2WModels: a78b87e57a9299b480786a7b5bc337ce817a1e2d
-  YDExtensions: 5575daea831e8d67eee9de81805e355e1cf93a55
-  YDUtilities: cfe70c422347ebebe23e5d2703fb0c3e09af92ed
+  YDExtensions: b579e16049bbdba97de872a3496911a66a16ffe9
+  YDUtilities: 7e56ee0f48101c8bf487ad03135730dbefac70bf
 
 PODFILE CHECKSUM: 781bb4e689a58d1cc470aadce6d3142f6483058c
 

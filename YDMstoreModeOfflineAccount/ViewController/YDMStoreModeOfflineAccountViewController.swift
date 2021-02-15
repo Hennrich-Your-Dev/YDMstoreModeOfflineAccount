@@ -113,24 +113,32 @@ extension YDMStoreModeOfflineAccountViewController {
     stackView.setCustomSpacing(31, after: userProfileView)
 
     let cards: [[String: Any]] = [
-      [
-        "icon": Images.qrCode as Any,
-        "title": "vai se identificar no caixa das lojas físicas?",
-        "button": "acesse aqui!"
-      ],
+      //      [
+      //        "icon": Images.qrCode as Any,
+      //        "title": "vai se identificar no caixa das lojas físicas?",
+      //        "button": "acesse aqui!",
+      //        "id": 1
+      //      ],
       [
         "icon": Images.clipboard as Any,
         "title": "tudo que sabemos sobre você está aqui :)",
-        "button": "confere aqui!"
+        "button": "confere aqui!",
+        "id": 2
+      ],
+      [
+        "icon": Images.basket as Any,
+        "title": "suas compras nas lojas físicas com nota fiscal",
+        "button": "estão aqui :)",
+        "id": 3
       ]
     ]
 
-    for (index, curr) in cards.enumerated() {
+    for curr in cards {
       let card = UIView()
       card.backgroundColor = .white
       card.layer.cornerRadius = 8
       card.layer.applyShadow(blur: 20)
-      card.tag = index
+      card.tag = curr["id"] as? Int ?? 0
 
       card.addGestureRecognizer(
         UITapGestureRecognizer(target: self,
@@ -139,10 +147,55 @@ extension YDMStoreModeOfflineAccountViewController {
 
       stackView.addArrangedSubview(card)
 
+      card.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
         card.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 24),
         card.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -24),
         card.heightAnchor.constraint(equalToConstant: 138)
+      ])
+
+      // Icon
+      let imageView = UIImageView()
+      imageView.image = curr["icon"] as? UIImage
+      card.addSubview(imageView)
+
+      imageView.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate([
+        imageView.widthAnchor.constraint(equalToConstant: 76),
+        imageView.heightAnchor.constraint(equalToConstant: 76),
+        imageView.centerYAnchor.constraint(equalTo: card.centerYAnchor),
+        imageView.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 36)
+      ])
+
+      // Title
+      let titleLabel = UILabel()
+      titleLabel.text = curr["title"] as? String
+      titleLabel.textAlignment = .center
+      titleLabel.textColor = UIColor.Zeplin.black
+      titleLabel.font = .systemFont(ofSize: 16)
+      titleLabel.numberOfLines = 2
+      card.addSubview(titleLabel)
+
+      titleLabel.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate([
+        titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20),
+        titleLabel.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -24),
+        titleLabel.topAnchor.constraint(equalTo: card.topAnchor, constant: 36)
+      ])
+
+      // Button
+      let buttonLabel = UILabel()
+      buttonLabel.text = curr["button"] as? String
+      buttonLabel.textAlignment = .center
+      buttonLabel.textColor = UIColor.Zeplin.grayLight
+      buttonLabel.font = .systemFont(ofSize: 16)
+      buttonLabel.numberOfLines = 1
+      card.addSubview(buttonLabel)
+
+      buttonLabel.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate([
+        buttonLabel.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
+        buttonLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10)
       ])
     }
   }
