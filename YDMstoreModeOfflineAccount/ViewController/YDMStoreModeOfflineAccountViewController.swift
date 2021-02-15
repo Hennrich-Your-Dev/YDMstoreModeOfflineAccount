@@ -86,11 +86,10 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    stackView.setCustomSpacing(31, after: userProfileView)
     
     setViewBackgroundImage()
     setBinds()
+    buildCards()
 
     viewModel?.trackState()
     userProfileView.config(username: "Douglas Hennrich", userPhoto: nil)
@@ -107,6 +106,44 @@ extension YDMStoreModeOfflineAccountViewController {
   func setViewBackgroundImage() {
     if let image = Images.map {
       view.backgroundColor = UIColor(patternImage: image)
+    }
+  }
+
+  func buildCards() {
+    stackView.setCustomSpacing(31, after: userProfileView)
+
+    let cards: [[String: Any]] = [
+      [
+        "icon": Images.qrCode as Any,
+        "title": "vai se identificar no caixa das lojas físicas?",
+        "button": "acesse aqui!"
+      ],
+      [
+        "icon": Images.clipboard as Any,
+        "title": "tudo que sabemos sobre você está aqui :)",
+        "button": "confere aqui!"
+      ]
+    ]
+
+    for (index, curr) in cards.enumerated() {
+      let card = UIView()
+      card.backgroundColor = .white
+      card.layer.cornerRadius = 8
+      card.layer.applyShadow(blur: 20)
+      card.tag = index
+
+      card.addGestureRecognizer(
+        UITapGestureRecognizer(target: self,
+                               action: #selector(onCardAction))
+      )
+
+      stackView.addArrangedSubview(card)
+
+      NSLayoutConstraint.activate([
+        card.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 24),
+        card.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -24),
+        card.heightAnchor.constraint(equalToConstant: 138)
+      ])
     }
   }
 
