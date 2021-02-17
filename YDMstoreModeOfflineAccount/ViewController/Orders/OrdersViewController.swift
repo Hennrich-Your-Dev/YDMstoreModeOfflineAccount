@@ -21,5 +21,8 @@ class OrdersViewController: UIViewController {
   }
 
   // MARK: Actions
+  @objc func onBackAction() {
+    viewModel?.onBack()
+  }
 
 }

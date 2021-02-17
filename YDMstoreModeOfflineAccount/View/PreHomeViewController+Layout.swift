@@ -1,17 +1,16 @@
 //
-//  OrdersViewController+Layout.swift
+//  HomeViewController+Layout.swift
 //  YDMstoreModeOfflineAccount
 //
 //  Created by Douglas Hennrich on 17/02/21.
 //
 
 import UIKit
-import Hero
 
 import YDB2WAssets
 import YDExtensions
 
-extension OrdersViewController {
+extension PreHomeViewController {
   func setUpLayout() {
     setViewBackgroundImage()
     createOpacityMask()
@@ -45,7 +44,6 @@ extension OrdersViewController {
     containerView.backgroundColor = .white
     containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     containerView.layer.cornerRadius = 16
-    containerView.hero.id = "bottomSheet"
 
     view.addSubview(containerView)
 
@@ -60,43 +58,43 @@ extension OrdersViewController {
   }
 
   func createNavBar() {
-    guard let container = view.subviews.at(1) else { return }
-
-    let navBar = UIView()
-    navBar.backgroundColor = .white
-    container.addSubview(navBar)
-
-    navBar.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      navBar.heightAnchor.constraint(equalToConstant: 48),
-      navBar.topAnchor.constraint(equalTo: container.topAnchor,
-                                  constant: 20),
-      navBar.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-      navBar.trailingAnchor.constraint(equalTo: container.trailingAnchor)
-    ])
-
-    createBackButton(parent: navBar)
+//    guard let container = view.subviews.at(1) else { return }
+//
+//    let navBar = UIView()
+//    navBar.backgroundColor = .white
+//    container.addSubview(navBar)
+//
+//    navBar.translatesAutoresizingMaskIntoConstraints = false
+//    NSLayoutConstraint.activate([
+//      navBar.heightAnchor.constraint(equalToConstant: 48),
+//      navBar.topAnchor.constraint(equalTo: container.topAnchor,
+//                                  constant: 20),
+//      navBar.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+//      navBar.trailingAnchor.constraint(equalTo: container.trailingAnchor)
+//    ])
+//
+//    createBackButton(parent: navBar)
   }
 
   func createBackButton(parent navBar: UIView) {
-    let backButton = UIButton()
-    backButton.setImage(Icons.leftArrow, for: .normal)
-    backButton.backgroundColor = .white
-    backButton.tintColor = UIColor.Zeplin.black
-    navBar.addSubview(backButton)
-
-    backButton.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      backButton.widthAnchor.constraint(equalToConstant: 32),
-      backButton.heightAnchor.constraint(equalToConstant: 32),
-      backButton.topAnchor.constraint(equalTo: navBar.topAnchor),
-      backButton.leadingAnchor.constraint(equalTo: navBar.leadingAnchor, constant: 16),
-    ])
-
-    backButton.layer.cornerRadius = 16
-    backButton.layer.applyShadow()
-    backButton.addTarget(self,
-                         action: #selector(onBackAction),
-                         for: .touchUpInside)
+//    let backButton = UIButton()
+//    backButton.setImage(Icons.leftArrow, for: .normal)
+//    backButton.backgroundColor = .white
+//    backButton.tintColor = UIColor.Zeplin.black
+//    navBar.addSubview(backButton)
+//
+//    backButton.translatesAutoresizingMaskIntoConstraints = false
+//    NSLayoutConstraint.activate([
+//      backButton.widthAnchor.constraint(equalToConstant: 32),
+//      backButton.heightAnchor.constraint(equalToConstant: 32),
+//      backButton.topAnchor.constraint(equalTo: navBar.topAnchor),
+//      backButton.leadingAnchor.constraint(equalTo: navBar.leadingAnchor, constant: 16),
+//    ])
+//
+//    backButton.layer.cornerRadius = 16
+//    backButton.layer.applyShadow()
+//    backButton.addTarget(self,
+//                         action: #selector(onBackAction),
+//                         for: .touchUpInside)
   }
 }

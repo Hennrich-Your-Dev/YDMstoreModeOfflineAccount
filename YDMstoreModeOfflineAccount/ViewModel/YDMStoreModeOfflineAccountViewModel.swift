@@ -5,7 +5,7 @@
 //  Created by Douglas on 12/01/21.
 //
 
-import Foundation
+import UIKit
 
 import YDB2WIntegration
 import YDUtilities
@@ -41,6 +41,7 @@ class YDMStoreModeOfflineAccountViewModel {
 
 // MARK: Extension Delegate
 extension YDMStoreModeOfflineAccountViewModel: YDMStoreModeOfflineAccountViewModelDelegate {
+
   func onExit() {
     navigation.onExit()
   }

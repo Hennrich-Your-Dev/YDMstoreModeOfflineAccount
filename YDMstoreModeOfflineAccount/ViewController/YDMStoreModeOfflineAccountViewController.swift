@@ -49,40 +49,6 @@ class YDMStoreModeOfflineAccountViewController: UIViewController {
 
   @IBOutlet weak var userProfileView: YDUserProfileView!
 
-  @IBOutlet weak var qrCardContainer: UIView! {
-    didSet {
-      qrCardContainer.layer.cornerRadius = 8
-      qrCardContainer.layer.applyShadow(blur: 20)
-      qrCardContainer.tag = 0
-
-      let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onCardAction))
-      qrCardContainer.addGestureRecognizer(tapGesture)
-    }
-  }
-
-  @IBOutlet weak var qrImageView: UIImageView! {
-    didSet {
-      qrImageView.image = Images.qrCode
-    }
-  }
-
-  @IBOutlet weak var clipboardContainer: UIView! {
-    didSet {
-      clipboardContainer.layer.cornerRadius = 8
-      clipboardContainer.layer.applyShadow(blur: 20)
-      clipboardContainer.tag = 1
-
-      let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onCardAction))
-      clipboardContainer.addGestureRecognizer(tapGesture)
-    }
-  }
-  
-  @IBOutlet weak var clipboardImageView: UIImageView! {
-    didSet {
-      clipboardImageView.image = Images.clipboard
-    }
-  }
-
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -18,43 +18,53 @@ public class YDMStoreModeOfflineAccountCoordinator: HistoricNavigationDelegate {
 
   // Properties
   var navigationController: UINavigationController?
+  var internalNavigationController: UINavigationController?
   var currentUser: YDCurrentCustomer!
 
   // MARK: Init
   public init() {}
 
   // MARK: Actions
-  public func start(navCon: UINavigationController, user: YDCurrentCustomer) {
-    guard let viewController = YDMStoreModeOfflineAccountViewController.initializeFromStoryboard()
-//          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.lasaClientService.rawValue),
-//          let storesUrl = config.extras?[YDConfigProperty.storesUrl.rawValue] as? String,
-//          let addressUrl = config.extras?[YDConfigProperty.addressUrl.rawValue] as? String
-    else {
-      fatalError("YDMStoreModeOfflineAccountViewController.initializeFromStoryboard")
-    }
+  public func start(navCon: UINavigationController?, user: YDCurrentCustomer) {
+    let viewController = PreHomeViewController()
 
     currentUser = user
 
-    let viewModel = YDMStoreModeOfflineAccountViewModel(navigation: self)
-
+    let viewModel = PreHomeViewModel(navigation: self)
     viewController.viewModel = viewModel
-    viewController.hero.isEnabled = true
-    viewController.hero.modalAnimationType = .fade
 
     navigationController = navCon
     navigationController?.pushViewController(viewController, animated: true)
   }
 
-  func onBack() {
-    navigationController?.popViewController(animated: true)
-  }
-}
+  func setUpHome() {
+    guard let viewController = YDMStoreModeOfflineAccountViewController.initializeFromStoryboard()
+    else {
+      fatalError("YDMStoreModeOfflineAccountViewController.initializeFromStoryboard")
+    }
 
-extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavigationDelegate {
+    let viewModel = YDMStoreModeOfflineAccountViewModel(navigation: self)
+    viewController.viewModel = viewModel
+
+    internalNavigationController?.pushViewController(viewController, animated: true)
+  }
+
   func onExit() {
     navigationController?.popViewController(animated: true)
   }
 
+  func onBack() {
+    internalNavigationController?.popViewController(animated: true)
+  }
+}
+
+extension YDMStoreModeOfflineAccountCoordinator: PreHomeNavigationDelegate {
+  func assignInternalNavigationController(_ nav: UINavigationController?) {
+    internalNavigationController = nav
+  }
+}
+
+extension YDMStoreModeOfflineAccountCoordinator: YDMStoreModeOfflineAccountNavigationDelegate {
   func openUserData() {
     guard let viewController = UserDataViewController.initializeFromStoryboard(),
           let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.lasaClientService.rawValue),
@@ -102,7 +112,7 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
     )
 
     viewController.viewModel = viewModel
-    navigationController?.pushViewController(viewController, animated: true)
+    internalNavigationController?.pushViewController(viewController, animated: true)
   }
 
   func openTerms() {
@@ -114,7 +124,7 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
     let viewModel = TermsViewModel(navigation: self)
 
     viewController.viewModel = viewModel
-    navigationController?.pushViewController(viewController, animated: true)
+    internalNavigationController?.pushViewController(viewController, animated: true)
   }
 
   func openOfflineOrders() {
@@ -122,7 +132,7 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
     let viewModel = OrdersViewModel(navigation: self)
 
     viewController.viewModel = viewModel
-    navigationController?.pushViewController(viewController, animated: true)
+    internalNavigationController?.pushViewController(viewController, animated: true)
   }
 }
 
