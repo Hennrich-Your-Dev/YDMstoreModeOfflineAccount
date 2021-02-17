@@ -16,6 +16,9 @@
 		C102A64425D156500036E17B /* HistoricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C102A64325D156500036E17B /* HistoricData.swift */; };
 		C102A64725D178D30036E17B /* historicMock.json in Resources */ = {isa = PBXBuildFile; fileRef = C102A64625D178D30036E17B /* historicMock.json */; };
 		C102A64B25D180F50036E17B /* HistoricViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C102A64A25D180F50036E17B /* HistoricViewController+Binds.swift */; };
+		C129AA5725DD5537003D3882 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA5625DD5537003D3882 /* OrdersViewController.swift */; };
+		C129AA5C25DD5744003D3882 /* OrdersViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA5B25DD5744003D3882 /* OrdersViewController+Layout.swift */; };
+		C129AA6025DD5831003D3882 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA5F25DD5831003D3882 /* OrdersViewModel.swift */; };
 		C12B96B325CAE86900143B99 /* HistoricViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12B96B225CAE86900143B99 /* HistoricViewController+ScrollView.swift */; };
 		C140315225CB29AA007F6728 /* TermsViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C140315125CB29AA007F6728 /* TermsViewController+ScrollView.swift */; };
 		C14D63C525B1E27200DAF725 /* YDMStoreModeOfflineAccountViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D63C425B1E27200DAF725 /* YDMStoreModeOfflineAccountViewController+Binds.swift */; };
@@ -64,6 +67,9 @@
 		C102A64325D156500036E17B /* HistoricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricData.swift; sourceTree = "<group>"; };
 		C102A64625D178D30036E17B /* historicMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = historicMock.json; sourceTree = "<group>"; };
 		C102A64A25D180F50036E17B /* HistoricViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoricViewController+Binds.swift"; sourceTree = "<group>"; };
+		C129AA5625DD5537003D3882 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		C129AA5B25DD5744003D3882 /* OrdersViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrdersViewController+Layout.swift"; sourceTree = "<group>"; };
+		C129AA5F25DD5831003D3882 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
 		C12B96B225CAE86900143B99 /* HistoricViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoricViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		C140315125CB29AA007F6728 /* TermsViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TermsViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		C14D63C425B1E27200DAF725 /* YDMStoreModeOfflineAccountViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMStoreModeOfflineAccountViewController+Binds.swift"; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 		A5B9E37125AE128F006EA075 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C129AA5A25DD56E4003D3882 /* Orders */,
 				C19B99C525C9C4AB0002E696 /* Historic */,
 				C19B995C25C992310002E696 /* Terms */,
 				C183D0C625B0D81500B4F675 /* UserData */,
@@ -166,9 +173,10 @@
 		A5B9E38325AE12E0006EA075 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C183D0CA25B0D8A400B4F675 /* UserData */,
 				C19B99C925C9CA1F0002E696 /* Historic */,
 				C19B996025C992710002E696 /* Terms */,
-				C183D0CA25B0D8A400B4F675 /* UserData */,
+				C129AA5525DD54FC003D3882 /* Orders */,
 				C183CECE25B0952400B4F675 /* Extensions */,
 				A5B9E38625AE12EF006EA075 /* YDMStoreModeOfflineAccountViewController.swift */,
 			);
@@ -178,6 +186,7 @@
 		A5B9E38925AE132E006EA075 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C129AA5E25DD5825003D3882 /* Orders */,
 				C19B99CE25C9D0260002E696 /* Historic */,
 				C19B996725C993030002E696 /* Terms */,
 				C19B996525C992FE0002E696 /* UserData */,
@@ -201,6 +210,30 @@
 				C102A64A25D180F50036E17B /* HistoricViewController+Binds.swift */,
 			);
 			path = Binds;
+			sourceTree = "<group>";
+		};
+		C129AA5525DD54FC003D3882 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				C129AA5625DD5537003D3882 /* OrdersViewController.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		C129AA5A25DD56E4003D3882 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				C129AA5B25DD5744003D3882 /* OrdersViewController+Layout.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		C129AA5E25DD5825003D3882 /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				C129AA5F25DD5831003D3882 /* OrdersViewModel.swift */,
+			);
+			path = Orders;
 			sourceTree = "<group>";
 		};
 		C12B96B025CAE85700143B99 /* Extensions */ = {
@@ -655,6 +688,7 @@
 				C183CED125B0953F00B4F675 /* YDMStoreModeOfflineAccountViewController+ScrollView.swift in Sources */,
 				C197DCA225BF2E510007E8C3 /* UserDataInfoTableViewCell.swift in Sources */,
 				C197DCB625BF4EBD0007E8C3 /* UserDataViewController+Binds.swift in Sources */,
+				C129AA6025DD5831003D3882 /* OrdersViewModel.swift in Sources */,
 				C183D0CC25B0D8B100B4F675 /* UserDataViewController.swift in Sources */,
 				C102A64B25D180F50036E17B /* HistoricViewController+Binds.swift in Sources */,
 				C158ECDF25C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.swift in Sources */,
@@ -669,9 +703,11 @@
 				A5B9E38B25AE133B006EA075 /* YDMStoreModeOfflineAccountViewModel.swift in Sources */,
 				C12B96B325CAE86900143B99 /* HistoricViewController+ScrollView.swift in Sources */,
 				A5B9E36425AE123B006EA075 /* YDMStoreModeOfflineAccountCoordinator.swift in Sources */,
+				C129AA5725DD5537003D3882 /* OrdersViewController.swift in Sources */,
 				C14D63CA25B1E47F00DAF725 /* YDMStoreModeOfflineAccountViewController+Dialog.swift in Sources */,
 				C1B6BF4625C4164F001CB137 /* UserDataViewController+Dialog.swift in Sources */,
 				C18C9A8A25C04C6800F4116F /* UserDataMarketingTableViewCell.swift in Sources */,
+				C129AA5C25DD5744003D3882 /* OrdersViewController+Layout.swift in Sources */,
 				C197DCA925BF31B50007E8C3 /* UserDataSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

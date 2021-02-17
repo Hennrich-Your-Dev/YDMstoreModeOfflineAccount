@@ -116,6 +116,14 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
     viewController.viewModel = viewModel
     navigationController?.pushViewController(viewController, animated: true)
   }
+
+  func openOfflineOrders() {
+    let viewController = OrdersViewController()
+    let viewModel = OrdersViewModel(navigation: self)
+
+    viewController.viewModel = viewModel
+    navigationController?.pushViewController(viewController, animated: true)
+  }
 }
 
 // MARK: Terms Navigation
