@@ -128,3 +128,6 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
 
 // MARK: Terms Navigation
 extension YDMStoreModeOfflineAccountCoordinator: TermsNavigationDelegate {}
+
+// MARK: Orders Navigation
+extension YDMStoreModeOfflineAccountCoordinator: OrdersNavigationDelegate {}
