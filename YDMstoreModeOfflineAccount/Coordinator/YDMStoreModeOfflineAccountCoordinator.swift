@@ -33,8 +33,8 @@ public class YDMStoreModeOfflineAccountCoordinator: HistoricNavigationDelegate {
     let viewModel = PreHomeViewModel(navigation: self)
     viewController.viewModel = viewModel
 
-    navigationController = navCon
-    navigationController?.pushViewController(viewController, animated: true)
+    rootNavigationController = navCon
+    rootNavigationController?.pushViewController(viewController, animated: true)
   }
 
   func startHome() {
