@@ -7,10 +7,20 @@
 
 import Foundation
 
+import YDB2WComponents
+
 extension UserDataViewController {
   func setBinds() {
     viewModel?.error.bind { [weak self] params in
       self?.showAlert(title: params.title, message: params.message)
+    }
+
+    viewModel?.snackBarMessage.bind { [weak self] message in
+      guard let self = self,
+        let message = message else { return }
+
+      let snack = YDSnackBarView(parent: self.view)
+      snack.showMessage(message, ofType: .simple)
     }
 
     viewModel?.loading.bind { [weak self] isLoading in

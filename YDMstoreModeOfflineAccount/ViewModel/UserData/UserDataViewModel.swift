@@ -22,6 +22,7 @@ protocol UserDataNavigationDelegate {
 protocol UserDataViewModelDelegate {
   var error: Binder<(title: String, message: String)> { get }
   var loading: Binder<Bool> { get }
+  var snackBarMessage: Binder<String?> { get }
   var usersInfo: Binder<[UserDataSet]> { get }
   var userData: UsersInfo? { get set }
 
@@ -43,6 +44,7 @@ class UserDataViewModel {
 
   var error: Binder<(title: String, message: String)> = Binder(("", ""))
   var loading: Binder<Bool> = Binder(false)
+  var snackBarMessage: Binder<String?> = Binder(nil)
 
   let currentUser: YDCurrentCustomer
   var userLogin: UserLogin? = nil
@@ -162,8 +164,8 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
   func getUsersInfo() {
     loading.value = true
-    getUsersInfoMock()
-    return;
+//    getUsersInfoMock()
+//    return;
     service.login(user: currentUser) { [weak self] (response: Result<UserLogin, YDServiceError>) in
       guard let self = self else { return }
 
@@ -211,9 +213,10 @@ extension UserDataViewModel: UserDataViewModelDelegate {
       self.loading.value = false
 
       switch result {
-        case .success: break
-        case .failure:
-          self.error.value = self.errorMessage
+        case .success:
+          self.snackBarMessage.value = "Dados atualizados com sucesso!"
+        case .failure(let error):
+          self.snackBarMessage.value = error.message
       }
     }
   }
