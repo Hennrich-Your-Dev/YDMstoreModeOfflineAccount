@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Hero
 
 import YDB2WAssets
 import YDExtensions
@@ -14,32 +13,9 @@ import YDExtensions
 class UserDataViewController: UIViewController {
   // MARK: Properties
   var viewModel: UserDataViewModelDelegate?
-  var shadowScrollEnabled = false
+  var navBarShadowOff = false
 
   // MARK: IBOutlets
-  @IBOutlet weak var contentView: UIView! {
-    didSet {
-      contentView.layer.cornerRadius = 16
-      contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-      contentView.clipsToBounds = true
-      contentView.hero.id = "bottomSheet"
-    }
-  }
-
-  @IBOutlet weak var navContainer: UIView! {
-    didSet {
-      navContainer.backgroundColor = .white
-    }
-  }
-
-  @IBOutlet weak var backButton: UIButton! {
-    didSet {
-      backButton.layer.cornerRadius = backButton.frame.height / 2
-      backButton.setImage(Icons.leftArrow, for: .normal)
-      backButton.layer.applyShadow()
-    }
-  }
-
   @IBOutlet weak var lastUpdateLabelTitle: UILabel!
 
   @IBOutlet weak var lastUpdateLabel: UILabel!
@@ -98,10 +74,8 @@ class UserDataViewController: UIViewController {
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.hero.isEnabled = true
-    view.hero.id = "background"
-    setViewBackgroundImage()
-
+    title = "meus dados lojas físicas"
+    createBackButton()
     setBinds()
 
     viewModel?.trackState()
@@ -116,22 +90,43 @@ class UserDataViewController: UIViewController {
   }
 
   // MARK: IBActions
-  @IBAction func onBackAction(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
-  }
-
   @IBAction func onHistoricAction(_ sender: Any) {
     viewModel?.openHistoric()
   }
 
   // MARK: Actions
-  func setViewBackgroundImage() {
-    if let image = Images.map {
-      view.backgroundColor = UIColor(patternImage: image)
-    }
+  func createBackButton() {
+    let backButtonView = UIButton()
+    backButtonView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+    backButtonView.layer.cornerRadius = 16
+    backButtonView.layer.applyShadow()
+    backButtonView.backgroundColor = .white
+    backButtonView.setImage(Icons.leftArrow, for: .normal)
+    backButtonView.addTarget(self, action: #selector(onBackAction), for: .touchUpInside)
+
+    let backButton = UIBarButtonItem()
+    backButton.customView = backButtonView
+
+    navigationItem.leftBarButtonItem = backButton
+  }
+
+  @objc func onBackAction(_ sender: UIButton) {
+    viewModel?.onBack()
   }
 
   @objc func onTermsNotification() {
     viewModel?.openTerms()
+  }
+
+  func toggleNavShadow(_ show: Bool) {
+    if show {
+      UIView.animate(withDuration: 0.5) { [weak self] in
+        self?.shadowContainerView.layer.applyShadow()
+      }
+    } else {
+      UIView.animate(withDuration: 0.5) { [weak self] in
+        self?.shadowContainerView.layer.shadowOpacity = 0
+      }
+    }
   }
 }

@@ -12,13 +12,14 @@ import YDUtilities
 import YDExtensions
 
 // MARK: Navigation
-protocol YDMStoreModeOfflineAccountNavigationDelegate {
+protocol HomeViewModelNavigationDelegate {
   func onExit()
   func openUserData()
+  func openOfflineOrders()
 }
 
 // MARK: Delegate
-protocol YDMStoreModeOfflineAccountViewModelDelegate {
+protocol HomeViewModelDelegate {
   var error: Binder<(title: String, message: String)> { get }
 
   func onExit()
@@ -27,20 +28,20 @@ protocol YDMStoreModeOfflineAccountViewModelDelegate {
 }
 
 // MARK: ViewModel
-class YDMStoreModeOfflineAccountViewModel {
+class HomeViewModel {
   // MARK: Properties
-  let navigation: YDMStoreModeOfflineAccountNavigationDelegate
+  let navigation: HomeViewModelNavigationDelegate
 
   var error: Binder<(title: String, message: String)> = Binder(("", ""))
 
   // MARK: Init
-  init(navigation: YDMStoreModeOfflineAccountNavigationDelegate) {
+  init(navigation: HomeViewModelNavigationDelegate) {
     self.navigation = navigation
   }
 }
 
 // MARK: Extension Delegate
-extension YDMStoreModeOfflineAccountViewModel: YDMStoreModeOfflineAccountViewModelDelegate {
+extension HomeViewModel: HomeViewModelDelegate {
 
   func onExit() {
     navigation.onExit()
@@ -65,7 +66,7 @@ extension YDMStoreModeOfflineAccountViewModel: YDMStoreModeOfflineAccountViewMod
 
       case 3:
         // Offline orders
-        break
+        navigation.openOfflineOrders()
 
       default:
         break

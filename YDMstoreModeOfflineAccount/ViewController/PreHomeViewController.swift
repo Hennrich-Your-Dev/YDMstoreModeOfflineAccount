@@ -10,10 +10,12 @@ import UIKit
 class PreHomeViewController: UIViewController {
   // MARK: Properties
   var viewModel: PreHomeViewModelDelegate?
+  var navBar: UINavigationController!
 
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpLayout()
+    viewModel?.assignInternalNavigationController(navBar)
   }
 }

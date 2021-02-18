@@ -236,35 +236,22 @@ extension HistoricViewController: UIScrollViewDelegate {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
       // reach bottom
-      if !shadowScrollEnabled {
-        shadowScrollEnabled = true
-        UIView.animate(withDuration: 0.5) { [weak self] in
-          self?.shadowContainerView.layer.applyShadow()
-          self?.separatorView.layer.opacity = 0
-        }
-      }
+      toggleNavShadow(true)
     }
 
-    if (scrollView.contentOffset.y < 0) {
+    if (scrollView.contentOffset.y < 0){
       //reach top
-      UIView.animate(withDuration: 0.5) { [weak self] in
-        self?.shadowContainerView.layer.shadowOpacity = 0
-        self?.separatorView.layer.opacity = 1
-
-        Timer.scheduledTimer(withTimeInterval: 0.6, repeats: false) { _ in
-          self?.shadowScrollEnabled = false
-        }
+      toggleNavShadow(false)
+      Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { [weak self] _ in
+        self?.navBarShadowOff = true
       }
     }
 
-    if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)) {
+    if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
       // not top and not bottom
-      if !shadowScrollEnabled {
-        shadowScrollEnabled = true
-        UIView.animate(withDuration: 0.5) { [weak self] in
-          self?.shadowContainerView.layer.applyShadow()
-          self?.separatorView.layer.opacity = 0
-        }
+      if navBarShadowOff {
+        navBarShadowOff = false
+        toggleNavShadow(true)
       }
     }
   }

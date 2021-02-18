@@ -14,32 +14,9 @@ import YDExtensions
 class HistoricViewController: UIViewController {
   // MARK: Properties
   var viewModel: HistoricViewModelDelegate?
-  var shadowScrollEnabled = false
+  var navBarShadowOff = true
 
   // MARK: IBOutlets
-  @IBOutlet weak var contentView: UIView! {
-    didSet {
-      contentView.layer.cornerRadius = 16
-      contentView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//      contentView.clipsToBounds = true
-      contentView.hero.id = "bottomSheet"
-    }
-  }
-
-  @IBOutlet weak var navContainer: UIView!  {
-    didSet {
-      navContainer.backgroundColor = .white
-    }
-  }
-
-  @IBOutlet weak var backButton: UIButton! {
-    didSet {
-      backButton.layer.cornerRadius = backButton.frame.height / 2
-      backButton.setImage(Icons.leftArrow, for: .normal)
-      backButton.layer.applyShadow()
-    }
-  }
-
   @IBOutlet weak var exportButton: UIButton! {
     didSet {
       exportButton.layer.cornerRadius = 6
@@ -74,19 +51,15 @@ class HistoricViewController: UIViewController {
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.hero.isEnabled = true
-    view.hero.id = "background"
 
-    setViewBackgroundImage()
+    title = "minhas ações nas lojas físicas"
+
+    createBackButton()
     setBinds()
     viewModel?.getHistoricList()
   }
 
   // MARK: IBActions
-  @IBAction func onBackButton(_ sender: Any) {
-    viewModel?.onBack()
-  }
-
   @IBAction func onExportAction(_ sender: Any) {
     if let image = snapshot() {
       let activityViewController = UIActivityViewController(
@@ -97,25 +70,50 @@ class HistoricViewController: UIViewController {
       present(activityViewController, animated: true, completion: nil)
     }
   }
-
 }
 
 // MARK: Actions
 extension HistoricViewController {
-  func setViewBackgroundImage() {
-    if let image = Images.map {
-      view.backgroundColor = UIColor(patternImage: image)
+  func createBackButton() {
+    let backButtonView = UIButton()
+    backButtonView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+    backButtonView.layer.cornerRadius = 16
+    backButtonView.layer.applyShadow()
+    backButtonView.backgroundColor = .white
+    backButtonView.setImage(Icons.leftArrow, for: .normal)
+    backButtonView.addTarget(self, action: #selector(onBackAction), for: .touchUpInside)
+
+    let backButton = UIBarButtonItem()
+    backButton.customView = backButtonView
+
+    navigationItem.leftBarButtonItem = backButton
+  }
+
+  @objc func onBackAction(_ sender: UIButton) {
+    viewModel?.onBack()
+  }
+
+  func toggleNavShadow(_ show: Bool) {
+    if show {
+      UIView.animate(withDuration: 0.5) { [weak self] in
+        self?.shadowContainerView.layer.applyShadow()
+        self?.separatorView.layer.opacity = 0
+      }
+    } else {
+      UIView.animate(withDuration: 0.5) { [weak self] in
+        self?.shadowContainerView.layer.shadowOpacity = 0
+        self?.separatorView.layer.opacity = 1
+      }
     }
   }
 
   func snapshot() -> UIImage? {
     let holeScreenSize = CGSize(
-      width: contentView.frame.size.width,
-      height: (contentView.frame.size.height - scrollView.frame.height) + scrollView.contentSize.height
+      width: view.frame.size.width,
+      height: (view.frame.size.height - scrollView.frame.height) + scrollView.contentSize.height
     )
 
     let savedViewFrame = view.frame
-    let savedContentFrame = contentView.frame
     let savedTableFrame = scrollView.frame
     let savedContentOffset = scrollView.contentOffset
 
@@ -123,31 +121,23 @@ extension HistoricViewController {
       UIGraphicsEndImageContext()
 
       view.frame = savedViewFrame
-      contentView.frame = savedContentFrame
       scrollView.contentOffset = savedContentOffset
       scrollView.frame = savedTableFrame
-      backButton.isHidden = false
+      navigationItem.setHidesBackButton(false, animated: true)
       exportButton.isHidden = false
 
-      shadowScrollEnabled = false
+      navBarShadowOff = true
     }
 
     scrollView.contentOffset = CGPoint(x: 0, y: -20)
-    shadowScrollEnabled = true
+    navBarShadowOff = false
     separatorView.layer.opacity = 1
     shadowContainerView.layer.shadowOpacity = 0
 
     view.frame = CGRect(
       x: 0,
       y: 0,
-      width: contentView.frame.size.width,
-      height: holeScreenSize.height
-    )
-
-    contentView.frame = CGRect(
-      x: 0,
-      y: 0,
-      width: contentView.frame.size.width,
+      width: view.frame.size.width,
       height: holeScreenSize.height
     )
 
@@ -160,7 +150,7 @@ extension HistoricViewController {
 
     scrollView.showsVerticalScrollIndicator = false
 
-    backButton.isHidden = true
+    navigationItem.setHidesBackButton(true, animated: true)
     exportButton.isHidden = true
 
     let scale = UIScreen.main.scale
@@ -168,7 +158,7 @@ extension HistoricViewController {
 
     guard let context = UIGraphicsGetCurrentContext() else { return nil }
 
-    contentView.layer.render(in: context)
+    navigationController?.view.layer.render(in: context)
 
     let image = UIGraphicsGetImageFromCurrentImageContext()
     return image

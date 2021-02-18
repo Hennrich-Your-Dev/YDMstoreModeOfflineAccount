@@ -58,43 +58,31 @@ extension PreHomeViewController {
   }
 
   func createNavBar() {
-//    guard let container = view.subviews.at(1) else { return }
-//
-//    let navBar = UIView()
-//    navBar.backgroundColor = .white
-//    container.addSubview(navBar)
-//
-//    navBar.translatesAutoresizingMaskIntoConstraints = false
-//    NSLayoutConstraint.activate([
-//      navBar.heightAnchor.constraint(equalToConstant: 48),
-//      navBar.topAnchor.constraint(equalTo: container.topAnchor,
-//                                  constant: 20),
-//      navBar.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-//      navBar.trailingAnchor.constraint(equalTo: container.trailingAnchor)
-//    ])
-//
-//    createBackButton(parent: navBar)
-  }
+    guard let container = view.subviews.at(1) else { return }
 
-  func createBackButton(parent navBar: UIView) {
-//    let backButton = UIButton()
-//    backButton.setImage(Icons.leftArrow, for: .normal)
-//    backButton.backgroundColor = .white
-//    backButton.tintColor = UIColor.Zeplin.black
-//    navBar.addSubview(backButton)
-//
-//    backButton.translatesAutoresizingMaskIntoConstraints = false
-//    NSLayoutConstraint.activate([
-//      backButton.widthAnchor.constraint(equalToConstant: 32),
-//      backButton.heightAnchor.constraint(equalToConstant: 32),
-//      backButton.topAnchor.constraint(equalTo: navBar.topAnchor),
-//      backButton.leadingAnchor.constraint(equalTo: navBar.leadingAnchor, constant: 16),
-//    ])
-//
-//    backButton.layer.cornerRadius = 16
-//    backButton.layer.applyShadow()
-//    backButton.addTarget(self,
-//                         action: #selector(onBackAction),
-//                         for: .touchUpInside)
+    let vc = UIViewController()
+    navBar = UINavigationController(rootViewController: vc)
+
+    navBar.navigationBar.shadowImage = UIImage()
+    navBar.navigationBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+    navBar.navigationBar.tintColor = UIColor.Zeplin.black
+    navBar.navigationBar.titleTextAttributes = [
+      .foregroundColor: UIColor.Zeplin.black
+    ]
+
+    addChild(navBar)
+    container.addSubview(navBar.view)
+
+    navBar.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    navBar.view.layer.cornerRadius = 16
+    navBar.view.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      navBar.view.topAnchor.constraint(equalTo: container.topAnchor, constant: 20),
+      navBar.view.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+      navBar.view.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+      navBar.view.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+    ])
+
+    navBar.didMove(toParent: self)
   }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 import YDB2WComponents
 
-extension YDMStoreModeOfflineAccountViewController {
+extension HomeViewController {
   func showAlert(title: String, message: String) {
     YDDialog().start(
       ofType: .simple,
@@ -19,7 +19,7 @@ extension YDMStoreModeOfflineAccountViewController {
   }
 }
 
-extension YDMStoreModeOfflineAccountViewController: YDDialogCoordinatorDelegate {
+extension HomeViewController: YDDialogCoordinatorDelegate {
   func onActionYDDialog() {
     //
   }
