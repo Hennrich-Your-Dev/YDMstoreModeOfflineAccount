@@ -57,7 +57,7 @@ class UserDataViewController: UIViewController {
   }
 
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-  
+
   @IBOutlet weak var shadowContainerView: UIView! {
     didSet {
       shadowContainerView.backgroundColor = .white
@@ -119,13 +119,17 @@ class UserDataViewController: UIViewController {
   }
 
   func toggleNavShadow(_ show: Bool) {
-    if show {
-      UIView.animate(withDuration: 0.5) { [weak self] in
-        self?.shadowContainerView.layer.applyShadow()
-      }
-    } else {
-      UIView.animate(withDuration: 0.5) { [weak self] in
-        self?.shadowContainerView.layer.shadowOpacity = 0
+    DispatchQueue.main.async { [weak self] in
+      if show {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+          self?.shadowContainerView.layer.applyShadow()
+          self?.separatorView.isHidden = true
+        }
+      } else {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+          self?.shadowContainerView.layer.shadowOpacity = 0
+          self?.separatorView.isHidden = false
+        }
       }
     }
   }

@@ -6,97 +6,62 @@
 //
 
 import UIKit
-import Hero
 
 import YDB2WAssets
 import YDExtensions
 
 extension OrdersViewController {
   func setUpLayout() {
-    setViewBackgroundImage()
-    createOpacityMask()
+    createBackButton()
+    createShadow()
     createContainerView()
-    createNavBar()
   }
 
-  func setViewBackgroundImage() {
-    if let image = Images.map {
-      view.backgroundColor = UIColor(patternImage: image)
-      view.hero.id = "background"
-    }
+  func createBackButton() {
+    let backButtonView = UIButton()
+    backButtonView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+    backButtonView.layer.cornerRadius = 16
+    backButtonView.layer.applyShadow()
+    backButtonView.backgroundColor = .white
+    backButtonView.setImage(Icons.leftArrow, for: .normal)
+    backButtonView.addTarget(self, action: #selector(onBackAction), for: .touchUpInside)
+
+    let backButton = UIBarButtonItem()
+    backButton.customView = backButtonView
+
+    navigationItem.leftBarButtonItem = backButton
   }
 
-  func createOpacityMask() {
-    let opacityView = UIView()
-    opacityView.backgroundColor = UIColor.black.withAlphaComponent(0.75)
-    view.addSubview(opacityView)
+  @objc func onBackAction(_ sender: UIButton) {
+    viewModel?.onBack()
+  }
 
-    opacityView.translatesAutoresizingMaskIntoConstraints = false
+  func createShadow() {
+    shadowContainerView = UIView()
+    shadowContainerView.backgroundColor = .white
+    shadowContainerView.layer.zPosition = 5
+    view.addSubview(shadowContainerView)
+
+    shadowContainerView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      opacityView.topAnchor.constraint(equalTo: view.topAnchor),
-      opacityView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      opacityView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      opacityView.heightAnchor.constraint(equalToConstant: 100)
+      shadowContainerView.heightAnchor.constraint(equalToConstant: 5),
+      shadowContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      shadowContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      shadowContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     ])
   }
 
   func createContainerView() {
     let containerView = UIView()
-    containerView.backgroundColor = .white
-    containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-    containerView.layer.cornerRadius = 16
-    containerView.hero.id = "bottomSheet"
-
+    containerView.backgroundColor = .red
     view.addSubview(containerView)
 
     containerView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                         constant: 18),
-      containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+      containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     ])
-  }
-
-  func createNavBar() {
-    guard let container = view.subviews.at(1) else { return }
-
-    let navBar = UIView()
-    navBar.backgroundColor = .white
-    container.addSubview(navBar)
-
-    navBar.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      navBar.heightAnchor.constraint(equalToConstant: 48),
-      navBar.topAnchor.constraint(equalTo: container.topAnchor,
-                                  constant: 20),
-      navBar.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-      navBar.trailingAnchor.constraint(equalTo: container.trailingAnchor)
-    ])
-
-    createBackButton(parent: navBar)
-  }
-
-  func createBackButton(parent navBar: UIView) {
-    let backButton = UIButton()
-    backButton.setImage(Icons.leftArrow, for: .normal)
-    backButton.backgroundColor = .white
-    backButton.tintColor = UIColor.Zeplin.black
-    navBar.addSubview(backButton)
-
-    backButton.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      backButton.widthAnchor.constraint(equalToConstant: 32),
-      backButton.heightAnchor.constraint(equalToConstant: 32),
-      backButton.topAnchor.constraint(equalTo: navBar.topAnchor),
-      backButton.leadingAnchor.constraint(equalTo: navBar.leadingAnchor, constant: 16),
-    ])
-
-    backButton.layer.cornerRadius = 16
-    backButton.layer.applyShadow()
-    backButton.addTarget(self,
-                         action: #selector(onBackAction),
-                         for: .touchUpInside)
   }
 }

@@ -94,42 +94,50 @@ extension HistoricViewController {
   }
 
   func toggleNavShadow(_ show: Bool) {
-    if show {
-      UIView.animate(withDuration: 0.5) { [weak self] in
-        self?.shadowContainerView.layer.applyShadow()
-        self?.separatorView.layer.opacity = 0
-      }
-    } else {
-      UIView.animate(withDuration: 0.5) { [weak self] in
-        self?.shadowContainerView.layer.shadowOpacity = 0
-        self?.separatorView.layer.opacity = 1
+    DispatchQueue.main.async { [weak self] in
+      if show {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+          self?.shadowContainerView.layer.applyShadow()
+          self?.separatorView.isHidden = true
+        }
+      } else {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+          self?.shadowContainerView.layer.shadowOpacity = 0
+          self?.separatorView.isHidden = false
+        }
       }
     }
   }
 
   func snapshot() -> UIImage? {
+    guard let navBar = navigationController else { return nil }
+
     let holeScreenSize = CGSize(
-      width: view.frame.size.width,
-      height: (view.frame.size.height - scrollView.frame.height) + scrollView.contentSize.height
+      width: navBar.view.frame.size.width,
+      height: (view.frame.size.height - scrollView.frame.height) + scrollView.contentSize.height + 150
     )
 
+    let savedRootParentViewFrame = navigationController?.parent?.view.frame
+    let savedNavBarFrame = navBar.view.frame
     let savedViewFrame = view.frame
-    let savedTableFrame = scrollView.frame
+    let savedScrollFrame = scrollView.frame
     let savedContentOffset = scrollView.contentOffset
 
     defer {
       UIGraphicsEndImageContext()
 
+      navigationController?.parent?.view.frame = savedRootParentViewFrame ?? .zero
+      navigationController?.parent?.view.subviews[1].frame = savedNavBarFrame
+      navigationController?.view.frame = savedNavBarFrame
       view.frame = savedViewFrame
       scrollView.contentOffset = savedContentOffset
-      scrollView.frame = savedTableFrame
-      navigationItem.setHidesBackButton(false, animated: true)
+      scrollView.frame = savedScrollFrame
+      createBackButton()
       exportButton.isHidden = false
-
       navBarShadowOff = true
     }
 
-    scrollView.contentOffset = CGPoint(x: 0, y: -20)
+    scrollView.contentOffset = .zero // CGPoint(x: 0, y: -20)
     navBarShadowOff = false
     separatorView.layer.opacity = 1
     shadowContainerView.layer.shadowOpacity = 0
@@ -141,16 +149,36 @@ extension HistoricViewController {
       height: holeScreenSize.height
     )
 
+    navigationController?.parent?.view.frame = CGRect(
+      x: 0,
+      y: 0,
+      width: view.frame.size.width,
+      height: holeScreenSize.height
+    )
+
+    navigationController?.parent?.view.subviews[1].frame = CGRect(
+      x: 0,
+      y: 0,
+      width: view.frame.size.width,
+      height: holeScreenSize.height
+    )
+
+    navigationController?.view.frame = CGRect(
+      x: 0,
+      y: 0,
+      width: view.frame.size.width,
+      height: holeScreenSize.height
+    )
+
     scrollView.frame = CGRect(
       x: 0,
-      y: 20,
+      y: 40,
       width: scrollView.contentSize.width,
       height: scrollView.contentSize.height
     )
-
     scrollView.showsVerticalScrollIndicator = false
 
-    navigationItem.setHidesBackButton(true, animated: true)
+    navigationItem.setLeftBarButton(UIBarButtonItem(), animated: false)
     exportButton.isHidden = true
 
     let scale = UIScreen.main.scale
