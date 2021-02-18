@@ -18,6 +18,9 @@ class OrdersViewController: UIViewController {
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = "minhas compras nas lojas"
+
+    view.backgroundColor = .white
     setUpLayout()
   }
 
@@ -39,5 +42,5 @@ class OrdersViewController: UIViewController {
 
 // MARK: Offline Orders Delegate
 //extension OrdersViewController: YDMSOfflineOrdersDelegate {
-//  
+//
 //}

@@ -77,7 +77,7 @@ utilizou em nossas lojas físicas :)</string>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AwV-Zi-m9E"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3Xf-ps-FZk" firstAttribute="leading" secondItem="AwV-Zi-m9E" secondAttribute="leading" constant="21" id="4yM-fh-aZY"/>
                             <constraint firstItem="ErV-u2-k5w" firstAttribute="centerY" secondItem="w7k-hk-p6J" secondAttribute="centerY" multiplier="0.9" id="5u5-df-o0z"/>
