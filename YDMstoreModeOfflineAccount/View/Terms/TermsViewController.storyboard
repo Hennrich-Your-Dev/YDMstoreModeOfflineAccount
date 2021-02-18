@@ -40,7 +40,7 @@
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mOs-lk-EXJ"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mOs-lk-EXJ" firstAttribute="trailing" secondItem="m87-up-gxQ" secondAttribute="trailing" constant="31" id="4wI-Dh-Fjc"/>
                             <constraint firstItem="mOs-lk-EXJ" firstAttribute="trailing" secondItem="qUp-PV-pZQ" secondAttribute="trailing" constant="21" id="Few-yE-29M"/>
