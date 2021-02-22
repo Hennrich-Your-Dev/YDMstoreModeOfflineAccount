@@ -41,8 +41,3 @@ class OrdersViewController: UIViewController {
     }
   }
 }
-
-// MARK: Offline Orders Delegate
-//extension OrdersViewController: YDMSOfflineOrdersDelegate {
-//
-//}

@@ -49,6 +49,7 @@
 		C19B99D625C9D0EE0002E696 /* HistoricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B99D525C9D0EE0002E696 /* HistoricService.swift */; };
 		C1B6BF4625C4164F001CB137 /* UserDataViewController+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6BF4525C4164F001CB137 /* UserDataViewController+Dialog.swift */; };
 		C1B6BFD025C42667001CB137 /* UserDataViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */; };
+		C1CD12F425E40EC100BB578F /* OrdersViewController+OfflineOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD12F325E40EC100BB578F /* OrdersViewController+OfflineOrders.swift */; };
 		C1DE3DCF25C3107F0084299E /* UserDataSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE3DCD25C3107F0084299E /* UserDataSeparatorTableViewCell.swift */; };
 		C1DE3DD025C3107F0084299E /* UserDataSeparatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */; };
 		C1E083F025C200C5004D5382 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E083EF25C200C5004D5382 /* UserLogin.swift */; };
@@ -103,6 +104,7 @@
 		C19B99D525C9D0EE0002E696 /* HistoricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricService.swift; sourceTree = "<group>"; };
 		C1B6BF4525C4164F001CB137 /* UserDataViewController+Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Dialog.swift"; sourceTree = "<group>"; };
 		C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		C1CD12F325E40EC100BB578F /* OrdersViewController+OfflineOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrdersViewController+OfflineOrders.swift"; sourceTree = "<group>"; };
 		C1DE3DCD25C3107F0084299E /* UserDataSeparatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSeparatorTableViewCell.swift; sourceTree = "<group>"; };
 		C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataSeparatorTableViewCell.xib; sourceTree = "<group>"; };
 		C1E083EF25C200C5004D5382 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		C129AA5525DD54FC003D3882 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				C1CD12F125E40E9700BB578F /* Extensions */,
 				C129AA5625DD5537003D3882 /* OrdersViewController.swift */,
 			);
 			path = Orders;
@@ -513,6 +516,22 @@
 			path = ScrollView;
 			sourceTree = "<group>";
 		};
+		C1CD12F125E40E9700BB578F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1CD12F225E40EA500BB578F /* OfflineOrders */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C1CD12F225E40EA500BB578F /* OfflineOrders */ = {
+			isa = PBXGroup;
+			children = (
+				C1CD12F325E40EC100BB578F /* OrdersViewController+OfflineOrders.swift */,
+			);
+			path = OfflineOrders;
+			sourceTree = "<group>";
+		};
 		C1DE3DBF25C3077E0084299E /* TermsAndButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -732,6 +751,7 @@
 				C1E0842725C220A7004D5382 /* UsersInfo.swift in Sources */,
 				C19B996925C9934E0002E696 /* TermsViewModel.swift in Sources */,
 				C197DCAD25BF481F0007E8C3 /* UserDataViewModel.swift in Sources */,
+				C1CD12F425E40EC100BB578F /* OrdersViewController+OfflineOrders.swift in Sources */,
 				C19B996225C992820002E696 /* TermsViewController.swift in Sources */,
 				C19B99D025C9D04B0002E696 /* HistoricViewModel.swift in Sources */,
 				A5B9E38B25AE133B006EA075 /* HomeViewModel.swift in Sources */,
