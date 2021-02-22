@@ -196,10 +196,10 @@
 			isa = PBXGroup;
 			children = (
 				C129AABF25DDF170003D3882 /* Home */,
-				C129AA5E25DD5825003D3882 /* Orders */,
+				C19B996525C992FE0002E696 /* UserData */,
 				C19B99CE25C9D0260002E696 /* Historic */,
 				C19B996725C993030002E696 /* Terms */,
-				C19B996525C992FE0002E696 /* UserData */,
+				C129AA5E25DD5825003D3882 /* Orders */,
 				C129AA8C25DD94F4003D3882 /* PreHomeViewModel.swift */,
 			);
 			path = ViewModel;

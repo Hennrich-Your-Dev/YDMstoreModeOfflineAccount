@@ -38,8 +38,16 @@ extension UserDataViewController {
 
     viewModel?.usersInfo.bind { [weak self] _ in
       self?.tableView.reloadData()
-//      self?.lastUpdateLabelTitle.isHidden = false
-//      self?.lastUpdateLabel.isHidden = false
+
+      if let dateString = self?.viewModel?.userData?.date,
+         let formated = UserDataSet.formatDate(dateString) {
+        self?.lastUpdateLabelTitle.isHidden = false
+        self?.lastUpdateLabel.isHidden = false
+        self?.lastUpdateLabel.text = formated
+      }
+      
+
+
       self?.historicButton.isHidden = false
       self?.separatorView.isHidden = false
     }

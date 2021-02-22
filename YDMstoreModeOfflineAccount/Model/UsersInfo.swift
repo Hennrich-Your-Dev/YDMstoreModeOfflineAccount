@@ -16,6 +16,7 @@ class UsersInfo: Codable {
   let email: String?
   let cellPhone: String?
   let homePhone: String?
+  let date: String?
 
   var marketing: Bool = false
   var terms: Bool = false
@@ -32,6 +33,7 @@ class UsersInfo: Codable {
     case homePhone = "telefone_residencial"
     case marketing = "optin_marketing"
     case terms = "optin_termos_condicoes"
+    case date = "data_atualizacao"
   }
 
   // MARK: Actions
