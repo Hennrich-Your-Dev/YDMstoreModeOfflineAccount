@@ -9,6 +9,7 @@ import UIKit
 
 import YDB2WAssets
 import YDExtensions
+import YDMOfflineOrders
 
 extension OrdersViewController {
   func setUpLayout() {
@@ -53,7 +54,6 @@ extension OrdersViewController {
 
   func createContainerView() {
     let containerView = UIView()
-    containerView.backgroundColor = .red
     view.addSubview(containerView)
 
     containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +62,24 @@ extension OrdersViewController {
       containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
+
+    importOrdersView(container: containerView)
+  }
+
+  func importOrdersView(container: UIView) {
+    ordersViewController = YDMOfflineOrders().start()
+    addChild(ordersViewController)
+    ordersViewController.delegate = self
+
+    container.addSubview(ordersViewController.view)
+
+    ordersViewController.view.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      ordersViewController.view.topAnchor.constraint(equalTo: container.topAnchor),
+      ordersViewController.view.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+      ordersViewController.view.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+      ordersViewController.view.bottomAnchor.constraint(equalTo: container.bottomAnchor)
     ])
   }
 }

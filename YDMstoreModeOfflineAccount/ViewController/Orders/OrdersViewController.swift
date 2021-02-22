@@ -9,11 +9,13 @@ import UIKit
 
 import YDB2WAssets
 import YDExtensions
+import YDMOfflineOrders
 
 class OrdersViewController: UIViewController {
   // MARK: Properties
   var viewModel: OrdersViewModelDelegate?
   var shadowContainerView: UIView!
+  var ordersViewController: YDMOfflineOrdersViewController!
 
   // MARK: Life cycle
   override func viewDidLoad() {

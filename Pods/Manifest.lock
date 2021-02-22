@@ -29,6 +29,9 @@ PODS:
   - YDExtensions (1.0.35):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
+  - YDMOfflineOrders (1.0.0):
+    - YDExtensions
+    - YDUtilities
   - YDUtilities (1.0.10):
     - Alamofire (~> 4.0)
 
@@ -38,6 +41,7 @@ DEPENDENCIES:
   - YDB2WComponents
   - YDB2WIntegration
   - YDExtensions
+  - YDMOfflineOrders
   - YDUtilities
 
 SPEC REPOS:
@@ -47,6 +51,7 @@ SPEC REPOS:
     - YDB2WIntegration
     - YDB2WModels
     - YDExtensions
+    - YDMOfflineOrders
     - YDUtilities
   trunk:
     - Alamofire
@@ -66,8 +71,9 @@ SPEC CHECKSUMS:
   YDB2WIntegration: 0deba88174dccd3fdd7bc85809978a56162c4cd4
   YDB2WModels: a78b87e57a9299b480786a7b5bc337ce817a1e2d
   YDExtensions: b579e16049bbdba97de872a3496911a66a16ffe9
+  YDMOfflineOrders: a3717f040868d2af48455c81a598cdde875b4356
   YDUtilities: 7e56ee0f48101c8bf487ad03135730dbefac70bf
 
-PODFILE CHECKSUM: 781bb4e689a58d1cc470aadce6d3142f6483058c
+PODFILE CHECKSUM: 92315b8b057b26ef9d900640c828117e2f35ba76
 
 COCOAPODS: 1.10.1

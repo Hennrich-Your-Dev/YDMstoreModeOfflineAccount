@@ -31,6 +31,7 @@ Pod::Spec.new do |spec|
   spec.dependency "YDExtensions"
   spec.dependency "YDB2WAssets"
   spec.dependency "YDB2WComponents"
+  spec.dependency "YDMOfflineOrders"
 
   spec.dependency "Alamofire", "4.9.1"
   spec.dependency "Hero"

@@ -73,6 +73,7 @@ extension PreHomeViewController {
     addChild(navBar)
     container.addSubview(navBar.view)
 
+    navBar.navigationBar.isTranslucent = false
     navBar.view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     navBar.view.layer.cornerRadius = 16
     navBar.view.translatesAutoresizingMaskIntoConstraints = false
