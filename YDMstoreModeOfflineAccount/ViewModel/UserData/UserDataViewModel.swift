@@ -14,7 +14,7 @@ import YDB2WIntegration
 // MARK: Navigation
 protocol UserDataNavigationDelegate {
   func onBack()
-  func openUserHistoric()
+  func openUserHistoric(withUser user: UserLogin)
   func openTerms()
 }
 
@@ -188,7 +188,9 @@ extension UserDataViewModel: UserDataViewModelDelegate {
   }
 
   func openHistoric() {
-    navigation.openUserHistoric()
+    guard let user = userLogin else { return }
+
+    navigation.openUserHistoric(withUser: user)
   }
 
   func openTerms() {

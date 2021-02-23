@@ -38,6 +38,8 @@ class HistoricViewController: UIViewController {
     }
   }
 
+  @IBOutlet weak var separatorTopConstraint: NSLayoutConstraint!
+
   @IBOutlet weak var scrollView: UIScrollView! {
     didSet {
       scrollView.delegate = self
@@ -135,6 +137,8 @@ extension HistoricViewController {
       createBackButton()
       exportButton.isHidden = false
       navBarShadowOff = true
+      separatorTopConstraint.constant += 70
+      view.layoutIfNeeded()
     }
 
     scrollView.contentOffset = .zero // CGPoint(x: 0, y: -20)
@@ -170,9 +174,12 @@ extension HistoricViewController {
       height: holeScreenSize.height
     )
 
+    separatorTopConstraint.constant -= 70
+    view.layoutIfNeeded()
+
     scrollView.frame = CGRect(
       x: 0,
-      y: 40,
+      y: 0,
       width: scrollView.contentSize.width,
       height: scrollView.contentSize.height
     )

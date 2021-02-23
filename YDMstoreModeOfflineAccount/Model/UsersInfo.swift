@@ -17,9 +17,52 @@ class UsersInfo: Codable {
   let cellPhone: String?
   let homePhone: String?
   let date: String?
+  let street: String?
+  let streetNumber: String?
+  let streetNumberComplement: String?
+  let CEP: String?
+  let neighborhood: String?
+  let city: String?
+  let state: String?
 
   var marketing: Bool = false
   var terms: Bool = false
+
+  var formattedAddres: String? {
+    guard var address = street else { return nil }
+
+    if let number = streetNumber,
+       !number.isEmpty {
+      address += ", \(number)"
+    }
+
+    if let complement = streetNumberComplement,
+       !complement.isEmpty {
+      address += ", \(complement)"
+    }
+
+    if let neighborhood = neighborhood,
+       !neighborhood.isEmpty {
+      address += ", \(neighborhood)"
+    }
+
+    if let city = city,
+       !city.isEmpty {
+      address += " - \(city)"
+    }
+
+    if let state = state,
+       !state.isEmpty {
+      address += ", \(state)"
+    }
+
+    if let cep = CEP,
+       !cep.isEmpty {
+      address += " - \(cep)"
+    }
+
+    return address
+  }
 
   // MARK: CodingKeys
   enum CodingKeys: String, CodingKey {
@@ -34,6 +77,13 @@ class UsersInfo: Codable {
     case marketing = "optin_marketing"
     case terms = "optin_termos_condicoes"
     case date = "data_atualizacao"
+    case street = "logradouro"
+    case streetNumber = "numero"
+    case streetNumberComplement = "complemento"
+    case CEP = "cep"
+    case neighborhood = "bairro"
+    case city = "municipio"
+    case state = "uf"
   }
 
   // MARK: Actions
@@ -89,6 +139,10 @@ class UsersInfo: Codable {
       }
 
       data.append(phoneData)
+    }
+
+    if let address = formattedAddres {
+      data.append(DataSet(title: "endereço", value: address))
     }
 
     data.append(DataSet(type: .separator, title: "", value: nil))

@@ -103,6 +103,7 @@
                         <outlet property="activityIndicator" destination="g3W-ys-Hv4" id="Nov-El-gio"/>
                         <outlet property="exportButton" destination="WCx-5h-ku2" id="dzt-Q6-I5e"/>
                         <outlet property="scrollView" destination="nHy-8X-pOQ" id="HER-42-zal"/>
+                        <outlet property="separatorTopConstraint" destination="mUM-bC-KCV" id="V2y-fh-yGd"/>
                         <outlet property="separatorView" destination="Fhy-hv-mPn" id="5tO-ab-DsM"/>
                         <outlet property="shadowContainerView" destination="WCH-yu-vh7" id="bbY-Aq-cxX"/>
                         <outlet property="stackView" destination="a22-Rr-Anb" id="nSW-4V-hVz"/>
