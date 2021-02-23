@@ -23,10 +23,10 @@ protocol UserDataViewModelDelegate {
   var error: Binder<(title: String, message: String)> { get }
   var loading: Binder<Bool> { get }
   var snackBarMessage: Binder<String?> { get }
-  var usersInfo: Binder<[UserDataSet]> { get }
+  var usersInfo: Binder<[DataSet]> { get }
   var userData: UsersInfo? { get set }
 
-  subscript(_ index: Int) -> UserDataSet? { get }
+  subscript(_ index: Int) -> DataSet? { get }
 
   func onBack()
   func trackState()
@@ -49,7 +49,7 @@ class UserDataViewModel {
   let currentUser: YDCurrentCustomer
   var userLogin: UserLogin? = nil
   var userData: UsersInfo? = nil
-  var usersInfo: Binder<[UserDataSet]> =  Binder([])
+  var usersInfo: Binder<[DataSet]> = Binder([])
 
   let errorMessageIncompletePerfil = (
     title: "poooxa, ainda não temos seu cadastro completo",
@@ -150,7 +150,7 @@ class UserDataViewModel {
 
 // MARK: Extension
 extension UserDataViewModel: UserDataViewModelDelegate {
-  subscript(_ index: Int) -> UserDataSet? {
+  subscript(_ index: Int) -> DataSet? {
     return usersInfo.value.at(index)
   }
 

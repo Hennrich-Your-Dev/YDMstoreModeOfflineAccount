@@ -37,25 +37,25 @@ class UsersInfo: Codable {
   }
 
   // MARK: Actions
-  func getUserDataSets() -> [UserDataSet] {
-    var data: [UserDataSet] = []
+  func getUserDataSets() -> [DataSet] {
+    var data: [DataSet] = []
 
     if let name = name,
        !name.isEmpty {
-      data.append(UserDataSet(title: "nome", value: name))
+      data.append(DataSet(title: "nome", value: name))
     }
 
     if let socialSecurity = socialSecurity,
        !socialSecurity.isEmpty,
-       let formatedSocialSecurity = UserDataSet.formatSocialSecurityNumber(socialSecurity) {
-      data.append(UserDataSet(title: "cpf", value: formatedSocialSecurity))
+       let formatedSocialSecurity = DataSet.formatSocialSecurityNumber(socialSecurity) {
+      data.append(DataSet(title: "cpf", value: formatedSocialSecurity))
     }
 
     if let dateString = birthday,
        !dateString.isEmpty,
-       let formatedDate = UserDataSet.formatDate(dateString) {
+       let formatedDate = DataSet.formatDate(dateString) {
       data.append(
-        UserDataSet(
+        DataSet(
           title: "data de nascimento",
           value: formatedDate
         )
@@ -64,40 +64,40 @@ class UsersInfo: Codable {
 
     if let gender = gender,
        !gender.isEmpty {
-      data.append(UserDataSet(title: "sexo", value: gender))
+      data.append(DataSet(title: "sexo", value: gender))
     }
 
     if let relationship = relationship,
        !relationship.isEmpty {
-      data.append(UserDataSet(title: "estado civil", value: relationship))
+      data.append(DataSet(title: "estado civil", value: relationship))
     }
 
     if let email = email,
        !email.isEmpty {
-      data.append(UserDataSet(title: "e-mail", value: email))
+      data.append(DataSet(title: "e-mail", value: email))
     }
 
     if let cell = cellPhone,
        !cell.isEmpty {
-      var phoneData = UserDataSet(title: "telefone celular",
-                                  value: UserDataSet.formatPhoneNumber(cell))
+      var phoneData = DataSet(title: "telefone celular",
+                                  value: DataSet.formatPhoneNumber(cell))
 
       if let home = homePhone,
          !home.isEmpty {
         phoneData.doubleTitle = "telefone residencial"
-        phoneData.doubleValue = UserDataSet.formatPhoneNumber(home)
+        phoneData.doubleValue = DataSet.formatPhoneNumber(home)
       }
 
       data.append(phoneData)
     }
 
-    data.append(UserDataSet(type: .separator, title: "", value: nil))
+    data.append(DataSet(type: .separator, title: "", value: nil))
 
-    data.append(UserDataSet(type: .marketing, title: "", value: nil))
+    data.append(DataSet(type: .marketing, title: "", value: nil))
 
-    data.append(UserDataSet(type: .separator, title: "", value: nil))
+    data.append(DataSet(type: .separator, title: "", value: nil))
 
-    data.append(UserDataSet(type: .termsAndSave, title: "", value: nil))
+    data.append(DataSet(type: .termsAndSave, title: "", value: nil))
 
     return data
   }

@@ -36,7 +36,7 @@ class UserDataInfoTableViewCell: UITableViewCell {
   }
 
   // MARK: Config
-  func config(with data: UserDataSet) {
+  func config(with data: DataSet) {
     titleLabel.text = data.title
     valueLabel.text = data.value
 

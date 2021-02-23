@@ -31,11 +31,12 @@
 		C183CED125B0953F00B4F675 /* HomeViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183CED025B0953F00B4F675 /* HomeViewController+ScrollView.swift */; };
 		C183D0C825B0D89900B4F675 /* UserDataViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C183D0C725B0D89900B4F675 /* UserDataViewController.storyboard */; };
 		C183D0CC25B0D8B100B4F675 /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183D0CB25B0D8B000B4F675 /* UserDataViewController.swift */; };
+		C1847E5925E53AC3004A9E33 /* HistoricViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1847E5825E53AC3004A9E33 /* HistoricViewController+Layout.swift */; };
 		C18C9A8A25C04C6800F4116F /* UserDataMarketingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18C9A8825C04C6800F4116F /* UserDataMarketingTableViewCell.swift */; };
 		C18C9A8B25C04C6800F4116F /* UserDataMarketingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18C9A8925C04C6800F4116F /* UserDataMarketingTableViewCell.xib */; };
 		C197DCA225BF2E510007E8C3 /* UserDataInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCA025BF2E510007E8C3 /* UserDataInfoTableViewCell.swift */; };
 		C197DCA325BF2E510007E8C3 /* UserDataInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C197DCA125BF2E510007E8C3 /* UserDataInfoTableViewCell.xib */; };
-		C197DCA925BF31B50007E8C3 /* UserDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCA825BF31B50007E8C3 /* UserDataSet.swift */; };
+		C197DCA925BF31B50007E8C3 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCA825BF31B50007E8C3 /* DataSet.swift */; };
 		C197DCAD25BF481F0007E8C3 /* UserDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCAC25BF481F0007E8C3 /* UserDataViewModel.swift */; };
 		C197DCB125BF4C5E0007E8C3 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */; };
 		C197DCB625BF4EBD0007E8C3 /* UserDataViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCB525BF4EBD0007E8C3 /* UserDataViewController+Binds.swift */; };
@@ -86,11 +87,12 @@
 		C183CED025B0953F00B4F675 /* HomeViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		C183D0C725B0D89900B4F675 /* UserDataViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDataViewController.storyboard; sourceTree = "<group>"; };
 		C183D0CB25B0D8B000B4F675 /* UserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
+		C1847E5825E53AC3004A9E33 /* HistoricViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoricViewController+Layout.swift"; sourceTree = "<group>"; };
 		C18C9A8825C04C6800F4116F /* UserDataMarketingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataMarketingTableViewCell.swift; sourceTree = "<group>"; };
 		C18C9A8925C04C6800F4116F /* UserDataMarketingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataMarketingTableViewCell.xib; sourceTree = "<group>"; };
 		C197DCA025BF2E510007E8C3 /* UserDataInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C197DCA125BF2E510007E8C3 /* UserDataInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataInfoTableViewCell.xib; sourceTree = "<group>"; };
-		C197DCA825BF31B50007E8C3 /* UserDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSet.swift; sourceTree = "<group>"; };
+		C197DCA825BF31B50007E8C3 /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
 		C197DCAC25BF481F0007E8C3 /* UserDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModel.swift; sourceTree = "<group>"; };
 		C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		C197DCB525BF4EBD0007E8C3 /* UserDataViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Binds.swift"; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 		C12B96B025CAE85700143B99 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C1847E5725E53AA3004A9E33 /* Layout */,
 				C102A64925D180E50036E17B /* Binds */,
 				C12B96B125CAE85B00143B99 /* ScrollView */,
 			);
@@ -357,6 +360,14 @@
 			path = UserData;
 			sourceTree = "<group>";
 		};
+		C1847E5725E53AA3004A9E33 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C1847E5825E53AC3004A9E33 /* HistoricViewController+Layout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		C18D90C625C3357700E9991F /* Separator */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,7 +401,7 @@
 		C197DCA725BF31890007E8C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C197DCA825BF31B50007E8C3 /* UserDataSet.swift */,
+				C197DCA825BF31B50007E8C3 /* DataSet.swift */,
 				C1E083EF25C200C5004D5382 /* UserLogin.swift */,
 				C1E0842625C220A7004D5382 /* UsersInfo.swift */,
 				C102A64325D156500036E17B /* HistoricData.swift */,
@@ -739,6 +750,7 @@
 				C197DCBE25BF4FA00007E8C3 /* UserDataViewController+TableView.swift in Sources */,
 				C183CED125B0953F00B4F675 /* HomeViewController+ScrollView.swift in Sources */,
 				C197DCA225BF2E510007E8C3 /* UserDataInfoTableViewCell.swift in Sources */,
+				C1847E5925E53AC3004A9E33 /* HistoricViewController+Layout.swift in Sources */,
 				C197DCB625BF4EBD0007E8C3 /* UserDataViewController+Binds.swift in Sources */,
 				C129AA6025DD5831003D3882 /* OrdersViewModel.swift in Sources */,
 				C183D0CC25B0D8B100B4F675 /* UserDataViewController.swift in Sources */,
@@ -764,7 +776,7 @@
 				C129AA8725DD910D003D3882 /* PreHomeViewController.swift in Sources */,
 				C18C9A8A25C04C6800F4116F /* UserDataMarketingTableViewCell.swift in Sources */,
 				C129AA5C25DD5744003D3882 /* OrdersViewController+Layout.swift in Sources */,
-				C197DCA925BF31B50007E8C3 /* UserDataSet.swift in Sources */,
+				C197DCA925BF31B50007E8C3 /* DataSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

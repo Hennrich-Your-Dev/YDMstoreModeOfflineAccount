@@ -11,7 +11,7 @@ import UIKit
 extension UserDataViewController {
   func dequeueCellConstructor(
     at indexPath: IndexPath,
-    withData data: UserDataSet
+    withData data: DataSet
   ) -> UITableViewCell {
     switch data.type {
       case .info:
@@ -39,7 +39,7 @@ extension UserDataViewController {
 
   func dequeueUsersInfoCell(
     at indexPath: IndexPath,
-    withData data: UserDataSet
+    withData data: DataSet
   ) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(
             withIdentifier: UserDataInfoTableViewCell.identifier,

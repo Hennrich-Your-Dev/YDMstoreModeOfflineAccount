@@ -40,13 +40,11 @@ extension UserDataViewController {
       self?.tableView.reloadData()
 
       if let dateString = self?.viewModel?.userData?.date,
-         let formated = UserDataSet.formatDate(dateString) {
+         let formated = DataSet.formatDate(dateString) {
         self?.lastUpdateLabelTitle.isHidden = false
         self?.lastUpdateLabel.isHidden = false
         self?.lastUpdateLabel.text = formated
       }
-      
-
 
       self?.historicButton.isHidden = false
       self?.separatorView.isHidden = false

@@ -107,18 +107,23 @@ extension YDMStoreModeOfflineAccountCoordinator: HomeViewModelNavigationDelegate
 
 // MARK: User Data Navigation
 extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
-  func openUserHistoric() {
-    guard let viewController = HistoricViewController.initializeFromStoryboard()
+  func openUserHistoric(withUser user: UserLogin) {
+    guard let viewController = HistoricViewController.initializeFromStoryboard(),
+          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.lasaClientService.rawValue),
+          let endPoint = config.endpoint
     else {
       fatalError("HistoricViewController.initializeFromStoryboard")
     }
 
+    let historicApi = "\(endPoint)/portalcliente/cliente/relatorio-historico/lista"
+
     let service = YDServiceClient()
-    let serviceHistoric = HistoricService(service: service)
+    let serviceHistoric = HistoricService(service: service, historicApi: historicApi)
 
     let viewModel = HistoricViewModel(
       service: serviceHistoric,
-      navigation: self
+      navigation: self,
+      currentUser: user
     )
 
     viewController.viewModel = viewModel

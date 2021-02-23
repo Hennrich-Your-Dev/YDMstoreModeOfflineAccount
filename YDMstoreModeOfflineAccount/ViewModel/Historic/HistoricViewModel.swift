@@ -36,14 +36,17 @@ class HistoricViewModel {
   var loading: Binder<Bool> = Binder(false)
 
   var historicList: Binder<[HistoricData]> = Binder([])
+  let user: UserLogin
 
   // MARK: Init
   init(
     service: HistoricServiceDelegate,
-    navigation: HistoricNavigationDelegate
+    navigation: HistoricNavigationDelegate,
+    currentUser: UserLogin
   ) {
     self.service = service
     self.navigation = navigation
+    self.user = currentUser
   }
 
   // MARK: Actions
@@ -73,12 +76,22 @@ extension HistoricViewModel: HistoricViewModelDelegate {
 
   func getHistoricList() {
     loading.value = true
-    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-      self.historicList.value = self.getMock()
-      self.loading.value = false
-    }
+//    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+//      self.historicList.value = self.getMock()
+//      self.loading.value = false
+//    }
 
-    // TODO:
-    // Service
+    service.getHistoric(with: user) { [weak self] (result: Result<[HistoricData], YDServiceError>) in
+      guard let self = self else { return }
+      self.loading.value = false
+
+      switch result {
+        case .success(let historic):
+          self.historicList.value = historic
+
+        case .failure(let error):
+          self.error.value = ("Ops", error.message)
+      }
+    }
   }
 }
