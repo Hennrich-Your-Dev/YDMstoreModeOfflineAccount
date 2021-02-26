@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
     buildCards()
 
     viewModel?.trackState()
-    userProfileView.config(username: "Douglas Hennrich", userPhoto: nil)
+    userProfileView.config(username: viewModel?.currentUser.fullName ?? "", userPhoto: nil)
   }
 }
 

@@ -20,6 +20,7 @@ protocol HomeViewModelNavigationDelegate {
 
 // MARK: Delegate
 protocol HomeViewModelDelegate {
+  var currentUser: YDCurrentCustomer { get }
   var error: Binder<(title: String, message: String)> { get }
 
   func onExit()
@@ -31,12 +32,13 @@ protocol HomeViewModelDelegate {
 class HomeViewModel {
   // MARK: Properties
   let navigation: HomeViewModelNavigationDelegate
-
+  var currentUser: YDCurrentCustomer
   var error: Binder<(title: String, message: String)> = Binder(("", ""))
 
   // MARK: Init
-  init(navigation: HomeViewModelNavigationDelegate) {
+  init(navigation: HomeViewModelNavigationDelegate, user: YDCurrentCustomer) {
     self.navigation = navigation
+    self.currentUser = user
   }
 }
 

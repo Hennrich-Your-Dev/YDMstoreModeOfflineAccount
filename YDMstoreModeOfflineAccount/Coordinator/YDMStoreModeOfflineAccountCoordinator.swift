@@ -43,7 +43,7 @@ public class YDMStoreModeOfflineAccountCoordinator: HistoricNavigationDelegate {
       fatalError("HomeViewController.initializeFromStoryboard")
     }
 
-    let viewModel = HomeViewModel(navigation: self)
+    let viewModel = HomeViewModel(navigation: self, user: currentUser)
     viewController.viewModel = viewModel
 
     navigationController?.pushViewController(viewController, animated: false)

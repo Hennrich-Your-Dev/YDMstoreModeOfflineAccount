@@ -30,7 +30,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26R-Xm-irj">
                         <rect key="frame" x="25" y="30" width="270" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="TKl-pA-Qej"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="TKl-pA-Qej"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" name="black"/>
@@ -59,7 +59,7 @@
                     <constraint firstItem="26R-Xm-irj" firstAttribute="top" secondItem="8Tu-Td-ohh" secondAttribute="bottom" constant="4" id="FfC-GE-d9j"/>
                     <constraint firstItem="26R-Xm-irj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="L0Y-oa-0Xf"/>
                     <constraint firstItem="KNk-gq-Kup" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="PgL-uz-YGm"/>
-                    <constraint firstAttribute="bottom" secondItem="HLv-WG-sJo" secondAttribute="bottom" constant="10" id="Q63-Il-TWP"/>
+                    <constraint firstItem="HLv-WG-sJo" firstAttribute="top" secondItem="KNk-gq-Kup" secondAttribute="bottom" constant="4" id="QPL-bm-fJd"/>
                     <constraint firstItem="8Tu-Td-ohh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="RJo-G9-aGQ"/>
                     <constraint firstAttribute="trailing" secondItem="26R-Xm-irj" secondAttribute="trailing" constant="25" id="T7Y-6Y-ont"/>
                     <constraint firstItem="HLv-WG-sJo" firstAttribute="leading" secondItem="KNk-gq-Kup" secondAttribute="leading" id="TeM-PH-2bs"/>
