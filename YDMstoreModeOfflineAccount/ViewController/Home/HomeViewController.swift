@@ -88,16 +88,16 @@ extension HomeViewController {
 //        "id": 1
 //      ],
       [
-        "icon": Images.clipboard as Any,
-        "title": "tudo que sabemos sobre você está aqui :)",
-        "button": "confere aqui!",
-        "id": 2
-      ],
-      [
         "icon": Images.basket as Any,
         "title": "suas compras nas lojas físicas com nota fiscal",
         "button": "estão aqui :)",
         "id": 3
+      ],
+      [
+        "icon": Images.clipboard as Any,
+        "title": "tudo que sabemos sobre você está aqui :)",
+        "button": "confere aqui!",
+        "id": 2
       ]
     ]
 

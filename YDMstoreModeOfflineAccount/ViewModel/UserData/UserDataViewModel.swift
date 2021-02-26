@@ -216,9 +216,9 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
       switch result {
         case .success:
-          self.snackBarMessage.value = "Dados atualizados com sucesso!"
-        case .failure(let error):
-          self.snackBarMessage.value = error.message
+          self.snackBarMessage.value = "Atualização de dados e permissões salvos com sucesso :)"
+        case .failure:
+          self.snackBarMessage.value = "Ops! Algo inesperado aconteceu. Tente novamente."
       }
     }
   }

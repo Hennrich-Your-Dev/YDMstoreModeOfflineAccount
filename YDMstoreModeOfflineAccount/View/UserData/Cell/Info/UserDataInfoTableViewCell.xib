@@ -27,8 +27,8 @@
                         <color key="textColor" name="grayLight"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26R-Xm-irj">
-                        <rect key="frame" x="25" y="30" width="40" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26R-Xm-irj">
+                        <rect key="frame" x="25" y="30" width="270" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="TKl-pA-Qej"/>
                         </constraints>
@@ -61,6 +61,7 @@
                     <constraint firstItem="KNk-gq-Kup" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="PgL-uz-YGm"/>
                     <constraint firstAttribute="bottom" secondItem="HLv-WG-sJo" secondAttribute="bottom" constant="10" id="Q63-Il-TWP"/>
                     <constraint firstItem="8Tu-Td-ohh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="RJo-G9-aGQ"/>
+                    <constraint firstAttribute="trailing" secondItem="26R-Xm-irj" secondAttribute="trailing" constant="25" id="T7Y-6Y-ont"/>
                     <constraint firstItem="HLv-WG-sJo" firstAttribute="leading" secondItem="KNk-gq-Kup" secondAttribute="leading" id="TeM-PH-2bs"/>
                     <constraint firstAttribute="bottom" secondItem="26R-Xm-irj" secondAttribute="bottom" constant="10" id="lbF-PV-lb3"/>
                     <constraint firstItem="8Tu-Td-ohh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="mZc-Oc-zno"/>
