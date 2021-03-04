@@ -165,7 +165,7 @@ extension HistoricViewController {
       NSLayoutConstraint.activate([
         view.leadingAnchor.constraint(equalTo: vw.leadingAnchor),
         view.trailingAnchor.constraint(equalTo: vw.trailingAnchor),
-        view.heightAnchor.constraint(equalToConstant: 20)
+        view.heightAnchor.constraint(greaterThanOrEqualToConstant: 20)
       ])
 
       let titleLabel = UILabel()
@@ -178,25 +178,28 @@ extension HistoricViewController {
       titleLabel.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
         titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 2)
       ])
       titleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+      titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
 
       let valueLabel = UILabel()
       valueLabel.textAlignment = .left
       valueLabel.font = .systemFont(ofSize: 16)
       valueLabel.text = "\(curr.value)"
       valueLabel.textColor = UIColor.Zeplin.black
-      valueLabel.numberOfLines = 1
+      valueLabel.numberOfLines = 2
       view.addSubview(valueLabel)
 
       valueLabel.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
         valueLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 5),
         valueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        valueLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        valueLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 2),
+        valueLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -2)
       ])
       valueLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+      valueLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
       if index == infos.count - 1 {
         vw.setCustomSpacing(20, after: view)
