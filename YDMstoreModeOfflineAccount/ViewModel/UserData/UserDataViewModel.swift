@@ -29,7 +29,6 @@ protocol UserDataViewModelDelegate {
   subscript(_ index: Int) -> DataSet? { get }
 
   func onBack()
-  func trackState()
   func getUsersInfo()
   func openHistoric()
   func openTerms()
@@ -69,9 +68,14 @@ class UserDataViewModel {
     self.service = service
     self.navigation = navigation
     self.currentUser = user
+    self.trackEvent(.offlineAccountUsersInfo, ofType: .state)
   }
 
   // MARK: Actions
+  func trackEvent(_ event: TrackEvents, ofType type: TrackType) {
+    YDIntegrationHelper.shared.trackEvent(withName: event, ofType: type)
+  }
+
   func getUsersInfoMock() {
     Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
       let jsonString = """
@@ -139,10 +143,12 @@ class UserDataViewModel {
           if let status = error.statusCode,
              status == 308 {
             self.error.value = self.errorMessageIncompletePerfil
+            self.trackEvent(.offlineAccountModalIncomplete, ofType: .state)
             return
           }
 
           self.error.value = self.errorMessage
+          self.trackEvent(.offlineAccountModalError, ofType: .state)
       }
     }
   }
@@ -156,10 +162,6 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
   func onBack() {
     navigation.onBack()
-  }
-
-  func trackState() {
-    YDIntegrationHelper.shared.trackEvent(withName: .offlineAccountUsersInfo, ofType: .state)
   }
 
   func getUsersInfo() {
@@ -179,10 +181,12 @@ extension UserDataViewModel: UserDataViewModelDelegate {
           if let status = error.statusCode,
              status == 308 {
             self.error.value = self.errorMessageIncompletePerfil
+            self.trackEvent(.offlineAccountModalIncomplete, ofType: .state)
             return
           }
 
           self.error.value = self.errorMessage
+          self.trackEvent(.offlineAccountModalError, ofType: .state)
       }
     }
   }
@@ -204,6 +208,7 @@ extension UserDataViewModel: UserDataViewModelDelegate {
     else {
       loading.value = false
       error.value = errorMessage
+      trackEvent(.offlineAccountModalError, ofType: .state)
       return
     }
 

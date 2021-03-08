@@ -40,6 +40,11 @@ public enum TrackEvents: String {
   // Offline Account
   case offlineAccountPerfil = "ACOM:OfflineAccount:Perfil"
   case offlineAccountUsersInfo = "ACOM:OfflineAccount:Cadastro"
+  case offlineAccountModalNonexistent = "ACOM:OfflineAccount:ModalCadastroInexistente"
+  case offlineAccountModalIncomplete = "ACOM:OfflineAccount:ModalCadastroIncompleto"
+  case offlineAccountModalError = "ACOM:OfflineAccount:ModalErro"
+  case offlineAccountHistoric = "ACOM:OfflineAccount:Historico"
+  case offlineAccountTerms = "ACOM:OfflineAccount:Politica"
 
   // Default Parameters
   public var defaultParameters: [String: Any] {
@@ -61,7 +66,9 @@ public enum TrackEvents: String {
     return [:]
 
     // Offline Account
-    case .offlineAccountPerfil, .offlineAccountUsersInfo:
+    case .offlineAccountPerfil, .offlineAccountUsersInfo,
+         .offlineAccountModalNonexistent, .offlineAccountModalIncomplete,
+         .offlineAccountModalError, .offlineAccountHistoric, .offlineAccountTerms:
     return [:]
     }
   }
@@ -126,7 +133,9 @@ public enum TrackEvents: String {
       return [:]
 
     // Offline Account
-    case .offlineAccountPerfil, .offlineAccountUsersInfo:
+    case .offlineAccountPerfil, .offlineAccountUsersInfo,
+         .offlineAccountModalNonexistent, .offlineAccountModalIncomplete,
+         .offlineAccountModalError, .offlineAccountHistoric, .offlineAccountTerms:
     return [:]
     }
   }

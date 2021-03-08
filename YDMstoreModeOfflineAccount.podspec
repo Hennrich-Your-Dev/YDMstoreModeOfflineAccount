@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "YDMstoreModeOfflineAccount"
-  spec.version      = "1.0.64"
+  spec.version      = "1.0.65"
   spec.summary      = "A short description of YDMstoreModeOfflineAccount."
   spec.homepage     = "http://yourdev/YDMstoreModeOfflineAccount"
 
@@ -26,14 +26,13 @@ Pod::Spec.new do |spec|
     "YDMstoreModeOfflineAccount/*.{xib,storyboard,json,xcassets,html}"
   ]
 
-  spec.dependency "YDB2WIntegration", "1.0.15"
+  spec.dependency "YDB2WIntegration", "1.0.16"
   spec.dependency "YDUtilities", "1.0.10"
   spec.dependency "YDExtensions", "1.0.38"
   spec.dependency "YDB2WAssets", "1.0.31"
   spec.dependency "YDB2WComponents", "1.0.71"
   spec.dependency "YDMOfflineOrders", "1.0.7"
 
-  spec.dependency "Alamofire", "4.9.1"
   spec.dependency "Hero"
 
 end

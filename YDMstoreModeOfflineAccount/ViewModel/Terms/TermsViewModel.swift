@@ -29,6 +29,7 @@ class TermsViewModel {
   // MARK: Init
   init(navigation: TermsNavigationDelegate) {
     self.navigation = navigation
+    YDIntegrationHelper.shared.trackEvent(withName: .offlineAccountTerms, ofType: .state)
   }
 }
 

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - Cosmos (23.0.0)
   - Hero (1.6.0)
   - Kingfisher (5.15.8):
     - Kingfisher/Core (= 5.15.8)
@@ -17,11 +18,11 @@ PODS:
     - libwebp/demux
   - libwebp/webp (1.2.0)
   - YDB2WAssets (1.0.31)
-  - YDB2WComponents (1.0.69):
-    - YDB2WAssets
-    - YDExtensions
-    - YDUtilities
-  - YDB2WIntegration (1.0.15):
+  - YDB2WComponents (1.0.71):
+    - YDB2WAssets (= 1.0.31)
+    - YDExtensions (= 1.0.38)
+    - YDUtilities (= 1.0.10)
+  - YDB2WIntegration (1.0.16):
     - YDB2WModels
     - YDExtensions
   - YDB2WModels (1.0.13):
@@ -29,7 +30,8 @@ PODS:
   - YDExtensions (1.0.38):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
-  - YDMOfflineOrders (1.0.4):
+  - YDMOfflineOrders (1.0.7):
+    - Cosmos
     - YDB2WAssets
     - YDExtensions
     - YDUtilities
@@ -38,12 +40,12 @@ PODS:
 
 DEPENDENCIES:
   - Hero
-  - YDB2WAssets
-  - YDB2WComponents
-  - YDB2WIntegration
-  - YDExtensions
-  - YDMOfflineOrders
-  - YDUtilities
+  - YDB2WAssets (= 1.0.31)
+  - YDB2WComponents (= 1.0.71)
+  - YDB2WIntegration (= 1.0.16)
+  - YDExtensions (= 1.0.38)
+  - YDMOfflineOrders (= 1.0.7)
+  - YDUtilities (= 1.0.10)
 
 SPEC REPOS:
   "git@github.com:Hennrich-Your-Dev/YourDev-Pods.git":
@@ -56,6 +58,7 @@ SPEC REPOS:
     - YDUtilities
   trunk:
     - Alamofire
+    - Cosmos
     - Hero
     - Kingfisher
     - KingfisherWebP
@@ -63,18 +66,19 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Hero: 052b9b9bab68fc4e30cc04e5936eaf0de97b59d3
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   YDB2WAssets: ebc70c706037613128d99eab2eea7b19c9841830
-  YDB2WComponents: ba6f93be4ef5687578e1a17656c387fd2bd589ee
-  YDB2WIntegration: 0deba88174dccd3fdd7bc85809978a56162c4cd4
+  YDB2WComponents: fb6a10eb96c2509c68fa11075f36aa027e52a41c
+  YDB2WIntegration: 5a394bc24ed81108a05f47560954b7205d46503c
   YDB2WModels: a78b87e57a9299b480786a7b5bc337ce817a1e2d
   YDExtensions: 7ece9b98667bce4d0df2e459df28e3547ecd465d
-  YDMOfflineOrders: eac537064d0c673b2e423c8cd9e5440339500e3c
+  YDMOfflineOrders: d8cd7b21d404cebfa7c33a4016bd7d0452fab79f
   YDUtilities: 7e56ee0f48101c8bf487ad03135730dbefac70bf
 
-PODFILE CHECKSUM: 92315b8b057b26ef9d900640c828117e2f35ba76
+PODFILE CHECKSUM: 639eb33e22ffc177acbd066d94559c74666a6cb7
 
 COCOAPODS: 1.10.1

@@ -78,7 +78,6 @@ class UserDataViewController: UIViewController {
     createBackButton()
     setBinds()
 
-    viewModel?.trackState()
     viewModel?.getUsersInfo()
 
     NotificationCenter.default.addObserver(
