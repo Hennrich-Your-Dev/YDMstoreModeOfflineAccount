@@ -31,7 +31,7 @@ Pod::Spec.new do |spec|
   spec.dependency "YDExtensions", "1.0.38"
   spec.dependency "YDB2WAssets", "1.0.31"
   spec.dependency "YDB2WComponents", "1.0.71"
-  spec.dependency "YDMOfflineOrders", "1.0.7"
+  spec.dependency "YDMOfflineOrders"
 
   spec.dependency "Hero"
 

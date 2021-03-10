@@ -17,7 +17,7 @@ target 'YDMstoreModeOfflineAccount' do
   pod 'YDExtensions', "1.0.38"
   pod 'YDB2WAssets', "1.0.31"
   pod 'YDB2WComponents', "1.0.71"
-  pod 'YDMOfflineOrders', "1.0.7"
+  pod 'YDMOfflineOrders'
   
   pod 'Hero'
 
