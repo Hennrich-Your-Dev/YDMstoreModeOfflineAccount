@@ -96,9 +96,9 @@ extension YDMStoreModeOfflineAccountCoordinator: HomeViewModelNavigationDelegate
     navigationController?.pushViewController(viewController, animated: true)
   }
 
-  func openOfflineOrders() {
+  func openOfflineOrders(userToken: String) {
     let viewController = OrdersViewController()
-    let viewModel = OrdersViewModel(navigation: self)
+    let viewModel = OrdersViewModel(navigation: self, userToken: userToken)
 
     viewController.viewModel = viewModel
     navigationController?.pushViewController(viewController, animated: true)

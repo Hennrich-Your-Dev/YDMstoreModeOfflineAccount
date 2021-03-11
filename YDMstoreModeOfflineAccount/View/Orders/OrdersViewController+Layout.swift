@@ -68,7 +68,9 @@ extension OrdersViewController {
   }
 
   func importOrdersView(container: UIView) {
-    ordersViewController = YDMOfflineOrders().start()
+    guard let token = viewModel?.userClientLasaToken else { return }
+
+    ordersViewController = YDMOfflineOrders().start(userToken: token)
     addChild(ordersViewController)
     ordersViewController.delegate = self
 

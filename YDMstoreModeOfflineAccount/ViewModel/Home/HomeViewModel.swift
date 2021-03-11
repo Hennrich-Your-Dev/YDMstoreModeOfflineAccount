@@ -15,7 +15,7 @@ import YDExtensions
 protocol HomeViewModelNavigationDelegate {
   func onExit()
   func openUserData()
-  func openOfflineOrders()
+  func openOfflineOrders(userToken: String)
 }
 
 // MARK: Delegate
@@ -35,8 +35,13 @@ class HomeViewModel {
   var currentUser: YDCurrentCustomer
   var error: Binder<(title: String, message: String)> = Binder(("", ""))
 
+  var userClientLasaToken: String = ""
+
   // MARK: Init
-  init(navigation: HomeViewModelNavigationDelegate, user: YDCurrentCustomer) {
+  init(
+    navigation: HomeViewModelNavigationDelegate,
+    user: YDCurrentCustomer
+  ) {
     self.navigation = navigation
     self.currentUser = user
   }
@@ -68,7 +73,7 @@ extension HomeViewModel: HomeViewModelDelegate {
 
       case 3:
         // Offline orders
-        navigation.openOfflineOrders()
+        navigation.openOfflineOrders(userToken: userClientLasaToken)
 
       default:
         break
