@@ -22,7 +22,11 @@ extension UserDataViewController {
 }
 
 extension UserDataViewController: YDDialogCoordinatorDelegate {
-  func onActionYDDialog() {
+  func onActionYDDialog(payload: [String: Any]?) {
+    viewModel?.onBack()
+  }
+
+  func onCancelYDDialog(payload: [String: Any]?) {
     viewModel?.onBack()
   }
 }

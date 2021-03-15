@@ -10,7 +10,12 @@ import YDExtensions
 
 // MARK: Delegate
 public protocol YDDialogCoordinatorDelegate: AnyObject {
-  func onActionYDDialog()
+  func onActionYDDialog(payload: [String: Any]?)
+  func onCancelYDDialog(payload: [String: Any]?)
+}
+
+extension YDDialogCoordinatorDelegate {
+  func onCancelYDDialog(payload: [String: Any]?) {}
 }
 
 public typealias YDDialog = YDDialogCoordinator
@@ -30,6 +35,8 @@ public class YDDialogCoordinator {
 
   public weak var delegate: YDDialogCoordinatorDelegate?
 
+  public var payload: [String: Any]?
+
   // MARK: Init
   public init() {}
 
@@ -38,7 +45,9 @@ public class YDDialogCoordinator {
     ofType type: YDDialogType = .withIcon,
     customIcon: UIImage? = nil,
     customTitle: String? = nil,
-    customMessage: String? = nil
+    customMessage: String? = nil,
+    customButton: String? = nil,
+    customCancelButton: String? = nil
   ) {
     guard let viewController = YDDialogViewController.initializeFromStoryboard() else {
       fatalError("YDDialogViewController.initializeFromStoryboard")
@@ -54,6 +63,8 @@ public class YDDialogCoordinator {
     viewController.customIcon = customIcon
     viewController.customTitle = customTitle
     viewController.customMessage = customMessage
+    viewController.customButton = customButton
+    viewController.customCancelButton = customCancelButton
 
     navigationController.viewControllers = [viewController]
     navigationController.modalPresentationStyle = .overCurrentContext
@@ -65,7 +76,15 @@ public class YDDialogCoordinator {
 extension YDDialogCoordinator: YDDialogNavigationDelegate {
   public func onAction() {
     rootViewController.dismiss(animated: true) { [weak self] in
-      self?.delegate?.onActionYDDialog()
+      guard let self = self else { return }
+      self.delegate?.onActionYDDialog(payload: self.payload)
+    }
+  }
+
+  public func onCancelAction() {
+    rootViewController.dismiss(animated: true) { [weak self] in
+      guard let self = self else { return }
+      self.delegate?.onCancelYDDialog(payload: self.payload)
     }
   }
 }

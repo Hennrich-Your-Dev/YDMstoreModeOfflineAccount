@@ -18,9 +18,3 @@ extension HomeViewController {
     )
   }
 }
-
-extension HomeViewController: YDDialogCoordinatorDelegate {
-  func onActionYDDialog() {
-    //
-  }
-}

@@ -11,6 +11,7 @@ import YDB2WAssets
 
 public enum YDDialogType {
   case withIcon
+  case withCancel
   case simple
 }
 
@@ -21,6 +22,8 @@ class YDDialogViewController: UIViewController {
   var customIcon: UIImage?
   var customTitle: String?
   var customMessage: String?
+  var customButton: String?
+  var customCancelButton: String?
 
   // MARK: IBOutlets
   @IBOutlet weak var contentView: UIView! {
@@ -49,6 +52,8 @@ class YDDialogViewController: UIViewController {
     }
   }
 
+  @IBOutlet weak var cancelButton: UIButton!
+
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -57,10 +62,15 @@ class YDDialogViewController: UIViewController {
       icon.image = customIcon
     }
 
-    if let type = self.type,
-       type == .simple {
-      icon.removeFromSuperview()
-      view.layoutIfNeeded()
+    if let type = self.type {
+      if type == .simple || type == .withCancel {
+        icon.removeFromSuperview()
+        view.layoutIfNeeded()
+      }
+
+      if type == .withCancel {
+        cancelButton.isHidden = false
+      }
     }
 
     if let customTitle = customTitle {
@@ -70,10 +80,22 @@ class YDDialogViewController: UIViewController {
     if let customMessage = customMessage {
       descriptionLabel.text = customMessage
     }
+
+    if let customButton = customButton {
+      actionButton.setTitle(customButton, for: .normal)
+    }
+
+    if let customCancelButton = customCancelButton {
+      cancelButton.setTitle(customCancelButton, for: .normal)
+    }
   }
 
   // MARK: IBActions
   @IBAction func onAction(_ sender: UIButton) {
     viewModel?.onButtonAction()
+  }
+
+  @IBAction func onCancelAction(_ sender: UIButton) {
+    viewModel?.onCancelAction()
   }
 }
