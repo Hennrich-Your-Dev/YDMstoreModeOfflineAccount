@@ -62,13 +62,26 @@ extension PreHomeViewController {
 
     let vc = UIViewController()
     navBar = UINavigationController(rootViewController: vc)
+    if #available(iOS 13.0, *) {
+      let appearance = UINavigationBarAppearance()
 
-    navBar.navigationBar.shadowImage = UIImage()
+      appearance.shadowImage = UIImage()
+      appearance.backgroundImage = UIImage()
+      appearance.titleTextAttributes = [.foregroundColor: UIColor.Zeplin.black]
+      appearance.backgroundColor = .white
+
+      navBar.navigationBar.compactAppearance = appearance
+      navBar.navigationBar.standardAppearance = appearance
+      navBar.navigationBar.scrollEdgeAppearance = appearance
+    } else {
+      navBar.navigationBar.shadowImage = UIImage()
+      navBar.navigationBar.titleTextAttributes = [
+        .foregroundColor: UIColor.Zeplin.black
+      ]
+    }
+
     navBar.navigationBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
     navBar.navigationBar.tintColor = UIColor.Zeplin.black
-    navBar.navigationBar.titleTextAttributes = [
-      .foregroundColor: UIColor.Zeplin.black
-    ]
 
     addChild(navBar)
     container.addSubview(navBar.view)

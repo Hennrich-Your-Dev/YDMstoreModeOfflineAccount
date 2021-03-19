@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "meu perfil modo loja"
+    navigationController?.navigationBar.barTintColor = .white
 
     stackView.isLayoutMarginsRelativeArrangement = true
     stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(
