@@ -69,6 +69,7 @@ extension PreHomeViewController {
       appearance.backgroundImage = UIImage()
       appearance.titleTextAttributes = [.foregroundColor: UIColor.Zeplin.black]
       appearance.backgroundColor = .white
+      appearance.shadowColor = nil
 
       navBar.navigationBar.compactAppearance = appearance
       navBar.navigationBar.standardAppearance = appearance
