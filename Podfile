@@ -12,12 +12,12 @@ target "YDMstoreModeOfflineAccount" do
   use_frameworks!
 
   # Pods for YDMstoreModeOfflineAccount
-  pod "YDB2WIntegration", "~> 1.0.19"
+  pod "YDB2WIntegration", "~> 1.1.0"
   pod "YDUtilities", "~> 1.0.10"
   pod "YDExtensions", "~> 1.0.42"
   pod "YDB2WAssets", "~> 1.0.33"
   pod "YDB2WComponents", "~> 1.0.82"
-  pod "YDMOfflineOrders", "~> 1.0.23"
+  pod "YDMOfflineOrders", "~> 1.1.0"
   
   pod "Hero"
 
