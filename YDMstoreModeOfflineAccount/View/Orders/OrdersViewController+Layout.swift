@@ -14,7 +14,6 @@ import YDMOfflineOrders
 extension OrdersViewController {
   func setUpLayout() {
     createBackButton()
-    createShadow()
     createContainerView()
   }
 
@@ -37,21 +36,6 @@ extension OrdersViewController {
     viewModel?.onBack()
   }
 
-  func createShadow() {
-    shadowContainerView = UIView()
-    shadowContainerView.backgroundColor = .white
-    shadowContainerView.layer.zPosition = 5
-    view.addSubview(shadowContainerView)
-
-    shadowContainerView.translatesAutoresizingMaskIntoConstraints = false
-    NSLayoutConstraint.activate([
-      shadowContainerView.heightAnchor.constraint(equalToConstant: 5),
-      shadowContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-      shadowContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      shadowContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-    ])
-  }
-
   func createContainerView() {
     let containerView = UIView()
     view.addSubview(containerView)
@@ -72,7 +56,6 @@ extension OrdersViewController {
 
     ordersViewController = YDMOfflineOrders().start(userToken: token)
     addChild(ordersViewController)
-    ordersViewController.delegate = self
 
     container.addSubview(ordersViewController.view)
 
