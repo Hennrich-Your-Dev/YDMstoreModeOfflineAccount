@@ -34,10 +34,14 @@ extension HistoricViewController {
       }
 
       // Date
-      buildDateContainer(parent: vw, withData: curr)
+      if curr.formattedDate != nil {
+        buildDateContainer(parent: vw, withData: curr)
+      }
 
       // Origin
-      buildOriginContainer(parent: vw, withData: curr)
+      if !curr.origin.isEmpty {
+        buildOriginContainer(parent: vw, withData: curr)
+      }
 
       // Datas
       buildDatasContainer(parent: vw, withData: curr)

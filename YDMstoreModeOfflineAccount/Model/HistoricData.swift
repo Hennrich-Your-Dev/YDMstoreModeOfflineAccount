@@ -13,12 +13,12 @@ class HistoricData: Codable {
   let date: String?
   let fields: HistoricDataFields
 
-  var formattedDate: String {
-    guard let date = date else { return "--/--/----" }
+  var formattedDate: String? {
+    guard let date = date else { return nil }
     let toFormat = "DD/MM/yyyy"
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-DD'T'HH:mm:ss"
-    return formatter.date(from: date)?.toFormat(toFormat) ?? "--/--/----"
+    return formatter.date(from: date)?.toFormat(toFormat)
   }
 
   var dateWithDateType: Date? {
