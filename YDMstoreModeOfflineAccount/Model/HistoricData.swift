@@ -84,6 +84,26 @@ class HistoricData: Codable {
     case objective = "finalidade"
     case fields = "campos"
   }
+
+  // Init
+  required init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+
+    if let originString = try? container.decode(String.self, forKey: .origin) {
+      origin = originString.isEmpty ? "não informado" : originString
+    } else {
+      origin = "não informado"
+    }
+
+    if let objectiveString = try? container.decode(String.self, forKey: .objective) {
+      objective = objectiveString.isEmpty ? "não informado" : objectiveString
+    } else {
+      objective = "não informado"
+    }
+
+    date = try? container.decode(String.self, forKey: .date)
+    fields = try container.decode(HistoricDataFields.self, forKey: .fields)
+  }
 }
 
 class HistoricDataFields: Codable {

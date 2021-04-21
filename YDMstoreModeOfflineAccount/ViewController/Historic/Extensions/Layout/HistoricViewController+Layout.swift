@@ -39,19 +39,13 @@ extension HistoricViewController {
       }
 
       // Origin
-      if !curr.origin.isEmpty {
-        buildOriginContainer(parent: vw, withData: curr)
-      }
+      buildOriginContainer(parent: vw, withData: curr)
 
       // Datas
       buildDatasContainer(parent: vw, withData: curr)
 
       // Objective
-      if !curr.objective.isEmpty {
-        buildObjectiveContainer(parent: vw, withData: curr)
-      } else if let lastElement = vw.arrangedSubviews.last {
-        vw.setCustomSpacing(25, after: lastElement)
-      }
+      buildObjectiveContainer(parent: vw, withData: curr)
 
       // Separator
       if index != list.count - 1 {
