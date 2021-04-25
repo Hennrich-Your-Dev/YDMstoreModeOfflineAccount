@@ -171,8 +171,8 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
   func getUsersInfo() {
     loading.value = true
-//    getUsersInfoMock()
-//    return;
+    //    getUsersInfoMock()
+    //    return;
     service.login(user: currentUser) { [weak self] (response: Result<UserLogin, YDServiceError>) in
       guard let self = self else { return }
 
@@ -220,7 +220,10 @@ extension UserDataViewModel: UserDataViewModelDelegate {
     trackEvent(
       .offlineAccountUsersInfo,
       ofType: .action,
-      withParams: ["&el=": "saveButton"]
+      withParams: [
+        "&ea=": "clique-botao",
+        "&el=": "Página meus dados lojas fisicas"
+      ]
     )
 
     service.updateInfo(

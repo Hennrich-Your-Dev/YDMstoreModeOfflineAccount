@@ -73,7 +73,10 @@ extension HomeViewModel: HomeViewModelDelegate {
           .trackEvent(
             withName: .offlineAccountPerfil,
             ofType: .action,
-            withParameters: ["&el=": "userDataButton"]
+            withParameters: [
+              "&ea=": "clique-botao",
+              "&el=": "Botão minhas compras offline"
+            ]
           )
         navigation.openUserData()
 
@@ -83,7 +86,10 @@ extension HomeViewModel: HomeViewModelDelegate {
           .trackEvent(
             withName: .offlineAccountPerfil,
             ofType: .action,
-            withParameters: ["&el=": "offlineOrdersButton"]
+            withParameters: [
+              "&ea=": "clique-botao",
+              "&el=": "Botão meus dados lojas fisicas"
+            ]
           )
         navigation.openOfflineOrders(userToken: userClientLasaToken)
 

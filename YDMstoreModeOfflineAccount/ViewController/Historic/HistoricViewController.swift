@@ -74,7 +74,10 @@ class HistoricViewController: UIViewController {
         .trackEvent(
           withName: .offlineAccountHistoric,
           ofType: .state,
-          withParameters: ["&el=": "exportButton"]
+          withParameters: [
+            "&ea=": "clique-botao",
+            "&el=": "Botão exportar relatório ações lojas fisicas"
+          ]
         )
 
       present(activityViewController, animated: true, completion: nil)
