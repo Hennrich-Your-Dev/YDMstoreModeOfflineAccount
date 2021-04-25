@@ -249,8 +249,8 @@
 		C129AAB625DDE9D8003D3882 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C183CECE25B0952400B4F675 /* Extensions */,
 				A5B9E38625AE12EF006EA075 /* HomeViewController.swift */,
+				C183CECE25B0952400B4F675 /* Extensions */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -478,8 +478,8 @@
 		C19B99C925C9CA1F0002E696 /* Historic */ = {
 			isa = PBXGroup;
 			children = (
-				C12B96B025CAE85700143B99 /* Extensions */,
 				C19B99CA25C9CA2C0002E696 /* HistoricViewController.swift */,
+				C12B96B025CAE85700143B99 /* Extensions */,
 			);
 			path = Historic;
 			sourceTree = "<group>";

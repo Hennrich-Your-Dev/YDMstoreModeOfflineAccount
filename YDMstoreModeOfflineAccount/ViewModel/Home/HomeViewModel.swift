@@ -69,10 +69,22 @@ extension HomeViewModel: HomeViewModelDelegate {
 
       case 2:
         // User Data
+        YDIntegrationHelper.shared
+          .trackEvent(
+            withName: .offlineAccountPerfil,
+            ofType: .action,
+            withParameters: ["&el=": "userDataButton"]
+          )
         navigation.openUserData()
 
       case 3:
         // Offline orders
+        YDIntegrationHelper.shared
+          .trackEvent(
+            withName: .offlineAccountPerfil,
+            ofType: .action,
+            withParameters: ["&el=": "offlineOrdersButton"]
+          )
         navigation.openOfflineOrders(userToken: userClientLasaToken)
 
       default:

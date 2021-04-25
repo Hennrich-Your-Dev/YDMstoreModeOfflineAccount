@@ -48,7 +48,8 @@ class HistoricViewModel {
     self.navigation = navigation
     self.user = currentUser
 
-    YDIntegrationHelper.shared.trackEvent(withName: .offlineAccountHistoric, ofType: .state)
+    YDIntegrationHelper.shared
+      .trackEvent(withName: .offlineAccountHistoric, ofType: .state)
   }
 
   // MARK: Actions

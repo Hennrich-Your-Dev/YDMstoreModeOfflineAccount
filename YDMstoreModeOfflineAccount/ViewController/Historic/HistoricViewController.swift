@@ -10,6 +10,7 @@ import Hero
 
 import YDB2WAssets
 import YDExtensions
+import YDB2WIntegration
 
 class HistoricViewController: UIViewController {
   // MARK: Properties
@@ -68,6 +69,13 @@ class HistoricViewController: UIViewController {
         activityItems: [image],
         applicationActivities: nil
       )
+
+      YDIntegrationHelper.shared
+        .trackEvent(
+          withName: .offlineAccountHistoric,
+          ofType: .state,
+          withParameters: ["&el=": "exportButton"]
+        )
 
       present(activityViewController, animated: true, completion: nil)
     }

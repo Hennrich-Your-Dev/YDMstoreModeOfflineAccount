@@ -72,8 +72,13 @@ class UserDataViewModel {
   }
 
   // MARK: Actions
-  func trackEvent(_ event: TrackEvents, ofType type: TrackType) {
-    YDIntegrationHelper.shared.trackEvent(withName: event, ofType: type)
+  func trackEvent(
+    _ event: TrackEvents,
+    ofType type: TrackType,
+    withParams params: [String: Any]? = nil
+  ) {
+    YDIntegrationHelper.shared
+      .trackEvent(withName: event, ofType: type, withParameters: params)
   }
 
   func getUsersInfoMock() {
@@ -211,6 +216,12 @@ extension UserDataViewModel: UserDataViewModelDelegate {
       trackEvent(.offlineAccountModalError, ofType: .state)
       return
     }
+
+    trackEvent(
+      .offlineAccountUsersInfo,
+      ofType: .action,
+      withParams: ["&el=": "saveButton"]
+    )
 
     service.updateInfo(
       user: userLogin,
