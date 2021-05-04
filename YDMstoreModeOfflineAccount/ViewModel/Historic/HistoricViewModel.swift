@@ -10,6 +10,8 @@ import Foundation
 import YDUtilities
 import YDExtensions
 import YDB2WIntegration
+import YDB2WServices
+import YDB2WModels
 
 // MARK: Navigation
 protocol HistoricNavigationDelegate {
@@ -20,29 +22,29 @@ protocol HistoricNavigationDelegate {
 protocol HistoricViewModelDelegate {
   var error: Binder<(title: String, message: String)> { get }
   var loading: Binder<Bool> { get }
-  var historicList: Binder<[HistoricData]> { get }
+  var historicList: Binder<[YDLasaClientHistoricData]> { get }
 
-  subscript(index: Int) -> HistoricData? { get }
+  subscript(index: Int) -> YDLasaClientHistoricData? { get }
   func onBack()
   func getHistoricList()
 }
 
 class HistoricViewModel {
   // MARK: Properties
-  let service: HistoricServiceDelegate
+  let service: YDB2WServiceDelegate
   let navigation: HistoricNavigationDelegate
 
   var error: Binder<(title: String, message: String)> = Binder(("", ""))
   var loading: Binder<Bool> = Binder(false)
 
-  var historicList: Binder<[HistoricData]> = Binder([])
-  let user: UserLogin
+  var historicList: Binder<[YDLasaClientHistoricData]> = Binder([])
+  let user: YDLasaClientLogin
 
   // MARK: Init
   init(
-    service: HistoricServiceDelegate,
+    service: YDB2WServiceDelegate = YDB2WService(),
     navigation: HistoricNavigationDelegate,
-    currentUser: UserLogin
+    currentUser: YDLasaClientLogin
   ) {
     self.service = service
     self.navigation = navigation
@@ -53,12 +55,12 @@ class HistoricViewModel {
   }
 
   // MARK: Actions
-  func getMock() -> [HistoricData] {
+  func getMock() -> [YDLasaClientHistoricData] {
     let bundle = Bundle(for: type(of: self))
 
     guard let pathString = bundle.path(forResource: "historicMock", ofType: "json"),
           let data = try? Data(contentsOf: URL(fileURLWithPath: pathString)),
-          let json = try? JSONDecoder().decode([HistoricData].self, from: data)
+          let json = try? JSONDecoder().decode([YDLasaClientHistoricData].self, from: data)
     else {
       fatalError()
     }
@@ -69,7 +71,7 @@ class HistoricViewModel {
 
 // MARK: Extension
 extension HistoricViewModel: HistoricViewModelDelegate {
-  subscript(index: Int) -> HistoricData? {
+  subscript(index: Int) -> YDLasaClientHistoricData? {
     return historicList.value.at(index)
   }
 
@@ -84,7 +86,9 @@ extension HistoricViewModel: HistoricViewModelDelegate {
 //      self.loading.value = false
 //    }
 
-    service.getHistoric(with: user) { [weak self] (result: Result<[HistoricData], YDServiceError>) in
+    service.getLasaClientHistoric(
+      with: user
+    ) { [weak self] (result: Result<[YDLasaClientHistoricData], YDServiceError>) in
       guard let self = self else { return }
       self.loading.value = false
 

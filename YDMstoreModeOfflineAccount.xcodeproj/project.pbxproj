@@ -13,7 +13,6 @@
 		A5B9E37425AE12A9006EA075 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5B9E37325AE12A9006EA075 /* HomeViewController.storyboard */; };
 		A5B9E38725AE12EF006EA075 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9E38625AE12EF006EA075 /* HomeViewController.swift */; };
 		A5B9E38B25AE133B006EA075 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9E38A25AE133B006EA075 /* HomeViewModel.swift */; };
-		C102A64425D156500036E17B /* HistoricData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C102A64325D156500036E17B /* HistoricData.swift */; };
 		C102A64725D178D30036E17B /* historicMock.json in Resources */ = {isa = PBXBuildFile; fileRef = C102A64625D178D30036E17B /* historicMock.json */; };
 		C102A64B25D180F50036E17B /* HistoricViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C102A64A25D180F50036E17B /* HistoricViewController+Binds.swift */; };
 		C129AA5725DD5537003D3882 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA5625DD5537003D3882 /* OrdersViewController.swift */; };
@@ -36,9 +35,7 @@
 		C18C9A8B25C04C6800F4116F /* UserDataMarketingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18C9A8925C04C6800F4116F /* UserDataMarketingTableViewCell.xib */; };
 		C197DCA225BF2E510007E8C3 /* UserDataInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCA025BF2E510007E8C3 /* UserDataInfoTableViewCell.swift */; };
 		C197DCA325BF2E510007E8C3 /* UserDataInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C197DCA125BF2E510007E8C3 /* UserDataInfoTableViewCell.xib */; };
-		C197DCA925BF31B50007E8C3 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCA825BF31B50007E8C3 /* DataSet.swift */; };
 		C197DCAD25BF481F0007E8C3 /* UserDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCAC25BF481F0007E8C3 /* UserDataViewModel.swift */; };
-		C197DCB125BF4C5E0007E8C3 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */; };
 		C197DCB625BF4EBD0007E8C3 /* UserDataViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCB525BF4EBD0007E8C3 /* UserDataViewController+Binds.swift */; };
 		C197DCBE25BF4FA00007E8C3 /* UserDataViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C197DCBD25BF4FA00007E8C3 /* UserDataViewController+TableView.swift */; };
 		C19B995E25C992560002E696 /* TermsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C19B995D25C992560002E696 /* TermsViewController.storyboard */; };
@@ -47,13 +44,10 @@
 		C19B99C725C9C4BC0002E696 /* HistoricViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C19B99C625C9C4BC0002E696 /* HistoricViewController.storyboard */; };
 		C19B99CB25C9CA2C0002E696 /* HistoricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B99CA25C9CA2C0002E696 /* HistoricViewController.swift */; };
 		C19B99D025C9D04B0002E696 /* HistoricViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B99CF25C9D04B0002E696 /* HistoricViewModel.swift */; };
-		C19B99D625C9D0EE0002E696 /* HistoricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B99D525C9D0EE0002E696 /* HistoricService.swift */; };
 		C1B6BF4625C4164F001CB137 /* UserDataViewController+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6BF4525C4164F001CB137 /* UserDataViewController+Dialog.swift */; };
 		C1B6BFD025C42667001CB137 /* UserDataViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */; };
 		C1DE3DCF25C3107F0084299E /* UserDataSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE3DCD25C3107F0084299E /* UserDataSeparatorTableViewCell.swift */; };
 		C1DE3DD025C3107F0084299E /* UserDataSeparatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */; };
-		C1E083F025C200C5004D5382 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E083EF25C200C5004D5382 /* UserLogin.swift */; };
-		C1E0842725C220A7004D5382 /* UsersInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0842625C220A7004D5382 /* UsersInfo.swift */; };
 		E4B90FA925CB15720030FF42 /* termos-uso.html in Resources */ = {isa = PBXBuildFile; fileRef = E4B90FA725CB15720030FF42 /* termos-uso.html */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +62,6 @@
 		A5B9E37325AE12A9006EA075 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		A5B9E38625AE12EF006EA075 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A5B9E38A25AE133B006EA075 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		C102A64325D156500036E17B /* HistoricData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricData.swift; sourceTree = "<group>"; };
 		C102A64625D178D30036E17B /* historicMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = historicMock.json; sourceTree = "<group>"; };
 		C102A64A25D180F50036E17B /* HistoricViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoricViewController+Binds.swift"; sourceTree = "<group>"; };
 		C129AA5625DD5537003D3882 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
@@ -91,9 +84,7 @@
 		C18C9A8925C04C6800F4116F /* UserDataMarketingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataMarketingTableViewCell.xib; sourceTree = "<group>"; };
 		C197DCA025BF2E510007E8C3 /* UserDataInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C197DCA125BF2E510007E8C3 /* UserDataInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataInfoTableViewCell.xib; sourceTree = "<group>"; };
-		C197DCA825BF31B50007E8C3 /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
 		C197DCAC25BF481F0007E8C3 /* UserDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModel.swift; sourceTree = "<group>"; };
-		C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		C197DCB525BF4EBD0007E8C3 /* UserDataViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Binds.swift"; sourceTree = "<group>"; };
 		C197DCBD25BF4FA00007E8C3 /* UserDataViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+TableView.swift"; sourceTree = "<group>"; };
 		C19B995D25C992560002E696 /* TermsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TermsViewController.storyboard; sourceTree = "<group>"; };
@@ -102,13 +93,10 @@
 		C19B99C625C9C4BC0002E696 /* HistoricViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HistoricViewController.storyboard; sourceTree = "<group>"; };
 		C19B99CA25C9CA2C0002E696 /* HistoricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricViewController.swift; sourceTree = "<group>"; };
 		C19B99CF25C9D04B0002E696 /* HistoricViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricViewModel.swift; sourceTree = "<group>"; };
-		C19B99D525C9D0EE0002E696 /* HistoricService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricService.swift; sourceTree = "<group>"; };
 		C1B6BF4525C4164F001CB137 /* UserDataViewController+Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Dialog.swift"; sourceTree = "<group>"; };
 		C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+ScrollView.swift"; sourceTree = "<group>"; };
 		C1DE3DCD25C3107F0084299E /* UserDataSeparatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSeparatorTableViewCell.swift; sourceTree = "<group>"; };
 		C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataSeparatorTableViewCell.xib; sourceTree = "<group>"; };
-		C1E083EF25C200C5004D5382 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
-		C1E0842625C220A7004D5382 /* UsersInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInfo.swift; sourceTree = "<group>"; };
 		E4B90FA725CB15720030FF42 /* termos-uso.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "termos-uso.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,8 +137,6 @@
 				A5B9E35725AE0451006EA075 /* Info.plist */,
 				E4B90FA525CB15440030FF42 /* Resource */,
 				A5B9E36225AE1214006EA075 /* Coordinator */,
-				C197DCA725BF31890007E8C3 /* Model */,
-				A5B9E3A725AE1C15006EA075 /* Service */,
 				A5B9E37125AE128F006EA075 /* View */,
 				A5B9E38325AE12E0006EA075 /* ViewController */,
 				A5B9E38925AE132E006EA075 /* ViewModel */,
@@ -203,15 +189,6 @@
 				C129AA8C25DD94F4003D3882 /* PreHomeViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		A5B9E3A725AE1C15006EA075 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				C19B99D425C9D0DC0002E696 /* Historic */,
-				C19B99D225C9D0CA0002E696 /* UserData */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		C102A64925D180E50036E17B /* Binds */ = {
@@ -395,17 +372,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		C197DCA725BF31890007E8C3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C197DCA825BF31B50007E8C3 /* DataSet.swift */,
-				C1E083EF25C200C5004D5382 /* UserLogin.swift */,
-				C1E0842625C220A7004D5382 /* UsersInfo.swift */,
-				C102A64325D156500036E17B /* HistoricData.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		C197DCB325BF4EA80007E8C3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,22 +454,6 @@
 			isa = PBXGroup;
 			children = (
 				C19B99CF25C9D04B0002E696 /* HistoricViewModel.swift */,
-			);
-			path = Historic;
-			sourceTree = "<group>";
-		};
-		C19B99D225C9D0CA0002E696 /* UserData */ = {
-			isa = PBXGroup;
-			children = (
-				C197DCB025BF4C5E0007E8C3 /* UserDataService.swift */,
-			);
-			path = UserData;
-			sourceTree = "<group>";
-		};
-		C19B99D425C9D0DC0002E696 /* Historic */ = {
-			isa = PBXGroup;
-			children = (
-				C19B99D525C9D0EE0002E696 /* HistoricService.swift */,
 			);
 			path = Historic;
 			sourceTree = "<group>";
@@ -724,10 +674,7 @@
 				C140315225CB29AA007F6728 /* TermsViewController+ScrollView.swift in Sources */,
 				C1DE3DCF25C3107F0084299E /* UserDataSeparatorTableViewCell.swift in Sources */,
 				C14D63C525B1E27200DAF725 /* HomeViewController+Binds.swift in Sources */,
-				C197DCB125BF4C5E0007E8C3 /* UserDataService.swift in Sources */,
 				C19B99CB25C9CA2C0002E696 /* HistoricViewController.swift in Sources */,
-				C19B99D625C9D0EE0002E696 /* HistoricService.swift in Sources */,
-				C1E083F025C200C5004D5382 /* UserLogin.swift in Sources */,
 				C197DCBE25BF4FA00007E8C3 /* UserDataViewController+TableView.swift in Sources */,
 				C183CED125B0953F00B4F675 /* HomeViewController+ScrollView.swift in Sources */,
 				C197DCA225BF2E510007E8C3 /* UserDataInfoTableViewCell.swift in Sources */,
@@ -738,10 +685,8 @@
 				C102A64B25D180F50036E17B /* HistoricViewController+Binds.swift in Sources */,
 				C158ECDF25C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.swift in Sources */,
 				C129AA8A25DD9376003D3882 /* PreHomeViewController+Layout.swift in Sources */,
-				C102A64425D156500036E17B /* HistoricData.swift in Sources */,
 				C1B6BFD025C42667001CB137 /* UserDataViewController+ScrollView.swift in Sources */,
 				A5B9E38725AE12EF006EA075 /* HomeViewController.swift in Sources */,
-				C1E0842725C220A7004D5382 /* UsersInfo.swift in Sources */,
 				C19B996925C9934E0002E696 /* TermsViewModel.swift in Sources */,
 				C197DCAD25BF481F0007E8C3 /* UserDataViewModel.swift in Sources */,
 				C19B996225C992820002E696 /* TermsViewController.swift in Sources */,
@@ -756,7 +701,6 @@
 				C129AA8725DD910D003D3882 /* PreHomeViewController.swift in Sources */,
 				C18C9A8A25C04C6800F4116F /* UserDataMarketingTableViewCell.swift in Sources */,
 				C129AA5C25DD5744003D3882 /* OrdersViewController+Layout.swift in Sources */,
-				C197DCA925BF31B50007E8C3 /* DataSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

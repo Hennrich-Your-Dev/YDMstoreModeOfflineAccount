@@ -8,6 +8,7 @@
 import Foundation
 
 import YDB2WComponents
+import YDB2WModels
 
 extension UserDataViewController {
   func setBinds() {
@@ -24,30 +25,33 @@ extension UserDataViewController {
     }
 
     viewModel?.loading.bind { [weak self] isLoading in
+      guard let self = self else { return }
+
       if isLoading {
-        self?.tableView.isHidden = true
-        self?.separatorView.isHidden = true
-        self?.activityIndicator.isHidden = false
-        self?.activityIndicator.startAnimating()
+        self.tableView.isHidden = true
+        self.separatorView.isHidden = true
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
       } else {
-        self?.tableView.isHidden = false
-        self?.separatorView.isHidden = false
-        self?.activityIndicator.isHidden = true
+        self.tableView.isHidden = false
+        self.separatorView.isHidden = false
+        self.activityIndicator.isHidden = true
       }
     }
 
     viewModel?.usersInfo.bind { [weak self] _ in
-      self?.tableView.reloadData()
+      guard let self = self else { return }
+      self.tableView.reloadData()
 
-      if let dateString = self?.viewModel?.userData?.date,
-         let formated = DataSet.formatDate(dateString) {
-        self?.lastUpdateLabelTitle.isHidden = false
-        self?.lastUpdateLabel.isHidden = false
-        self?.lastUpdateLabel.text = formated
+      if let dateString = self.viewModel?.userData?.date,
+         let formated = YDLasaClientDataSet.formatDate(dateString) {
+        self.lastUpdateLabelTitle.isHidden = false
+        self.lastUpdateLabel.isHidden = false
+        self.lastUpdateLabel.text = formated
       }
 
-      self?.historicButton.isHidden = false
-      self?.separatorView.isHidden = false
+      self.historicButton.isHidden = false
+      self.separatorView.isHidden = false
     }
   }
 }

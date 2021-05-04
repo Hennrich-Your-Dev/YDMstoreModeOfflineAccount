@@ -10,11 +10,13 @@ import Foundation
 import YDUtilities
 import YDExtensions
 import YDB2WIntegration
+import YDB2WServices
+import YDB2WModels
 
 // MARK: Navigation
 protocol UserDataNavigationDelegate {
   func onBack()
-  func openUserHistoric(withUser user: UserLogin)
+  func openUserHistoric(withUser user: YDLasaClientLogin)
   func openTerms()
 }
 
@@ -23,10 +25,10 @@ protocol UserDataViewModelDelegate {
   var error: Binder<(title: String, message: String)> { get }
   var loading: Binder<Bool> { get }
   var snackBarMessage: Binder<String?> { get }
-  var usersInfo: Binder<[DataSet]> { get }
-  var userData: UsersInfo? { get set }
+  var usersInfo: Binder<[YDLasaClientDataSet]> { get }
+  var userData: YDLasaClientInfo? { get set }
 
-  subscript(_ index: Int) -> DataSet? { get }
+  subscript(_ index: Int) -> YDLasaClientDataSet? { get }
 
   func onBack()
   func getUsersInfo()
@@ -38,7 +40,7 @@ protocol UserDataViewModelDelegate {
 class UserDataViewModel {
   // MARK: Properties
   lazy var logger = Logger.forClass(Self.self)
-  let service: UserDataServiceDelegate
+  let service: YDB2WServiceDelegate
   let navigation: UserDataNavigationDelegate
 
   var error: Binder<(title: String, message: String)> = Binder(("", ""))
@@ -46,9 +48,9 @@ class UserDataViewModel {
   var snackBarMessage: Binder<String?> = Binder(nil)
 
   let currentUser: YDCurrentCustomer
-  var userLogin: UserLogin? = nil
-  var userData: UsersInfo? = nil
-  var usersInfo: Binder<[DataSet]> = Binder([])
+  var userLogin: YDLasaClientLogin? = nil
+  var userData: YDLasaClientInfo? = nil
+  var usersInfo: Binder<[YDLasaClientDataSet]> = Binder([])
 
   let errorMessageIncompletePerfil = (
     title: "poooxa, ainda não temos seu cadastro completo",
@@ -61,7 +63,7 @@ class UserDataViewModel {
 
   // MARK: Init
   init(
-    service: UserDataServiceDelegate,
+    service: YDB2WServiceDelegate = YDB2WService(),
     navigation: UserDataNavigationDelegate,
     user: YDCurrentCustomer
   ) {
@@ -116,9 +118,9 @@ class UserDataViewModel {
       """
 
       guard let data = jsonString.data(using: .utf16),
-            let json = try? JSONDecoder().decode(UsersInfo.self, from: data),
+            let json = try? JSONDecoder().decode(YDLasaClientInfo.self, from: data),
             let dataUserLogin = userLoginString.data(using: .utf16),
-            let userLogin = try? JSONDecoder().decode(UserLogin.self, from: dataUserLogin)
+            let userLogin = try? JSONDecoder().decode(YDLasaClientLogin.self, from: dataUserLogin)
       else {
         return
       }
@@ -131,9 +133,12 @@ class UserDataViewModel {
     }
   }
 
-  func getClientInfo(with user: UserLogin) {
+  func getClientInfo(with user: YDLasaClientLogin) {
     userLogin = user
-    service.getUserInfo(with: user) { [weak self] (result: Result<UsersInfo, YDServiceError>) in
+
+    service.getLasaClientInfo(
+      with: user
+    ) { [weak self] (result: Result<YDLasaClientInfo, YDServiceError>) in
       guard let self = self else { return }
 
       switch result {
@@ -161,7 +166,7 @@ class UserDataViewModel {
 
 // MARK: Extension
 extension UserDataViewModel: UserDataViewModelDelegate {
-  subscript(_ index: Int) -> DataSet? {
+  subscript(_ index: Int) -> YDLasaClientDataSet? {
     return usersInfo.value.at(index)
   }
 
@@ -173,7 +178,10 @@ extension UserDataViewModel: UserDataViewModelDelegate {
     loading.value = true
     //    getUsersInfoMock()
     //    return;
-    service.login(user: currentUser) { [weak self] (response: Result<UserLogin, YDServiceError>) in
+
+    service.getLasaClientLogin(
+      user: currentUser
+    ) { [weak self] (response: Result<YDLasaClientLogin, YDServiceError>) in
       guard let self = self else { return }
 
       switch response {
@@ -226,7 +234,7 @@ extension UserDataViewModel: UserDataViewModelDelegate {
       ]
     )
 
-    service.updateInfo(
+    service.updateLasaClientInfo(
       user: userLogin,
       parameters: params
     ) { [weak self] (result: Result<Void, YDServiceError>) in

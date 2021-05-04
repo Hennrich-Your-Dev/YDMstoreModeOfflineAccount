@@ -11,6 +11,7 @@ import Hero
 import YDB2WIntegration
 import YDExtensions
 import YDUtilities
+import YDB2WModels
 
 public typealias YDMStoreModeOfflineAccount = YDMStoreModeOfflineAccountCoordinator
 
@@ -68,25 +69,12 @@ extension YDMStoreModeOfflineAccountCoordinator: PreHomeNavigationDelegate {
 // MARK: Home
 extension YDMStoreModeOfflineAccountCoordinator: HomeViewModelNavigationDelegate {
   func openUserData() {
-    guard let viewController = UserDataViewController.initializeFromStoryboard(),
-          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.lasaClientService.rawValue),
-          let endPoint = config.endpoint
+    guard let viewController = UserDataViewController.initializeFromStoryboard()
     else {
       fatalError("UserDataViewController.initializeFromStoryboard")
     }
 
-    let loginApi = "\(endPoint)/portalcliente/login"
-    let clientApi = "\(endPoint)/portalcliente/cliente"
-
-    let service = YDServiceClient()
-    let serviceUserData = UserDataService(
-      service: service,
-      loginApi: loginApi,
-      clientApi: clientApi
-    )
-
     let viewModel = UserDataViewModel(
-      service: serviceUserData,
       navigation: self,
       user: currentUser
     )
@@ -107,21 +95,13 @@ extension YDMStoreModeOfflineAccountCoordinator: HomeViewModelNavigationDelegate
 
 // MARK: User Data Navigation
 extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
-  func openUserHistoric(withUser user: UserLogin) {
-    guard let viewController = HistoricViewController.initializeFromStoryboard(),
-          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.lasaClientService.rawValue),
-          let endPoint = config.endpoint
+  func openUserHistoric(withUser user: YDLasaClientLogin) {
+    guard let viewController = HistoricViewController.initializeFromStoryboard()
     else {
       fatalError("HistoricViewController.initializeFromStoryboard")
     }
 
-    let historicApi = "\(endPoint)/portalcliente/cliente/relatorio-historico/lista"
-
-    let service = YDServiceClient()
-    let serviceHistoric = HistoricService(service: service, historicApi: historicApi)
-
     let viewModel = HistoricViewModel(
-      service: serviceHistoric,
       navigation: self,
       currentUser: user
     )

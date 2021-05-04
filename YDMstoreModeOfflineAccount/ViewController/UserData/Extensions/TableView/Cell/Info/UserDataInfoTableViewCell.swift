@@ -7,6 +7,8 @@
 
 import UIKit
 
+import YDB2WModels
+
 class UserDataInfoTableViewCell: UITableViewCell {
   // MARK: IBOutlets
   @IBOutlet weak var titleLabel: UILabel!
@@ -36,7 +38,7 @@ class UserDataInfoTableViewCell: UITableViewCell {
   }
 
   // MARK: Config
-  func config(with data: DataSet) {
+  func config(with data: YDLasaClientDataSet) {
     titleLabel.text = data.title
     valueLabel.text = data.value
 

@@ -8,6 +8,7 @@
 import UIKit
 
 import YDExtensions
+import YDB2WModels
 
 extension HistoricViewController {
   func buildList() {
@@ -70,7 +71,7 @@ extension HistoricViewController {
 
   func buildDateContainer(
     parent vw: UIStackView,
-    withData data: HistoricData
+    withData data: YDLasaClientHistoricData
   ) {
     let dateContainer = UIView()
     dateContainer.layer.cornerRadius = 12
@@ -102,7 +103,7 @@ extension HistoricViewController {
 
   func buildOriginContainer(
     parent vw: UIStackView,
-    withData data: HistoricData
+    withData data: YDLasaClientHistoricData
   ) {
     let originLabelDescription = UILabel()
     originLabelDescription.textColor = UIColor.Zeplin.grayLight
@@ -134,7 +135,7 @@ extension HistoricViewController {
 
   func buildDatasContainer(
     parent vw: UIStackView,
-    withData data: HistoricData
+    withData data: YDLasaClientHistoricData
   ) {
     let datasLabelDescription = UILabel()
     datasLabelDescription.textColor = UIColor.Zeplin.grayLight
@@ -207,7 +208,7 @@ extension HistoricViewController {
 
   func buildObjectiveContainer(
     parent vw: UIStackView,
-    withData data: HistoricData
+    withData data: YDLasaClientHistoricData
   ) {
     let objectiveLabelDescription = UILabel()
     objectiveLabelDescription.textColor = UIColor.Zeplin.grayLight

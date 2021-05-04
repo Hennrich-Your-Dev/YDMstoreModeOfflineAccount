@@ -7,11 +7,13 @@
 
 import UIKit
 
+import YDB2WModels
+
 // MARK: Actions
 extension UserDataViewController {
   func dequeueCellConstructor(
     at indexPath: IndexPath,
-    withData data: DataSet
+    withData data: YDLasaClientDataSet
   ) -> UITableViewCell {
     switch data.type {
       case .info:
@@ -39,7 +41,7 @@ extension UserDataViewController {
 
   func dequeueUsersInfoCell(
     at indexPath: IndexPath,
-    withData data: DataSet
+    withData data: YDLasaClientDataSet
   ) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(
             withIdentifier: UserDataInfoTableViewCell.identifier,
