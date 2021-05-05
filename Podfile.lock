@@ -32,7 +32,7 @@ PODS:
   - YDB2WModels (1.1.27):
     - YDExtensions (~> 1.0.42)
     - YDUtilities (~> 1.1.0)
-  - YDB2WServices (1.1.8):
+  - YDB2WServices (1.1.9):
     - Alamofire (~> 4.0)
     - YDB2WIntegration (~> 1.1.0)
     - YDB2WModels (~> 1.1.0)
@@ -111,7 +111,7 @@ SPEC CHECKSUMS:
   YDB2WDeepLinks: 5df9534e41baa38c04bc58aafdefbdf505264371
   YDB2WIntegration: 9ccf897e02321832bcebbd33f4319ac6f809ffef
   YDB2WModels: 1c49c0d3594b69b0b58af6e653da58cb6853473a
-  YDB2WServices: 52886379476bfefb4981be9c5a8ddc648ea42455
+  YDB2WServices: 3166584421b03d475272852530d6b3a8e3883466
   YDExtensions: 39587ea6186689aebf6d27528b423bd04cb58dfd
   YDLocationModule: 35cddec317442e18078cb64e1542d7cd360ccb43
   YDMFindStore: f2a63a8bdbafc82e7ee7d96f5264eb29c7093c0f

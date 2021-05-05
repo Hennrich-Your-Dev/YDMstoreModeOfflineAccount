@@ -15,6 +15,9 @@ class UserDataViewController: UIViewController {
   var viewModel: UserDataViewModelDelegate?
   var navBarShadowOff = false
 
+  // MARK: Components
+  let errorView = YDErrorView()
+
   // MARK: IBOutlets
   @IBOutlet weak var lastUpdateLabelTitle: UILabel!
 
@@ -74,8 +77,8 @@ class UserDataViewController: UIViewController {
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "meus dados lojas físicas"
-    createBackButton()
+    
+    configureLayout()
     setBinds()
 
     viewModel?.getUsersInfo()
@@ -94,21 +97,6 @@ class UserDataViewController: UIViewController {
   }
 
   // MARK: Actions
-  func createBackButton() {
-    let backButtonView = UIButton()
-    backButtonView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-    backButtonView.layer.cornerRadius = 16
-    backButtonView.layer.applyShadow()
-    backButtonView.backgroundColor = .white
-    backButtonView.setImage(Icons.leftArrow, for: .normal)
-    backButtonView.addTarget(self, action: #selector(onBackAction), for: .touchUpInside)
-
-    let backButton = UIBarButtonItem()
-    backButton.customView = backButtonView
-
-    navigationItem.leftBarButtonItem = backButton
-  }
-
   @objc func onBackAction(_ sender: UIButton) {
     viewModel?.onBack()
   }

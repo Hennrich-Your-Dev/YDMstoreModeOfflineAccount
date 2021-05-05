@@ -23,6 +23,7 @@ protocol UserDataNavigationDelegate {
 // MARK: Delegate
 protocol UserDataViewModelDelegate {
   var error: Binder<(title: String, message: String)> { get }
+  var errorView: Binder<Bool> { get }
   var loading: Binder<Bool> { get }
   var snackBarMessage: Binder<String?> { get }
   var usersInfo: Binder<[YDLasaClientDataSet]> { get }
@@ -44,6 +45,7 @@ class UserDataViewModel {
   let navigation: UserDataNavigationDelegate
 
   var error: Binder<(title: String, message: String)> = Binder(("", ""))
+  var errorView: Binder<Bool> = Binder(false)
   var loading: Binder<Bool> = Binder(false)
   var snackBarMessage: Binder<String?> = Binder(nil)
 
@@ -150,15 +152,18 @@ class UserDataViewModel {
         case .failure(let error):
           self.loading.value = false
 
-          if let status = error.statusCode,
-             status == 308 {
-            self.error.value = self.errorMessageIncompletePerfil
-            self.trackEvent(.offlineAccountModalIncomplete, ofType: .state)
-            return
-          }
+          switch error {
+            case .permanentRedirect:
+              self.error.value = self.errorMessageIncompletePerfil
+              self.trackEvent(.offlineAccountModalIncomplete, ofType: .state)
 
-          self.error.value = self.errorMessage
-          self.trackEvent(.offlineAccountModalError, ofType: .state)
+            case .notFound:
+              self.error.value = self.errorMessage
+              self.trackEvent(.offlineAccountModalError, ofType: .state)
+
+            default:
+              break
+          }
       }
     }
   }
@@ -191,15 +196,18 @@ extension UserDataViewModel: UserDataViewModelDelegate {
         case .failure(let error):
           self.loading.value = false
 
-          if let status = error.statusCode,
-             status == 308 {
-            self.error.value = self.errorMessageIncompletePerfil
-            self.trackEvent(.offlineAccountModalIncomplete, ofType: .state)
-            return
-          }
+          switch error {
+            case .permanentRedirect:
+              self.error.value = self.errorMessageIncompletePerfil
+              self.trackEvent(.offlineAccountModalIncomplete, ofType: .state)
 
-          self.error.value = self.errorMessage
-          self.trackEvent(.offlineAccountModalError, ofType: .state)
+            case .notFound:
+              self.error.value = self.errorMessage
+              self.trackEvent(.offlineAccountModalError, ofType: .state)
+
+            default:
+              self.errorView.fire()
+          }
       }
     }
   }

@@ -16,6 +16,13 @@ extension UserDataViewController {
       self?.showAlert(title: params.title, message: params.message)
     }
 
+    viewModel?.errorView.bind { _ in
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
+        self.errorView.isHidden = false
+      }
+    }
+
     viewModel?.snackBarMessage.bind { [weak self] message in
       guard let self = self,
         let message = message else { return }
@@ -24,18 +31,20 @@ extension UserDataViewController {
       snack.showMessage(message, ofType: .simple)
     }
 
-    viewModel?.loading.bind { [weak self] isLoading in
-      guard let self = self else { return }
+    viewModel?.loading.bind { isLoading in
+      DispatchQueue.main.async { [weak self] in
+        guard let self = self else { return }
 
-      if isLoading {
-        self.tableView.isHidden = true
-        self.separatorView.isHidden = true
-        self.activityIndicator.isHidden = false
-        self.activityIndicator.startAnimating()
-      } else {
-        self.tableView.isHidden = false
-        self.separatorView.isHidden = false
-        self.activityIndicator.isHidden = true
+        if isLoading {
+          self.tableView.isHidden = true
+          self.separatorView.isHidden = true
+          self.activityIndicator.isHidden = false
+          self.activityIndicator.startAnimating()
+        } else {
+          self.tableView.isHidden = false
+          self.separatorView.isHidden = false
+          self.activityIndicator.isHidden = true
+        }
       }
     }
 

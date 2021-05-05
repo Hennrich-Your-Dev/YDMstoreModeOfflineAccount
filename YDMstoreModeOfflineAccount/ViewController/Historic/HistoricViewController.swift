@@ -17,6 +17,9 @@ class HistoricViewController: UIViewController {
   var viewModel: HistoricViewModelDelegate?
   var navBarShadowOff = true
 
+  // MARK: Components
+  let errorView = YDErrorView()
+
   // MARK: IBOutlets
   @IBOutlet weak var exportButton: UIButton! {
     didSet {
@@ -54,10 +57,8 @@ class HistoricViewController: UIViewController {
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    title = "minhas ações nas lojas físicas"
-
-    createBackButton()
+    
+    configureLayout()
     setBinds()
     viewModel?.getHistoricList()
   }
@@ -87,21 +88,6 @@ class HistoricViewController: UIViewController {
 
 // MARK: Actions
 extension HistoricViewController {
-  func createBackButton() {
-    let backButtonView = UIButton()
-    backButtonView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-    backButtonView.layer.cornerRadius = 16
-    backButtonView.layer.applyShadow()
-    backButtonView.backgroundColor = .white
-    backButtonView.setImage(Icons.leftArrow, for: .normal)
-    backButtonView.addTarget(self, action: #selector(onBackAction), for: .touchUpInside)
-
-    let backButton = UIBarButtonItem()
-    backButton.customView = backButtonView
-
-    navigationItem.leftBarButtonItem = backButton
-  }
-
   @objc func onBackAction(_ sender: UIButton) {
     viewModel?.onBack()
   }

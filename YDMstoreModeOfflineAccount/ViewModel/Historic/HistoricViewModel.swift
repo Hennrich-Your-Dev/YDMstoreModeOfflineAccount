@@ -20,7 +20,7 @@ protocol HistoricNavigationDelegate {
 
 // MARK: Delegate
 protocol HistoricViewModelDelegate {
-  var error: Binder<(title: String, message: String)> { get }
+  var error: Binder<Bool> { get }
   var loading: Binder<Bool> { get }
   var historicList: Binder<[YDLasaClientHistoricData]> { get }
 
@@ -34,7 +34,7 @@ class HistoricViewModel {
   let service: YDB2WServiceDelegate
   let navigation: HistoricNavigationDelegate
 
-  var error: Binder<(title: String, message: String)> = Binder(("", ""))
+  var error: Binder<Bool> = Binder(false)
   var loading: Binder<Bool> = Binder(false)
 
   var historicList: Binder<[YDLasaClientHistoricData]> = Binder([])
@@ -97,7 +97,8 @@ extension HistoricViewModel: HistoricViewModelDelegate {
           self.historicList.value = historic
 
         case .failure(let error):
-          self.error.value = ("Ops", error.message)
+          debugPrint(#function, error.message)
+          self.error.fire()
       }
     }
   }
