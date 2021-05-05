@@ -274,8 +274,8 @@
 		C12B96B025CAE85700143B99 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C1847E5725E53AA3004A9E33 /* Layout */,
 				C102A64925D180E50036E17B /* Binds */,
+				C1847E5725E53AA3004A9E33 /* Layout */,
 				C12B96B125CAE85B00143B99 /* ScrollView */,
 			);
 			path = Extensions;
@@ -399,10 +399,10 @@
 		C197DCB325BF4EA80007E8C3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C1B6BFCE25C42656001CB137 /* ScrollView */,
-				C1B6BF4425C4163C001CB137 /* Dialog */,
-				C197DCB925BF4EE40007E8C3 /* TableView */,
 				C197DCB425BF4EAE0007E8C3 /* Binds */,
+				C1B6BF4425C4163C001CB137 /* Dialog */,
+				C1B6BFCE25C42656001CB137 /* ScrollView */,
+				C197DCB925BF4EE40007E8C3 /* TableView */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

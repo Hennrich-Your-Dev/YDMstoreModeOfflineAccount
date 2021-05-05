@@ -12,7 +12,11 @@ import YDB2WComponents
 
 class YDErrorView: UIView {
   // MARK: Properties
-  var callback: ((UIButton) -> Void)?
+  var callback: ((UIButton) -> Void)? {
+    didSet {
+      actionButton.callback = callback
+    }
+  }
 
   // MARK: Components
   let messageLabel = UILabel()

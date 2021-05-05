@@ -35,6 +35,7 @@ extension HistoricViewController {
     viewModel?.error.bind { _ in
       DispatchQueue.main.async { [weak self] in
         guard let self = self else { return }
+        self.separatorView.isHidden = true
         self.errorView.isHidden = false
       }
     }
