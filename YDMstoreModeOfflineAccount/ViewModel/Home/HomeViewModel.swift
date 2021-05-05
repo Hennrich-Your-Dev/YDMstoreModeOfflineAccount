@@ -10,6 +10,7 @@ import UIKit
 import YDB2WIntegration
 import YDUtilities
 import YDExtensions
+import YDB2WModels
 
 // MARK: Navigation
 protocol HomeViewModelNavigationDelegate {
