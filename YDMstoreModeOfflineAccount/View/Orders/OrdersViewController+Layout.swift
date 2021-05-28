@@ -52,9 +52,7 @@ extension OrdersViewController {
   }
 
   func importOrdersView(container: UIView) {
-    guard let token = viewModel?.userClientLasaToken else { return }
-
-    ordersViewController = YDMOfflineOrders().start(userToken: token)
+    ordersViewController = YDMOfflineOrders().start()
     addChild(ordersViewController)
 
     container.addSubview(ordersViewController.view)

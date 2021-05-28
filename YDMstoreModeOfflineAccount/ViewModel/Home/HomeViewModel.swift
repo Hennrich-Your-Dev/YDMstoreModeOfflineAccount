@@ -16,7 +16,7 @@ import YDB2WModels
 protocol HomeViewModelNavigationDelegate {
   func onExit()
   func openUserData()
-  func openOfflineOrders(userToken: String)
+  func openOfflineOrders()
 }
 
 // MARK: Delegate
@@ -92,7 +92,7 @@ extension HomeViewModel: HomeViewModelDelegate {
               "&el=": "Botão meus dados lojas fisicas"
             ]
           )
-        navigation.openOfflineOrders(userToken: userClientLasaToken)
+        navigation.openOfflineOrders()
 
       default:
         break

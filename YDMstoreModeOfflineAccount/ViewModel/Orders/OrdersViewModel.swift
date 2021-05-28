@@ -14,8 +14,6 @@ protocol OrdersNavigationDelegate {
 
 // MARK: Delegate
 protocol OrdersViewModelDelegate {
-  var userClientLasaToken: String { get }
-
   func onBack()
 }
 
@@ -23,12 +21,10 @@ protocol OrdersViewModelDelegate {
 class OrdersViewModel {
   // MARK: Properties
   let navigation: OrdersNavigationDelegate
-  var userClientLasaToken: String
 
   // MARK: Init
-  init(navigation: OrdersNavigationDelegate, userToken: String) {
+  init(navigation: OrdersNavigationDelegate) {
     self.navigation = navigation
-    self.userClientLasaToken = userToken
   }
 }
 
