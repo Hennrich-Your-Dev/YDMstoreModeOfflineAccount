@@ -9,31 +9,24 @@ import UIKit
 
 import YDB2WAssets
 import YDExtensions
+import YDSpacey
 
 class TermsViewController: UIViewController, UITextViewDelegate {
   // MARK: Properties
   var viewModel: TermsViewModelDelegate?
   var navBarShadowOff = true
 
+  // MARK: Components
+  var spaceyComponent: YDSpaceyViewController?
+
   // MARK: IBOutlets
   @IBOutlet weak var shadowContainerView: UIView! {
     didSet {
       shadowContainerView.backgroundColor = .white
-      shadowContainerView.layer.zPosition = 5
     }
   }
 
-  @IBOutlet weak var separatorView: UIView! {
-    didSet {
-      separatorView.layer.zPosition = 6
-    }
-  }
-
-  @IBOutlet weak var textView: UITextView! {
-    didSet {
-      textView.delegate = self
-    }
-  }
+  @IBOutlet weak var separatorView: UIView!
 
   // MARK: Life cycle
   override func viewDidLoad() {
@@ -41,7 +34,9 @@ class TermsViewController: UIViewController, UITextViewDelegate {
     title = "política de privacidade"
 
     createBackButton()
-    loadHTML()
+    configureSpaceyComponent()
+
+    spaceyComponent?.getSpacey(withId: "politica-de-privacidade")
   }
 }
 
@@ -79,37 +74,22 @@ extension TermsViewController {
       }
     }
   }
+}
 
-  func loadHTML() {
-    let bundle = Bundle(for: Self.self)
-    guard let path = bundle.path(forResource: "termos-uso", ofType: "html")
-    else {
-      return
-    }
+// MARK: UI
+extension TermsViewController {
+  func configureSpaceyComponent() {
+    let vc = YDSpacey().start(supportedTypes: [.termsOfUse])
+    addChild(vc)
+    spaceyComponent = vc
+    spaceyComponent?.delegate = self
 
-    let url = URL(fileURLWithPath: path)
-    guard let description = try? Data(contentsOf: url) else { return }
-
-    do {
-      let attributedString = try NSMutableAttributedString(
-        data: description,
-        options: [
-          .documentType: NSAttributedString.DocumentType.html,
-          .characterEncoding: String.Encoding.utf8.rawValue
-        ],
-        documentAttributes: nil
-      )
-
-      attributedString.addAttribute(
-        NSAttributedString.Key.foregroundColor,
-        value: UIColor.Zeplin.black,
-        range: NSMakeRange(0, attributedString.length)
-      )
-
-      textView.attributedText = attributedString
-
-    } catch {
-      debugPrint(error.localizedDescription)
-    }
+    vc.view.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      vc.view.topAnchor.constraint(equalTo: separatorView.bottomAnchor),
+      vc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      vc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      vc.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+    ])
   }
 }

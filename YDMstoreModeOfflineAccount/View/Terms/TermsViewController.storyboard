@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,25 +30,14 @@
                                     <constraint firstAttribute="height" constant="1" id="c08-vQ-SN5"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m87-up-gxQ">
-                                <rect key="frame" x="31" y="49" width="352" height="813"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" name="black"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mOs-lk-EXJ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mOs-lk-EXJ" firstAttribute="trailing" secondItem="m87-up-gxQ" secondAttribute="trailing" constant="31" id="4wI-Dh-Fjc"/>
                             <constraint firstItem="mOs-lk-EXJ" firstAttribute="trailing" secondItem="qUp-PV-pZQ" secondAttribute="trailing" constant="21" id="Few-yE-29M"/>
                             <constraint firstItem="mOs-lk-EXJ" firstAttribute="trailing" secondItem="H6Q-3A-ifS" secondAttribute="trailing" id="KO2-3G-ENc"/>
-                            <constraint firstItem="m87-up-gxQ" firstAttribute="top" secondItem="H6Q-3A-ifS" secondAttribute="bottom" id="KeX-3K-zam"/>
                             <constraint firstItem="qUp-PV-pZQ" firstAttribute="top" secondItem="mOs-lk-EXJ" secondAttribute="top" constant="5" id="QJ6-8C-Dxx"/>
-                            <constraint firstItem="m87-up-gxQ" firstAttribute="leading" secondItem="mOs-lk-EXJ" secondAttribute="leading" constant="31" id="fEt-rv-ORS"/>
                             <constraint firstItem="H6Q-3A-ifS" firstAttribute="top" secondItem="mOs-lk-EXJ" secondAttribute="top" id="faW-1v-aKt"/>
-                            <constraint firstItem="mOs-lk-EXJ" firstAttribute="bottom" secondItem="m87-up-gxQ" secondAttribute="bottom" id="iHx-RH-an6"/>
                             <constraint firstItem="H6Q-3A-ifS" firstAttribute="leading" secondItem="mOs-lk-EXJ" secondAttribute="leading" id="phM-Ep-aem"/>
                             <constraint firstItem="qUp-PV-pZQ" firstAttribute="leading" secondItem="mOs-lk-EXJ" secondAttribute="leading" constant="21" id="wcQ-PQ-tk3"/>
                         </constraints>
@@ -58,7 +46,6 @@
                     <connections>
                         <outlet property="separatorView" destination="qUp-PV-pZQ" id="phY-62-5by"/>
                         <outlet property="shadowContainerView" destination="H6Q-3A-ifS" id="p5Y-cg-cfl"/>
-                        <outlet property="textView" destination="m87-up-gxQ" id="scP-vQ-nRj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A9T-zY-4vM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,9 +53,4 @@
             <point key="canvasLocation" x="189.85507246376812" y="99.776785714285708"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="black">
-            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

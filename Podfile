@@ -19,6 +19,7 @@ target "YDMstoreModeOfflineAccount" do
   pod "YDB2WComponents", "~> 1.4.0"
   pod "YDMOfflineOrders", "~> 1.4.0"
   pod "YDB2WServices", "~> 1.4.0"
+  pod "YDSpacey", "~> 1.4.0"
   
   pod "Hero"
 

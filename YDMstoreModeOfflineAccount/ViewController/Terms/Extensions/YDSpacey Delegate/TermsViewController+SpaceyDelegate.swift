@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import YDSpacey
+import YDB2WModels
 
-extension TermsViewController: UIScrollViewDelegate {
+extension TermsViewController: YDSpaceyDelegate {
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
     if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
       // reach bottom
@@ -30,4 +32,8 @@ extension TermsViewController: UIScrollViewDelegate {
       }
     }
   }
+
+  func onPlayerComponentID(_ videoId: String?) {}
+  func onComponentsList(_ list: [YDSpaceyCommonStruct]) {}
+  func onChange(contentHeightSize: CGFloat) {}
 }
