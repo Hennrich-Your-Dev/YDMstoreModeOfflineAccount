@@ -12,6 +12,7 @@ import YDB2WIntegration
 import YDExtensions
 import YDUtilities
 import YDB2WModels
+import YDSpacey
 
 public typealias YDMStoreModeOfflineAccount = YDMStoreModeOfflineAccountCoordinator
 
@@ -116,7 +117,14 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
       fatalError("TermsViewController.initializeFromStoryboard")
     }
 
-    let viewModel = TermsViewModel(navigation: self)
+    let spaceyViewModel = YDSpaceyViewModel(supportedTypes: [.termsOfUse])
+    let spaceyId = "politica-de-privacidade"
+
+    let viewModel = TermsViewModel(
+      navigation: self,
+      spaceyViewModel: spaceyViewModel,
+      spaceyId: spaceyId
+    )
 
     viewController.viewModel = viewModel
     navigationController?.pushViewController(viewController, animated: true)

@@ -35,8 +35,9 @@ class TermsViewController: UIViewController, UITextViewDelegate {
 
     createBackButton()
     configureSpaceyComponent()
+    configureBinds()
 
-    spaceyComponent?.getSpacey(withId: "politica-de-privacidade")
+    viewModel?.getSpacey()
   }
 }
 
@@ -83,7 +84,10 @@ extension TermsViewController {
     addChild(vc)
     spaceyComponent = vc
     spaceyComponent?.delegate = self
+    vc.hasShimmer = false
+    vc.didMove(toParent: self)
 
+    view.addSubview(vc.view)
     vc.view.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       vc.view.topAnchor.constraint(equalTo: separatorView.bottomAnchor),

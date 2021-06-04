@@ -49,6 +49,7 @@
 		C19B99D025C9D04B0002E696 /* HistoricViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B99CF25C9D04B0002E696 /* HistoricViewModel.swift */; };
 		C1B6BF4625C4164F001CB137 /* UserDataViewController+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6BF4525C4164F001CB137 /* UserDataViewController+Dialog.swift */; };
 		C1B6BFD025C42667001CB137 /* UserDataViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */; };
+		C1BA6137266A8CD500B3A860 /* TermsViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA6136266A8CD500B3A860 /* TermsViewController+Binds.swift */; };
 		C1DE3DCF25C3107F0084299E /* UserDataSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE3DCD25C3107F0084299E /* UserDataSeparatorTableViewCell.swift */; };
 		C1DE3DD025C3107F0084299E /* UserDataSeparatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */; };
 		E4B90FA925CB15720030FF42 /* termos-uso.html in Resources */ = {isa = PBXBuildFile; fileRef = E4B90FA725CB15720030FF42 /* termos-uso.html */; };
@@ -101,6 +102,7 @@
 		C19B99CF25C9D04B0002E696 /* HistoricViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricViewModel.swift; sourceTree = "<group>"; };
 		C1B6BF4525C4164F001CB137 /* UserDataViewController+Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Dialog.swift"; sourceTree = "<group>"; };
 		C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		C1BA6136266A8CD500B3A860 /* TermsViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TermsViewController+Binds.swift"; sourceTree = "<group>"; };
 		C1DE3DCD25C3107F0084299E /* UserDataSeparatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataSeparatorTableViewCell.swift; sourceTree = "<group>"; };
 		C1DE3DCE25C3107F0084299E /* UserDataSeparatorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDataSeparatorTableViewCell.xib; sourceTree = "<group>"; };
 		E4B90FA725CB15720030FF42 /* termos-uso.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "termos-uso.html"; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		C140314F25CB2984007F6728 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C1BA6135266A8CC600B3A860 /* Binds */,
 				C140315025CB2994007F6728 /* YDSpacey Delegate */,
 			);
 			path = Extensions;
@@ -497,6 +500,14 @@
 				C1B6BFCF25C42667001CB137 /* UserDataViewController+ScrollView.swift */,
 			);
 			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		C1BA6135266A8CC600B3A860 /* Binds */ = {
+			isa = PBXGroup;
+			children = (
+				C1BA6136266A8CD500B3A860 /* TermsViewController+Binds.swift */,
+			);
+			path = Binds;
 			sourceTree = "<group>";
 		};
 		C1DE3DBF25C3077E0084299E /* TermsAndButton */ = {
@@ -725,6 +736,7 @@
 				C129AA5725DD5537003D3882 /* OrdersViewController.swift in Sources */,
 				C14D63CA25B1E47F00DAF725 /* HomeViewController+Dialog.swift in Sources */,
 				C1B6BF4625C4164F001CB137 /* UserDataViewController+Dialog.swift in Sources */,
+				C1BA6137266A8CD500B3A860 /* TermsViewController+Binds.swift in Sources */,
 				C121DA5F2642FD64004C9836 /* HistoricViewController+Layouts.swift in Sources */,
 				C129AA8725DD910D003D3882 /* PreHomeViewController.swift in Sources */,
 				C18C9A8A25C04C6800F4116F /* UserDataMarketingTableViewCell.swift in Sources */,
