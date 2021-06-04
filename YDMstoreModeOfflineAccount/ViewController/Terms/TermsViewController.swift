@@ -91,8 +91,8 @@ extension TermsViewController {
     vc.view.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
       vc.view.topAnchor.constraint(equalTo: separatorView.bottomAnchor),
-      vc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      vc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      vc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+      vc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
       vc.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
     ])
   }
