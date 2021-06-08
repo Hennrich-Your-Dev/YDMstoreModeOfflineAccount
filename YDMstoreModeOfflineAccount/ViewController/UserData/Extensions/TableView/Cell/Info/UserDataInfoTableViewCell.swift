@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 import YDB2WModels
 
 class UserDataInfoTableViewCell: UITableViewCell {
@@ -41,6 +40,10 @@ class UserDataInfoTableViewCell: UITableViewCell {
   func config(with data: YDLasaClientDataSet) {
     titleLabel.text = data.title
     valueLabel.text = data.value
+
+    if data.title == "nome" {
+      valueLabel.numberOfLines = 0
+    }
 
     if let secondTitle = data.doubleTitle,
        let secondValue = data.doubleValue {
