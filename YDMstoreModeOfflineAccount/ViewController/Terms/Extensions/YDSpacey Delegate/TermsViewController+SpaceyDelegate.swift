@@ -35,5 +35,5 @@ extension TermsViewController: YDSpaceyDelegate {
 
   func onPlayerComponentID(_ videoId: String?) {}
   func onComponentsList(_ list: [YDSpaceyCommonStruct]) {}
-  func onChange(contentHeightSize: CGFloat) {}
+  func onChange(size: CGSize) {}
 }
