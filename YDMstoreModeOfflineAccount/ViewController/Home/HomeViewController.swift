@@ -90,7 +90,7 @@ extension HomeViewController {
 //      ],
       [
         "icon": Images.basket as Any,
-        "title": "suas compras nas lojas físicas com nota fiscal",
+        "title": "suas compras nas lojas físicas",
         "button": "estão aqui :)",
         "id": 3
       ],

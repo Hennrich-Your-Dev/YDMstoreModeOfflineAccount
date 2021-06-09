@@ -19,7 +19,7 @@ PODS:
     - libwebp/demux
   - libwebp/webp (1.2.0)
   - YDB2WAssets (1.0.41)
-  - YDB2WComponents (1.1.27):
+  - YDB2WComponents (1.1.28):
     - Cosmos
     - YDB2WAssets (~> 1.0.33)
     - YDB2WModels (~> 1.1.0)
@@ -27,13 +27,13 @@ PODS:
     - YDUtilities (~> 1.1.0)
   - YDB2WDeepLinks (1.0.6):
     - YDExtensions (~> 1.0.42)
-  - YDB2WIntegration (1.1.17):
+  - YDB2WIntegration (1.1.18):
     - YDB2WModels (~> 1.1.0)
     - YDExtensions (~> 1.0.0)
   - YDB2WModels (1.1.53):
     - YDExtensions (~> 1.0.42)
     - YDUtilities (~> 1.1.0)
-  - YDB2WServices (1.1.19):
+  - YDB2WServices (1.1.21):
     - Alamofire (~> 4.0)
     - YDB2WIntegration (~> 1.1.0)
     - YDB2WModels (~> 1.1.0)
@@ -41,7 +41,7 @@ PODS:
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
   - YDLocationModule (1.0.5)
-  - YDMFindStore (1.1.17):
+  - YDMFindStore (1.1.18):
     - Alamofire (= 4.9.1)
     - curvyRoute
     - YDB2WAssets (~> 1.0.33)
@@ -108,14 +108,14 @@ SPEC CHECKSUMS:
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   YDB2WAssets: 061b8e2d38eaede22b14800ca9888c25700bcfec
-  YDB2WComponents: 55e99cd311352fa05458eeda1c04ee01aa9c120f
+  YDB2WComponents: a5e341b59c0bc529d6ac17cf02812e1be4fff1f7
   YDB2WDeepLinks: 78e7a71fd84daa60477ba5f9868dfd30e6bdb5cd
-  YDB2WIntegration: dc0004ca9a0715eb2c4760c10d23e3e48dbe1dd8
+  YDB2WIntegration: 9afd13466c39059506cccb6d192798e3722fa567
   YDB2WModels: 79d8c30d66df1e6b12eb9aa199bbe17f20586059
-  YDB2WServices: 1d70df8a86b99b824334668a1c731bca757e91ef
+  YDB2WServices: e90acdcbc1d201e8ccc241bfeabd57863a6e7fb0
   YDExtensions: 086d64e8aaa8476de4be32c57ee4be06c1a01f5a
   YDLocationModule: 35cddec317442e18078cb64e1542d7cd360ccb43
-  YDMFindStore: eabbc310299470ed8761bdebdf861f651dd8d55b
+  YDMFindStore: bb4e8c18f1458b928a0d67355e2bc54667dd52b3
   YDMOfflineOrders: d32dcd7b08d85b7194ea3c19baa685a8c175d683
   YDUtilities: 3085ab9236e8f51b4418092976dca1cfdc86f69d
 
