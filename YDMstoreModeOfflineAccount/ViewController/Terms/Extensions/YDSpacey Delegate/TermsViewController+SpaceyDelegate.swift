@@ -33,6 +33,12 @@ extension TermsViewController: YDSpaceyDelegate {
     }
   }
 
+  func registerCustomCells(_ collectionView: UICollectionView) {}
+  func dequeueCustomCell(
+    _ collectionView: UICollectionView,
+    forIndexPath indexPath: IndexPath,
+    component: YDSpaceyCustomComponentDelegate
+  ) -> UICollectionViewCell { UICollectionViewCell() }
   func onPlayerComponentID(_ videoId: String?) {}
   func onComponentsList(_ list: [YDSpaceyCommonStruct]) {}
   func onChange(size: CGSize) {}
