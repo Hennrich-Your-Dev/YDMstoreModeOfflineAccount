@@ -167,38 +167,23 @@ extension HistoricViewController {
         view.heightAnchor.constraint(greaterThanOrEqualToConstant: 20)
       ])
 
-      let titleLabel = UILabel()
-      titleLabel.textAlignment = .left
-      titleLabel.font = .systemFont(ofSize: 16, weight: .bold)
-      titleLabel.text = "\(curr.title):"
-      titleLabel.textColor = UIColor.Zeplin.black
-      view.addSubview(titleLabel)
+      let messageLabel = UILabel()
+      messageLabel.textAlignment = .left
+      messageLabel.numberOfLines = 2
+      messageLabel.attributedText = createAttributedString(
+        title: curr.title,
+        value: curr.value
+      )
+      view.addSubview(messageLabel)
 
-      titleLabel.translatesAutoresizingMaskIntoConstraints = false
+      messageLabel.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
-        titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 2)
+        messageLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 2),
+        messageLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        messageLabel.bottomAnchor
+          .constraint(equalTo: view.bottomAnchor, constant: -2),
+        messageLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
       ])
-      titleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-      titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-
-      let valueLabel = UILabel()
-      valueLabel.textAlignment = .left
-      valueLabel.font = .systemFont(ofSize: 16)
-      valueLabel.text = "\(curr.value)"
-      valueLabel.textColor = UIColor.Zeplin.black
-      valueLabel.numberOfLines = 2
-      view.addSubview(valueLabel)
-
-      valueLabel.translatesAutoresizingMaskIntoConstraints = false
-      NSLayoutConstraint.activate([
-        valueLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 5),
-        valueLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        valueLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 2),
-        valueLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -2)
-      ])
-      valueLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
-      valueLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
       if index == infos.count - 1 {
         vw.setCustomSpacing(20, after: view)
@@ -236,5 +221,56 @@ extension HistoricViewController {
       objectiveLabel.leadingAnchor.constraint(equalTo: vw.leadingAnchor),
       objectiveLabel.trailingAnchor.constraint(equalTo: vw.trailingAnchor)
     ])
+  }
+}
+
+extension HistoricViewController {
+  func createAttributedString(
+    title: String,
+    value: String
+  ) -> NSMutableAttributedString? {
+    let fullMessage = "\(title):  \(value)"
+
+    let attributedString = NSMutableAttributedString(
+      string: fullMessage,
+      attributes: [
+        NSAttributedString.Key.foregroundColor: Zeplin.black
+      ]
+    )
+
+    // Title
+    guard let rangeTitle: Range<String.Index> = fullMessage.range(of: title) else {
+      return nil
+    }
+
+    let indexTitle: Int = fullMessage.distance(
+      from: fullMessage.startIndex,
+      to: rangeTitle.lowerBound
+    )
+
+    attributedString.addAttribute(
+      NSAttributedString.Key.font,
+      value: UIFont.systemFont(ofSize: 16, weight: .bold),
+      range: NSRange(location: indexTitle, length: title.count)
+    )
+
+    // Value
+    guard let rangeValue: Range<String.Index> = fullMessage.range(of: value)
+    else {
+      return nil
+    }
+
+    let indexValue: Int = fullMessage.distance(
+      from: fullMessage.startIndex,
+      to: rangeValue.lowerBound
+    )
+
+    attributedString.addAttribute(
+      NSAttributedString.Key.font,
+      value: UIFont.systemFont(ofSize: 16),
+      range: NSRange(location: indexValue, length: value.count)
+    )
+
+    return attributedString
   }
 }
