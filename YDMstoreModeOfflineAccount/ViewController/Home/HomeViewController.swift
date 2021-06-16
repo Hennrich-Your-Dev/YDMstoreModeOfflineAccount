@@ -89,15 +89,13 @@ extension HomeViewController {
 //        "id": 1
 //      ],
       [
-        "icon": Images.basket as Any,
-        "title": "suas compras nas lojas físicas com nota fiscal",
-        "button": "estão aqui :)",
+        "icon": Images.store as Any,
+        "title": "suas compras nas lojas físicas",
         "id": 3
       ],
       [
         "icon": Images.clipboard as Any,
-        "title": "tudo que sabemos sobre você está aqui :)",
-        "button": "confere aqui!",
+        "title": "seu histórico de dados informados nas lojas",
         "id": 2
       ]
     ]
@@ -128,12 +126,18 @@ extension HomeViewController {
       imageView.image = curr["icon"] as? UIImage
       card.addSubview(imageView)
 
+      let size: CGFloat = curr["id"] as? Int == 3 ?
+        100 : 80
+      let iconLeading: CGFloat = curr["id"] as? Int == 3 ?
+        26 : 36
+
       imageView.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
-        imageView.widthAnchor.constraint(equalToConstant: 76),
-        imageView.heightAnchor.constraint(equalToConstant: 76),
+        imageView.widthAnchor.constraint(equalToConstant: size),
+        imageView.heightAnchor.constraint(equalToConstant: size),
         imageView.centerYAnchor.constraint(equalTo: card.centerYAnchor),
-        imageView.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 36)
+        imageView.leadingAnchor
+          .constraint(equalTo: card.leadingAnchor, constant: iconLeading)
       ])
 
       // Title
@@ -149,22 +153,7 @@ extension HomeViewController {
       NSLayoutConstraint.activate([
         titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20),
         titleLabel.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -24),
-        titleLabel.topAnchor.constraint(equalTo: card.topAnchor, constant: 36)
-      ])
-
-      // Button
-      let buttonLabel = UILabel()
-      buttonLabel.text = curr["button"] as? String
-      buttonLabel.textAlignment = .center
-      buttonLabel.textColor = UIColor.Zeplin.grayLight
-      buttonLabel.font = .systemFont(ofSize: 16)
-      buttonLabel.numberOfLines = 1
-      card.addSubview(buttonLabel)
-
-      buttonLabel.translatesAutoresizingMaskIntoConstraints = false
-      NSLayoutConstraint.activate([
-        buttonLabel.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
-        buttonLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10)
+        titleLabel.centerYAnchor.constraint(equalTo: card.centerYAnchor)
       ])
     }
   }
