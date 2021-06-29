@@ -16,7 +16,11 @@ extension UserDataViewController {
     dialog.start(
       ofType: .simple,
       customTitle: title,
-      customMessage: message
+      customMessage: message,
+      messageLink: [
+        "message": "atendimento.acom@americanas.com",
+        "link": "mailto:atendimento.acom@americanas.com"
+      ]
     )
   }
 }
