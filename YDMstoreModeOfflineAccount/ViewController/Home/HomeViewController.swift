@@ -126,10 +126,8 @@ extension HomeViewController {
       imageView.image = curr["icon"] as? UIImage
       card.addSubview(imageView)
 
-      let size: CGFloat = curr["id"] as? Int == 3 ?
-        100 : 80
-      let iconLeading: CGFloat = curr["id"] as? Int == 3 ?
-        26 : 36
+      let size: CGFloat = 100
+      let iconLeading: CGFloat = 26
 
       imageView.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
