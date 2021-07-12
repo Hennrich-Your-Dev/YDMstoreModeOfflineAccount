@@ -185,7 +185,8 @@ extension UserDataViewModel: UserDataViewModelDelegate {
     //    return;
 
     service.getLasaClientLogin(
-      user: currentUser
+      user: currentUser,
+      socialSecurity: nil
     ) { [weak self] (response: Result<YDLasaClientLogin, YDServiceError>) in
       guard let self = self else { return }
 
