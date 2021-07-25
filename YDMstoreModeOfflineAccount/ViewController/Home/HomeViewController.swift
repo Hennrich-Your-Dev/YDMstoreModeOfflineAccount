@@ -144,7 +144,7 @@ extension HomeViewController {
       titleLabel.textAlignment = .center
       titleLabel.textColor = UIColor.Zeplin.black
       titleLabel.font = .systemFont(ofSize: 16)
-      titleLabel.numberOfLines = 2
+      titleLabel.numberOfLines = 0
       card.addSubview(titleLabel)
 
       titleLabel.translatesAutoresizingMaskIntoConstraints = false

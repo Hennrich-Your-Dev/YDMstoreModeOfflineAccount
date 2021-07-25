@@ -40,6 +40,8 @@ public class Icons {
 
   public static let gps = UIImage(named: "gps-icon", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
+  public static let heart = UIImage(named: "iconHeart", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
   public static let imagePlaceHolder = UIImage(named: "iconImagePlaceHolder", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let info = UIImage(named: "iconInfo", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
@@ -85,6 +87,8 @@ public class Icons {
   public static let trash = UIImage(named: "iconTrash", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let userWired = UIImage(named: "iconUserWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let unpin = UIImage(named: "iconUnpin", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let whatsapp = UIImage(named: "iconWhatsapp", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 }
