@@ -68,8 +68,12 @@ public enum YDConfigProperty: String {
 
   case liveNPSEnabled
   case liveNPSLiveIdEnabled
+  
+  case afterLiveEnabled
+  case afterLiveHotsite
 
   // Next Lives
+  case nextLiveEnabled
   case nextLiveSpaceyId = "nextLiveHotsite"
   case nextLivesReminderTimeInMinutes = "nextLivesReminderTime"
 

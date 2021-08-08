@@ -12,12 +12,14 @@ import YDExtensions
 import YDB2WIntegration
 import YDB2WServices
 import YDB2WModels
+import YDB2WComponents
 
 // MARK: Navigation
 protocol UserDataNavigationDelegate {
   func onBack()
   func openUserHistoric(withUser user: YDLasaClientLogin)
   func openTerms()
+  func openQuiz()
 }
 
 // MARK: Delegate
@@ -36,6 +38,9 @@ protocol UserDataViewModelDelegate {
   func openHistoric()
   func openTerms()
   func updateInfo()
+  
+  func fromQuizWrongAnswer()
+  func fromQuizSuccess()
 }
 
 class UserDataViewModel {
@@ -199,8 +204,10 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
           switch error {
             case .permanentRedirect:
-              self.error.value = self.errorMessageIncompletePerfil
+//              self.error.value = self.errorMessageIncompletePerfil
+              self.errorView.fire()
               self.trackEvent(.offlineAccountModalIncomplete, ofType: .state)
+              self.navigation.openQuiz()
 
             case .notFound:
               self.error.value = self.errorMessage
@@ -257,5 +264,25 @@ extension UserDataViewModel: UserDataViewModelDelegate {
           self.snackBarMessage.value = "Ops! Algo inesperado aconteceu. Tente novamente."
       }
     }
+  }
+  
+  func fromQuizWrongAnswer() {
+    let title = "poooxa, não encontramos os seus dados aqui"
+    let message = "Você pode consultar mais informações com nosso atendimento, através do e-mail: atendimento.acom@americanas.com"
+    
+    YDDialog().start(
+      ofType: .simple,
+      customTitle: title,
+      customMessage: message,
+      messageLink: [
+        "message": "atendimento.acom@americanas.com",
+        "link": "mailto:atendimento.acom@americanas.com"
+      ]
+    )
+  }
+  
+  func fromQuizSuccess() {
+    getUsersInfo()
+    snackBarMessage.value = "Seu dados foram atualizados com sucesso"
   }
 }

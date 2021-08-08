@@ -13,6 +13,7 @@ import YDExtensions
 import YDUtilities
 import YDB2WModels
 import YDSpacey
+import YDQuiz
 
 public typealias YDMStoreModeOfflineAccount = YDMStoreModeOfflineAccountCoordinator
 
@@ -22,6 +23,8 @@ public class YDMStoreModeOfflineAccountCoordinator: HistoricNavigationDelegate {
   var rootNavigationController: UINavigationController?
   var navigationController: UINavigationController?
   var currentUser: YDCurrentCustomer!
+  
+  var userDataViewModel: UserDataViewModelDelegate?
 
   // MARK: Init
   public init() {}
@@ -75,12 +78,12 @@ extension YDMStoreModeOfflineAccountCoordinator: HomeViewModelNavigationDelegate
       fatalError("UserDataViewController.initializeFromStoryboard")
     }
 
-    let viewModel = UserDataViewModel(
+    userDataViewModel = UserDataViewModel(
       navigation: self,
       user: currentUser
     )
 
-    viewController.viewModel = viewModel
+    viewController.viewModel = userDataViewModel
 
     navigationController?.pushViewController(viewController, animated: true)
   }
@@ -129,6 +132,10 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
     viewController.viewModel = viewModel
     navigationController?.pushViewController(viewController, animated: true)
   }
+  
+  func openQuiz() {
+    YDQuiz(delegate: self).start(user: currentUser)
+  }
 }
 
 // MARK: Terms Navigation
@@ -136,3 +143,14 @@ extension YDMStoreModeOfflineAccountCoordinator: TermsNavigationDelegate {}
 
 // MARK: Orders Navigation
 extension YDMStoreModeOfflineAccountCoordinator: OrdersNavigationDelegate {}
+
+// MARK: Quiz Delegate
+extension YDMStoreModeOfflineAccountCoordinator: YDQuizDelegate {
+  public func onWrongAnswer() {
+    
+  }
+  
+  public func onQuizSuccess() {
+    <#code#>
+  }
+}
