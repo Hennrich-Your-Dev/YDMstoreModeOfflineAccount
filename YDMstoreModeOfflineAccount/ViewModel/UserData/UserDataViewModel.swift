@@ -283,6 +283,6 @@ extension UserDataViewModel: UserDataViewModelDelegate {
   
   func fromQuizSuccess() {
     getUsersInfo()
-    snackBarMessage.value = "Seu dados foram atualizados com sucesso"
+    snackBarMessage.value = "Seus dados foram atualizados com sucesso"
   }
 }
