@@ -34,12 +34,12 @@ PODS:
     - YDUtilities (~> 1.4.0)
   - YDB2WDeepLinks (1.4.5):
     - YDExtensions (~> 1.4.0)
-  - YDB2WIntegration (1.4.19):
+  - YDB2WIntegration (1.4.21):
     - YDB2WModels (~> 1.4.0)
     - YDExtensions (~> 1.4.0)
-  - YDB2WModels (1.4.35):
+  - YDB2WModels (1.4.38):
     - YDExtensions (~> 1.4.0)
-  - YDB2WServices (1.4.13):
+  - YDB2WServices (1.4.15):
     - Alamofire (~> 4.0)
     - YDB2WIntegration (~> 1.4.0)
     - YDB2WModels (~> 1.4.0)
@@ -60,7 +60,7 @@ PODS:
     - YDExtensions (~> 1.4.0)
     - YDLocationModule (~> 1.0.5)
     - YDUtilities (~> 1.4.0)
-  - YDMOfflineOrders (1.4.26):
+  - YDMOfflineOrders (1.4.31):
     - Cosmos
     - YDB2WAssets (~> 1.4.0)
     - YDB2WComponents (~> 1.4.0)
@@ -72,14 +72,14 @@ PODS:
     - YDMFindStore (~> 1.4.0)
     - YDQuiz (~> 1.4.0)
     - YDUtilities (~> 1.4.0)
-  - YDQuiz (1.4.38):
+  - YDQuiz (1.4.41):
     - YDB2WAssets (~> 1.4.0)
     - YDB2WComponents (~> 1.4.0)
     - YDB2WModels (~> 1.4.0)
     - YDB2WServices (~> 1.4.0)
     - YDExtensions (~> 1.4.0)
     - YDUtilities (~> 1.4.0)
-  - YDSpacey (1.4.39):
+  - YDSpacey (1.4.40):
     - Cosmos (= 22.1.0)
     - RichTextView (= 3.0.0)
     - YDB2WAssets (~> 1.4.0)
@@ -148,15 +148,15 @@ SPEC CHECKSUMS:
   YDB2WAssets: 193e4ee36d2af06e21ad38d92f1e64d0f69157c3
   YDB2WComponents: 5fe6c5008688e06926f60aecbdea644d2eeb8ea1
   YDB2WDeepLinks: e5b73d26f048cc2349631dd844602a1b31b09176
-  YDB2WIntegration: 08761b4d652841888fe9b680ed3297f79ef22076
-  YDB2WModels: 18408e660d0d8947b2cf30581d05fd583dfd245d
-  YDB2WServices: 78f4e8e862f29a567ade15c3c092c7de93be1fb2
+  YDB2WIntegration: fce700ac746ff5c219cd869c4759c14ecaf3ddef
+  YDB2WModels: 13c6980916f3f03e55cc1b19951bf11b9a1f4eed
+  YDB2WServices: 66ae0aa0c582b83d63807a06795cf398920c84cc
   YDExtensions: 9b216106fdbd2df346475187d6e06204afae1bc6
   YDLocationModule: 35cddec317442e18078cb64e1542d7cd360ccb43
   YDMFindStore: c9f9caad30166c9a71b8744dbe88db68b2d1cb72
-  YDMOfflineOrders: fe4a013b2ce83241d2f3b3ba99fa9884a0d6ee13
-  YDQuiz: a393f499fff03132435e1362f4ed584911229c0d
-  YDSpacey: 3f1e9a61b716af83c932d1e9e4ebdd8cbe7da33a
+  YDMOfflineOrders: 95d3ddaa9dd84577fc353488a984d7c9b5f21fc8
+  YDQuiz: 9a3738bc701abf306646f74f0e9843809b36258e
+  YDSpacey: f243c3066b026720d502dac3e1565fa3e0a18012
   YDUtilities: d148f437bfd62fcfe4ca2d297b00c6082bc7c1ac
 
 PODFILE CHECKSUM: 3e2708c94744e9ca72d71df76edc2e1fc83e5f78

@@ -21,6 +21,7 @@ public enum YDConfigKeys: String {
   case lasaClientService = "lasaCustomerPortal"
   case invoiceService = "offlineOrdersNoteService"
   case googleService = "youtubeStatisticsApi"
+  case neowayService = "neowayService"
 }
 
 public enum YDConfigProperty: String {
@@ -85,4 +86,7 @@ public enum YDConfigProperty: String {
 
   // Offline Orders
   case offlineOrdersNoteEnabled = "enableOfflineOrdersNote"
+  
+  // Miscellaneous
+  case secret
 }

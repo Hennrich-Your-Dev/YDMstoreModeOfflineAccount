@@ -39,7 +39,7 @@ protocol UserDataViewModelDelegate {
   func openTerms()
   func updateInfo()
   
-  func fromQuizWrongAnswer()
+  func fromQuizWrongAnswer(autoExit: Bool)
   func fromQuizSuccess()
 }
 
@@ -266,9 +266,13 @@ extension UserDataViewModel: UserDataViewModelDelegate {
     }
   }
   
-  func fromQuizWrongAnswer() {
-    let title = "poooxa, não encontramos os seus dados aqui"
-    let message = "Você pode consultar mais informações com nosso atendimento, através do e-mail: atendimento.acom@americanas.com"
+  func fromQuizWrongAnswer(autoExit: Bool = false) {
+    let title = autoExit ?
+      "poooxa, ainda não temos seu cadastro completo" :
+      "poooxa, não encontramos os seus dados aqui"
+    let message = autoExit ?
+      "Pra completar o seu cadastro entre em contato com nosso atendimento, através do e-mail: atendimento.acom@americanas.com" :
+      "Você pode consultar mais informações com nosso atendimento, através do e-mail: atendimento.acom@americanas.com"
     
     YDDialog().start(
       ofType: .simple,

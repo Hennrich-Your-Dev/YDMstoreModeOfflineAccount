@@ -146,8 +146,8 @@ extension YDMStoreModeOfflineAccountCoordinator: OrdersNavigationDelegate {}
 
 // MARK: Quiz Delegate
 extension YDMStoreModeOfflineAccountCoordinator: YDQuizDelegate {
-  public func onWrongAnswer() {
-    userDataViewModel?.fromQuizWrongAnswer()
+  public func onWrongAnswer(autoExit: Bool) {
+    userDataViewModel?.fromQuizWrongAnswer(autoExit: autoExit)
   }
   
   public func onQuizSuccess() {
