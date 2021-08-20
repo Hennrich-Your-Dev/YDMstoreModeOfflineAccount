@@ -52,7 +52,6 @@ extension OrdersViewController {
   }
 
   func importOrdersView(container: UIView) {
-    ordersViewController = YDMOfflineOrders().start()
     addChild(ordersViewController)
 
     container.addSubview(ordersViewController.view)

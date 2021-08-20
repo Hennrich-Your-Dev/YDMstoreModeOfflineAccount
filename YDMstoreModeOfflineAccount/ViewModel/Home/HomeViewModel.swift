@@ -11,6 +11,7 @@ import YDB2WIntegration
 import YDUtilities
 import YDExtensions
 import YDB2WModels
+import YDB2WComponents
 
 // MARK: Navigation
 protocol HomeViewModelNavigationDelegate {
@@ -27,6 +28,8 @@ protocol HomeViewModelDelegate {
   func onExit()
   func trackState()
   func onCard(tag: Int)
+  
+  func fromQuizWrongAnswer(autoExit: Bool)
 }
 
 // MARK: ViewModel
@@ -50,7 +53,6 @@ class HomeViewModel {
 
 // MARK: Extension Delegate
 extension HomeViewModel: HomeViewModelDelegate {
-
   func onExit() {
     navigation.onExit()
   }
@@ -97,5 +99,24 @@ extension HomeViewModel: HomeViewModelDelegate {
       default:
         break
     }
+  }
+  
+  func fromQuizWrongAnswer(autoExit: Bool = false) {
+    let title = autoExit ?
+      "poooxa, ainda não temos seu cadastro completo" :
+      "poooxa, não encontramos os seus dados aqui"
+    let message = autoExit ?
+      "Pra completar o seu cadastro entre em contato com nosso atendimento, através do e-mail: atendimento.acom@americanas.com" :
+      "Você pode consultar mais informações com nosso atendimento, através do e-mail: atendimento.acom@americanas.com"
+    
+    YDDialog().start(
+      ofType: .simple,
+      customTitle: title,
+      customMessage: message,
+      messageLink: [
+        "message": "atendimento.acom@americanas.com",
+        "link": "mailto:atendimento.acom@americanas.com"
+      ]
+    )
   }
 }

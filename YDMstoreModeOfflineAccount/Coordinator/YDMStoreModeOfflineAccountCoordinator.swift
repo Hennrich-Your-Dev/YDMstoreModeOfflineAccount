@@ -14,6 +14,7 @@ import YDUtilities
 import YDB2WModels
 import YDSpacey
 import YDQuiz
+import YDMOfflineOrders
 
 public typealias YDMStoreModeOfflineAccount = YDMStoreModeOfflineAccountCoordinator
 
@@ -24,6 +25,7 @@ public class YDMStoreModeOfflineAccountCoordinator: HistoricNavigationDelegate {
   var navigationController: UINavigationController?
   var currentUser: YDCurrentCustomer!
   
+  var homeViewModel: HomeViewModelDelegate?
   var userDataViewModel: UserDataViewModelDelegate?
 
   // MARK: Init
@@ -48,8 +50,8 @@ public class YDMStoreModeOfflineAccountCoordinator: HistoricNavigationDelegate {
       fatalError("HomeViewController.initializeFromStoryboard")
     }
 
-    let viewModel = HomeViewModel(navigation: self, user: currentUser)
-    viewController.viewModel = viewModel
+    homeViewModel = HomeViewModel(navigation: self, user: currentUser)
+    viewController.viewModel = homeViewModel
 
     navigationController?.pushViewController(viewController, animated: false)
   }
@@ -89,7 +91,8 @@ extension YDMStoreModeOfflineAccountCoordinator: HomeViewModelNavigationDelegate
   }
 
   func openOfflineOrders() {
-    let viewController = OrdersViewController()
+    let offlineOrdersViewController = YDMOfflineOrders(quizDelegate: self).start()
+    let viewController = OrdersViewController(offlineOrderViewController: offlineOrdersViewController)
     let viewModel = OrdersViewModel(navigation: self)
 
     viewController.viewModel = viewModel
@@ -120,7 +123,10 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
       fatalError("TermsViewController.initializeFromStoryboard")
     }
 
-    let spaceyViewModel = YDSpaceyViewModel(supportedTypes: [.termsOfUse])
+    let spaceyViewModel = YDSpaceyViewModel(
+      supportedTypes: [.termsOfUse],
+      supportedNPSAnswersTypes: nil
+    )
     let spaceyId = "politica-de-privacidade"
 
     let viewModel = TermsViewModel(
@@ -147,7 +153,8 @@ extension YDMStoreModeOfflineAccountCoordinator: OrdersNavigationDelegate {}
 // MARK: Quiz Delegate
 extension YDMStoreModeOfflineAccountCoordinator: YDQuizDelegate {
   public func onWrongAnswer(autoExit: Bool) {
-    userDataViewModel?.fromQuizWrongAnswer(autoExit: autoExit)
+    onBack()
+    homeViewModel?.fromQuizWrongAnswer(autoExit: autoExit)
   }
   
   public func onQuizSuccess() {

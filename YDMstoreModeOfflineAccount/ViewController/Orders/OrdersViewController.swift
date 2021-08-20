@@ -14,7 +14,7 @@ import YDMOfflineOrders
 class OrdersViewController: UIViewController {
   // MARK: Properties
   var viewModel: OrdersViewModelDelegate?
-  var ordersViewController: YDMOfflineOrdersViewController!
+  var ordersViewController: YDMOfflineOrdersViewController
 
   // MARK: Life cycle
   override func viewDidLoad() {
@@ -23,5 +23,14 @@ class OrdersViewController: UIViewController {
 
     view.backgroundColor = .white
     setUpLayout()
+  }
+  
+  init(offlineOrderViewController: YDMOfflineOrdersViewController) {
+    self.ordersViewController = offlineOrderViewController
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
 }
