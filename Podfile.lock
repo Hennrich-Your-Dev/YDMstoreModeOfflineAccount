@@ -34,7 +34,7 @@ PODS:
     - YDUtilities (~> 1.4.0)
   - YDB2WDeepLinks (1.4.5):
     - YDExtensions (~> 1.4.0)
-  - YDB2WIntegration (1.4.22):
+  - YDB2WIntegration (1.4.23):
     - YDB2WModels (~> 1.4.0)
     - YDExtensions (~> 1.4.0)
   - YDB2WModels (1.4.47):
@@ -60,7 +60,7 @@ PODS:
     - YDExtensions (~> 1.4.0)
     - YDLocationModule (~> 1.0.5)
     - YDUtilities (~> 1.4.0)
-  - YDMOfflineOrders (1.4.33):
+  - YDMOfflineOrders (1.4.34):
     - Cosmos
     - YDB2WAssets (~> 1.4.0)
     - YDB2WComponents (~> 1.4.0)
@@ -72,7 +72,7 @@ PODS:
     - YDMFindStore (~> 1.4.0)
     - YDQuiz (~> 1.4.0)
     - YDUtilities (~> 1.4.0)
-  - YDQuiz (1.4.43):
+  - YDQuiz (1.4.44):
     - YDB2WAssets (~> 1.4.0)
     - YDB2WComponents (~> 1.4.0)
     - YDB2WModels (~> 1.4.0)
@@ -148,14 +148,14 @@ SPEC CHECKSUMS:
   YDB2WAssets: 5cfdcbcc5672fb2eb460fae05657fc5b0183dee7
   YDB2WComponents: 8b796808316caff75a7bfe993370a461677b7309
   YDB2WDeepLinks: e5b73d26f048cc2349631dd844602a1b31b09176
-  YDB2WIntegration: f2d7758f1094fd756c0a1b2e061d5776263ca014
+  YDB2WIntegration: 459c7735bb93deeca2fc0e89ac51f0003587b587
   YDB2WModels: 3326061ea7a05585f72caef21172fbbd3f68714c
   YDB2WServices: 1b534ef9d0bb517e9eb130da468fb1242347063d
   YDExtensions: 9b216106fdbd2df346475187d6e06204afae1bc6
   YDLocationModule: 35cddec317442e18078cb64e1542d7cd360ccb43
   YDMFindStore: c9f9caad30166c9a71b8744dbe88db68b2d1cb72
-  YDMOfflineOrders: 6306dcde680029d492cfdca46c81d10c11128f2a
-  YDQuiz: f0fb78136c4860ad3454266bbec2790b801593a4
+  YDMOfflineOrders: 371905fabdb20d4da86c05866c8c5c4b45355a76
+  YDQuiz: 97a73b28f4480723c87afefcefdc9961086af04e
   YDSpacey: 4a30f90607fa6be17015aa5520b1170bfbf1c896
   YDUtilities: 4ae8bc92028ebb14c2dcb6fa1330c3f188b423c8
 

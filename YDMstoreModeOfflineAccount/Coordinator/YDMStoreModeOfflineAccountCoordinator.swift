@@ -160,4 +160,8 @@ extension YDMStoreModeOfflineAccountCoordinator: YDQuizDelegate {
   public func onQuizSuccess() {
     userDataViewModel?.fromQuizSuccess()
   }
+  
+  public func onQuizExit() {
+    onBack()
+  }
 }

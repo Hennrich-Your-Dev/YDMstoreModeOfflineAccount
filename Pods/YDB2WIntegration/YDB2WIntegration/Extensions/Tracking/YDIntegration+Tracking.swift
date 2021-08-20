@@ -73,7 +73,11 @@ extension YDIntegrationHelper {
     trackingDelegate?.trackNewRelicEvent(eventName: eventName, parameters: parameters)
   }
 
-  public func trackStuartEvent(eventName: String, parameters: [String: Any]?) {
-    trackingDelegate?.trackStuartEvent(namespace: eventName, parameters: parameters)
+  public func trackStuartEvent(namespace: String, eventName: String, parameters: [String: Any]?) {
+    trackingDelegate?.trackStuartEvent(
+      namespace: namespace,
+      eventName: eventName,
+      parameters: parameters
+    )
   }
 }
