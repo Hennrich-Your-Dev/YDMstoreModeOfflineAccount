@@ -26,16 +26,18 @@ public extension YDIntegrationHelper {
 //    Timer.scheduledTimer(withTimeInterval: 0.7, repeats: false) { _ in
 //      UIAlertController.showAlert(title: "Evento: \(name.rawValue)", message: "tipo: \(type.rawValue)\npayload: \(payload)")
 //    }
+    
+    let eventName = name.eventName
 
     if type == .action {
-      trackAdobeAction(actionName: name.rawValue, parameters: payload)
-      trackGAEvent(actionName: name.rawValue, parameters: payload)
+      trackAdobeAction(actionName: eventName, parameters: payload)
+      trackGAEvent(actionName: eventName, parameters: payload)
 
-      trackFacebookEvent(eventName: name.rawValue, parameters: payload)
-      trackFirebaseEvent(eventName: name.rawValue, parameters: payload)
+      trackFacebookEvent(eventName: eventName, parameters: payload)
+      trackFirebaseEvent(eventName: eventName, parameters: payload)
     } else if type == .state {
-      trackAdobeState(stateName: name.rawValue, parameters: payload)
-      trackGAScreen(stateName: name.rawValue, parameters: payload)
+      trackAdobeState(stateName: eventName, parameters: payload)
+      trackGAScreen(stateName: eventName, parameters: payload)
     }
   }
 }
@@ -73,10 +75,14 @@ extension YDIntegrationHelper {
     trackingDelegate?.trackNewRelicEvent(eventName: eventName, parameters: parameters)
   }
 
-  public func trackStuartEvent(namespace: String, eventName: String, parameters: [String: Any]?) {
+  public func trackStuartEvent(
+    namespace: TrackEventsNameSpace,
+    event: TrackEvents,
+    parameters: [String: Any]?
+  ) {
     trackingDelegate?.trackStuartEvent(
-      namespace: namespace,
-      eventName: eventName,
+      namespace: namespace.rawValue,
+      eventName: event.eventName,
       parameters: parameters
     )
   }

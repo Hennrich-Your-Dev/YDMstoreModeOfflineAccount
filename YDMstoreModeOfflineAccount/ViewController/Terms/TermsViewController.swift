@@ -14,18 +14,8 @@ import YDSpacey
 class TermsViewController: UIViewController, UITextViewDelegate {
   // MARK: Properties
   var viewModel: TermsViewModelDelegate?
-  var navBarShadowOff = true
-
-  // MARK: Components
-  var spaceyComponent: YDSpaceyViewController?
 
   // MARK: IBOutlets
-  @IBOutlet weak var shadowContainerView: UIView! {
-    didSet {
-      shadowContainerView.backgroundColor = .white
-    }
-  }
-
   @IBOutlet weak var separatorView: UIView!
 
   // MARK: Life cycle
@@ -34,10 +24,9 @@ class TermsViewController: UIViewController, UITextViewDelegate {
     title = "política de privacidade"
 
     createBackButton()
-    configureSpaceyComponent()
     configureBinds()
 
-    viewModel?.getSpacey()
+    viewModel?.getCustomView()
   }
 }
 
@@ -61,39 +50,16 @@ extension TermsViewController {
   @objc func onBackAction(_ sender: UIButton) {
     viewModel?.onBack()
   }
-
-  func toggleNavShadow(_ show: Bool) {
-    if show {
-      UIView.animate(withDuration: 0.5) { [weak self] in
-        self?.shadowContainerView.layer.applyShadow()
-        self?.separatorView.layer.opacity = 0
-      }
-    } else {
-      UIView.animate(withDuration: 0.5) { [weak self] in
-        self?.shadowContainerView.layer.shadowOpacity = 0
-        self?.separatorView.layer.opacity = 1
-      }
-    }
-  }
-}
-
-// MARK: UI
-extension TermsViewController {
-  func configureSpaceyComponent() {
-    let vc = YDSpacey().start(supportedTypes: [.termsOfUse])
-    addChild(vc)
-    spaceyComponent = vc
-    spaceyComponent?.delegate = self
-    vc.hasShimmer = false
-    vc.didMove(toParent: self)
-
-    view.addSubview(vc.view)
-    vc.view.translatesAutoresizingMaskIntoConstraints = false
+  
+  func attachCustomView(_ customView: UIView) {
+    view.addSubview(customView)
+    
+    customView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      vc.view.topAnchor.constraint(equalTo: separatorView.bottomAnchor),
-      vc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-      vc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-      vc.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+      customView.topAnchor.constraint(equalTo: separatorView.bottomAnchor),
+      customView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      customView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      customView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
     ])
   }
 }

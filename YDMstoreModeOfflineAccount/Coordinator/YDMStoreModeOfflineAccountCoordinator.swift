@@ -118,21 +118,17 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
   }
 
   func openTerms() {
-    guard let viewController = TermsViewController.initializeFromStoryboard()
+    guard let viewController = TermsViewController.initializeFromStoryboard(),
+          let customViewPath = YDIntegrationHelper.shared
+            .getFeature(featureName: YDConfigKeys.customerSupportService.rawValue)?
+            .extras?[YDConfigProperty.urlPrivacyPolicy.rawValue] as? String
     else {
       fatalError("TermsViewController.initializeFromStoryboard")
     }
 
-    let spaceyViewModel = YDSpaceyViewModel(
-      supportedTypes: [.termsOfUse],
-      supportedNPSAnswersTypes: nil
-    )
-    let spaceyId = "politica-de-privacidade"
-
     let viewModel = TermsViewModel(
       navigation: self,
-      spaceyViewModel: spaceyViewModel,
-      spaceyId: spaceyId
+      customViewPath: customViewPath
     )
 
     viewController.viewModel = viewModel

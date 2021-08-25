@@ -22,16 +22,26 @@ public enum TrackEvents: String {
   // Live
   case pageView = "ACOM:hotsite:youtube-live"
   case playVideo = "ACOM:Video:Playing"
-  case addToCart = "ACOM:LiveCarousel:AddToCart"
   case productSelected = "ACOM:LiveCarousel:ProductSelected"
-  case liveOpenChat = "ACOM-live-chataovivo"
-  case liveNPS = "LiveNps"
+  case addToCart
+  case liveOpenChat
+  case liveNPS = "quizz"
   case sendLike = "MobileApps:LiveLikes"
   
   case hotsiteLive = "ACOM:hotsite:aovivo"
 
   // Pre Live
-  case preLivePageView = "ACOM:Hotsite:aovivo"
+  case preLivePageView
+  case preLiveVideoPlay
+  case preLiveSchedulePushNotification
+  case preLiveAddToCalendar
+  case preLiveOpenNextLives
+  
+  // After Live
+  case afterLive = "ACOM:hotsite:aovivo:after"
+  case afterLiveAddToCalendar
+  case afterLiveSchedulePushNotification
+  case afterLiveOpenNextLives
 
   // Next Lives
   case nextLivesPageView = "ACOM:Hotsite:youtube-live:proximas-lives"
@@ -64,6 +74,32 @@ public enum TrackEvents: String {
 
   // Offline Orders
   case offlineOrders = "ACOM:MODOLOJA-MinhasCompras"
+  
+  // Miscellaneous
+  case nps
+  
+  public var eventName: String {
+    switch self {
+      case .addToCart, .pageView, .liveOpenChat:
+        return TrackEvents.pageView.rawValue
+        
+      case .preLivePageView,
+           .preLiveVideoPlay,
+           .preLiveSchedulePushNotification,
+           .preLiveAddToCalendar,
+           .preLiveOpenNextLives:
+        return  TrackEvents.hotsiteLive.rawValue
+        
+      case .afterLive,
+           .afterLiveAddToCalendar,
+           .afterLiveSchedulePushNotification,
+           .afterLiveOpenNextLives:
+        return TrackEvents.afterLive.rawValue
+      
+      default:
+        return self.rawValue
+    }
+  }
 
   // Default Parameters
   public var defaultParameters: [String: Any] {
@@ -73,14 +109,92 @@ public enum TrackEvents: String {
         return ["tipoPagina": "LASA-Scan"]
 
       // Live
-      case .playVideo, .addToCart, .productSelected, .liveOpenChat, .liveNPS, .sendLike:
+      case .playVideo, .productSelected, .sendLike:
         return [:]
+        
+      case .liveOpenChat:
+        return [
+          "pagetype": "Hotsite",
+          "category": "live",
+          "action": "chat"
+        ]
+        
+      case .addToCart:
+        return [
+          "pagetype": "Hotsite",
+          "category": "live",
+          "action": "adicionar a cesta"
+        ]
         
       case .pageView, .hotsiteLive:
         return ["pagetype": "Hotsite"]
-
-      case .preLivePageView, .nextLivesPageView, .nextLivesAddToCalendar:
+        
+      case .liveNPS:
+        return ["platform": "iOS"]
+        
+      // Pre Live
+      case .preLivePageView, .nextLivesPageView:
         return ["pagetype": "Hotsite"]
+        
+      case .preLiveVideoPlay:
+        return [
+          "pagetype": "Hotsite",
+          "category": "live",
+          "action": "play"
+        ]
+        
+      case .preLiveSchedulePushNotification:
+        return [
+          "pagetype": "Hotsite",
+          "category": "live",
+          "action": "adicionar calendario"
+        ]
+        
+      case .preLiveAddToCalendar:
+        return [
+          "pagetype": "Hotsite",
+          "category": "live",
+          "action": "adicionar calendario"
+        ]
+        
+      case .preLiveOpenNextLives:
+        return [
+          "pagetype": "Hotsite",
+          "category": "live",
+          "action": "programacao completa",
+          "eventLabel": "0"
+        ]
+        
+      // After Live
+      case .afterLive:
+        return [:]
+        
+      case .afterLiveAddToCalendar:
+        return [
+          "category": "live",
+          "action": "adicionar calendario"
+        ]
+        
+      case .afterLiveOpenNextLives:
+        return [
+          "category": "live",
+          "action": "programacao completa"
+        ]
+        
+      case .afterLiveSchedulePushNotification:
+        return [
+          "pagetype": "Hotsite",
+          "category": "live",
+          "action": "adicionar calendario"
+        ]
+        
+      // Next Lives
+      case .nextLivesAddToCalendar:
+        return [
+          "pagetype": "Hotsite",
+          "category": "live",
+          "action": "agendamento"
+        ]
 
       // Store
       case .storePageView, .storeOpenBasket, .storeOpenBooklet, .storeOnScan, .storeOpenMap:
@@ -109,9 +223,16 @@ public enum TrackEvents: String {
       // Offline Orders
       case .offlineOrders:
         return [:]
+        
+      // Miscellaneous
+      case .nps:
+        return [
+          "npsVersion": "v1"
+        ]
     }
   }
 
+  // Parameters
   public func parameters(body: [String: Any]) -> [String: Any] {
     switch self {
       // Scan
@@ -138,11 +259,13 @@ public enum TrackEvents: String {
         let productId = body["productId"] as? String ?? ""
         let sku = body["productEan"] as? String ?? ""
         let sellerId = body["sellerId"] as? String ?? ""
+        let liveName = body["liveName"] as? String ?? ""
 
         return [
           "productId": productId,
           "sku": sku,
-          "sellerId": sellerId
+          "sellerId": sellerId,
+          "eventLabel": liveName
         ]
 
       case .productSelected:
@@ -160,26 +283,41 @@ public enum TrackEvents: String {
         return [:]
 
       case .liveOpenChat:
-        return [:]
-
-      case .preLivePageView:
-        return [:]
-
+        return [
+          "eventLabel": body["liveName"] as? String ?? ""
+        ]
+        
       case .liveNPS:
+        let userId = body["userId"] as? String ?? ""
         let liveId = body["liveId"] as? String ?? ""
         let cardId = body["cardId"] as? String ?? ""
         let title = body["title"] as? String ?? ""
         let answer = body["value"] as? String ?? ""
 
         return [
+          "customerId": userId,
           "liveId": liveId,
-          "liveNpsCardId": cardId,
-          "liveNpsCardTitle": title,
-          "liveNpsCardAnswer": answer
+          "quizzId": cardId,
+          "question": title,
+          "answer": answer
         ]
 
       case .sendLike:
         return [:]
+        
+      // PreLive
+      case .preLivePageView, .preLiveOpenNextLives:
+        return [:]
+        
+      case .preLiveVideoPlay, .preLiveSchedulePushNotification, .preLiveAddToCalendar:
+        return ["eventLabel": body["liveName"] as? String ?? ""]
+        
+      // After Live
+      case .afterLive:
+        return [:]
+        
+      case .afterLiveAddToCalendar, .afterLiveSchedulePushNotification, .afterLiveOpenNextLives:
+        return ["eventLabel": body["liveName"] as? String ?? ""]
 
       // Next Lives
       case .nextLivesPageView:
@@ -245,6 +383,28 @@ public enum TrackEvents: String {
       case .offlineOrders:
         return [:]
         
+      // Miscellaneous
+      case .nps:
+        let userId = body["userId"] as? String ?? ""
+        let answerType = body["type"] as? String ?? ""
+        let question = body["question"] as? String ?? ""
+        let answer = body["answer"] as? String ?? ""
+        let storeId = body["storeId"] as? String ?? ""
+        let maxValue = body["maxValue"] as? String ?? ""
+        
+        return [
+          "customerId": userId,
+          "answerType": answerType,
+          "question": question,
+          "answer": answer,
+          "maxValue": maxValue,
+          "storeId": storeId
+        ]
     }
   }
+}
+
+public enum TrackEventsNameSpace: String {
+  case lives
+  case store = "store-mode"
 }

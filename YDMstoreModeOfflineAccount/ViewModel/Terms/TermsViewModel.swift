@@ -21,9 +21,9 @@ protocol TermsNavigationDelegate {
 // MARK: Delegate
 protocol TermsViewModelDelegate {
   var loading: Binder<Bool> { get }
-  var list: Binder<[YDSpaceyCommonStruct]> { get }
+  var customView: Binder<UIView?> { get }
 
-  func getSpacey()
+  func getCustomView()
   func onBack()
 }
 
@@ -31,43 +31,32 @@ protocol TermsViewModelDelegate {
 class TermsViewModel {
   // MARK: Properties
   let navigation: TermsNavigationDelegate
-  let spaceyViewModel: YDSpaceyViewModelDelegate
-  let spaceyId: String
-
   var loading = Binder(false)
-  var list: Binder<[YDSpaceyCommonStruct]> = Binder([])
+  var customView: Binder<UIView?> = Binder(nil)
+  
+  let customViewPath: String
 
   // MARK: Init
-  init(
-    navigation: TermsNavigationDelegate,
-    spaceyViewModel: YDSpaceyViewModelDelegate,
-    spaceyId: String
-  ) {
+  init(navigation: TermsNavigationDelegate, customViewPath: String) {
     self.navigation = navigation
-    self.spaceyViewModel = spaceyViewModel
-    self.spaceyId = spaceyId
-
-    configureBind()
+    self.customViewPath = customViewPath
+    
     YDIntegrationHelper.shared.trackEvent(withName: .offlineAccountTerms, ofType: .state)
-  }
-
-  func configureBind() {
-    spaceyViewModel.loading.bind { [weak self] isLoading in
-      guard let self = self else { return }
-      self.loading.value = isLoading
-    }
-
-    spaceyViewModel.componentsList.bind { [weak self] list in
-      guard let self = self else { return }
-      self.list.value = list
-    }
   }
 }
 
 // MARK: Extension Delegate
 extension TermsViewModel: TermsViewModelDelegate {
-  func getSpacey() {
-    spaceyViewModel.getSpacey(withId: spaceyId, customApi: nil)
+  func getCustomView() {
+    YDIntegrationHelper.shared.getReactHotsiteView(from: customViewPath) { [weak self] view in
+      guard let self = self else { return }
+      guard let view = view else {
+        self.onBack()
+        return
+      }
+      
+      self.customView.value = view
+    }
   }
 
   func onBack() {

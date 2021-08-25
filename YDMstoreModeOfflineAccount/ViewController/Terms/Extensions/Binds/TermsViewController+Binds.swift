@@ -15,9 +15,11 @@ extension TermsViewController {
       isLoading ? self.view.startLoader() : self.view.stopLoader()
     }
 
-    viewModel?.list.bind { [weak self] list in
+    viewModel?.customView.bind { [weak self] customView in
       guard let self = self else { return }
-      self.spaceyComponent?.set(list: list)
+      guard let customView = customView else { return }
+      
+      self.attachCustomView(customView)
     }
   }
 }

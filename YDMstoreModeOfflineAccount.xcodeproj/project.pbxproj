@@ -25,7 +25,6 @@
 		C129AA8A25DD9376003D3882 /* PreHomeViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA8925DD9376003D3882 /* PreHomeViewController+Layout.swift */; };
 		C129AA8D25DD94F4003D3882 /* PreHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA8C25DD94F4003D3882 /* PreHomeViewModel.swift */; };
 		C12B96B325CAE86900143B99 /* HistoricViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12B96B225CAE86900143B99 /* HistoricViewController+ScrollView.swift */; };
-		C140315225CB29AA007F6728 /* TermsViewController+SpaceyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C140315125CB29AA007F6728 /* TermsViewController+SpaceyDelegate.swift */; };
 		C14D63C525B1E27200DAF725 /* HomeViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D63C425B1E27200DAF725 /* HomeViewController+Binds.swift */; };
 		C14D63CA25B1E47F00DAF725 /* HomeViewController+Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D63C925B1E47F00DAF725 /* HomeViewController+Dialog.swift */; };
 		C158ECDF25C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C158ECDD25C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.swift */; };
@@ -78,7 +77,6 @@
 		C129AA8925DD9376003D3882 /* PreHomeViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreHomeViewController+Layout.swift"; sourceTree = "<group>"; };
 		C129AA8C25DD94F4003D3882 /* PreHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreHomeViewModel.swift; sourceTree = "<group>"; };
 		C12B96B225CAE86900143B99 /* HistoricViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoricViewController+ScrollView.swift"; sourceTree = "<group>"; };
-		C140315125CB29AA007F6728 /* TermsViewController+SpaceyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TermsViewController+SpaceyDelegate.swift"; sourceTree = "<group>"; };
 		C14D63C425B1E27200DAF725 /* HomeViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Binds.swift"; sourceTree = "<group>"; };
 		C14D63C925B1E47F00DAF725 /* HomeViewController+Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Dialog.swift"; sourceTree = "<group>"; };
 		C158ECDD25C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataTermsAndButtonTableViewCell.swift; sourceTree = "<group>"; };
@@ -295,17 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				C1BA6135266A8CC600B3A860 /* Binds */,
-				C140315025CB2994007F6728 /* YDSpacey Delegate */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		C140315025CB2994007F6728 /* YDSpacey Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				C140315125CB29AA007F6728 /* TermsViewController+SpaceyDelegate.swift */,
-			);
-			path = "YDSpacey Delegate";
 			sourceTree = "<group>";
 		};
 		C14D63C325B1E25D00DAF725 /* Binds */ = {
@@ -707,7 +696,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C140315225CB29AA007F6728 /* TermsViewController+SpaceyDelegate.swift in Sources */,
 				C1DE3DCF25C3107F0084299E /* UserDataSeparatorTableViewCell.swift in Sources */,
 				C14D63C525B1E27200DAF725 /* HomeViewController+Binds.swift in Sources */,
 				C19B99CB25C9CA2C0002E696 /* HistoricViewController.swift in Sources */,
