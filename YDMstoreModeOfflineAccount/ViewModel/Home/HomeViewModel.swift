@@ -72,28 +72,28 @@ extension HomeViewModel: HomeViewModelDelegate {
 
       case 2:
         // User Data
+        let parameters = TrackEvents.offlineAccountPerfil.parameters(body: ["action": "meus dados"])
+        
         YDIntegrationHelper.shared
           .trackEvent(
             withName: .offlineAccountPerfil,
             ofType: .action,
-            withParameters: [
-              "&ea=": "clique-botao",
-              "&el=": "Botão minhas compras offline"
-            ]
+            withParameters: parameters
           )
+        
         navigation.openUserData()
 
       case 3:
         // Offline orders
+        let parameters = TrackEvents.offlineAccountPerfil.parameters(body: ["action": "minhas compras"])
+        
         YDIntegrationHelper.shared
           .trackEvent(
             withName: .offlineAccountPerfil,
             ofType: .action,
-            withParameters: [
-              "&ea=": "clique-botao",
-              "&el=": "Botão meus dados lojas fisicas"
-            ]
+            withParameters: parameters
           )
+        
         navigation.openOfflineOrders()
 
       default:

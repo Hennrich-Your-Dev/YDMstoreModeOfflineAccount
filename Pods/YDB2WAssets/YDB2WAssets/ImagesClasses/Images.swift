@@ -55,6 +55,8 @@ public class Icons {
   public static let locationPin = UIImage(named: "location-pin", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let logo = UIImage(named: "logoAcom", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+  
+  public static let logoSmall = UIImage(named: "logoSmallAcom", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let rightArrow = UIImage(named: "iconRightArrow", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 

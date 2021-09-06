@@ -71,16 +71,7 @@ class HistoricViewController: UIViewController {
         applicationActivities: nil
       )
 
-      YDIntegrationHelper.shared
-        .trackEvent(
-          withName: .offlineAccountHistoric,
-          ofType: .state,
-          withParameters: [
-            "&ea=": "clique-botao",
-            "&el=": "Botão exportar relatório ações lojas fisicas"
-          ]
-        )
-
+      viewModel?.trackExportMetric()
       present(activityViewController, animated: true, completion: nil)
     }
   }

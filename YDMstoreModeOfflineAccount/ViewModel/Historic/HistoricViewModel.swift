@@ -27,6 +27,7 @@ protocol HistoricViewModelDelegate {
   subscript(index: Int) -> YDLasaClientHistoricData? { get }
   func onBack()
   func getHistoricList()
+  func trackExportMetric()
 }
 
 class HistoricViewModel {
@@ -101,5 +102,15 @@ extension HistoricViewModel: HistoricViewModelDelegate {
           self.error.fire()
       }
     }
+  }
+  
+  func trackExportMetric() {
+    let parameters = TrackEvents.offlineAccountHistoric.parameters(body: [:])
+    
+    YDIntegrationHelper.shared.trackEvent(
+      withName: .offlineAccountHistoric,
+      ofType: .action,
+      withParameters: parameters
+    )
   }
 }
