@@ -84,6 +84,12 @@ extension YDMStoreModeOfflineAccountCoordinator: HomeViewModelNavigationDelegate
       navigation: self,
       user: currentUser
     )
+    
+    if let quizEnabled = YDIntegrationHelper.shared
+        .getFeature(featureName: YDConfigKeys.store.rawValue)?
+        .extras?[YDConfigProperty.quizEnabled.rawValue] as? Bool {
+      userDataViewModel?.quizEnabled = quizEnabled
+    }
 
     viewController.viewModel = userDataViewModel
 

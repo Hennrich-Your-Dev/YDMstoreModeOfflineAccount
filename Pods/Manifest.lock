@@ -26,7 +26,7 @@ PODS:
     - SnapKit
   - SnapKit (5.0.1)
   - YDB2WAssets (1.4.24)
-  - YDB2WComponents (1.4.69):
+  - YDB2WComponents (1.4.71):
     - Cosmos
     - YDB2WAssets (~> 1.4.0)
     - YDB2WModels (~> 1.4.0)
@@ -34,7 +34,7 @@ PODS:
     - YDUtilities (~> 1.4.0)
   - YDB2WDeepLinks (1.4.6):
     - YDExtensions (~> 1.4.0)
-  - YDB2WIntegration (1.4.33):
+  - YDB2WIntegration (1.4.36):
     - YDB2WModels (~> 1.4.0)
     - YDExtensions (~> 1.4.0)
   - YDB2WModels (1.4.58):
@@ -48,7 +48,7 @@ PODS:
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
   - YDLocationModule (1.0.5)
-  - YDMFindStore (1.4.4):
+  - YDMFindStore (1.4.5):
     - Alamofire (= 4.9.1)
     - curvyRoute
     - YDB2WAssets (~> 1.4.0)
@@ -60,7 +60,7 @@ PODS:
     - YDExtensions (~> 1.4.0)
     - YDLocationModule (~> 1.0.5)
     - YDUtilities (~> 1.4.0)
-  - YDMOfflineOrders (1.4.41):
+  - YDMOfflineOrders (1.4.44):
     - Cosmos
     - YDB2WAssets (~> 1.4.0)
     - YDB2WComponents (~> 1.4.0)
@@ -72,9 +72,10 @@ PODS:
     - YDMFindStore (~> 1.4.0)
     - YDQuiz (~> 1.4.0)
     - YDUtilities (~> 1.4.0)
-  - YDQuiz (1.4.48):
+  - YDQuiz (1.4.49):
     - YDB2WAssets (~> 1.4.0)
     - YDB2WComponents (~> 1.4.0)
+    - YDB2WIntegration (~> 1.4.0)
     - YDB2WModels (~> 1.4.0)
     - YDB2WServices (~> 1.4.0)
     - YDExtensions (~> 1.4.0)
@@ -146,16 +147,16 @@ SPEC CHECKSUMS:
   RichTextView: 9a36e8a8661e2674f4b5309ed443c9d34fb8698e
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   YDB2WAssets: 04954679af6fcdd8f9f1e52e3fd28b98c4e28fdc
-  YDB2WComponents: 0c160493b6fd57a54efd6c9d48cf01bff56b9449
+  YDB2WComponents: be2928cca47179bdb70179ccab862754b0da50a8
   YDB2WDeepLinks: fa1b3b7440b1277077038f3415781e50b24c903b
-  YDB2WIntegration: f97dff00ca9efc59c5625589b5c805f16acdc1eb
+  YDB2WIntegration: 0c2e72f869e0b0b4bd791376a36b24b188e6bfec
   YDB2WModels: 8506fea1cd86eaa995d1208e04ebcd89aea59378
   YDB2WServices: 84ebebc3dacc2c42d2d1217164b642d097ffa032
   YDExtensions: beec462886d014aa190cd9c4997800a36105a79a
   YDLocationModule: 35cddec317442e18078cb64e1542d7cd360ccb43
-  YDMFindStore: c9f9caad30166c9a71b8744dbe88db68b2d1cb72
-  YDMOfflineOrders: 8f25297fc53f5ba15b6ef3a36bf3ec6639402af0
-  YDQuiz: facb337176cd519437168b98aaa995d7de75a081
+  YDMFindStore: ea3bfc2af8f951e4dca7fe513914bed964b266b7
+  YDMOfflineOrders: ab92feebd6fc86d34c1c7c48017d19839e061862
+  YDQuiz: 11553235b15442af36a6c691875ed87c042ee9a8
   YDSpacey: 0e83ed121149498af5fa7206315701824fe2d424
   YDUtilities: 4ae8bc92028ebb14c2dcb6fa1330c3f188b423c8
 

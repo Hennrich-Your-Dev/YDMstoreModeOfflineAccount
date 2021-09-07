@@ -30,6 +30,7 @@ protocol UserDataViewModelDelegate {
   var snackBarMessage: Binder<String?> { get }
   var usersInfo: Binder<[YDLasaClientDataSet]> { get }
   var userData: YDLasaClientInfo? { get set }
+  var quizEnabled: Bool { get set }
 
   subscript(_ index: Int) -> YDLasaClientDataSet? { get }
 
@@ -57,6 +58,8 @@ class UserDataViewModel {
   var userLogin: YDLasaClientLogin? = nil
   var userData: YDLasaClientInfo? = nil
   var usersInfo: Binder<[YDLasaClientDataSet]> = Binder([])
+  
+  var quizEnabled = false
 
   let errorMessageIncompletePerfil = (
     title: "poooxa, ainda não temos seu cadastro completo",
@@ -203,10 +206,14 @@ extension UserDataViewModel: UserDataViewModelDelegate {
 
           switch error {
             case .permanentRedirect:
-//              self.error.value = self.errorMessageIncompletePerfil
-              self.errorView.fire()
               self.trackEvent(.offlineAccountModalIncomplete, ofType: .state)
-              self.navigation.openQuiz()
+              
+              if self.quizEnabled {
+                self.errorView.fire()
+                self.navigation.openQuiz()
+              } else {
+                self.error.value = self.errorMessageIncompletePerfil
+              }
 
             case .notFound:
               self.error.value = self.errorMessage

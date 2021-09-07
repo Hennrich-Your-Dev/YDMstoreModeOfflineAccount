@@ -109,6 +109,16 @@ extension HomeViewModel: HomeViewModelDelegate {
       "Pra completar o seu cadastro entre em contato com nosso atendimento, através do e-mail: atendimento.acom@americanas.com" :
       "Você pode consultar mais informações com nosso atendimento, através do e-mail: atendimento.acom@americanas.com"
     
+    let parameters = autoExit ?
+      TrackEvents.quizIncompleteRegistration.parameters(body: [:]) :
+      TrackEvents.quizRegistrationNotFound.parameters(body: [:])
+    
+    YDIntegrationHelper.shared.trackEvent(
+      withName: autoExit ? .quizIncompleteRegistration : .quizRegistrationNotFound,
+      ofType: .action,
+      withParameters: parameters
+    )
+    
     YDDialog().start(
       ofType: .simple,
       customTitle: title,
