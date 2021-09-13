@@ -192,7 +192,6 @@ public enum Zeplin {
   // MARK: Green
   public static var green: UIColor = UIColor.Zeplin.green
   public static var greenLight: UIColor = UIColor.Zeplin.greenLight
-  public static var greenLightHighlighted: UIColor = UIColor.Zeplin.greenLight.withAlphaComponent(0.5)
   public static var greenNight: UIColor = UIColor.Zeplin.greenNight
   public static var greenDone: UIColor = UIColor.Zeplin.greenDone
   public static var greenOpaque: UIColor = UIColor.Zeplin.greenOpaque
@@ -214,6 +213,7 @@ public enum Zeplin {
   // MARK: Gray
   public static var grayDisabled: UIColor = UIColor.Zeplin.grayDisabled
   public static var grayLight: UIColor = UIColor.Zeplin.grayLight
+  public static var grayLightHighlighted: UIColor = UIColor.Zeplin.grayLight.withAlphaComponent(0.5)
   public static var grayNight: UIColor = UIColor.Zeplin.grayNight
   public static var grayOpaque: UIColor = UIColor.Zeplin.grayOpaque
   public static var graySurface: UIColor = UIColor.Zeplin.graySurface

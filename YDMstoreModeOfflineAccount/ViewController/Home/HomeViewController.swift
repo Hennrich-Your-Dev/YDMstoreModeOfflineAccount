@@ -103,7 +103,7 @@ extension HomeViewController {
     for curr in cards {
       let card = UIView()
       card.backgroundColor = .white
-      card.layer.cornerRadius = 8
+      card.layer.cornerRadius = 16
       card.layer.applyShadow(blur: 20)
       card.tag = curr["id"] as? Int ?? 0
 
@@ -142,7 +142,7 @@ extension HomeViewController {
       let titleLabel = UILabel()
       titleLabel.text = curr["title"] as? String
       titleLabel.textAlignment = .center
-      titleLabel.textColor = UIColor.Zeplin.black
+      titleLabel.textColor = Zeplin.black
       titleLabel.font = .systemFont(ofSize: 16)
       titleLabel.numberOfLines = 0
       card.addSubview(titleLabel)
