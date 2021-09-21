@@ -25,11 +25,12 @@ class YDDialogViewController: UIViewController {
   var customButton: String?
   var customCancelButton: String?
   var messageLink: [String: String]?
+  var messagesToBold: [String]?
 
   // MARK: IBOutlets
   @IBOutlet weak var contentView: UIView! {
     didSet {
-      contentView.layer.cornerRadius = 6
+      contentView.layer.cornerRadius = 16
     }
   }
 
@@ -44,22 +45,33 @@ class YDDialogViewController: UIViewController {
 
   @IBOutlet weak var descriptionLabel: UILabel!
 
-  @IBOutlet weak var actionButton: YDWireButton! {
-    didSet {
-      actionButton.layer.cornerRadius = 4
-      actionButton.layer.borderWidth = 1.5
-      actionButton.layer.borderColor = UIColor.Zeplin.redBranding.cgColor
-      actionButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-      actionButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-    }
-  }
+  @IBOutlet weak var actionButton: YDWireButton!
 
   @IBOutlet weak var cancelButton: UIButton!
 
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    prepareLayout()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    
+    contentView.layer.applyShadow(alpha: 0.08, blur: 20, spread: -1)
+  }
 
+  // MARK: IBActions
+  @IBAction func onAction(_ sender: UIButton) {
+    viewModel?.onButtonAction()
+  }
+
+  @IBAction func onCancelAction(_ sender: UIButton) {
+    viewModel?.onCancelAction()
+  }
+
+  // MARK: Actions
+  private func prepareLayout() {
     if let customIcon = customIcon {
       icon.image = customIcon
     }
@@ -81,6 +93,10 @@ class YDDialogViewController: UIViewController {
 
     if let customMessage = customMessage {
       descriptionLabel.text = customMessage
+      
+      if let messagesToBold = messagesToBold {
+        configureBoldMessages(messagesToBold)
+      }
     }
 
     if let customButton = customButton {
@@ -99,22 +115,6 @@ class YDDialogViewController: UIViewController {
     }
   }
   
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    
-    contentView.layer.applyShadow(alpha: 0.08, blur: 20, spread: -1)
-  }
-
-  // MARK: IBActions
-  @IBAction func onAction(_ sender: UIButton) {
-    viewModel?.onButtonAction()
-  }
-
-  @IBAction func onCancelAction(_ sender: UIButton) {
-    viewModel?.onCancelAction()
-  }
-
-  // MARK: Actions
   func addMessageLink(message: String, link: String) {
     guard let fullMessage = descriptionLabel.text else { return }
 
@@ -148,6 +148,47 @@ class YDDialogViewController: UIViewController {
       btn.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor),
       btn.bottomAnchor.constraint(equalTo: descriptionLabel.bottomAnchor)
     ])
+  }
+  
+  func configureBoldMessages(_ messages: [String]) {
+    guard let fullMessage = descriptionLabel.text else { return }
+    
+    var attributedString = NSMutableAttributedString(string: fullMessage)
+    
+    for message in messages {
+      addBoldToMessage(message, onAttributedString: &attributedString)
+      addColorToMessage(message, onAttributedString: &attributedString)
+    }
+    
+    descriptionLabel.attributedText = attributedString
+  }
+  
+  func addBoldToMessage(
+    _ message: String,
+    onAttributedString attributedString: inout NSMutableAttributedString
+  ) {
+    let location = attributedString.mutableString.range(of: message).location
+    let range = NSRange(location: location, length: message.count)
+    
+    attributedString.addAttribute(
+      .font,
+      value: UIFont.boldSystemFont(ofSize: 14),
+      range: range
+    )
+  }
+  
+  func addColorToMessage(
+    _ message: String,
+    onAttributedString attributedString: inout NSMutableAttributedString
+  ) {
+    let location = attributedString.mutableString.range(of: message).location
+    let range = NSRange(location: location, length: message.count)
+    
+    attributedString.addAttribute(
+      .foregroundColor,
+      value: Zeplin.grayLight,
+      range: range
+    )
   }
 
   @objc func onLinkAction() {

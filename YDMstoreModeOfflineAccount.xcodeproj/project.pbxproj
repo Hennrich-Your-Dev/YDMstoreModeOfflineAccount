@@ -18,9 +18,6 @@
 		C121DA572642F605004C9836 /* YDErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C121DA562642F605004C9836 /* YDErrorView.swift */; };
 		C121DA5C2642FAA2004C9836 /* UserDataViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C121DA5B2642FAA2004C9836 /* UserDataViewController+Layout.swift */; };
 		C121DA5F2642FD64004C9836 /* HistoricViewController+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C121DA5E2642FD64004C9836 /* HistoricViewController+Layouts.swift */; };
-		C129AA5725DD5537003D3882 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA5625DD5537003D3882 /* OrdersViewController.swift */; };
-		C129AA5C25DD5744003D3882 /* OrdersViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA5B25DD5744003D3882 /* OrdersViewController+Layout.swift */; };
-		C129AA6025DD5831003D3882 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA5F25DD5831003D3882 /* OrdersViewModel.swift */; };
 		C129AA8725DD910D003D3882 /* PreHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA8625DD910D003D3882 /* PreHomeViewController.swift */; };
 		C129AA8A25DD9376003D3882 /* PreHomeViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA8925DD9376003D3882 /* PreHomeViewController+Layout.swift */; };
 		C129AA8D25DD94F4003D3882 /* PreHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AA8C25DD94F4003D3882 /* PreHomeViewModel.swift */; };
@@ -70,9 +67,6 @@
 		C121DA562642F605004C9836 /* YDErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDErrorView.swift; sourceTree = "<group>"; };
 		C121DA5B2642FAA2004C9836 /* UserDataViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDataViewController+Layout.swift"; sourceTree = "<group>"; };
 		C121DA5E2642FD64004C9836 /* HistoricViewController+Layouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoricViewController+Layouts.swift"; sourceTree = "<group>"; };
-		C129AA5625DD5537003D3882 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
-		C129AA5B25DD5744003D3882 /* OrdersViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrdersViewController+Layout.swift"; sourceTree = "<group>"; };
-		C129AA5F25DD5831003D3882 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
 		C129AA8625DD910D003D3882 /* PreHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreHomeViewController.swift; sourceTree = "<group>"; };
 		C129AA8925DD9376003D3882 /* PreHomeViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreHomeViewController+Layout.swift"; sourceTree = "<group>"; };
 		C129AA8C25DD94F4003D3882 /* PreHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreHomeViewModel.swift; sourceTree = "<group>"; };
@@ -164,7 +158,6 @@
 			children = (
 				C19B99C525C9C4AB0002E696 /* Historic */,
 				C129AABB25DDEA38003D3882 /* Home */,
-				C129AA5A25DD56E4003D3882 /* Orders */,
 				C19B995C25C992310002E696 /* Terms */,
 				C183D0C625B0D81500B4F675 /* UserData */,
 				C129AA8925DD9376003D3882 /* PreHomeViewController+Layout.swift */,
@@ -177,7 +170,6 @@
 			children = (
 				C19B99C925C9CA1F0002E696 /* Historic */,
 				C129AAB625DDE9D8003D3882 /* Home */,
-				C129AA5525DD54FC003D3882 /* Orders */,
 				C19B996025C992710002E696 /* Terms */,
 				C183D0CA25B0D8A400B4F675 /* UserData */,
 				C129AA8625DD910D003D3882 /* PreHomeViewController.swift */,
@@ -190,7 +182,6 @@
 			children = (
 				C19B99CE25C9D0260002E696 /* Historic */,
 				C129AABF25DDF170003D3882 /* Home */,
-				C129AA5E25DD5825003D3882 /* Orders */,
 				C19B996725C993030002E696 /* Terms */,
 				C19B996525C992FE0002E696 /* UserData */,
 				C129AA8C25DD94F4003D3882 /* PreHomeViewModel.swift */,
@@ -220,30 +211,6 @@
 				C121DA562642F605004C9836 /* YDErrorView.swift */,
 			);
 			path = "Error View";
-			sourceTree = "<group>";
-		};
-		C129AA5525DD54FC003D3882 /* Orders */ = {
-			isa = PBXGroup;
-			children = (
-				C129AA5625DD5537003D3882 /* OrdersViewController.swift */,
-			);
-			path = Orders;
-			sourceTree = "<group>";
-		};
-		C129AA5A25DD56E4003D3882 /* Orders */ = {
-			isa = PBXGroup;
-			children = (
-				C129AA5B25DD5744003D3882 /* OrdersViewController+Layout.swift */,
-			);
-			path = Orders;
-			sourceTree = "<group>";
-		};
-		C129AA5E25DD5825003D3882 /* Orders */ = {
-			isa = PBXGroup;
-			children = (
-				C129AA5F25DD5831003D3882 /* OrdersViewModel.swift */,
-			);
-			path = Orders;
 			sourceTree = "<group>";
 		};
 		C129AAB625DDE9D8003D3882 /* Home */ = {
@@ -704,7 +671,6 @@
 				C197DCA225BF2E510007E8C3 /* UserDataInfoTableViewCell.swift in Sources */,
 				C1847E5925E53AC3004A9E33 /* HistoricViewController+Layout.swift in Sources */,
 				C197DCB625BF4EBD0007E8C3 /* UserDataViewController+Binds.swift in Sources */,
-				C129AA6025DD5831003D3882 /* OrdersViewModel.swift in Sources */,
 				C183D0CC25B0D8B100B4F675 /* UserDataViewController.swift in Sources */,
 				C102A64B25D180F50036E17B /* HistoricViewController+Binds.swift in Sources */,
 				C158ECDF25C198C900E1EC04 /* UserDataTermsAndButtonTableViewCell.swift in Sources */,
@@ -721,14 +687,12 @@
 				C121DA5C2642FAA2004C9836 /* UserDataViewController+Layout.swift in Sources */,
 				C12B96B325CAE86900143B99 /* HistoricViewController+ScrollView.swift in Sources */,
 				A5B9E36425AE123B006EA075 /* YDMStoreModeOfflineAccountCoordinator.swift in Sources */,
-				C129AA5725DD5537003D3882 /* OrdersViewController.swift in Sources */,
 				C14D63CA25B1E47F00DAF725 /* HomeViewController+Dialog.swift in Sources */,
 				C1B6BF4625C4164F001CB137 /* UserDataViewController+Dialog.swift in Sources */,
 				C1BA6137266A8CD500B3A860 /* TermsViewController+Binds.swift in Sources */,
 				C121DA5F2642FD64004C9836 /* HistoricViewController+Layouts.swift in Sources */,
 				C129AA8725DD910D003D3882 /* PreHomeViewController.swift in Sources */,
 				C18C9A8A25C04C6800F4116F /* UserDataMarketingTableViewCell.swift in Sources */,
-				C129AA5C25DD5744003D3882 /* OrdersViewController+Layout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,6 @@ import YDMOfflineOrders
 public typealias YDMStoreModeOfflineAccount = YDMStoreModeOfflineAccountCoordinator
 
 public class YDMStoreModeOfflineAccountCoordinator: HistoricNavigationDelegate {
-
   // Properties
   var rootNavigationController: UINavigationController?
   var navigationController: UINavigationController?
@@ -68,6 +67,7 @@ public class YDMStoreModeOfflineAccountCoordinator: HistoricNavigationDelegate {
 extension YDMStoreModeOfflineAccountCoordinator: PreHomeNavigationDelegate {
   func assignInternalNavigationController(_ nav: UINavigationController?) {
     navigationController = nav
+    navigationController?.restorationIdentifier = YDConstants.Miscellaneous.OfflineAccount
     startHome()
   }
 }
@@ -97,12 +97,7 @@ extension YDMStoreModeOfflineAccountCoordinator: HomeViewModelNavigationDelegate
   }
 
   func openOfflineOrders() {
-    let offlineOrdersViewController = YDMOfflineOrders(quizDelegate: self).start()
-    let viewController = OrdersViewController(offlineOrderViewController: offlineOrdersViewController)
-    let viewModel = OrdersViewModel(navigation: self)
-
-    viewController.viewModel = viewModel
-    navigationController?.pushViewController(viewController, animated: true)
+    YDMOfflineOrders(quizDelegate: self).start(navController: navigationController)
   }
 }
 
@@ -148,9 +143,6 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
 
 // MARK: Terms Navigation
 extension YDMStoreModeOfflineAccountCoordinator: TermsNavigationDelegate {}
-
-// MARK: Orders Navigation
-extension YDMStoreModeOfflineAccountCoordinator: OrdersNavigationDelegate {}
 
 // MARK: Quiz Delegate
 extension YDMStoreModeOfflineAccountCoordinator: YDQuizDelegate {

@@ -19,7 +19,7 @@ PODS:
     - libwebp/demux
   - libwebp/webp (1.2.0)
   - YDB2WAssets (1.4.25)
-  - YDB2WComponents (1.4.71):
+  - YDB2WComponents (1.4.78):
     - Cosmos
     - YDB2WAssets (~> 1.4.0)
     - YDB2WModels (~> 1.4.0)
@@ -27,7 +27,7 @@ PODS:
     - YDUtilities (~> 1.4.0)
   - YDB2WDeepLinks (1.4.6):
     - YDExtensions (~> 1.4.0)
-  - YDB2WIntegration (1.4.36):
+  - YDB2WIntegration (1.4.37):
     - YDB2WModels (~> 1.4.0)
     - YDExtensions (~> 1.4.0)
   - YDB2WModels (1.4.60):
@@ -53,7 +53,7 @@ PODS:
     - YDExtensions (~> 1.4.0)
     - YDLocationModule (~> 1.0.5)
     - YDUtilities (~> 1.4.0)
-  - YDMOfflineOrders (1.4.55):
+  - YDMOfflineOrders (1.4.60):
     - Cosmos
     - YDB2WAssets (~> 1.4.0)
     - YDB2WComponents (~> 1.4.0)
@@ -81,7 +81,7 @@ PODS:
     - YDB2WServices (~> 1.4.0)
     - YDExtensions (~> 1.4.0)
     - YDUtilities (~> 1.4.0)
-  - YDUtilities (1.4.16):
+  - YDUtilities (1.4.17):
     - Alamofire (~> 4.0)
     - YDB2WModels (~> 1.4.0)
     - YDExtensions (~> 1.4.0)
@@ -131,18 +131,18 @@ SPEC CHECKSUMS:
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   YDB2WAssets: ac413b66c9f841cfaa53897cfaa4bc0209573326
-  YDB2WComponents: be2928cca47179bdb70179ccab862754b0da50a8
+  YDB2WComponents: 1c30cf8d4f9d02e832d5486b2236228ac05f88f2
   YDB2WDeepLinks: fa1b3b7440b1277077038f3415781e50b24c903b
-  YDB2WIntegration: 0c2e72f869e0b0b4bd791376a36b24b188e6bfec
+  YDB2WIntegration: 67b3b0e22e52e50513d008e6c7bc7913c9047f5b
   YDB2WModels: 40010bca82869acca92cd2bd4a81dc54aead003c
   YDB2WServices: 84ebebc3dacc2c42d2d1217164b642d097ffa032
   YDExtensions: 0866d90a70fa906c95e5287bfed95ab90cb98bf6
   YDLocationModule: 35cddec317442e18078cb64e1542d7cd360ccb43
   YDMFindStore: ea3bfc2af8f951e4dca7fe513914bed964b266b7
-  YDMOfflineOrders: 06ae53ce99ff053d6f535b7af6d44a9b01813b18
+  YDMOfflineOrders: fbfb929190af5251aab7c26f796e60328a1d652e
   YDQuiz: 11553235b15442af36a6c691875ed87c042ee9a8
   YDSpacey: 348c3db211737d280003bf4335314464313c108a
-  YDUtilities: c4b2fce9e0b51f1ed83d5f85be0af27fe425b1c6
+  YDUtilities: 243d4fca12ae56685463d88d3b6aeba039cedfba
 
 PODFILE CHECKSUM: 3e2708c94744e9ca72d71df76edc2e1fc83e5f78
 
