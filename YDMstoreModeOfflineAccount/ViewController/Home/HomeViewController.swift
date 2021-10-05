@@ -65,7 +65,7 @@ extension HomeViewController {
     backButtonView.layer.cornerRadius = 16
     backButtonView.layer.applyShadow()
     backButtonView.backgroundColor = .white
-    backButtonView.setImage(Icons.leftArrow, for: .normal)
+    backButtonView.setImage(YDAssets.Icons.leftArrow, for: .normal)
     backButtonView.addTarget(self, action: #selector(onBackAction), for: .touchUpInside)
 
     let backButton = UIBarButtonItem()
@@ -89,12 +89,12 @@ extension HomeViewController {
 //        "id": 1
 //      ],
       [
-        "icon": Images.store as Any,
+        "icon": YDAssets.Images.store as Any,
         "title": "suas compras nas lojas físicas",
         "id": 3
       ],
       [
-        "icon": Images.clipboard as Any,
+        "icon": YDAssets.Images.clipboard as Any,
         "title": "seu histórico de dados informados nas lojas",
         "id": 2
       ]

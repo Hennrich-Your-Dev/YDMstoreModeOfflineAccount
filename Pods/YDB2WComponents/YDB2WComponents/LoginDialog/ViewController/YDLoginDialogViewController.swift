@@ -25,7 +25,7 @@ class YDLoginDialogViewController: UIViewController {
   @IBOutlet weak var iconImageView: UIImageView! {
     didSet {
       iconImageView.tintColor = UIColor.Zeplin.redBranding
-      iconImageView.image = Icons.userWired
+      iconImageView.image = YDAssets.Icons.userWired
     }
   }
   

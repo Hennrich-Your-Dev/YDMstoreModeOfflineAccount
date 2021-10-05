@@ -36,7 +36,7 @@ class YDDialogViewController: UIViewController {
 
   @IBOutlet weak var icon: UIImageView! {
     didSet {
-      icon.image = Icons.thumbDownWired
+      icon.image = YDAssets.Icons.thumbDownWired
       icon.tintColor = UIColor.Zeplin.redBranding
     }
   }

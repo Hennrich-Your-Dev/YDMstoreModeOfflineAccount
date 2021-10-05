@@ -21,7 +21,7 @@ public class YDErrorView: UIView {
   @IBOutlet weak var iconImageView: UIImageView! {
     didSet {
       iconImageView.tintColor = UIColor.Zeplin.grayNight
-      iconImageView.image = Icons.sadFace
+      iconImageView.image = YDAssets.Icons.sadFace
     }
   }
 

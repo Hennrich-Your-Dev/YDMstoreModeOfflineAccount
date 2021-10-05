@@ -19,7 +19,7 @@ extension PreHomeViewController {
   }
 
   func setViewBackgroundImage() {
-    if let image = Images.map {
+    if let image = YDAssets.Images.map {
       view.backgroundColor = UIColor(patternImage: image)
       view.hero.id = "background"
     }

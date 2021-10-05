@@ -23,7 +23,7 @@ extension HistoricViewController {
     backButtonView.layer.cornerRadius = 16
     backButtonView.layer.applyShadow()
     backButtonView.backgroundColor = .white
-    backButtonView.setImage(Icons.leftArrow, for: .normal)
+    backButtonView.setImage(YDAssets.Icons.leftArrow, for: .normal)
     backButtonView.addTarget(self, action: #selector(onBackAction), for: .touchUpInside)
 
     let backButton = UIBarButtonItem()
