@@ -9,7 +9,6 @@ import UIKit
 
 import YDB2WAssets
 import YDExtensions
-import YDSpacey
 
 class TermsViewController: UIViewController, UITextViewDelegate {
   // MARK: Properties

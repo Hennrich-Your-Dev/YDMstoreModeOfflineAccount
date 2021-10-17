@@ -14,7 +14,7 @@ private let podsBundle = Bundle(for: YDAssets.self)
 private func getBrandFileName(_ name: String) -> String {
   guard let brand = YDBrandManager.shared.brand else { return "" }
   
-  return "\(brand.codeName)_\(name)"
+  return "\(brand.codeName.lowercased())_\(name)"
 }
 
 public class YDAssets {
@@ -254,7 +254,7 @@ public class YDAssets {
     
     public static let unpin: UIImage? = {
       UIImage(
-        named: "iconUnpin",
+        named: getBrandFileName("iconUnpin"),
         in: podsBundle,
         compatibleWith: nil
       )?.withRenderingMode(.alwaysTemplate)

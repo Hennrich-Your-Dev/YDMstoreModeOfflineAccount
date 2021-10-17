@@ -394,8 +394,8 @@
 		C19B996025C992710002E696 /* Terms */ = {
 			isa = PBXGroup;
 			children = (
-				C140314F25CB2984007F6728 /* Extensions */,
 				C19B996125C992820002E696 /* TermsViewController.swift */,
+				C140314F25CB2984007F6728 /* Extensions */,
 			);
 			path = Terms;
 			sourceTree = "<group>";
