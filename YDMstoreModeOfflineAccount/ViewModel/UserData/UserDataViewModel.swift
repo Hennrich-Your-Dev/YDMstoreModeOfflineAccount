@@ -39,8 +39,6 @@ protocol UserDataViewModelDelegate {
   func openHistoric()
   func openTerms()
   func updateInfo()
-  
-  func fromQuizSuccess()
 }
 
 class UserDataViewModel {
@@ -80,6 +78,31 @@ class UserDataViewModel {
     self.navigation = navigation
     self.currentUser = user
     self.trackEvent(.offlineAccountUsersInfo, ofType: .state)
+    
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(fromQuizSuccess),
+      name: YDConstants.Notification.QuizSuccess,
+      object: nil
+    )
+    
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(fromQuizWrongAnswerOrExit),
+      name: YDConstants.Notification.QuizWrongAnswer,
+      object: nil
+    )
+    
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(fromQuizWrongAnswerOrExit),
+      name: YDConstants.Notification.QuizExit,
+      object: nil
+    )
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
   }
 
   // MARK: Actions
@@ -173,6 +196,15 @@ class UserDataViewModel {
           }
       }
     }
+  }
+  
+  @objc func fromQuizSuccess() {
+    getUsersInfo()
+    snackBarMessage.value = "Seus dados foram atualizados com sucesso"
+  }
+  
+  @objc func fromQuizWrongAnswerOrExit() {
+    navigation.onBack()
   }
 }
 
@@ -270,10 +302,5 @@ extension UserDataViewModel: UserDataViewModelDelegate {
           self.snackBarMessage.value = "Ops! Algo inesperado aconteceu. Tente novamente."
       }
     }
-  }
-  
-  func fromQuizSuccess() {
-    getUsersInfo()
-    snackBarMessage.value = "Seus dados foram atualizados com sucesso"
   }
 }

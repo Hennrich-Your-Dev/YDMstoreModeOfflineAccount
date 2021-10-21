@@ -96,7 +96,7 @@ extension YDMStoreModeOfflineAccountCoordinator: HomeViewModelNavigationDelegate
   }
 
   func openOfflineOrders() {
-    YDMOfflineOrders(quizDelegate: self).start(navController: navigationController)
+    YDMOfflineOrders().start(navController: navigationController)
   }
 }
 
@@ -136,25 +136,9 @@ extension YDMStoreModeOfflineAccountCoordinator: UserDataNavigationDelegate {
   }
   
   func openQuiz() {
-    YDQuiz(delegate: self).start(user: currentUser)
+    YDQuiz().start(user: currentUser)
   }
 }
 
 // MARK: Terms Navigation
 extension YDMStoreModeOfflineAccountCoordinator: TermsNavigationDelegate {}
-
-// MARK: Quiz Delegate
-extension YDMStoreModeOfflineAccountCoordinator: YDQuizDelegate {
-  public func onWrongAnswer(autoExit: Bool) {
-    onBack()
-    homeViewModel?.fromQuizWrongAnswer(autoExit: autoExit)
-  }
-  
-  public func onQuizSuccess() {
-    userDataViewModel?.fromQuizSuccess()
-  }
-  
-  public func onQuizExit() {
-    onBack()
-  }
-}

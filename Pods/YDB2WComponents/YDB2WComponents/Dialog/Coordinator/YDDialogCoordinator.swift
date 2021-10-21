@@ -36,6 +36,8 @@ public class YDDialogCoordinator {
   public weak var delegate: YDDialogCoordinatorDelegate?
 
   public var payload: [String: Any]?
+  
+  public var callback: ((_ fromAction: Bool, _ payload: [String: Any]?) -> Void)?
 
   // MARK: Init
   public init() {}
@@ -81,6 +83,12 @@ extension YDDialogCoordinator: YDDialogNavigationDelegate {
   public func onAction() {
     rootViewController.dismiss(animated: true) { [weak self] in
       guard let self = self else { return }
+      
+      if self.callback != nil {
+        self.callback?(true, self.payload)
+        return
+      }
+      
       self.delegate?.onActionYDDialog(payload: self.payload)
     }
   }
@@ -88,6 +96,12 @@ extension YDDialogCoordinator: YDDialogNavigationDelegate {
   public func onCancelAction() {
     rootViewController.dismiss(animated: true) { [weak self] in
       guard let self = self else { return }
+      
+      if self.callback != nil {
+        self.callback?(false, self.payload)
+        return
+      }
+      
       self.delegate?.onCancelYDDialog(payload: self.payload)
     }
   }
