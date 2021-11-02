@@ -47,20 +47,6 @@ class HomeViewModel {
   ) {
     self.navigation = navigation
     self.currentUser = user
-    
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(fromQuizWrongAnswer),
-      name: YDConstants.Notification.QuizWrongAnswer,
-      object: nil
-    )
-    
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(fromQuizWrongAnswer),
-      name: YDConstants.Notification.QuizExit,
-      object: nil
-    )
   }
   
   deinit {
@@ -68,9 +54,6 @@ class HomeViewModel {
   }
   
   // MARK: Actions
-  @objc func fromQuizWrongAnswer() {
-    navigation.onBack()
-  }
 }
 
 // MARK: Extension Delegate

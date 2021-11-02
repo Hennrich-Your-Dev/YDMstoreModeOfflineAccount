@@ -20,6 +20,10 @@ private func getBrandFileName(_ name: String) -> String {
 public class YDAssets {
   // MARK: Icons
   public enum Icons {
+    public static let arrowDown: UIImage? = {
+      UIImage(named: "iconArrowDown", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+    }()
+    
     public static var arrowReply: UIImage? = {
       UIImage(
         named: getBrandFileName("iconArrowReply"),

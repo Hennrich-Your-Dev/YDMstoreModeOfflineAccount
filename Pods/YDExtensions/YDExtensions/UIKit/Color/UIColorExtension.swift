@@ -58,7 +58,7 @@ public extension UIColor {
 
     // MARK: Red
     public static var colorPrimaryLight: UIColor {
-      return UIColor(red: 252.0 / 255.0, green: 13.0 / 255.0, blue: 27.0 / 255.0, alpha: 1.0)
+      return UIColor(r: 248, g: 0, b: 50)
     }
 
     public static var colorPrimaryLightDisabled: UIColor {
@@ -66,7 +66,7 @@ public extension UIColor {
     }
 
     public static var redBranding: UIColor {
-      return UIColor(r: 230.0, g: 0.0, b: 20.0)
+      return UIColor(r: 248, g: 0.0, b: 50.0)
     }
 
     public static var redDark: UIColor {
@@ -99,7 +99,7 @@ public extension UIColor {
     }
 
     public static var greenDone: UIColor {
-      return UIColor(red: 102.0 / 255.0, green: 206.0 / 255.0, blue: 2.0 / 255.0, alpha: 1.0)
+      return UIColor(r: 7, g: 170, b: 7)
     }
 
     public static var greenOpaque: UIColor {
@@ -155,6 +155,10 @@ public extension UIColor {
 
     public static var grayLight: UIColor {
       return UIColor(white: 136.0 / 255.0, alpha: 1.0)
+    }
+    
+    public static var grayMedium: UIColor {
+      return UIColor(r: 102, g: 102, b: 102)
     }
 
     public static var grayNight: UIColor {
@@ -213,6 +217,7 @@ public enum Zeplin {
   public static var grayDisabled: UIColor = UIColor.Zeplin.grayDisabled
   public static var grayLight: UIColor = UIColor.Zeplin.grayLight
   public static var grayLightHighlighted: UIColor = UIColor.Zeplin.grayLight.withAlphaComponent(0.5)
+  public static var grayMedium: UIColor = UIColor.Zeplin.grayMedium
   public static var grayNight: UIColor = UIColor.Zeplin.grayNight
   public static var grayOpaque: UIColor = UIColor.Zeplin.grayOpaque
   public static var graySurface: UIColor = UIColor.Zeplin.graySurface

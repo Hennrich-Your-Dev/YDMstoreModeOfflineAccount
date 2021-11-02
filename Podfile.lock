@@ -18,11 +18,11 @@ PODS:
   - libwebp/mux (1.2.1):
     - libwebp/demux
   - libwebp/webp (1.2.1)
-  - YDB2WAssets (1.5.5):
+  - YDB2WAssets (1.5.6):
     - YDB2WBrandManager (~> 1.5.0)
     - YDB2WModels (~> 1.5.0)
   - YDB2WBrandManager (1.5.2)
-  - YDB2WComponents (1.5.16):
+  - YDB2WComponents (1.5.27):
     - Cosmos
     - YDB2WAssets (~> 1.5.0)
     - YDB2WModels (~> 1.5.0)
@@ -33,18 +33,18 @@ PODS:
     - YDB2WIntegration (~> 1.5.0)
     - YDExtensions (~> 1.5.0)
     - YDUtilities (~> 1.5.0)
-  - YDB2WIntegration (1.5.9):
+  - YDB2WIntegration (1.5.12):
     - YDB2WModels (~> 1.5.0)
     - YDExtensions (~> 1.5.0)
-  - YDB2WModels (1.5.7):
+  - YDB2WModels (1.5.12):
     - YDExtensions (~> 1.5.0)
-  - YDB2WServices (1.5.2):
+  - YDB2WServices (1.5.4):
     - Alamofire (= 5.4.4)
     - YDB2WBrandManager (~> 1.5.0)
     - YDB2WIntegration (~> 1.5.0)
     - YDB2WModels (~> 1.5.0)
     - YDUtilities (~> 1.5.0)
-  - YDExtensions (1.5.1):
+  - YDExtensions (1.5.4):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
   - YDLocationModule (1.0.5)
@@ -59,7 +59,7 @@ PODS:
     - YDExtensions (~> 1.5.0)
     - YDLocationModule (~> 1.0.5)
     - YDUtilities (~> 1.5.0)
-  - YDMOfflineOrders (1.5.10):
+  - YDMOfflineOrders (1.5.14):
     - Cosmos
     - YDB2WAssets (~> 1.5.0)
     - YDB2WComponents (~> 1.5.0)
@@ -71,7 +71,7 @@ PODS:
     - YDMFindStore (~> 1.5.0)
     - YDQuiz (~> 1.5.0)
     - YDUtilities (~> 1.5.0)
-  - YDQuiz (1.5.1):
+  - YDQuiz (1.5.3):
     - YDB2WAssets (~> 1.5.0)
     - YDB2WComponents (~> 1.5.0)
     - YDB2WIntegration (~> 1.5.0)
@@ -79,7 +79,7 @@ PODS:
     - YDB2WServices (~> 1.5.0)
     - YDExtensions (~> 1.5.0)
     - YDUtilities (~> 1.5.0)
-  - YDUtilities (1.5.4):
+  - YDUtilities (1.5.7):
     - Alamofire (= 5.4.4)
     - YDB2WModels (~> 1.5.0)
     - YDExtensions (~> 1.5.0)
@@ -127,19 +127,19 @@ SPEC CHECKSUMS:
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
-  YDB2WAssets: 43f0878f9f292f1e73825d45971d15f6bb825e5a
+  YDB2WAssets: 4a3092bc77ea490adf0be30c3c4a600cda5717a3
   YDB2WBrandManager: 26d0c9fbb54958ccf5cc6b5e60dd54e7d4e3dfc5
-  YDB2WComponents: f53af2ac2b7c9c61bbef478d74419bd28b35e0df
+  YDB2WComponents: 9b549d2ff43b30f63ff3d430513142b97a17ee5d
   YDB2WDeepLinks: c0194d51324e2fd437a7450398422ccce47fca7f
-  YDB2WIntegration: 03904796533d5ade8e4aff6cd600f8784f077677
-  YDB2WModels: 7bb2201657cd5707ecce6ac1b09a95c01529a98f
-  YDB2WServices: 52920f3e8f58c32f235e442d96aaf0543e40cae6
-  YDExtensions: ec909a1de07ad4bd45185d24069cd81b28df003b
+  YDB2WIntegration: 811d1ee27a5510e8dd78d553b5ed871b4c91fe10
+  YDB2WModels: f625ba88a89cf92ac87c63d1332f346a549a2520
+  YDB2WServices: 85581dafbd04115805f07b7ca6f37e7ea22f2b7d
+  YDExtensions: 5dee43ca25581864ede4ea49610224832a13fc41
   YDLocationModule: 35cddec317442e18078cb64e1542d7cd360ccb43
   YDMFindStore: 0d787da076166c46c7273c9468d0c8c5e1cc6497
-  YDMOfflineOrders: 797f9bd2e7abac3851082de3f0abf655c7c90703
-  YDQuiz: 9c716db08795b44a2364d04e83f1e934633319d2
-  YDUtilities: 1713926a78fc6e356d2bccaee40cfa1e70be1911
+  YDMOfflineOrders: f3780e291283355d580ad49fccb8d61135ae12cc
+  YDQuiz: 3b611b2e507aa649dd3f800bcc86141bf52fa5e2
+  YDUtilities: f18c62ca7ab722c1d63518681cf1dcee8627a95e
 
 PODFILE CHECKSUM: fe90d7d9d0161c4180fe9147c6227dad97dcf6fe
 
